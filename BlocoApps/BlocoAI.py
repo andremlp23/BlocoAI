@@ -28,7 +28,7 @@ def carregar_env_local():
 carregar_env_local()
 
 # --- 1. CONFIGURAÇÃO DA INTERFACE ---
-st.set_page_config(page_title="BlocoAI - Auditoria Hierárquica", layout="wide", page_icon="🏗️")
+st.set_page_config(page_title="BlocoAI - Master Cross-Audit", layout="wide", page_icon="🏗️")
 
 st.sidebar.title("Configurações")
 modo_execucao = st.sidebar.radio("Ligação", ["API Key", "Local"], index=0)
@@ -41,7 +41,7 @@ else:
     torre_ip = st.sidebar.text_input("🌐 IP da Torre", value="100.105.95.121")
     modelo_selecionado = st.sidebar.selectbox("🧠 LLM", ["qwen3.5:9b", "llama3.2:3b"])
 
-# --- 2. LEITURA ---
+# --- 2. LEITURA DE DOCUMENTOS ---
 def read_document(file) -> str:
     if file.name.endswith('.pdf'):
         with pdfplumber.open(file) as pdf:
@@ -56,128 +56,184 @@ def read_document(file) -> str:
                 if len(vals) > 1: lines.append(f"[Linha: {idx+2}] {' | '.join(vals)}")
         return "\n".join(lines)
 
-# --- 3. MOTORES DE INTELIGÊNCIA ---
-
-# --- ATUALIZAÇÃO DO MOTOR DE SUMARIZAÇÃO (Etapa 1) ---
-
-# --- 3. MOTOR DE SUMARIZAÇÃO (Ajustado para Nomes Reais) ---
-
-# --- 3. MOTOR DE EXTRAÇÃO DE "SUMO" TÉCNICO (Fase 1) ---
-
-# --- 3. MOTOR DE EXTRAÇÃO (Fase 1: Coleta do "Sumo" Técnico) ---
-
-def extrair_sumario_parcial(texto_integral: str, guia_texto: str, llm):
-    tamanho_max_chunk = 15000 
+# --- 3. FASE 1: AGENTE EXTRATOR (gpt-4o-mini) ---
+def extrair_sumario_parcial(texto_integral: str, nome_ficheiro: str, llm):
+    # Janela gigante para aproveitar o contexto e reduzir latência
+    tamanho_max_chunk = 75000 
     chunks = [texto_integral[i:i + tamanho_max_chunk] for i in range(0, len(texto_integral), tamanho_max_chunk)]
     resumos_finais = []
-    st.markdown("### 📡 Fase 1: Mapeando Identidade Técnica e Zonas...")
+    
+    st.markdown(f"**Lendo e classificando:** `{nome_ficheiro}`...")
     progresso_bar = st.progress(0)
 
-    # O segredo aqui é pedir para LISTAR em vez de RESUMIR
     mensagem_sistema = SystemMessage(
-        content=f"""You are a Technical Data Hunter for a Construction Budgeting team.
+        content=f"""You are an Expert Engineering Classifier and Transcriber.
+        Your job is to read the text, DETERMINE ITS TECHNICAL DOMAIN, and extract the primary cost drivers.
         
-        GOAL: Extract all technical details for each item, keeping their real context.
+        CRITICAL RULES:
+        1. DETERMINE DOMAIN: Classify the primary subject (e.g., "Fire Protection", "Concrete Works", "Structural Steel", "Envelope").
+        2. FOCUS ON COST DRIVERS: Extract ONLY Structural Steel grades, Concrete grades, Decking, Cladding panels, Insulation, and Fire/Corrosion Protection.
+        3. IGNORE SUNDRIES: Completely ignore minor items (doors, louvres, kerbs, fences, gates, drainage pipes, and small accessories).
+        4. IGNORE QUANTITIES: Ignore commercial totals (e.g., 747 tn, 1000m2).
+        5. EXACT STRINGS: Use exact names found in text (e.g., "S355", "TATA D60x1.2mm", "Intumescent 1 Hr").
         
-        1. HEADERS: Identify the real Phase (PH1, etc.) and Zone names (FSA, DCH, EYD).
-        2. TECHNICAL DATA (The Sumo): For each item, list:
-           - Material Grades: (e.g., S355, C20/25, C30/37).
-           - Execution/Standard: (e.g., EXC2, EN 1090, BS 5911).
-           - Protection: (e.g., Sa2.5, Galvanized, R60, Microns).
-           - Scope Detail: (e.g., 'Includes excavations', 'BIM coordination', 'Connection design').
-        3. NO QUANTITIES: Ignore numbers like 711.00, 50.5, etc.
-        4. NO DATA LOSS: If a grade like 'C20/25' is in the text, you MUST record it.
+        FORMAT FOR EVERY ITEM FOUND:
+        [FILE: {nome_ficheiro} | DOMAIN: Your deduced domain] | Phase: [Phase] | Zone: [Zone] | Spec: [Exact Technical String]
         """
     )
 
     for i, chunk in enumerate(chunks):
         progresso_bar.progress((i + 1) / len(chunks))
         try:
-            # Pedimos para ele ser um "Catalogador"
-            prompt_auditoria = f"List all technical specifications and their real Phase/Zone names found here:\n\n{chunk}"
-            res = llm.invoke([mensagem_sistema, HumanMessage(content=prompt_auditoria)])
+            prompt_extracao = f"Classify the domain of this chunk and extract all major technical specs strictly following the rules:\n\n{chunk}"
+            res = llm.invoke([mensagem_sistema, HumanMessage(content=prompt_extracao)])
             resumos_finais.append(res.content)
             time.sleep(0.5)
         except Exception as e: st.error(f"Erro no bloco {i}: {e}")
+    
+    progresso_bar.empty()
     return "\n\n".join(resumos_finais)
 
-# --- 4. CONSOLIDAÇÃO (Fase 2: Auditoria e Árvore Final) ---
-
-def gerar_consolidacao_hierarquica(resumos_acumulados, guia_input, llm):
-    st.markdown("### 🔍 Fase 2: Polimento Hierárquico e Auditoria Técnica...")
+# --- 4. FASE 2: AGENTE AUDITOR (gpt-5-mini / Avançado) ---
+def gerar_auditoria_cruzada(resumo_boq, resumo_specs, llm):
+    st.markdown("### 🔍 Fase 2: O Auditor Sénior está a consolidar os dados...")
     
+    # Deteta se é uma auditoria simples (1 doc) ou cruzada (BOQ vs Specs)
+    if resumo_boq and resumo_specs:
+        dados_completos = f"=== BOQ EXTRACTS ===\n{resumo_boq}\n\n=== PDF SPECS EXTRACTS ===\n{resumo_specs}"
+        missao = "CROSS-DOCUMENT AUDIT"
+    else:
+        dados_completos = resumo_boq or resumo_specs
+        missao = "SINGLE-DOCUMENT HIERARCHY"
+
     mensagem_sistema = SystemMessage(
-        content=f"""You are a Senior Structural Estimator. Your goal is to produce a SHARP Technical Report.
+        content=f"""You are a Lead Estimator performing a {missao}.
+        Your job is to CLEAN, DEDUPLICATE, and ORGANIZE the raw data into a readable executive summary.
         
-        REFINEMENT RULES:
-        1. LOCAL CONTEXT ONLY: Only list materials (S355, C20/25) that actually appear in that specific Zone. Do not copy materials from one zone to another (e.g., S355 is for Steel, C20/25 is for Drainage).
-        2. STANDARDS VS CODES: Distinguish between technical standards (EN, BS, ISO) and project codes (CSA, PH1). CSA is a PROJECT ID, not a standard.
-        3. THE SUMO: Keep the scope inclusions (e.g., "Includes excavations", "Includes fixings").
-        4. INCONSISTENCIES: Flag if the same zone has conflicting data (e.g., PH1-DCH says S355 and PH2-DCH says S275).
+        CRITICAL RULES:
+        1. DEDUPLICATION IS MANDATORY: If a spec (e.g., 'TATA D60x1.2mm') appears multiple times in the same Zone, write it ONLY ONCE.
+        2. NO LONG BULLETED LISTS: You must combine the specs into a neat, comma-separated paragraph.
+        3. GLOBAL AUDIT: You MUST include a "GLOBAL INCONSISTENCIES" section at the end analyzing project-wide conflicts (e.g., 1 Hr vs 2 Hr paint, different concrete grades).
         
-        STRUCTURE:
-        Project: [Real ID: CSA]
-        --> Phase: [Real Name]
-           --> Zone: [Real Name]
-              ---> TECHNICAL PROFILE: [Grades, Execution Classes, Standards]
-              ---> SCOPE ALERTS: [The "Sumo": Inclusions, exclusions, risks]
-              ---> INCONSISTENCIES: [Specific conflicts or 'None']
+        IF {missao} == "CROSS-DOCUMENT AUDIT":
+           COMPARE the BOQ data against the SPECS data. Highlight if a spec in the BOQ contradicts the PDF Specs.
+           FORMAT TO FOLLOW:
+           Phase: [Name]
+           --> Zone: [Name]
+              ---> BOQ SPECS: [Comma-separated major specs]
+              ---> SPECIFICATIONS (PDF): [Comma-separated major specs]
+              ---> MATCH STATUS: ['Aligned' OR detailed description of the conflict]
+
+        IF {missao} == "SINGLE-DOCUMENT HIERARCHY":
+           FORMAT TO FOLLOW:
+           Phase: [Name]
+           --> Zone: [Name]
+              ---> TECHNICAL PROFILE: [Comma-separated unique specs]
+              ---> LOCAL INCONSISTENCIES: [Conflicts in this zone or 'None']
+
+        [END OF REPORT EXPLICIT REQUIREMENT:]
+        GLOBAL INCONSISTENCIES (CROSS-PHASE / CROSS-DOC)
+        [List the major technical and financial risks found across the data]
         """
     )
     
     try:
-        # Forçamos a IA a ser crítica com o que recebeu da Fase 1
-        res = llm.invoke([mensagem_sistema, HumanMessage(content=f"Review and polish this data into the final tree:\n\n{resumos_acumulados}")])
+        prompt_auditoria = f"Build the clean, deduplicated tree and generate the global audit based on this data:\n\n{dados_completos}"
+        res = llm.invoke([mensagem_sistema, HumanMessage(content=prompt_auditoria)])
         return res.content
-    except Exception as e: return f"Erro: {e}"
+    except Exception as e: return f"Erro na consolidação: {e}"
 
-# --- 4. INTERFACE PRINCIPAL ---
-st.title("🏗️ BlocoAI: Auditoria Técnica Hierárquica")
+# --- 5. FASE 3: AGENTE APRESENTADOR / FORMATADOR ---
+def formatar_relatorio_executivo(auditoria_bruta, llm):
+    st.markdown("### 🎨 Fase 3: A formatar o Relatório Executivo (Tabelas e UI)...")
+    
+    mensagem_sistema = SystemMessage(
+        content="""You are an Executive Technical Writer for a Construction Firm.
+        Your job is to take a raw, dense engineering audit and format it into a beautiful, user-friendly Executive Summary.
+        
+        CRITICAL FORMATTING RULES:
+        1. TONE: Professional, concise, and user-friendly. No huge walls of text.
+        2. HIERARCHY: Format the Phase/Zone breakdown cleanly. Use comma-separated lists for the technical profiles, not long bullet points.
+        3. THE TABLE: You MUST convert the "Global Inconsistencies" or any cross-phase conflicts into a highly readable Markdown Table.
+           Table Columns: | ID | Category | Location / Zone | Discrepancy Found | Risk / Impact |
+        4. NO ADDED DATA: Do not invent new data. Only format what the Auditor provided.
+        """
+    )
+    
+    try:
+        prompt_formatacao = f"Please format this raw engineering audit into a clean, user-friendly Executive Report with a final table:\n\n{auditoria_bruta}"
+        res = llm.invoke([mensagem_sistema, HumanMessage(content=prompt_formatacao)])
+        return res.content
+    except Exception as e: return f"Erro na formatação: {e}"
+
+# --- 6. INTERFACE PRINCIPAL ---
 col1, col2 = st.columns([1, 1])
 
 with col1:
-    st.subheader("1. Ficheiro")
-    file_uploaded = st.file_uploader("BOQ / Caderno de Encargos", type=["xlsx", "xls", "pdf"])
+    st.subheader("1. Documentos de Entrada")
+    file_boq = st.file_uploader("📁 Carregar BOQ (Excel ou PDF)", type=["xlsx", "xls", "pdf"], key="boq")
+    files_specs = st.file_uploader("📚 Carregar Cadernos de Encargos (Múltiplos PDFs)", type=["pdf"], accept_multiple_files=True, key="specs")
 
 with col2:
-    st.subheader("2. Matriz de Auditoria Evoluída")
-    guia_padrao = """1. ÂMBITO: Fabrico, Montagem, Engenharia de Ligações.
-2. HIERARQUIA: Fases (PH1-3), Zonas (CSA, FSA, DCH).
-3. MATERIAIS: Aço (S355/S275), EXC2-4, Perfis.
-4. PROTEÇÕES: Pintura (Microns), Fogo (R60/120), Sa2.5.
-5. RISCOS: Design Responsibility, Furos MEP, Prevalência de Specs.
-6. SUSTENTABILIDADE: Conteúdo Reciclado, EPD, LEED/BREEAM.
-7. INCONSISTÊNCIAS: Comparação de dados contraditórios entre linhas/áreas."""
-    guia_input = st.text_area("Checklist de Auditoria:", value=guia_padrao, height=220)
+    st.subheader("2. Foco da Auditoria")
+    guia_padrao = "Foco Exclusivo: Graus de Aço/Betão, Revestimentos, Espessuras, Proteção Passiva (Fogo/Pintura). Ignorar completamente itens menores (portas, lancis, tubagens)."
+    guia_input = st.text_area("Instruções de Filtragem:", value=guia_padrao, height=150)
 
 if "relatorio_final" not in st.session_state:
     st.session_state.relatorio_final = ""
     st.session_state.processado = False
 
-if st.button("🚀 Gerar Relatório Hierárquico"):
-    if file_uploaded:
+if st.button("🚀 Iniciar Auditoria Master"):
+    if file_boq or files_specs:
         try:
+            # SETUP DOS AGENTES
             if modo_execucao == "API Key":
                 if not api_key_final: st.error("API Key em falta."); st.stop()
-                llm = ChatOpenAI(model="gpt-4o-mini", api_key=api_key_final, temperature=0.1)
+                # Agente 1 (Extrator): Rápido, barato, frio e obediente.
+                llm_extrator = ChatOpenAI(model="gpt-4o-mini", api_key=api_key_final, temperature=0.0)
+                # Agente 2 (Auditor): Poderoso e analítico (ajusta o nome 'gpt-5-mini' / 'o1-mini' se necessário pela tua API).
+                llm_auditor = ChatOpenAI(model="gpt-5-mini", api_key=api_key_final, temperature=0.1)
             else:
-                llm = ChatOllama(model=modelo_selecionado, base_url=f"http://{torre_ip}:11434", temperature=0.1)
-            
-            with st.spinner("Analisando e Auditando..."):
-                texto_cru = read_document(file_uploaded)
-                resumos = extrair_sumario_parcial(texto_cru, guia_input, llm)
-                st.session_state.relatorio_final = gerar_consolidacao_hierarquica(resumos, guia_input, llm)
-                st.session_state.processado = True
-        except Exception as e: st.error(f"Erro Crítico: {e}")
-    else: st.warning("Carrega um ficheiro primeiro.")
+                llm_extrator = ChatOllama(model=modelo_selecionado, base_url=f"http://{torre_ip}:11434", temperature=0.0)
+                llm_auditor = llm_extrator # Se for local, usamos o mesmo modelo para ambos
 
-# --- 5. EXIBIÇÃO ---
+            st.markdown("---")
+            st.markdown("### ⚙️ Fase 1: Trabalho Braçal de Extração (Agente 1)")
+            
+            resumo_boq = ""
+            resumo_specs = ""
+
+            # 1. PROCESSAR BOQ (Se existir)
+            if file_boq:
+                texto_boq = read_document(file_boq)
+                resumo_boq = extrair_sumario_parcial(texto_boq, f"BOQ: {file_boq.name}", llm_extrator)
+
+            # 2. PROCESSAR PDFs DE SPECS (Se existirem)
+            if files_specs:
+                for spec in files_specs:
+                    conteudo_pdf = read_document(spec)
+                    extracao_local = extrair_sumario_parcial(conteudo_pdf, f"PDF: {spec.name}", llm_extrator)
+                    resumo_specs += f"\n{extracao_local}\n"
+
+            # 3. CONSOLIDAÇÃO E AUDITORIA (Agente 2 - O Cérebro)
+            with st.spinner("🧠 Fase 2: O Auditor Sénior está a cruzar variáveis (Raw Audit)..."):
+                auditoria_bruta = gerar_auditoria_cruzada(resumo_boq, resumo_specs, llm_auditor)
+
+            # 4. FORMATAÇÃO FINAL (Agente 3 - O Apresentador)
+            with st.spinner("🎨 Fase 3: A desenhar as Tabelas e o Relatório Executivo..."):
+                # Passamos o llm_extrator (que é o modelo rápido) para formatar, é mais do que suficiente!
+                st.session_state.relatorio_final = formatar_relatorio_executivo(auditoria_bruta, llm_extrator)
+                st.session_state.processado = True
+
+        except Exception as e: st.error(f"Erro Crítico: {e}")
+    else: st.warning("Carrega pelo menos um documento (BOQ ou PDF) para iniciar.")
+
+# --- 7. RESULTADOS ---
 if st.session_state.processado:
     st.markdown("---")
-    st.header("📋 Relatório de Auditoria Master")
+    st.header("📋 Relatório Executivo de Auditoria")
     st.markdown(st.session_state.relatorio_final)
     
-    st.markdown("---")
-    st.download_button("📥 Descarregar Auditoria (TXT)", 
+    st.download_button("📥 Descarregar Relatório (TXT)", 
                        data=st.session_state.relatorio_final, 
-                       file_name="Auditoria_Hierarquica_BlocoAI.txt")
+                       file_name="Auditoria_Master_BlocoAI.txt")
