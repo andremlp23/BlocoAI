@@ -4,7 +4,8 @@ import time
 import pdfplumber
 import os
 import io
-import time
+import json
+import concurrent.futures # <-- Nova biblioteca para paralelismo
 
 from pathlib import Path
 from langchain_ollama import ChatOllama
@@ -13,7 +14,7 @@ from langchain_openai import ChatOpenAI
 from docx import Document
 
 # ============================================================
-# 0) CARREGAR AMBIENTE
+# 0) CARREGAR AMBIENTE E REGRAS EXTERNAS
 # ============================================================
 def carregar_env_local():
     base_dir = Path(__file__).resolve().parent
@@ -36,6 +37,25 @@ def carregar_env_local():
 
 carregar_env_local()
 
+@st.cache_data
+def carregar_regras_json():
+    """Lê as regras de exclusão JSON apenas uma vez e guarda em RAM."""
+    file_path = "RegrasMekkin.json"
+    
+    fallback_regras = {
+        "regra_final": "Assumir que toda a informacao e IRRELEVANTE ate demonstrar impacto direto na estrutura metalica.",
+        "manter": ["Aço estrutural", "Proteção anticorrosiva", "Proteção ao fogo", "Lajes colaborantes", "EXC2/EXC3", "Interfaces com civil"],
+        "ignorar_estritamente": ["Arquitetura", "Cores", "Mobiliario", "AVAC sem carga estrutural", "Betão sem interface", "Eletricidade"]
+    }
+    
+    if os.path.exists(file_path):
+        with open(file_path, 'r', encoding='utf-8') as f:
+            return json.dumps(json.load(f), ensure_ascii=False, indent=2)
+    else:
+        return json.dumps(fallback_regras, ensure_ascii=False, indent=2)
+
+regras_extracao = carregar_regras_json()
+
 
 # ============================================================
 # 1) STREAMLIT UI
@@ -47,7 +67,7 @@ modo_execucao = st.sidebar.radio("Ligação", ["API Key", "Local"], index=0)
 api_key_env = os.getenv("CHATGPT_API_KEY", "")
 
 if modo_execucao == "API Key":
-    st.sidebar.caption("Modelo API: gpt-5-mini (BOQ)")
+    st.sidebar.caption("Modelos: 4o-mini (Extração) | 5-mini (Auditoria)")
     api_key_input = st.sidebar.text_input("🔑 API Key (Overwrite)", value="", type="password")
     api_key_final = api_key_input.strip() if api_key_input.strip() else api_key_env
 else:
@@ -56,7 +76,7 @@ else:
 
 
 # ============================================================
-# 2) LEITURA DE DOCUMENTOS (BOQ + SPECS)
+# 2) LEITURA DE DOCUMENTOS
 # ============================================================
 def read_pdf_text(file) -> str:
     text_lines = []
@@ -64,14 +84,12 @@ def read_pdf_text(file) -> str:
         for i, p in enumerate(pdf.pages):
             t = p.extract_text(layout=True)
             if t:
-                # prefixo por página
                 for linha in t.splitlines():
                     if linha.strip():
                         text_lines.append(f"[Pág: {i+1}] {linha.strip()}")
     return "\n".join(text_lines)
 
 def read_docx_text(file) -> str:
-    # file é um UploadedFile; precisa de bytes
     doc = Document(io.BytesIO(file.read()))
     paras = [p.text.strip() for p in doc.paragraphs if p.text.strip()]
     return "\n".join(paras)
@@ -89,14 +107,10 @@ def read_excel_text(file) -> str:
 
 def read_document(file) -> str:
     name = file.name.lower()
-    if name.endswith(".pdf"):
-        return read_pdf_text(file)
-    if name.endswith(".docx"):
-        return read_docx_text(file)
-    if name.endswith((".xlsx", ".xls")):
-        return read_excel_text(file)
+    if name.endswith(".pdf"): return read_pdf_text(file)
+    if name.endswith(".docx"): return read_docx_text(file)
+    if name.endswith((".xlsx", ".xls")): return read_excel_text(file)
     return ""
-
 
 def chunk_by_lines(texto, max_chars=15000):
     lines = [l for l in texto.splitlines() if l.strip()]
@@ -108,64 +122,23 @@ def chunk_by_lines(texto, max_chars=15000):
         else:
             cur.append(l)
             n += len(l) + 1
-    if cur:
-        chunks.append("\n".join(cur))
+    if cur: chunks.append("\n".join(cur))
     return chunks
 
 
 # ============================================================
-# 3) AGENTE 1: SPECS -> CONTEXTO
+# 3) AGENTE 1: SPECS -> CONTEXTO (COM MULTITHREADING)
 # ============================================================
-def gerar_contexto_specs(
-    files,
-    llm,
-    max_chars_per_file: int = 120000,   # quanto texto máximo por ficheiro a considerar
-    chunk_chars: int = 12000,           # tamanho do chunk para chamadas ao LLM
-    max_disciplines_per_file: int = 4,  # quantas disciplinas no máximo por ficheiro
-    max_bullets_per_file: int = 22,     # bullets máximos extraídos por ficheiro (antes de merge)
-    max_bullets_per_discipline: int = 18,
-    max_final_chars: int = 65000,  # AUMENTADO: era 20000, agora permite muito mais conteúdo
-) -> str:
-    """
-    Converte vários docs de specs num contexto curto e reutilizável.
-    Output é TEXTO com marcadores fixos.
-    Estratégia 100% genérica:
-      - Detecta disciplina(s) pelo conteúdo (não pelo nome do ficheiro)
-      - Extrai bullets reutilizáveis por disciplina
-      - Junta/deduplica e comprime
-    """
-
+def gerar_contexto_specs(files, llm, max_chars_per_file=120000, chunk_chars=12000, max_disciplines=4, max_bullets=22, max_final=65000):
     import re
     from collections import defaultdict
 
-    # ---------- helpers ----------
     def safe_seek0(f):
-        try:
-            f.seek(0)
-        except Exception:
-            pass
+        try: f.seek(0)
+        except: pass
 
-    def chunk_by_lines(texto: str, max_chars: int):
-        lines = [l for l in (texto or "").splitlines() if l.strip()]
-        chunks, cur, n = [], [], 0
-        for l in lines:
-            if n + len(l) + 1 > max_chars and cur:
-                chunks.append("\n".join(cur))
-                cur, n = [l], len(l)
-            else:
-                cur.append(l)
-                n += len(l) + 1
-        if cur:
-            chunks.append("\n".join(cur))
-        return chunks
-
-    def trim_to_size(text: str, limit: int) -> str:
-        text = (text or "").strip()
-        return text if len(text) <= limit else text[:limit].rstrip()
-
-    def norm_key(s: str) -> str:
-        return re.sub(r"\s+", " ", (s or "").strip().lower())
-
+    def norm_key(s): return re.sub(r"\s+", " ", (s or "").strip().lower())
+    
     def dedupe_list(items):
         seen = set()
         out = []
@@ -176,244 +149,168 @@ def gerar_contexto_specs(
                 out.append(it.strip())
         return out
 
-    def safe_extract_bullets(text: str):
-        out = []
-        for ln in (text or "").splitlines():
-            ln = ln.strip()
-            if ln.startswith("- "):
-                out.append(ln[2:].strip())
-        return out
+    def safe_extract_bullets(text):
+        return [ln[2:].strip() for ln in (text or "").splitlines() if ln.strip().startswith("- ")]
 
-    def safe_extract_disciplines(text: str):
-        # espera lines "- <discipline>"
-        ds = []
-        for ln in (text or "").splitlines():
-            ln = ln.strip()
-            if ln.startswith("- "):
-                d = ln[2:].strip()
-                if d and len(d) <= 60:
-                    ds.append(d)
-        return ds
+    def safe_extract_disciplines(text):
+        return [ln[2:].strip() for ln in (text or "").splitlines() if ln.strip().startswith("- ") and len(ln[2:].strip()) <= 60]
 
-    # ---------- 1) por ficheiro: identificar disciplinas + extrair regras ----------
     discipline_to_bullets = defaultdict(list)
 
-    system_detect = SystemMessage(content=(
-        "You are a Construction Specifications Analyst.\n"
-        "Task: identify high-level construction disciplines covered by the excerpt.\n"
-        "OUTPUT RULES:\n"
-        "- Output ONLY bullet lines starting with '- '.\n"
-        "- Each bullet is ONE discipline label (2–5 words).\n"
-        "- No headers, no explanations.\n"
-        "Examples of disciplines (use only if supported by text):\n"
-        "- Structural Steel\n"
-        "- Steel Decking\n"
-        "- Metal Fabrications\n"
-        "- Stairs & Handrails\n"
-        "- Intumescent Fireproofing\n"
-        "- Coatings / Galvanizing\n"
-        "- Bolting & Fasteners\n"
-        "- Welding & QA/QC\n"
-    ))
+    system_detect = SystemMessage(content="You are a Construction Specifications Analyst.\nTask: identify high-level construction disciplines.\nOUTPUT RULES: Output ONLY bullet lines starting with '- '.\nEach bullet is ONE discipline label (2–5 words).")
 
     system_extract = SystemMessage(content=(
         "You are a Construction Specifications Analyst.\n"
-        "Task: extract REUSABLE baseline rules ONLY (things that help interpret BOQs later).\n"
-        "OUTPUT RULES:\n"
-        "- Output ONLY bullet lines starting with '- '.\n"
-        "- Each bullet must be ONE short rule (single sentence).\n"
-        "- No headers, no explanations, no numbering.\n"
-        "- Do NOT add recommendations/next steps/questions/offers.\n"
-        "KEEP: grades, execution class defaults, standards families, welding qualifications, bolt classes, "
-        "coatings/galv rules, fireproofing test/DFT/QC rules, decking fixing rules, submittals/QA responsibilities.\n"
-        "AVOID: long standard enumerations; prefer standard families.\n"
-        "Never invent.\n"
+        "Task: extract REUSABLE baseline rules ONLY.\n"
+        f"CRITICAL EXCLUSION RULES (OBEY STRICTLY):\n{regras_extracao}\n\n"
+        "OUTPUT RULES: Output ONLY bullet lines starting with '- '."
     ))
+
+    # Função para processar bloco individual em paralelo
+    def processar_bloco_spec(chunk_text):
+        human = HumanMessage(content=f"Extract reusable baseline rules from this excerpt.\n\n{chunk_text}")
+        r = llm.invoke([system_extract, human])
+        return safe_extract_bullets(r.content)
 
     for f in files:
         safe_seek0(f)
-        raw = read_document(f)  # usa a tua função existente
+        raw = read_document(f)[:max_chars_per_file]
         safe_seek0(f)
+        if not raw.strip(): continue
 
-        if not raw or not raw.strip():
-            continue
-
-        raw = raw[:max_chars_per_file]
         chunks = chunk_by_lines(raw, max_chars=chunk_chars)
+        if not chunks: continue
 
-        # --- detectar disciplinas (só usando um excerto inicial) ---
-        detect_excerpt = "\n".join(chunks[:2])  # 1-2 chunks bastam normalmente
+        # Deteta disciplinas usando os 2 primeiros blocos (rápido, não precisa ser paralelo)
+        detect_excerpt = "\n".join(chunks[:2])
         rdet = llm.invoke([system_detect, HumanMessage(content=detect_excerpt)])
-        disciplines = safe_extract_disciplines(rdet.content)
-        disciplines = dedupe_list(disciplines)[:max_disciplines_per_file]
-        if not disciplines:
-            disciplines = ["General"]
+        disciplines = dedupe_list(safe_extract_disciplines(rdet.content))[:max_disciplines] or ["General"]
 
-        # --- extrair bullets por chunk (sem depender de nomes fixos) ---
         file_bullets = []
-        for c in chunks:
-            human = HumanMessage(content=(
-                "Extract reusable baseline rules from this excerpt.\n"
-                "Keep them discipline-agnostic where possible.\n\n"
-                f"{c}"
-            ))
-            r = llm.invoke([system_extract, human])
-            file_bullets.extend(safe_extract_bullets(r.content))
-            time.sleep(0.08)
+        # PARALELISMO: Extrai regras de todos os blocos do ficheiro ao mesmo tempo
+        with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+            futures = [executor.submit(processar_bloco_spec, c) for c in chunks]
+            for future in concurrent.futures.as_completed(futures):
+                file_bullets.extend(future.result())
 
-        file_bullets = dedupe_list(file_bullets)[:max_bullets_per_file]
-
-        # --- distribuir bullets por disciplina (mesmo ficheiro pode cobrir várias) ---
-        # regra simples e genérica: associar todas as bullets às disciplinas detetadas no ficheiro
+        file_bullets = dedupe_list(file_bullets)[:max_bullets]
         for d in disciplines:
             discipline_to_bullets[d].extend(file_bullets)
 
     if not discipline_to_bullets:
-        return "[SPECS_CONTEXT]\nDISCIPLINE: General\n- No reusable baseline rules extracted.\n[END_SPECS_CONTEXT]"
+        return "[SPECS_CONTEXT]\nDISCIPLINE: General\n- No rules extracted.\n[END_SPECS_CONTEXT]"
 
-    # ---------- 2) dedupe + limitar por disciplina ----------
-    for d in list(discipline_to_bullets.keys()):
-        discipline_to_bullets[d] = dedupe_list(discipline_to_bullets[d])[:max_bullets_per_discipline]
-
-    # ---------- 3) compressão final por disciplina ----------
-    system_compress = SystemMessage(content=(
-        "Compress bullets for ONE discipline.\n"
-        "Output ONLY bullet lines starting with '- '.\n"
-        "Keep meaning; shorten aggressively; remove duplicates; merge related ideas.\n"
-        "No extra text.\n"
-    ))
+    system_compress = SystemMessage(content="Compress bullets for ONE discipline.\nOutput ONLY bullet lines starting with '- '.\nShorten aggressively; merge related ideas.")
 
     blocks = []
     for d, bullets in discipline_to_bullets.items():
-        bullets_text = "\n".join([f"- {b}" for b in bullets])
-
-        # Aumentar max_tokens para evitar que LLM corte a resposta
-        if hasattr(llm, 'max_tokens'):
-            llm.max_tokens = 8000
-        elif hasattr(llm, 'max_completion_tokens'):
-            llm.max_completion_tokens = 8000
-
-        r = llm.invoke([system_compress, HumanMessage(content=(
-            f"Discipline: {d}\n"
-            "Compress these bullets while preserving critical baselines:\n\n"
-            f"{bullets_text}"
-        ))])
-
+        bullets_text = "\n".join([f"- {b}" for b in dedupe_list(bullets)[:20]])
+        r = llm.invoke([system_compress, HumanMessage(content=f"Discipline: {d}\nCompress:\n\n{bullets_text}")])
         comp = (r.content or "").strip()
-        if "- " not in comp:
-            comp = bullets_text
+        blocks.append(f"DISCIPLINE: {d}\n{comp if '- ' in comp else bullets_text}")
 
-        blocks.append(f"DISCIPLINE: {d}\n{comp}")
-        time.sleep(0.05)
-
-    # ---------- 4) Montagem final com validação de integridade ----------
     final = "[SPECS_CONTEXT]\n" + "\n\n".join(blocks) + "\n[END_SPECS_CONTEXT]"
-    final = trim_to_size(final, max_final_chars)
-
-    if "[END_SPECS_CONTEXT]" not in final:
-        final = final[: max(0, max_final_chars - len("\n[END_SPECS_CONTEXT]"))].rstrip() + "\n[END_SPECS_CONTEXT]"
-
-    return final
+    return final[:max_final]
 
 
 # ============================================================
-# 4) AGENTE 2: BOQ EXTRACTION (o teu pipeline atual)
+# 4) AGENTE 2: BOQ EXTRACTION (COM MULTITHREADING)
 # ============================================================
 def extrair_sumario_parcial(texto_integral: str, guia_texto: str, llm, specs_context: str):
     chunks = chunk_by_lines(texto_integral, max_chars=15000)
-    resumos_finais = []
-    st.markdown("### 📡 Fase 1: Extraindo registos do BOQ...")
+    st.markdown(f"### 📡 Fase 1: Extraindo {len(chunks)} blocos em paralelo...")
     progresso_bar = st.progress(0)
 
-    # injetar contexto (curto). Se estiver vazio, não mete nada.
-    contexto_txt = ""
-    if specs_context and specs_context.strip():
-        contexto_txt = f"\n\nAUTHORITATIVE PROJECT SPECS CONTEXT:\n{specs_context}\n"
+    contexto_txt = f"\n\nAUTHORITATIVE PROJECT SPECS CONTEXT:\n{specs_context}\n" if specs_context else ""
 
     mensagem_sistema = SystemMessage(content=f"""You are a Technical Data Hunter. Output is strictly line-based.
 
-Normalize:
-- "PH1" -> "Phase 1" (same for PH2..)
-- Zone = 3-letter code (FSA, DCH, EYD, etc.)
+CRITICAL EXTRACTION RULES (OBEY THIS JSON RULEBOOK STRICTLY):
+{regras_extracao}
 
-Extract EVERYTHING technical you see that matches the audit matrix OR the project specs context.
-Do not omit details.
-
+Normalize: PH1 -> Phase 1.
+Extract ONLY technical items that pass the JSON criteria OR match the specs context.
 Output format: EXACTLY 7 fields separated by " || "
 PHASE || ZONE || SUBZONE || GRADES || STANDARDS/EXEC || PROTECTION || SCOPE/EVIDENCE
 
 Rules:
-- Use PROJECT SPECS CONTEXT as baseline to prioritize what matters (standards, grades, execution, coatings, fireproofing).
-- Do NOT invent. If missing in BOQ but present in context, you may mention as "BASELINE (from specs context)" only if it clearly applies to that discipline.
-- Keep technical numbers (S355, C30/37, EXC2, R60, 1200 gauge, 15 MIL, 1.8mm, D60x1.2mm, EN 124:1994, 5th Edition, 300mm centres, 5m x 5m).
-- Remove only BOQ quantities/prices.
-- Unknown -> UNKNOWN. None -> NONE.
-- If no records: NO_RECORDS.
-Only output the lines.
-
-SUBZONE RULE:
-- Output a separate record for each distinct subzone.
+- Keep technical numbers (S355, EXC2, R60, D60x1.2mm).
+- Remove prices/quantities.
 {contexto_txt}
 """)
 
-    for i, chunk in enumerate(chunks):
-        progresso_bar.progress((i + 1) / len(chunks))
-        prompt = f"""Use the audit matrix as a checklist:
+    # Função isolada para a Thread
+    def extrair_bloco(chunk_text):
+        prompt = f"AUDIT MATRIX:\n{guia_texto}\n\nCHUNK:\n{chunk_text}"
+        return llm.invoke([mensagem_sistema, HumanMessage(content=prompt)]).content
 
-AUDIT MATRIX:
-{guia_texto}
+    resumos_finais = [None] * len(chunks) # Para garantir que a ordem das páginas não se perde
 
-Extract records from this chunk. Use [Linha: X] / [Pág: Y] tags in SCOPE/EVIDENCE.
+    # PARALELISMO MAXIMO (8 Trabalhadores)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
+        future_to_idx = {executor.submit(extrair_bloco, c): i for i, c in enumerate(chunks)}
+        
+        for i, future in enumerate(concurrent.futures.as_completed(future_to_idx)):
+            idx = future_to_idx[future]
+            try:
+                resumos_finais[idx] = future.result()
+            except Exception as e:
+                resumos_finais[idx] = f"NO_RECORDS (Error: {e})"
+            progresso_bar.progress((i + 1) / len(chunks))
 
-CHUNK:
-{chunk}
-"""
-        res = llm.invoke([mensagem_sistema, HumanMessage(content=prompt)])
-        resumos_finais.append(res.content)
-        time.sleep(0.2)
-
-    return "\n\n".join(resumos_finais)
+    return "\n\n".join([r for r in resumos_finais if r])
 
 
+# ============================================================
+# 5) FASE 3: AUDITORIA E TABELA (NOVO PROMPT)
+# ============================================================
 def gerar_consolidacao_hierarquica(resumos_acumulados, llm):
-    st.markdown("### 🔍 Fase 2: Consolidação hierárquica...")
+    st.markdown("### 🔍 Fase 2: O Auditor está a cruzar a informação...")
     mensagem_sistema = SystemMessage(content="""
-You are a Senior Structural Estimator. You ONLY reformat and consolidate. Do not add new content.
+You are a Senior Structural Estimator. You ONLY reformat and consolidate the raw data.
 
-Input lines are:
-PHASE || ZONE || SUBZONE || GRADES || STANDARDS/EXEC || PROTECTION || SCOPE/EVIDENCE
+Input lines are: PHASE || ZONE || SUBZONE || GRADES || STANDARDS/EXEC || PROTECTION || SCOPE/EVIDENCE
 
 Rules:
-- Include ALL phases found. Normalize PHn->Phase n.
-- Do NOT delete technical details within a subzone.
-- No advice/next steps/questions. Last line must be: END_OF_REPORT.
-- Do NOT drop subzones.
+1. Include ALL phases found. Normalize PHn->Phase n.
+2. Deduplicate technical details. Use comma-separated lists.
+3. CROSS-CHECK: Actively look for inconsistencies between the extracted BOQ specs and the Context provided.
 
 Output template:
-Project: CSA
+Project: Analysis
 --> Phase: Phase N
     --> Zone: ZZZ
         ---> Subzone: <name>
             ---> TECHNICAL PROFILE: <grades + standards/exec + protections>
             ---> SCOPE ALERTS: <scope/evidence summary>
-            ---> INCONSISTENCIES: <conflicts or None>
-END_OF_REPORT
+            ---> LOCAL INCONSISTENCIES: <conflicts or None>
+
+[AT THE VERY END OF THE REPORT, YOU MUST INCLUDE THIS EXACT TABLE]
+GLOBAL INCONSISTENCIES (BOQ vs SPECS)
+| ID | Category | Location / Zone | Discrepancy Found | Risk / Impact |
 """)
-    human = HumanMessage(content="Review and polish this data into the final tree:\n\n" + resumos_acumulados)
+    human = HumanMessage(content="Review, cross-check, and polish this data into the final tree:\n\n" + resumos_acumulados)
     return llm.invoke([mensagem_sistema, human]).content
 
 
 # ============================================================
-# 5) UI PRINCIPAL
+# 6) UI PRINCIPAL (AGORA COM OS DOIS MODELOS SEPARADOS)
 # ============================================================
 st.title("🏗️ BlocoAI: Auditoria Técnica Hierárquica (com Contexto de Specs)")
 
+# Instanciação Dinâmica dos Modelos
+if modo_execucao == "API Key" and api_key_final:
+    # Extrator: Rápido, Barato, Obediente (Para ler PDFs em massa)
+    llm_extrator = ChatOpenAI(model="gpt-4o-mini", api_key=api_key_final, temperature=0.0, max_tokens=8000)
+    # Auditor: Inteligente, Lento, Raciocínio (Para cruzar e criar a tabela final)
+    llm_auditor = ChatOpenAI(model="gpt-5-mini", api_key=api_key_final, temperature=0.1, max_tokens=8000)
+elif modo_execucao != "API Key":
+    llm_extrator = ChatOllama(model=modelo_selecionado, base_url=f"http://{torre_ip}:11434", temperature=0.0)
+    llm_auditor = llm_extrator
+
+
 st.subheader("A) Carregar Specs (CSPECs) para gerar contexto da obra")
-spec_files = st.file_uploader(
-    "Carrega PDFs/DOCX de specs (podes selecionar vários)",
-    type=["pdf", "docx"],
-    accept_multiple_files=True
-)
+spec_files = st.file_uploader("Carrega PDFs/DOCX de specs", type=["pdf", "docx"], accept_multiple_files=True)
 
 if "specs_context" not in st.session_state:
     st.session_state.specs_context = ""
@@ -421,59 +318,44 @@ if "specs_context" not in st.session_state:
 if st.button("🧠 Gerar Contexto de Specs"):
     if not spec_files:
         st.warning("Carrega pelo menos um ficheiro de specs.")
+    elif modo_execucao == "API Key" and not api_key_final:
+        st.error("API key em falta.")
     else:
-        # escolhe LLM para specs (podes usar o mesmo)
-        if modo_execucao == "API Key":
-            if not api_key_final:
-                st.error("API key em falta.")
-                st.stop()
-            llm_specs = ChatOpenAI(model="gpt-5-mini", api_key=api_key_final, temperature=0.1)
-        else:
-            llm_specs = ChatOllama(model=modelo_selecionado, base_url=f"http://{torre_ip}:11434", temperature=0.1)
+        with st.spinner("A ler specs em paralelo (Super-Speed)..."):
+            st.session_state.specs_context = gerar_contexto_specs(spec_files, llm_extrator) # Usa o modelo rápido!
 
-        with st.spinner("A gerar contexto de specs..."):
-            st.session_state.specs_context = gerar_contexto_specs(spec_files, llm_specs)
-
-        st.success(f"✅ Contexto gerado com sucesso ({len(st.session_state.specs_context)} caracteres).")
+        st.success(f"✅ Contexto gerado com sucesso.")
         with st.expander("📌 Ver contexto de specs", expanded=False):
             st.text(st.session_state.specs_context)
 
 st.markdown("---")
 
-st.subheader("B) Carregar BOQ / Caderno de Encargos e extrair com contexto")
+st.subheader("B) Carregar BOQ / Caderno de Encargos")
 file_uploaded = st.file_uploader("BOQ / Caderno de Encargos", type=["xlsx", "xls", "pdf"])
 
-guia_padrao = """1. ÂMBITO: Fabrico, Montagem, Engenharia de Ligações.
-2. HIERARQUIA: Fases (PH1-3), Zonas (CSA, FSA, DCH).
-3. MATERIAIS: Aço (S355/S275), EXC2-4, Perfis.
-4. PROTEÇÕES: Pintura (Microns), Fogo (R60/120), Sa2.5.
-5. RISCOS: Design Responsibility, Furos MEP, Prevalência de Specs.
-6. SUSTENTABILIDADE: Conteúdo Reciclado, EPD, LEED/BREEAM.
-7. INCONSISTÊNCIAS: Comparação de dados contraditórios entre linhas/áreas."""
-guia_input = st.text_area("Checklist de Auditoria:", value=guia_padrao, height=220)
+guia_padrao = "1. MATERIAIS\n2. PROTEÇÕES (Fogo, Pintura)\n3. INCONSISTÊNCIAS"
+guia_input = st.text_area("Checklist de Auditoria:", value=guia_padrao, height=100)
 
 if "relatorio_final" not in st.session_state:
     st.session_state.relatorio_final = ""
     st.session_state.processado = False
 
-if st.button("🚀 Gerar Relatório Hierárquico (BOQ + Specs Context)"):
+if st.button("🚀 Gerar Relatório Hierárquico"):
     if not file_uploaded:
         st.warning("Carrega um BOQ primeiro.")
         st.stop()
+    elif modo_execucao == "API Key" and not api_key_final:
+        st.error("API key em falta.")
+        st.stop()
 
-    # LLM para BOQ
-    if modo_execucao == "API Key":
-        if not api_key_final:
-            st.error("API key em falta.")
-            st.stop()
-        llm_boq = ChatOpenAI(model="gpt-5-mini", api_key=api_key_final, temperature=0.1, max_completion_tokens=8000)
-    else:
-        llm_boq = ChatOllama(model=modelo_selecionado, base_url=f"http://{torre_ip}:11434", temperature=0.1)
-
-    with st.spinner("A ler BOQ e a extrair..."):
-        texto_cru = read_document(file_uploaded)
-        resumos = extrair_sumario_parcial(texto_cru, guia_input, llm_boq, st.session_state.specs_context)
-        st.session_state.relatorio_final = gerar_consolidacao_hierarquica(resumos, llm_boq)
+    texto_cru = read_document(file_uploaded)
+    
+    # FASE 1: Extrai rápido com gpt-4o-mini
+    resumos = extrair_sumario_parcial(texto_cru, guia_input, llm_extrator, st.session_state.specs_context)
+    
+    # FASE 2: Audita inteligentemente com gpt-5-mini
+    with st.spinner("A cruzar dados e gerar tabela final (O Auditor está a pensar)..."):
+        st.session_state.relatorio_final = gerar_consolidacao_hierarquica(resumos, llm_auditor)
         st.session_state.processado = True
 
 if st.session_state.processado:
