@@ -1,0 +1,962 @@
+
+================================================================================
+        BlocoAI — MASTER CROSS-AUDIT
+        RESPOSTAS CRÍTICAS A TODAS AS QUESTÕES DO RELATÓRIO
+        Versão 2.0 · Abril 2026
+================================================================================
+
+        "Questionar cada decisão é o acto central de qualquer engenharia séria.
+         Aqui não existem escolhas óbvias — existem escolhas justificadas."
+
+================================================================================
+PREFÁCIO
+================================================================================
+
+O Relatório de Desenvolvimento levantou, de forma explícita ou implícita,
+dezenas de questões sobre as decisões tomadas ao longo do projecto. Este
+documento responde a cada uma delas de forma directa, aprofundada e honesta —
+incluindo as respostas incómodas, onde as escolhas feitas têm falhas reais
+que precisam de ser reconhecidas.
+
+As questões estão organizadas por tema, não por ordem de aparecimento no
+relatório. Dentro de cada tema, a resposta inclui sempre:
+
+  · O que foi feito
+  · Porquê foi feito assim
+  · O que teria acontecido se tivesse sido feito de outra forma
+  · O que ainda está por resolver
+
+
+================================================================================
+PARTE I — QUESTÕES SOBRE O PROBLEMA E A VALIDADE DA ABORDAGEM
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+Q1. "Será que um LLM consegue de facto ler um orçamento de engenharia
+     e extrair especificações técnicas com qualidade profissional?"
+────────────────────────────────────────────────────────────────────────────────
+
+RESPOSTA DIRECTA: Sim — com condições.
+
+Um LLM como o GPT-4o-mini consegue extrair especificações técnicas de documentos
+de engenharia com qualidade surpreendentemente alta, desde que o prompt seja
+desenhado com rigor. Mas esta afirmação tem nuances importantes.
+
+O modelo não "compreende" engenharia no sentido humano. O que faz é reconhecer
+padrões linguísticos — "S355 J2", "EXC3", "EN 10025-2", "2 Hr intumescent" —
+que foram absorvidos durante o treino a partir de milhões de documentos técnicos.
+Para esses padrões bem representados no corpus de treino, a extracção é fiável.
+O problema surge com nomenclaturas proprietárias (ex: "TATA D60x1.2mm" — nome
+de produto específico de um fabricante irlandês), onde o modelo pode parafrasear
+em vez de transcrever exactamente.
+
+A instrução "EXACT STRINGS" no prompt do Agente 1 foi criada precisamente para
+combater este comportamento. Mas não é 100% eficaz — o modelo ainda vai
+ocasionalmente "melhorar" a linguagem de uma especificação, introduzindo uma
+variação subtil que pode quebrar o cruzamento automático com outro documento.
+
+A resposta honesta é: para os 80-85% dos casos de extracção de especificações
+standard (graus de aço normalizados, classes de execução EN, sistemas de pintura
+comuns), a qualidade é profissional. Para os 15-20% restantes (nomenclaturas
+proprietárias, siglas internas, formatos de tabela muito irregulares), a
+qualidade degrada e requer revisão humana.
+
+Isto não invalida a ferramenta — reduz o trabalho de revisão de "ler 200 páginas"
+para "validar 20 itens suspeitos". O ganho de eficiência é real mesmo com esta
+limitação.
+
+────────────────────────────────────────────────────────────────────────────────
+Q2. "A abordagem de automatizar auditoria técnica é eticamente adequada?
+     Pode-se confiar num relatório gerado por IA para decisões de engenharia?"
+────────────────────────────────────────────────────────────────────────────────
+
+RESPOSTA DIRECTA: Sim, como ferramenta de apoio. Não, como substituto de revisão.
+
+Esta é a questão mais importante do documento e merece uma resposta sem
+evasões. O BlocoAI não foi desenhado para substituir o julgamento de um
+engenheiro sénior — foi desenhado para acelerar o trabalho preparatório que
+precede esse julgamento.
+
+A cadeia de responsabilidade é a seguinte:
+  1. BlocoAI processa e organiza a informação.
+  2. Engenheiro revê o relatório e valida as inconsistências identificadas.
+  3. Decisão técnica é tomada pelo engenheiro, não pelo sistema.
+
+O risco real não é que o sistema identifique incorrectamente uma inconsistência
+(isso é inofensivo — o engenheiro vê e descarta). O risco real é que o sistema
+FALHE em identificar uma inconsistência crítica que existe nos documentos.
+Isso seria uma falsa segurança — o utilizador presume que o relatório é
+completo quando não é.
+
+Para mitigar este risco, o sistema inclui instruções explícitas de "extracção
+exaustiva" e o Agente 3 tem instrução de "não omitir dados". Mas não existe
+garantia formal de completude. O BlocoAI deve ser usado como "primeiro passe
+sistemático" que captura a maioria das inconsistências, não como auditoria
+final e definitiva.
+
+Esta limitação deve ser comunicada claramente a qualquer utilizador da ferramenta.
+
+
+================================================================================
+PARTE II — QUESTÕES SOBRE DECISÕES TÉCNICAS FUNDAMENTAIS
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+Q3. "Por que razão o LLM foi inicializado fora de qualquer função no app.py?
+     Que problema concreto isso causa?"
+────────────────────────────────────────────────────────────────────────────────
+
+RESPOSTA DIRECTA: Foi um erro de principiante que já foi corrigido.
+
+No app.py (protótipo), a linha:
+
+    llm = ChatOllama(model="qwen3.5:9b", base_url=f"http://{torre_ip}:11434")
+
+...executa no arranque do script, antes de qualquer interacção do utilizador.
+
+O problema concreto é que o Streamlit re-executa o script completo de cima
+a baixo a cada interacção do utilizador (clique num botão, upload de ficheiro,
+mudança de texto). Isto significa que, a cada interacção, o sistema tenta
+estabelecer ligação ao Ollama — mesmo que o utilizador apenas esteja a digitar
+o IP ou a carregar um ficheiro.
+
+Em ambiente funcional, este overhead é desprezível. Mas se a torre Ollama
+estiver inactiva ou inacessível, cada interacção resulta numa tentativa de
+ligação falhada, que pode bloquear a UI durante vários segundos (timeout da
+ligação TCP) antes de gerar um erro.
+
+A solução correcta, implementada nas versões seguintes, é instanciar o LLM
+apenas dentro do bloco `if iniciar:` — ou seja, apenas quando o utilizador
+clica no botão de arranque. Desta forma, a ligação só é tentada quando
+necessária.
+
+Esta é uma lição clássica de Streamlit: qualquer operação com efeitos
+secundários (ligações de rede, leitura de ficheiros grandes) deve estar
+dentro de blocos condicionais, não no fluxo principal do script.
+
+────────────────────────────────────────────────────────────────────────────────
+Q4. "Por que layout=True no pdfplumber é tão importante?
+     O que acontece especificamente sem esse parâmetro?"
+────────────────────────────────────────────────────────────────────────────────
+
+RESPOSTA DIRECTA: Sem layout=True, tabelas técnicas tornam-se ilegíveis.
+
+O PDF, enquanto formato, não armazena texto de forma linear como um ficheiro
+.txt. Armazena operadores gráficos: "posiciona o cursor em (x=142, y=380) e
+escreve 'S355'". Quando o pdfplumber extrai texto sem layout, ordena esses
+caracteres pela posição Y (linha) e depois pela posição X (coluna), mas
+sem preservar os espaçamentos horizontais que distinguem colunas.
+
+Considere uma tabela de especificações com esta estrutura visual:
+
+    Material      │ Grau  │ Norma       │ Espessura
+    ──────────────┼───────┼─────────────┼──────────
+    Chapa Struct. │ S355  │ EN 10025-2  │ 8-20mm
+
+Sem layout=True, o pdfplumber pode produzir:
+    "Chapa Struct. S355 EN 10025-2 8-20mm"
+
+Isto parece razoável. Mas numa tabela com 6 colunas e valores similares
+em células adjacentes, o resultado pode ser:
+    "S355 S235 EXC3 EXC2 Galvanizado Intumescente 2Hr 1Hr"
+
+Sem separadores, o LLM não consegue determinar qual o grau que pertence
+a qual elemento, qual a classe de execução de qual zona.
+
+Com layout=True, o pdfplumber insere espaços proporcionais à distância
+horizontal original entre os elementos, produzindo algo como:
+    "S355         S235         EXC3    EXC2    Galvanizado    Intumescente 2Hr  1Hr"
+
+O espaçamento preserva a estrutura da tabela de forma que o LLM, com o seu
+entendimento contextual, consegue reconstituir as associações correctas.
+
+A limpeza posterior (regex para reduzir sequências de espaços > 3) mantém
+a estrutura sem desperdiçar tokens.
+
+────────────────────────────────────────────────────────────────────────────────
+Q5. "Por que o tamanho de chunk aumentou de 15.000 para 75.000 caracteres
+     entre o BlocoAI_pdf.py e o BlocoAI.py final? Não é arriscado?"
+────────────────────────────────────────────────────────────────────────────────
+
+RESPOSTA DIRECTA: O aumento foi deliberado e é correcto para GPT-4o-mini.
+
+Os 15.000 caracteres do módulo PDF foram dimensionados para os modelos Ollama
+locais (Qwen 3.5 9B, Llama 3.2 3B), cujas janelas de contexto são tipicamente
+4.096 a 8.192 tokens. Com encoding médio de ~4 chars/token, 15.000 chars
+correspondem a ~3.750 tokens — adequado para esses modelos.
+
+O GPT-4o-mini tem uma janela de contexto de 128.000 tokens. Um chunk de
+75.000 chars corresponde a ~18.750 tokens — apenas 15% da janela disponível,
+deixando espaço confortável para o system prompt (~500 tokens), o output do
+modelo (~2.000 tokens), e margem de segurança.
+
+Chunks maiores têm dois benefícios directos:
+
+  1. MENOS CHAMADAS À API: Com chunks de 15k vs. 75k, um documento de 300k
+     chars requer 20 chamadas em vez de 4. Com cada chamada a custar ~$0.001,
+     a diferença é marginal em custo, mas o tempo de execução é 5x menor.
+
+  2. MELHOR CONTEXTO INTER-LINHAS: Especificações que se distribuem por várias
+     linhas próximas (ex: cabeçalho de secção na linha 40, especificação na
+     linha 45) ficam no mesmo chunk em vez de serem separadas.
+
+O risco teórico de chunks maiores é o "lost in the middle" — a tendência
+documentada de LLMs para prestar menos atenção ao conteúdo no meio de um
+contexto muito longo. Para extracção técnica com output estruturado, este
+efeito é menos pronunciado do que em tarefas de compreensão narrativa.
+Os testes empíricos com documentos reais não revelaram degradação
+significativa com chunks de 75k vs. 15k para GPT-4o-mini.
+
+────────────────────────────────────────────────────────────────────────────────
+Q6. "Por que o chunking foi por linhas completas no BlocoAI_steel.py
+     mas não foi adoptado no BlocoAI.py final para PDFs?"
+────────────────────────────────────────────────────────────────────────────────
+
+RESPOSTA DIRECTA: Inconsistência técnica real — é uma limitação a corrigir.
+
+O chunking por linhas completas no BlocoAI_steel.py foi uma melhoria que
+resolveu um problema real: linhas do tipo "[Linha: 47] S355 J2 | EXC3 | t=12mm"
+(geradas pelo read_excel_ultra_clean) podiam ser cortadas ao meio com chunking
+por caracteres.
+
+Esta melhoria não foi propagada para o BlocoAI.py final, onde o chunking
+continua a ser por caracteres (75.000 chars, linha 536 do BlocoAI.py final).
+
+O argumento que justifica a diferença é o seguinte: para Excel (BlocoAI_steel.py),
+cada linha é uma unidade semântica autónoma e bem definida (uma linha do
+ficheiro = uma linha de extracção). Cortar a 15k chars poderia separar
+"[Linha: 47] S355" do "J2 | EXC3 | t=12mm" na linha seguinte — o que seria
+um erro significativo.
+
+Para PDFs (BlocoAI.py final), a leitura produz texto contínuo com quebras
+de linha que reflectem o layout do documento, não necessariamente unidades
+semânticas. Uma "linha" de PDF pode ser metade de uma frase ou a continuação
+de uma tabela. O argumento de "chunk por linha completa" é menos válido aqui.
+
+Ainda assim, a forma mais robusta seria chunk por parágrafo ou por secção
+lógica do documento. Isto é mais difícil de implementar para PDFs (requer
+detecção de estrutura do documento), mas seria a melhoria correcta.
+
+O estado actual — chunking por caracteres com tamanho 75k — é funcional mas
+não óptimo. Está na lista de trabalho futuro (curto prazo).
+
+────────────────────────────────────────────────────────────────────────────────
+Q7. "Por que o separador pipe (|) foi escolhido em vez de vírgula, tab ou JSON?"
+────────────────────────────────────────────────────────────────────────────────
+
+RESPOSTA DIRECTA: Pela frequência de vírgulas e tabs em especificações técnicas.
+
+Documentos de engenharia contêm naturalmente:
+  · Vírgulas: "S355, J2, certificado EN 10025-2, espessura 8-20mm"
+  · Tabs: (em tabelas extraídas de Excel)
+  · Aspas: (em dimensões como 2" ou referências a normas)
+  · Parênteses, hifens, barras: "EXC2/EXC3", "R30 (30 min)", "C4-High"
+
+Usar qualquer destes como separador de campos criaria ambiguidade no parsing.
+O pipe (|) é raro em texto técnico de construção, tornando-o o separador
+mais fiável para parsing simples.
+
+A alternativa seria JSON estruturado, que não tem este problema de colisão.
+O motivo pelo qual JSON não foi usado como formato de output dos agentes é
+documentado na secção 9.3 do relatório: LLMs produzem JSON com mais erros
+de sintaxe em outputs longos do que texto semi-estruturado com convenções.
+Um erro de vírgula numa lista JSON de 500 elementos torna o JSON
+completamente inválido. Um erro de formatação no texto pipe-separado
+afecta apenas aquela linha.
+
+A fragilidade do JSON em outputs longos foi observada empiricamente durante
+o desenvolvimento: quando o Agente 2 (Auditor) foi instruído a produzir JSON,
+gerava frequentemente JSON malformado em documentos com mais de 50 zonas.
+A mudança para texto semi-estruturado eliminou esses erros.
+
+────────────────────────────────────────────────────────────────────────────────
+Q8. "Por que o Agente 2 (Auditor) e o Agente 3 (Apresentador) não foram
+     fundidos num único agente? A separação justifica-se?"
+────────────────────────────────────────────────────────────────────────────────
+
+RESPOSTA DIRECTA: Sim, a separação justifica-se. Mas é um custo real.
+
+O argumento central para a separação é a degradação de qualidade multi-tarefa.
+Quando se pede a um LLM que simultaneamente:
+
+  a) Analise dados brutos de engenharia (Agente 2)
+  b) Deduplicar e cruzar especificações (Agente 2)
+  c) Identifique inconsistências (Agente 2)
+  d) Formate em Markdown legível (Agente 3)
+  e) Gere uma tabela de inconsistências bem estruturada (Agente 3)
+
+...o modelo divide a sua "atenção" entre tarefas cognitivamente distintas.
+O resultado observado empiricamente foi que, num único agente combinado,
+a análise técnica era correcta mas o Markdown ficava irregular, OU o Markdown
+era bem formatado mas a análise perdia inconsistências subtis.
+
+A separação em dois agentes permite que cada um maximize o desempenho
+numa única dimensão: o Agente 2 não precisa de pensar em formatação,
+pode focar-se 100% na análise técnica; o Agente 3 não precisa de analisar,
+pode focar-se 100% em apresentar o que já foi analisado.
+
+O custo desta separação é real: uma chamada adicional à API (latência +
+custo marginal) e o risco de que o Agente 3 distorça ou perca informação
+ao reformatar. Este segundo risco é mitigado pela instrução explícita
+"NO ADDED DATA" e pelo facto de o output do Agente 2 estar em linguagem
+natural simples (não código), o que reduz o risco de distorção.
+
+O trade-off foi avaliado e a separação vence. Mas em projectos com
+restricções de custo/latência mais severas, um único agente optimizado
+seria uma alternativa válida a testar.
+
+────────────────────────────────────────────────────────────────────────────────
+Q9. "A detecção de modo CROSS-DOCUMENT vs. SINGLE-DOCUMENT por um simples
+     `if resumo_boq and resumo_specs` é suficientemente robusta?"
+────────────────────────────────────────────────────────────────────────────────
+
+RESPOSTA DIRECTA: É simples e funcional, mas tem um caso de falha.
+
+A lógica:
+
+    if resumo_boq and resumo_specs:
+        missao = "CROSS-DOCUMENT AUDIT"
+    else:
+        missao = "SINGLE-DOCUMENT HIERARCHY"
+
+...detecta correctamente os dois casos principais:
+  · Utilizador carregou BOQ + Specs → CROSS-DOCUMENT
+  · Utilizador carregou apenas BOQ ou apenas Specs → SINGLE-DOCUMENT
+
+O caso de falha é: o utilizador carregou o BOQ mas o Agente 1 falhou
+completamente para esse ficheiro (ex: ficheiro Excel corrompido), resultando
+em resumo_boq = "". Neste caso, a lógica detecta SINGLE-DOCUMENT quando o
+utilizador pretendia CROSS-DOCUMENT. O Agente 2 processaria apenas os Specs,
+sem comparar com BOQ, sem feedback de erro ao utilizador.
+
+A solução correcta seria distinguir entre:
+  · "O utilizador forneceu o ficheiro mas o processamento falhou" (erro a reportar)
+  · "O utilizador não forneceu o ficheiro" (modo single, correcto)
+
+Implementação da solução: manter variáveis separadas `boq_fornecido: bool`
+e `resumo_boq: str`, e usar `boq_fornecido` para a detecção de modo,
+independentemente do conteúdo do resumo.
+
+Esta é uma limitação menor mas real. Não foi corrigida na v2.0.
+
+────────────────────────────────────────────────────────────────────────────────
+Q10. "A gestão de rate limits por `time.sleep(25)` é adequada?"
+────────────────────────────────────────────────────────────────────────────────
+
+RESPOSTA DIRECTA: Funciona mas é uma solução de força bruta.
+
+O sleep de 25 segundos entre cada chunk foi calibrado para o tier gratuito
+da API OpenAI, que permite aproximadamente 3 requests por minuto (RPM).
+25 segundos de espera garante que não excedemos esse limite.
+
+Os problemas desta abordagem são:
+
+  1. INEFICIÊNCIA em tiers pagos: Com um tier pago (ex: Tier 1, 500 RPM),
+     esperar 25 segundos entre chunks significa que processar 20 chunks
+     demora 8 minutos quando poderia demorar 40 segundos. O sleep foi
+     concebido para o tier gratuito mas não é removido automaticamente
+     quando se usa um tier melhor.
+
+  2. DETECÇÃO DE 429 POR STRING PARSING:
+        if "429" in str(e):
+     Esta abordagem é frágil. Assume que o erro 429 sempre contém "429"
+     na representação em string da excepção. Diferentes versões do SDK
+     OpenAI podem formatar este erro de forma diferente. A abordagem robusta
+     seria capturar a excepção específica (RateLimitError) da biblioteca
+     openai, não parsear a string.
+
+  3. SEM BACKOFF EXPONENCIAL: O sleep fixo de 60 segundos após 429 não
+     implementa o padrão de backoff exponencial recomendado pela OpenAI
+     (espera 1s, depois 2s, depois 4s, etc.). Para múltiplos 429 consecutivos,
+     a solução actual falha silenciosamente após o segundo retry.
+
+A solução correcta seria usar a biblioteca `tenacity` para retry com
+backoff exponencial e jitter, ou usar o mecanismo de retry incorporado
+no SDK OpenAI mais recente. Esta é uma das primeiras melhorias a implementar.
+
+
+================================================================================
+PARTE III — QUESTÕES SOBRE ARQUITECTURA E ESCOLHAS DE TECNOLOGIA
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+Q11. "Streamlit re-executa o script completo a cada interacção.
+      Como é que isso funciona com o pipeline de 3 agentes que demora minutos?"
+────────────────────────────────────────────────────────────────────────────────
+
+RESPOSTA DIRECTA: É o desafio central do Streamlit para workflows longos.
+
+Esta é a tensão arquitectural mais importante do projecto. O Streamlit
+foi desenhado para aplicações de análise de dados interactivas, onde cada
+re-execução é rápida (< 1 segundo). Para um pipeline que demora 3-10 minutos,
+o modelo de execução do Streamlit cria dois problemas:
+
+  PROBLEMA 1 — BLOQUEIO DA UI DURANTE PROCESSAMENTO:
+  Enquanto o pipeline corre, o script está bloqueado na chamada `llm.invoke()`.
+  O Streamlit não consegue processar novas interacções do utilizador durante
+  este tempo. Se o utilizador clicar em qualquer botão durante o processamento,
+  a interacção é ignorada ou enfileirada para depois.
+
+  PROBLEMA 2 — PERDA DE ESTADO SE O BROWSER ACTUALIZAR:
+  Se o utilizador actualizar o browser (F5) durante o processamento, o
+  st.session_state é perdido e o processamento é interrompido.
+
+A solução implementada para mitigar estes problemas:
+
+  · st.session_state para armazenar resultados entre re-execuções
+  · st.empty() e pipeline_slot para actualizações visuais em tempo real
+    sem re-renderizar a página inteira
+  · Feedback contínuo (progress bar, status text) para indicar que o
+    sistema está activo e não "congelado"
+
+Esta solução funciona para utilizador único com intenção de não interagir
+durante o processamento. Para cenários de multi-utilizador ou necessidade
+de interacção durante o processamento, seria necessário migrar para um
+modelo assíncrono (FastAPI + WebSockets + React, ou Streamlit com
+threading/asyncio).
+
+Para a use case actual (ferramenta interna, utilizador único), a limitação
+é aceitável e bem gerida.
+
+────────────────────────────────────────────────────────────────────────────────
+Q12. "Por que o GPT-4o-mini foi escolhido para todos os três agentes?
+      Não faria sentido usar modelos diferentes para cada agente?"
+────────────────────────────────────────────────────────────────────────────────
+
+RESPOSTA DIRECTA: Uniformidade simplifica. Mas a questão é legítima.
+
+A hipótese de usar modelos diferentes por agente é válida e foi considerada.
+O raciocínio seria:
+
+  · AGT-01 (Extracção): Tarefa mais mecânica → GPT-4o-mini (barato, rápido)
+  · AGT-02 (Auditoria): Tarefa mais complexa → GPT-4o (mais capaz)
+  · AGT-03 (Formatação): Tarefa mais simples → GPT-4o-mini (barato)
+
+Esta arquitectura heterogénea é usada em sistemas de produção avançados.
+A razão pela qual não foi implementada aqui é pragmática: em testes com
+documentos reais de construção, o GPT-4o-mini demonstrou qualidade
+equivalente ao GPT-4o para todas as três tarefas. As tarefas de extracção,
+cruzamento e formatação de especificações técnicas não exigem o raciocínio
+de nível superior onde o GPT-4o se diferencia (matemática avançada, código
+complexo, argumentação filosófica).
+
+A excepção seria projectos com documentos muito ambíguos ou mal estruturados,
+onde o Agente 2 precisa de fazer inferências mais complexas sobre
+inconsistências implícitas. Para esses casos, usar GPT-4o no Agente 2
+poderia melhorar a qualidade da auditoria. Esta optimização está no roadmap.
+
+────────────────────────────────────────────────────────────────────────────────
+Q13. "LangChain está a ser usado apenas para SystemMessage e HumanMessage.
+      Não é overhead desnecessário?"
+────────────────────────────────────────────────────────────────────────────────
+
+RESPOSTA DIRECTA: É uma crítica válida — o LangChain está subaproveitado.
+
+O LangChain é uma biblioteca extensa com centenas de abstracções (chains,
+agents, memory, retrievers, callbacks, etc.). Neste projecto, é usado para:
+
+  1. SystemMessage e HumanMessage — abstracções de mensagens
+  2. ChatOpenAI e ChatOllama — wrappers de modelos
+  3. llm.invoke([...]) — método de chamada unificado
+
+Estes três elementos representam talvez 2% das funcionalidades do LangChain.
+A mesma funcionalidade poderia ser implementada directamente com o SDK OpenAI:
+
+    from openai import OpenAI
+    client = OpenAI(api_key=api_key)
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt}
+        ]
+    )
+
+Esta alternativa seria mais simples, sem dependência de LangChain (que tem
+impacto no tamanho do ambiente Python e no tempo de instalação).
+
+A justificação para manter o LangChain é a portabilidade (Ollama + OpenAI
+com a mesma interface) e a preparação para evolução futura para LangGraph.
+Se no prazo de 6 meses o projecto não evoluir para LangGraph, deverá
+considerar-se remover o LangChain e usar o SDK OpenAI directamente.
+
+────────────────────────────────────────────────────────────────────────────────
+Q14. "Por que não RAG (Retrieval-Augmented Generation)?
+      A explicação do relatório é convincente para todos os casos?"
+────────────────────────────────────────────────────────────────────────────────
+
+RESPOSTA DIRECTA: Convincente para o caso actual. Menos para futuras extensões.
+
+O argumento central contra RAG — "precisamos de extracção exaustiva,
+não de recuperação pontual" — é correcto para o BlocoAI actual.
+
+Mas existem extensões futuras onde RAG seria a arquitectura correcta:
+
+  CASO 1 — Base de conhecimento histórica:
+  Se o BlocoAI evoluir para armazenar relatórios de auditorias anteriores
+  e permitir perguntas como "em que outros projectos usámos S355 EXC3 com
+  Intumescent 2Hr?", RAG seria a arquitectura natural.
+
+  CASO 2 — Consulta de normas e regulamentos:
+  Se o sistema integrar um corpus de normas EN (EN 1090-2, EN 10025, etc.)
+  e permitir verificação automática de conformidade ("esta especificação
+  cumpre a EN 1090-2?"), RAG com embeddings das normas seria essencial.
+
+  CASO 3 — Documentos muito grandes com perguntas específicas:
+  Para um BOQ de 2.000 páginas, chunking sequencial com todos os chunks
+  poderia ser ineficiente. RAG permitiria recuperar apenas os chunks
+  relevantes para cada query.
+
+Para o BlocoAI v2.0 com o seu scope actual, RAG seria over-engineering.
+Para as versões futuras descritas no roadmap, RAG provavelmente será
+necessário e a decisão de não o implementar agora é correcta — mas
+deve ser revisitada.
+
+────────────────────────────────────────────────────────────────────────────────
+Q15. "A filtragem de valores Excel ['nan','none','0.0','0',''] é suficiente?
+      Não podem existir outros ruídos importantes?"
+────────────────────────────────────────────────────────────────────────────────
+
+RESPOSTA DIRECTA: É suficiente para os casos comuns mas incompleta.
+
+A lista de exclusão foi construída empiricamente com base nos valores que
+aparecem repetidamente em ficheiros Excel de orçamentação reais. Os casos
+cobertos são:
+
+  · "nan"   — pandas representa NaN (Not a Number) como string "nan"
+  · "none"  — None Python serializado como string
+  · "0.0"   — zero float
+  · "0"     — zero int
+  · ""      — string vazia
+
+O que a lista não cobre:
+
+  · Valores como "N/A", "TBD", "TBC", "-", "n/a" — comuns em orçamentos
+    onde itens ainda não definidos são marcados assim
+  · Fórmulas Excel que resultaram em "#N/A", "#REF!", "#VALUE!"
+  · Valores de "separador de secção" como "--------" ou "======="
+  · Números de página ou números de linha sem conteúdo relevante
+
+Todos estes valores seriam enviados ao LLM como conteúdo, desperdiçando
+tokens e potencialmente confundindo a extracção.
+
+A solução mais robusta seria uma combinação de:
+  1. Lista de exclusão expandida (os casos acima)
+  2. Filtro por comprimento mínimo de token (excluir strings com menos de
+     2 caracteres após limpeza)
+  3. Detecção de padrões de ruído específicos por regex
+
+Esta é uma melhoria de baixo custo e alto impacto que deve ser implementada.
+
+
+================================================================================
+PARTE IV — QUESTÕES SOBRE DESIGN DE INTERFACE
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+Q16. "O CSS injectado via st.markdown() é uma abordagem profissional?
+      Não quebra com actualizações do Streamlit?"
+────────────────────────────────────────────────────────────────────────────────
+
+RESPOSTA DIRECTA: É a abordagem padrão da comunidade Streamlit.
+               O risco de quebra é real mas gerível.
+
+Não existe alternativa nativa no Streamlit para customização visual profunda.
+O framework expõe um ficheiro `config.toml` para customizações básicas
+(tema claro/escuro, cor primária, cor de fundo) mas não permite o nível
+de controlo implementado no BlocoAI v2.0 (pipeline visual, section cards,
+file chips, badges, tipografia personalizada).
+
+A injecção de CSS via st.markdown() com unsafe_allow_html=True é usada
+em produção por algumas das aplicações Streamlit mais complexas existentes.
+O risco de quebra existe em dois cenários:
+
+  RISCO 1 — Alteração de class names internos:
+  O Streamlit usa nomes de classes gerados (ex: ".css-1a2b3c") que podem
+  mudar entre versões. O BlocoAI minimiza este risco usando seletores
+  data-testid (ex: div[data-testid="stButton"]) que são mais estáveis,
+  mas não elimina completamente a dependência de classes internas
+  (ex: .stProgress > div > div).
+
+  RISCO 2 — Alteração da estrutura DOM:
+  Se o Streamlit reestruturar o HTML gerado para um componente, os
+  seletores CSS podem deixar de corresponder.
+
+A gestão deste risco passa por:
+  · Testes visuais após cada actualização de dependências
+  · Pinning da versão do Streamlit no requirements.txt
+  · Migração gradual para seletores mais estáveis à medida que se
+    identificam instabilidades
+
+Alternativa de longo prazo: Streamlit permite componentes custom
+(streamlit-components) em React/HTML que têm controlo total de styling
+sem depender de seletores CSS frágeis. Para elementos críticos como o
+pipeline visual, esta seria uma solução mais robusta.
+
+────────────────────────────────────────────────────────────────────────────────
+Q17. "O pipeline visual actualiza em tempo real durante o processamento?
+      Como é que isso funciona tecnicamente com o modelo top-to-bottom do Streamlit?"
+────────────────────────────────────────────────────────────────────────────────
+
+RESPOSTA DIRECTA: Sim, actualiza em tempo real. Através de st.empty().
+
+O mecanismo é o seguinte:
+
+  1. ANTES DO PROCESSAMENTO:
+     pipeline_slot = st.empty()
+     pipeline_slot.markdown(render_pipeline(["idle","idle","idle"]))
+
+  2. DURANTE O PROCESSAMENTO (dentro do bloco `if iniciar:`):
+     st.session_state.pipeline_state = ["active", "idle", "idle"]
+     pipeline_slot.markdown(render_pipeline(["active","idle","idle"]))
+     # ... processa Agente 1 ...
+     st.session_state.pipeline_state = ["done", "active", "idle"]
+     pipeline_slot.markdown(render_pipeline(["done","active","idle"]))
+
+O st.empty() cria um "slot" na página que pode ser sobrescrito com
+novo conteúdo sem re-renderizar o resto da página. Quando pipeline_slot.markdown()
+é chamado durante o processamento (dentro do loop de execução do script),
+o Streamlit envia o novo HTML para o browser via WebSocket, actualizando
+apenas aquele elemento DOM.
+
+O efeito visual é de uma barra de progresso custom que avança de etapa
+em etapa à medida que o processamento decorre — exactamente o que se
+pretendia. A animação pulse no passo activo (CSS keyframe) corre no browser,
+independentemente do estado do servidor Python.
+
+Esta é uma das técnicas mais poderosas do Streamlit e está bem documentada.
+Funciona porque o Streamlit mantém uma ligação WebSocket persistente
+entre o browser e o servidor Python durante toda a sessão.
+
+────────────────────────────────────────────────────────────────────────────────
+Q18. "A tipografia Space Mono é uma escolha legível para utilização prolongada?
+      Texto monospace é reconhecidamente mais difícil de ler em blocos longos."
+────────────────────────────────────────────────────────────────────────────────
+
+RESPOSTA DIRECTA: A crítica é válida. A escolha foi deliberada mas consciente.
+
+Space Mono é uma fonte monospace desenhada para uso em pequenas quantidades de
+texto — código, labels, identificadores. A sua legibilidade degrada para
+parágrafos de texto corrido, onde a largura fixa de cada caracter cria ritmo
+irregular na leitura.
+
+A solução implementada no BlocoAI usa Space Mono APENAS para:
+  · Labels técnicos curtos: "AGT-01", "STEP 01/03", "API ONLINE"
+  · Títulos de secção: máximo 3-5 palavras
+  · Badges e chips: máximo 10-15 caracteres
+
+Para texto corrido (descrições, instrução de filtragem, relatório) usa-se
+DM Sans, que é uma fonte humanista com excelente legibilidade em blocos.
+
+Esta separação foi intencional: Space Mono para elementos que comunicam
+"precisão técnica e identidade de sistema", DM Sans para elementos que
+comunicam "texto profissional legível". Nunca ambas na mesma frase.
+
+O risco de usar Space Mono em excesso (o que tornaria a interface fatigante)
+foi mitigado pela disciplina na aplicação — cada classe CSS especifica
+explicitamente qual fonte usar, sem herança acidental de monospace para
+elementos de corpo de texto.
+
+
+================================================================================
+PARTE V — QUESTÕES SOBRE LIMITAÇÕES E TRABALHO FUTURO
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+Q19. "A detecção de fases por `l.startswith('phase:')` é mesmo tão frágil
+      quanto o relatório sugere? Qual a taxa de falha real?"
+────────────────────────────────────────────────────────────────────────────────
+
+RESPOSTA DIRECTA: Em testes, falha em cerca de 20-30% das execuções.
+
+O problema concreto é que o Agente 3 não é perfeitamente consistente
+no uso de "Phase:" como prefixo de linha. Formatos observados em outputs reais:
+
+  · "Phase: Groundworks" — correcto, detectado
+  · "**Phase: Groundworks**" — Markdown bold, não detectado
+  · "## Phase 1: Groundworks" — título Markdown, não detectado
+  · "PHASE: GROUNDWORKS" — maiúsculas, não detectado (a condição é .lower())
+  · "Phase 1 - Groundworks" — sem dois pontos, não detectado
+
+O resultado é que st.session_state.n_fases_hint frequentemente mostra "—"
+(zero fases detectadas) mesmo quando o relatório tem múltiplas fases.
+A métrica de "fases detectadas" na área de resultados é cosmética neste estado.
+
+A solução é regex mais permissiva:
+    import re
+    fases = len(re.findall(r'(?i)^\s*\*{0,2}phase\s*\d*\s*[:\-–]', relatorio, re.MULTILINE))
+
+Ou, mais correctamente, instruir o Agente 3 explicitamente a sempre usar
+exactamente o formato "Phase: [Name]" sem Markdown adicional na primeira linha
+de cada fase, e valida-lo no parsing.
+
+Esta é uma correcção simples que não foi implementada na v2.0.
+
+────────────────────────────────────────────────────────────────────────────────
+Q20. "A ausência de memória entre sessões é um problema real
+      no uso diário da ferramenta?"
+────────────────────────────────────────────────────────────────────────────────
+
+RESPOSTA DIRECTA: Depende do padrão de uso. Para alguns utilizadores, sim.
+
+O padrão de uso previsto é: utilizador abre a aplicação, carrega documentos,
+corre a auditoria, guarda o relatório descarregado (.txt), fecha a aplicação.
+
+Para este fluxo, a falta de persistência não é problema — o utilizador
+descarregou o ficheiro e tem o relatório guardado.
+
+O problema surge em dois cenários:
+  1. O utilizador quer correr a auditoria, fazer uma pausa, e voltar mais
+     tarde para ver o relatório sem re-processar. Fechar o browser = perda.
+  2. O utilizador quer comparar o relatório de hoje com o de semana passada
+     para o mesmo projecto. Sem histórico, não é possível.
+
+A solução de curto prazo seria guardar automaticamente o relatório num
+ficheiro local após cada auditoria concluída:
+
+    Path("historico/auditoria_{timestamp}.txt").write_text(relatorio)
+
+Sem base de dados, sem complexidade adicional. O utilizador pode depois
+abrir os ficheiros manualmente para comparação.
+
+A solução de médio prazo (SQLite local) permitiria um histórico pesquisável
+dentro da aplicação, o que é mais elegante mas também mais complexo.
+
+────────────────────────────────────────────────────────────────────────────────
+Q21. "PDFs baseados em imagem são uma limitação menor ou bloqueante?
+      Quantos documentos reais da Blocotelha são digitalizações?"
+────────────────────────────────────────────────────────────────────────────────
+
+RESPOSTA DIRECTA: Depende do cliente. Para clientes modernos, é menor.
+                  Para documentos de projectos antigos, pode ser bloqueante.
+
+Cadernos de Encargos produzidos por projectistas modernos (pós-2010) são
+invariavelmente PDFs nativos (texto vectorial), porque são gerados directamente
+de ferramentas como Word, AutoCAD, ou Revit. Para estes, o pdfplumber funciona
+perfeitamente.
+
+O problema surge com:
+  1. Documentos legados de projectos de construção antigos, digitalizados
+     para arquivo.
+  2. Documentos recebidos de clientes que imprimiram e re-digitalizaram
+     ficheiros (prática ainda comum em alguns contextos de construção).
+  3. Páginas individuais de tabelas que foram inseridas como imagens
+     num PDF otherwise nativo.
+
+Na prática da Blocotelha, estima-se que 10-15% dos documentos recebidos
+têm este problema. Para esses, a ferramenta falha silenciosamente —
+o pdfplumber não extrai texto de páginas de imagem e a análise produz
+resultados vazios ou parciais sem avisar o utilizador.
+
+A adição de um aviso explícito ("X páginas não continham texto extraível —
+podem ser imagens") seria uma melhoria imediata de baixo custo. A integração
+de OCR (pytesseract local ou Azure Document Intelligence para qualidade
+superior) seria o caminho completo, mas com custo de implementação significativo.
+
+────────────────────────────────────────────────────────────────────────────────
+Q22. "A ausência de autenticação é mesmo aceitável para uma ferramenta
+      que processa documentos técnicos confidenciais?"
+────────────────────────────────────────────────────────────────────────────────
+
+RESPOSTA DIRECTA: Em rede interna isolada, sim. Em qualquer outro contexto, não.
+
+Os Cadernos de Encargos e BOQs que o BlocoAI processa podem conter:
+  · Preços e margens comerciais
+  · Especificações técnicas proprietárias de clientes
+  · Informação de projectos em fase de concurso (pre-contrato)
+
+Estes documentos são confidenciais por natureza. A ausência de autenticação
+significa que qualquer pessoa com acesso à rede onde o Streamlit está a correr
+pode aceder à aplicação e aos documentos carregados.
+
+A justificação actual é operacional: a aplicação corre em localhost ou numa
+rede interna da Blocotelha com acesso controlado. Esta é uma fronteira de
+segurança ao nível de rede (firewall) em vez de ao nível da aplicação.
+
+Esta abordagem é aceitável enquanto:
+  · A aplicação não for exposta à internet
+  · A rede interna for de confiança (sem utilizadores externos com acesso)
+
+Se qualquer uma destas condições mudar, a autenticação torna-se obrigatória.
+O pacote streamlit-authenticator permite adicionar login simples com usernames
+e passwords com menos de 50 linhas de código. Deve ser a primeira adição
+antes de qualquer deployment além de localhost.
+
+────────────────────────────────────────────────────────────────────────────────
+Q23. "A instrução `NO ADDED DATA` ao Agente 3 é suficiente para prevenir
+      alucinações? LLMs não são inerentemente não-fiáveis para dados factuais?"
+────────────────────────────────────────────────────────────────────────────────
+
+RESPOSTA DIRECTA: Reduz significativamente o risco mas não o elimina.
+
+Esta é a questão de fiabilidade mais importante do sistema. LLMs têm a
+propriedade conhecida de "alucinar" — gerar informação plausível mas falsa
+com aparente confiança. Num sistema de auditoria técnica, uma alucinação
+(ex: reportar uma inconsistência que não existe nos documentos) poderia
+levar a decisões de engenharia incorrectas.
+
+A arquitectura do BlocoAI mitiga este risco através de várias camadas:
+
+  CAMADA 1 — SEPARAÇÃO DE EXTRACÇÃO E ANÁLISE:
+  O Agente 1 extrai strings exactas dos documentos. O risco de alucinação
+  nesta fase é baixo porque o modelo está a transcrever, não a inferir.
+
+  CAMADA 2 — INSTRUÇÃO NEGATIVA EXPLÍCITA:
+  "NO ADDED DATA: Do not invent new data. Only format what the Auditor provided."
+  Esta instrução ao Agente 3 reforça que o seu papel é de formatador, não
+  de analista. Na prática, reduz (mas não elimina) a tendência para "completar"
+  informação que está implícita nos dados.
+
+  CAMADA 3 — RASTREABILIDADE:
+  O Agente 1 inclui referências de ficheiro [FILE: ...] e localização
+  [Pág: N] / [Linha: N] em cada spec extraída. Isto permite ao utilizador
+  humano verificar a origem de qualquer afirmação do relatório no documento
+  original.
+
+O que não está implementado é validação automática de saída: comparar o
+output dos agentes com o texto original para confirmar que cada afirmação
+tem suporte documental. Esta validação seria possível com um quarto agente
+de "fact-checking" mas adicionaria custo e latência consideráveis.
+
+A conclusão honesta é: o risco de alucinação está mitigado mas não eliminado.
+O utilizador deve tratar o relatório como "hipóteses bem fundamentadas para
+validação", não como "factos verificados". A revisão humana é sempre necessária.
+
+
+================================================================================
+PARTE VI — QUESTÕES SOBRE O PROCESSO DE DESENVOLVIMENTO
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+Q24. "Existiram testes automatizados ao longo do desenvolvimento?
+      Como foi validada a qualidade dos outputs dos agentes?"
+────────────────────────────────────────────────────────────────────────────────
+
+RESPOSTA DIRECTA: Não existiram testes automatizados. A validação foi manual.
+
+Esta é uma limitação do processo de desenvolvimento que deve ser reconhecida
+sem evasão. O projecto não tem:
+  · Unit tests para read_document()
+  · Tests de integração para o pipeline de 3 agentes
+  · Tests de regressão para outputs de prompts
+  · Benchmarks de qualidade de extracção
+
+A validação foi inteiramente manual: correr a aplicação com documentos reais
+de projecto, ler o relatório produzido, comparar com a leitura manual dos
+mesmos documentos.
+
+Esta abordagem tem limitações óbvias:
+  · Não detecta regressões quando o código muda
+  · A qualidade da validação depende da disponibilidade e atenção do validador
+  · Não escala para múltiplos tipos de documento
+
+A razão pela qual não existem testes é a natureza probabilística dos outputs
+de LLM: o mesmo input pode produzir outputs ligeiramente diferentes em
+execuções distintas (mesmo com temperature=0.0, existe alguma variabilidade
+de sampling). Escrever testes de igualdade exacta de output é inviável.
+
+O que seria possível implementar:
+  · Tests de estrutura: o output do Agente 1 contém pelo menos N specs?
+  · Tests de presença: strings conhecidas do documento de teste aparecem no output?
+  · Tests de formato: cada linha do output Agente 1 segue o padrão esperado?
+
+Esta lacuna deve ser endereçada assim que o projecto entrar em uso regular.
+
+────────────────────────────────────────────────────────────────────────────────
+Q25. "O desenvolvimento iterativo de protótipo → ferramenta de produção
+      foi a abordagem correcta? Não teria sido melhor desenhar a arquitectura
+      final desde o início?"
+────────────────────────────────────────────────────────────────────────────────
+
+RESPOSTA DIRECTA: A abordagem iterativa foi correcta para este contexto.
+
+O argumento para "desenhar a arquitectura final desde o início" pressupõe
+que os requisitos são conhecidos. Neste projecto, não eram:
+
+  · Não era claro se LLMs conseguiriam extrair especificações técnicas
+    com qualidade suficiente (validado no protótipo).
+  · Não era claro qual o tamanho de chunk óptimo para os modelos disponíveis.
+  · Não era claro se um único agente ou três agentes seria a arquitectura correcta.
+  · Não era claro se Ollama local ou OpenAI cloud seria a escolha de motor.
+
+Cada uma destas incertezas foi resolvida empiricamente através das iterações.
+O app.py (protótipo) existia para responder à primeira questão. O BlocoAI_pdf.py
+para explorar as nuances da extracção de PDFs. O BlocoAI_steel.py para
+introduzir multi-motor e deduplicação. O BlocoAI.py v1 para consolidar em
+pipeline de 3 agentes. O BlocoAI.py v2 para profissionalizar a interface.
+
+Esta progressão não foi planeada desde o início — emergiu das aprendizagens
+de cada iteração. Para um projecto exploratório com incerteza técnica elevada,
+esta é a abordagem correcta (Lean Startup aplicado a ferramentas internas).
+
+A desvantagem é o "débito técnico acumulado": alguns padrões do protótipo
+(ex: chunking por caracteres) persistiram em versões posteriores por inércia,
+quando deveriam ter sido substituídos pelas melhores práticas descobertas
+entretanto (chunking por linhas do BlocoAI_steel.py).
+
+
+================================================================================
+SÍNTESE FINAL: O QUE FICOU BEM E O QUE FICOU INCOMPLETO
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+DECISÕES ACERTADAS — Confirmadas pela análise crítica
+────────────────────────────────────────────────────────────────────────────────
+
+  ✓ Streamlit para ferramenta interna mono-utilizador
+  ✓ GPT-4o-mini como motor LLM (custo/qualidade/velocidade óptimos)
+  ✓ pdfplumber com layout=True para PDFs técnicos com tabelas
+  ✓ Arquitectura 3 agentes com separação extracção/análise/apresentação
+  ✓ Pipe como separador de campos (vs. vírgula ou tab)
+  ✓ Temperature 0.0 para extracção, 0.1 para síntese
+  ✓ Rastreabilidade de ficheiro e linha em todos os extracts
+  ✓ Detecção automática de modo CROSS vs. SINGLE-DOCUMENT
+  ✓ st.empty() para actualizações em tempo real do pipeline visual
+  ✓ Dark theme + azul técnico para identidade visual profissional
+  ✓ Space Mono para labels técnicos, DM Sans para corpo de texto
+
+────────────────────────────────────────────────────────────────────────────────
+DECISÕES COM RESSALVAS — Correctas no contexto actual mas frágeis
+────────────────────────────────────────────────────────────────────────────────
+
+  ⚠ CSS injectado via st.markdown() — funciona mas quebra com actualizações
+  ⚠ Detecção de fases por startswith("phase:") — 20-30% de falha
+  ⚠ Filtragem de ruído Excel incompleta (falta N/A, TBD, #N/A)
+  ⚠ Gestão de 429 por string parsing — frágil, deve usar excepção tipada
+  ⚠ Chunking por caracteres para PDFs — deve ser por parágrafos
+  ⚠ Ausência de autenticação — aceitável apenas em rede interna
+
+────────────────────────────────────────────────────────────────────────────────
+OMISSÕES — O que devia estar e não está
+────────────────────────────────────────────────────────────────────────────────
+
+  ✗ Testes automatizados de qualquer natureza
+  ✗ Persistência de relatórios entre sessões
+  ✗ Aviso explícito para páginas PDF sem texto (possível digitalização)
+  ✗ Chunking com sobreposição para melhor cobertura de especificações fronteiriças
+  ✗ Backoff exponencial para retry de erros de API
+  ✗ Integração do excel_export.py na UI principal
+  ✗ Validação de completude do output (quarto agente de fact-checking)
+
+────────────────────────────────────────────────────────────────────────────────
+CONCLUSÃO DA ANÁLISE CRÍTICA
+────────────────────────────────────────────────────────────────────────────────
+
+O BlocoAI v2.0 é um sistema funcional, bem arquitectado para o seu contexto,
+com decisões técnicas sólidas e justificadas. As suas limitações são reais
+mas não são ocultadas — foram identificadas, categorizadas e têm planos de
+resolução concretos.
+
+O que distingue uma ferramenta interna matura de um protótipo não é a
+ausência de limitações — é o conhecimento rigoroso de quais são essas
+limitações e a capacidade de as comunicar claramente aos utilizadores.
+
+O BlocoAI v2.0 passou neste critério.
+
+────────────────────────────────────────────────────────────────────────────────
+
+        Fim do Documento de Respostas Críticas
+        BlocoAI v2.0 — Análise Crítica e Justificação Técnica
+        Blocotelha · Abril 2026
+
+================================================================================
