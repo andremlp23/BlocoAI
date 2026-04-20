@@ -18,7 +18,7 @@ from tenacity import (
 _log = logging.getLogger("blocoai.retry")
 logging.basicConfig(level=logging.WARNING)
 
-# A forma correta de importar a função do teu outro ficheiro Python:
+# A forma correta de importar a função do teu outro ficheiro Python:.
 from core.document_reader import carregar_regras_json
 
 # E logo abaixo, executas a função para guardar as regras na variável:
