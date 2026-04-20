@@ -53,8 +53,8 @@ def processar_auditoria(
     file_boq,
     files_specs,
     guia_input: str,
-    pipeline_callback: Callable[[list], None],
     app_file: Path,
+    pipeline_callback: Callable[[list], None] = None,
 ) -> None:
     texto_boq = ""
     texto_specs = ""

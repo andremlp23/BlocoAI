@@ -1,22 +1,20 @@
 import streamlit as st
-
-STEPS = [
-    ("AGT-01", "Extrator", "Classificação de Domínio & Extracção"),
-    ("AGT-02", "Auditor Sénior", "Cross-Audit & Deduplicação"),
-    ("AGT-03", "Apresentador", "Formatação do Relatório Executivo"),
-]
-ICONS = {"idle": "○", "active": "◉", "done": "✓", "error": "✗", "retry": "↺"}
+import os
 
 
 def setup_sidebar() -> str:
+    """
+    Configura sidebar com autenticação e info do sistema.
+    Retorna a API key final (input ou .env).
+    """
     with st.sidebar:
         st.markdown(
             """
             <div style="margin-bottom:1.4rem">
-                <div style="font-family:'Space Mono',monospace;font-size:1.05rem;font-weight:700;color:#e8f0ff;letter-spacing:-0.01em">
-                    Bloco<span style="color:#3a8eff">AI</span>
+                <div style="font-family:'Space Mono',monospace;font-size:1.05rem;font-weight:700;color:#ffffff;letter-spacing:-0.01em">
+                    Bloco<span style="color:#cc8855">AI</span>
                 </div>
-                <div style="font-size:0.68rem;color:#2a4070;letter-spacing:0.12em;text-transform:uppercase;margin-top:0.2rem">
+                <div style="font-size:0.68rem;color:#c0c0c8;letter-spacing:0.12em;text-transform:uppercase;margin-top:0.2rem">
                     Master Cross-Audit · LangGraph
                 </div>
             </div>
@@ -27,12 +25,18 @@ def setup_sidebar() -> str:
         st.markdown('<hr class="sidebar-divider">', unsafe_allow_html=True)
         st.markdown('<span class="sidebar-label">🔑 Autenticação</span>', unsafe_allow_html=True)
 
-        api_key_env = st.session_state.get("api_key_env", "")
+        # Tentar múltiplas variáveis de ambiente
+        api_key_env = (
+            os.getenv("CHATGPT_API_KEY")
+            or os.getenv("OPENAI_API_KEY")
+            or os.getenv("OPENROUTER_API_KEY")
+            or ""
+        )
         api_key_input = st.text_input(
-            "API Key OpenAI",
+            "API Key (OpenAI/OpenRouter)",
             value="",
             type="password",
-            placeholder="sk-…  (ou definida em .env)",
+            placeholder="sk-…  ou lr-…  (ou definida em .env)",
             label_visibility="collapsed",
         )
         api_key_final = api_key_input.strip() if api_key_input.strip() else api_key_env
@@ -49,27 +53,11 @@ def setup_sidebar() -> str:
             )
 
         st.markdown('<hr class="sidebar-divider">', unsafe_allow_html=True)
-        st.markdown('<span class="sidebar-label">⚙️ Pipeline LangGraph</span>', unsafe_allow_html=True)
         st.markdown(
             """
-            <div style="background:#060d1f;border:1px solid #111e36;border-radius:6px;padding:0.8rem;font-family:'Space Mono',monospace;font-size:0.7rem;color:#2a4a7a;line-height:1.8">
-                <div><span style="color:#1e5ccc">AGT-01</span> &nbsp;Extrator</div>
-                <div style="font-size:0.6rem;color:#1a2e50;margin-left:2.4rem">Classificação · gpt-4o-mini · t=0.0</div>
-                <div style="margin-top:0.4rem"><span style="color:#1e5ccc">AGT-02</span> &nbsp;Auditor Sénior</div>
-                <div style="font-size:0.6rem;color:#1a2e50;margin-left:2.4rem">Cross-Audit · gpt-5-mini · t=0.1 · retry×2</div>
-                <div style="margin-top:0.4rem"><span style="color:#1e5ccc">AGT-03</span> &nbsp;Apresentador</div>
-                <div style="font-size:0.6rem;color:#1a2e50;margin-left:2.4rem">Formatação · gpt-4o-mini · t=0.1</div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-
-        st.markdown('<hr class="sidebar-divider">', unsafe_allow_html=True)
-        st.markdown(
-            """
-            <div style="font-size:0.65rem;color:#1a2a44;font-family:'Space Mono',monospace;line-height:1.8">
+            <div style="font-size:0.65rem;color:#8a8a96;font-family:'Space Mono',monospace;line-height:1.8">
                 v3.0 · LangGraph · BlocoApps Suite<br>
-                <span style="color:#111e36">© 2025 Blocotelha</span>
+                <span style="color:#505058">© 2025 Blocotelha</span>
             </div>
             """,
             unsafe_allow_html=True,
@@ -79,6 +67,7 @@ def setup_sidebar() -> str:
 
 
 def render_header(api_key_final: str) -> None:
+    """Renderiza header band com título e status da API."""
     badge_html = (
         '<span class="header-badge badge-ok">● API ONLINE</span>'
         if api_key_final
@@ -98,6 +87,7 @@ def render_header(api_key_final: str) -> None:
     )
 
 
+
 def ensure_session_defaults() -> None:
     for chave, valor_default in [
         ("api_key_env", ""),
@@ -111,21 +101,6 @@ def ensure_session_defaults() -> None:
     ]:
         if chave not in st.session_state:
             st.session_state[chave] = valor_default
-
-
-def render_pipeline(states: list) -> str:
-    html = ""
-    for (num, title, sub), state in zip(STEPS, states):
-        icon = ICONS.get(state, "○")
-        pulse_cls = " pulse" if state == "active" else (" pulse-amber" if state == "retry" else "")
-        html += f"""
-        <div class="pipeline-step {state}">
-            <div class="step-num {state}">{num}</div>
-            <div class="step-title {state}">{title}</div>
-            <div class="step-sub {state}">{sub}</div>
-            <div class="step-icon{pulse_cls}">{icon}</div>
-        </div>"""
-    return f'<div class="pipeline-wrap">{html}</div>'
 
 
 def render_upload_section() -> tuple:
@@ -158,12 +133,12 @@ def render_upload_section() -> tuple:
     with col_specs:
         st.markdown(
             '<div class="upload-label">Cadernos de Encargos — Specs</div>'
-            '<div class="upload-desc">Múltiplos PDFs de especificações técnicas</div>',
+            '<div class="upload-desc">PDFs e Word (.docx) com especificações técnicas</div>',
             unsafe_allow_html=True,
         )
         files_specs = st.file_uploader(
             "Specs",
-            type=["pdf"],
+            type=["pdf", "docx"],
             accept_multiple_files=True,
             key="specs",
             label_visibility="collapsed",
@@ -171,8 +146,9 @@ def render_upload_section() -> tuple:
         if files_specs:
             for f in files_specs:
                 size_kb = round(f.size / 1024, 1)
+                icon = "📄" if f.name.lower().endswith(".pdf") else "📋"
                 st.markdown(
-                    f'<span class="file-chip">📑 {f.name} &nbsp;·&nbsp; {size_kb} KB</span>',
+                    f'<span class="file-chip">{icon} {f.name} &nbsp;·&nbsp; {size_kb} KB</span>',
                     unsafe_allow_html=True,
                 )
 

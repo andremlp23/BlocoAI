@@ -18,7 +18,6 @@ from ui.components import (
     ensure_session_defaults,
     render_focus_section,
     render_header,
-    render_pipeline,
     render_results,
     render_start_section,
     render_upload_section,
@@ -64,13 +63,6 @@ def main() -> None:
 
     grafo_auditoria = construir_grafo()
 
-    pipeline_slot = st.empty()
-
-    def on_pipeline_update(states: list) -> None:
-        pipeline_slot.markdown(render_pipeline(states), unsafe_allow_html=True)
-
-    on_pipeline_update(st.session_state.pipeline_state)
-
     file_boq, files_specs = render_upload_section()
     guia_input = render_focus_section()
     iniciar = render_start_section(api_key_final, file_boq, files_specs)
@@ -81,14 +73,18 @@ def main() -> None:
         elif not file_boq and not files_specs:
             st.warning("Carrega pelo menos um documento para iniciar.")
         else:
+            def pipeline_callback(state: list) -> None:
+                """Callback para atualizar o estado da pipeline na UI."""
+                pass
+            
             processar_auditoria(
                 grafo_auditoria=grafo_auditoria,
                 api_key_final=api_key_final,
                 file_boq=file_boq,
                 files_specs=files_specs,
                 guia_input=guia_input,
-                pipeline_callback=on_pipeline_update,
                 app_file=Path(__file__),
+                pipeline_callback=pipeline_callback,
             )
 
     render_results()

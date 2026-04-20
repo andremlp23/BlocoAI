@@ -1,4 +1,5 @@
 import io
+from docx import Document
 
 import pandas as pd
 import pdfplumber
@@ -39,16 +40,47 @@ def read_document(file) -> tuple[str, list]:
                 else:
                     paginas_sem_texto.append(i + 1)
         return "\n".join(partes), paginas_sem_texto
-
-    xls = pd.ExcelFile(file)
-    lines = []
-    for sheet in xls.sheet_names:
-        df = xls.parse(sheet).astype(str)
-        for idx, row in df.iterrows():
-            vals = [v.strip() for v in row if v.strip().lower() not in RUIDO and len(v.strip()) > 1]
-            if len(vals) > 1:
-                lines.append(f"[Linha: {idx+2}] {' | '.join(vals)}")
-    return "\n".join(lines), []
+    if file.name.lower().endswith(('.docx')):
+        # Lógica para ler documentos .docx  
+        partes = []
+        try:
+            doc = Document(io.BytesIO(file.read()))
+            
+            # Extrair parágrafos
+            para_num = 0
+            for para in doc.paragraphs:
+                texto = para.text.strip()
+                if texto:  # Ignorar parágrafos vazios
+                    para_num += 1
+                    partes.append(f"[Parágrafo: {para_num}] {texto}")
+            
+            # Extrair tabelas
+            if doc.tables:
+                partes.append("\n[TABELAS DO DOCUMENTO]\n")
+                for table_idx, table in enumerate(doc.tables, 1):
+                    partes.append(f"\n[Tabela: {table_idx}]")
+                    for row_idx, row in enumerate(table.rows, 1):
+                        cells_text = []
+                        for cell in row.cells:
+                            cell_text = cell.text.strip()
+                            if cell_text.lower() not in RUIDO and cell_text:
+                                cells_text.append(cell_text)
+                        if cells_text:
+                            partes.append(f"  [Linha {row_idx}] {' | '.join(cells_text)}")
+            
+            return "\n".join(partes), []
+        except Exception as e:
+            return f"[Erro a ler DOCX: {str(e)}]", []
+    else:
+        xls = pd.ExcelFile(file)
+        lines = []
+        for sheet in xls.sheet_names:
+            df = xls.parse(sheet).astype(str)
+            for idx, row in df.iterrows():
+                vals = [v.strip() for v in row if v.strip().lower() not in RUIDO and len(v.strip()) > 1]
+                if len(vals) > 1:
+                    lines.append(f"[Linha: {idx+2}] {' | '.join(vals)}")
+        return "\n".join(lines), []
 
 # Carregar o JSON do disco (ajusta o caminho se o ficheiro estiver noutra pasta)
 def carregar_regras_json():
