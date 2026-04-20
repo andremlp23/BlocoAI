@@ -1,0 +1,71 @@
+# Executive Summary: Audit Report
+
+## Phase Breakdown
+
+### Phase: PH1
+#### Zone: CSA
+- **BOQ Specs**: S03-A2000: steel fabricated to Execution Class 2 (EXC2), steel grade S355, steel erected in accordance with NSSSBC 5th Edition; FSA Structural Steel 711.0 tn; FSA Steel Decking 3494.0 m²; FSA Intumescent Paint 2 Hr; External stair (Ground to Roof) 1 item; Cat ladder and balustrade to penthouse roof (Ground to Roof) 2 nr; Cat ladder and balustrade to penthouse roof (FSA to DCH Roof) 1 nr; Hop-over step on roof 2 nr; Bollards 22 nr; Crash protection to rising services 4 nr.
+- **Specifications (PDF)**: 05 12 00 Structural Steel Framing (EMEA); 05 31 00 Steel Decking (EMEA).
+- **Match Status**: Partial alignment.
+
+### Phase: PH2
+#### Zone: DCH Structural Steel
+- **BOQ Specs**: Steel fabricated to Execution Class 2, steel grade S355, DCH Structural Steel 752.0 tn.
+- **Specifications (PDF)**: 05 12 00 Structural Steel Framing (EMEA).
+- **Match Status**: Generally aligned.
+
+#### Zone: DCH Steel Decking
+- **BOQ Specs**: Supply and installation TATA D60x1.2mm roof decking, DCH Steel Decking 6046.0 m².
+- **Specifications (PDF)**: 05 31 00 Steel Decking (EMEA).
+- **Match Status**: Conditional alignment.
+
+#### Zone: DCH Intumescent Paint
+- **BOQ Specs**: DCH Intumescent Paint 1 Hr, quantity 756.0 tn.
+- **Specifications (PDF)**: Intumescent/fire protection items not defined.
+- **Match Status**: Conflict/uncertainty.
+
+#### Zone: Holding Down Bolt Assemblies
+- **BOQ Specs**: Holding down bolt Assemblies (no quantity provided).
+- **Specifications (PDF)**: Anchor Bolts per 05 12 00.
+- **Match Status**: Partial alignment.
+
+#### Zone: Surface Treatment
+- **BOQ Specs**: Shotblast, galvanised to EN ISO 1461.
+- **Specifications (PDF)**: Surface protection referenced to NBN EN ISO 12944-2.
+- **Match Status**: Aligned on method/standard.
+
+#### Zone: Cooling Tower Gantry
+- **BOQ Specs**: Steel fabricated to EXC2 S355, (Shell A) Structural Steel 377.0 tn.
+- **Specifications (PDF)**: 05 12 00 Structural Steel Framing.
+- **Match Status**: Mostly aligned.
+
+### Phase: PH3
+#### Zone: CSA
+- **BOQ Specs**: S03-A2000: DCH Structural Steel H.D.A. 59 nr, DCH Intumescent Paint 1 Hr 756.0 tn.
+- **Specifications (PDF)**: 05 12 00 Structural Steel Framing.
+- **Match Status**: Partial/Conflict.
+
+### Phase: PH4
+#### Zone: CSA
+- **BOQ Specs**: S03-A2000: DCH Structural Steel 747.0 tn, DCH Intumescent Paint 1 Hr 747.0 tn.
+- **Specifications (PDF)**: 05 12 00 Structural Steel Framing.
+- **Match Status**: Partial alignment.
+
+## Global Inconsistencies
+
+| ID | Category | Location / Zone | Discrepancy Found | Risk / Impact |
+|----|----------|------------------|-------------------|----------------|
+| 1  | Standards | Cross-Phase | Governing standards mismatch: NSSSBC vs NBN/EN | Legal/compliance risk |
+| 2  | Fire Protection | Cross-Phase | Inconsistent intumescent hours and probable data errors | Critical technical and pricing risk |
+| 3  | Quantity | Cross-Phase | Quantity/duplication anomalies in surface treatment and structural tonnages | Significant cost-estimating risk |
+| 4  | Decking Compliance | DCH Steel Decking | BOQ product compliance gap with EN standards | Compliance risk |
+| 5  | Missing Details | Various | Incomplete information on holding down bolts and additional steelwork | Risk of scope creep/cost overrun |
+| 6  | Units | Various | Incorrect unit assignments for paint quantities | Pricing errors |
+| 7  | Non-PDF Items | Cooling Tower Gantry | Items not defined in PDFs | Compliance risk |
+
+## Recommended Immediate Actions
+1. Confirm governing codes/standards for the project.
+2. Reconcile fire protection hours and correct paint units/quantities.
+3. Obtain product compliance certificates for decking and confirm installation/fastening methods.
+4. Reconcile all conflicting BOQ quantities against design drawings/shop drawings.
+5. Request missing details/quantities for holding down bolts, H.D.A. items, and additional external steelwork.
