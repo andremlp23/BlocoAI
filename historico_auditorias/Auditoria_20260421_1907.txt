@@ -1,0 +1,99 @@
+# Executive Summary
+
+## Phase: PH1
+
+### Zone: S03-A2000
+- **BOQ Specs:** Structural Steel: EXC2, S355; Intumescent Paint: FSA/DCH 2 hr; Stairs: Internal (FSA), External (DCH); Ladders/Balustrades: Cat ladder to penthouse roof; Holding Down Assemblies: General, FSA, DCH.
+- **Specifications (PDF):** Structural Steel Framing: EXC2, S355, NBN EN 1090 compliance; Steel Deck/Shear Studs: Min yield 350 N/mm²; Intumescent: FIRETEX FX2003/FX6002.
+- **Match Status:** Structural Steel: MATCH; Intumescent: PARTIAL MISMATCH; Stairs/Ladders/HDA: MATCH but incomplete details.
+- **Technical Profile:** Steel framing, fire protection, access steelwork, HDA.
+- **Scope Alerts:** Steel erection drawings needed; confirm intumescent fire-rating; verify H.D.A. supply/install.
+
+### Zone: S05-A2000
+- **BOQ Specs:** Steel Decking: TATA D60 x 1.2 mm; FSA/DCH Steel Decking.
+- **Specifications (PDF):** Composite roof deck, galvanized steel, S350 grade.
+- **Match Status:** PARTIAL MATCH; verify sheet grade and compliance.
+- **Technical Profile:** Decking profile, fastening, stud connector requirements.
+- **Scope Alerts:** Confirm material grade and welding requirements.
+
+### Zone: S02-A1000
+- **BOQ Specs:** Steel columns kickers/bolts: 832.11 nr, 136.0 nr.
+- **Specifications (PDF):** Structural Steel: Anchor bolts, high-strength bolts.
+- **Match Status:** PARTIAL; lacks clarity on descriptions/units.
+- **Technical Profile:** Connections, anchor bolt verification.
+- **Scope Alerts:** Clarify quantity lines; anchor-bolt survey required.
+
+### Zone: S02-A7100
+- **BOQ Specs:** Steel: 0.79074 tn; Corrosion protection: C2; Intumescent: 60 min; Holding down bolts: 16 nr.
+- **Specifications (PDF):** Corrosion classification: C2; Intumescent & shop painting.
+- **Match Status:** PARTIAL; confirm corrosion class and fire strategy.
+- **Technical Profile:** Small steel tonnage, shop-applied protection.
+- **Scope Alerts:** Confirm environmental corrosivity and fire strategy.
+
+## Phase: PH2
+
+### Zone: S02-A7200
+- **BOQ Specs:** Steel: EXC2, 0.56304 tn; Shotblast, galvanised; Cat ladders, Cooling Tower Stairs, Railings, Grating; H.D.A.: Multiple types/counts.
+- **Specifications (PDF):** Structural Steel: EXC2, galvanising.
+- **Match Status:** GOOD MATCH; QUANTITY RISK for H.D.A.
+- **Technical Profile:** Medium complexity, galvanising specified.
+- **Scope Alerts:** Coordinate galvanising vs intumescent; confirm H.D.A. supply/install.
+
+## Phase: PH3
+
+### Zone: S03-A2000
+- **BOQ Specs:** Steel: EXC2, S355, 756.0 tn; Intumescent: 1 hr; External Stair; H.D.A.: 59 nr.
+- **Specifications (PDF):** Structural Steel: EXC2, S355; Intumescent: FIRETEX options.
+- **Match Status:** PARTIAL; fire-resistance mismatch.
+- **Technical Profile:** Heavy structural tonnage, extensive fabrication.
+- **Scope Alerts:** Resolve fire rating inconsistency; confirm intumescent application.
+
+### Zone: S02-A7200
+- **BOQ Specs:** Steel: EXC2; Shotblast, galvanised; Cooling Tower Stairs, Railings, Grating; H.D.A.: Multiple types/counts.
+- **Specifications (PDF):** EXC2, galvanising standard.
+- **Match Status:** MATCH; QUANTITY variance requires reconciliation.
+- **Technical Profile:** Repeatable secondary steelwork.
+- **Scope Alerts:** Consolidate H.D.A. supply lists.
+
+## Phase: PH4
+
+### Zone: S03-A2000
+- **BOQ Specs:** Steel: 747.0 tn; Intumescent: 1 hr.
+- **Specifications (PDF):** Structural Steel and Intumescent: Sitewide requirements.
+- **Match Status:** PARTIAL; fire rating conflicts.
+- **Technical Profile:** Large DCH steel tonnage.
+- **Scope Alerts:** Confirm fire rating and application method.
+
+### Zone: S05-A2000
+- **BOQ Specs:** TATA D60 x 1.2 mm Roof Decking; DCH Steel Decking: 6046.0 m².
+- **Specifications (PDF):** Composite roof deck, EN-compliant galvanized steel.
+- **Match Status:** PARTIAL; confirm TATA D60 compliance.
+- **Technical Profile:** Large-volume decking scope.
+- **Scope Alerts:** Confirm compliance and validate labour rates.
+
+### Zone: S02-A7200
+- **BOQ Specs:** Steel: EXC2; Shotblast, galvanised: 249.0 tn; Cooling Tower Stairs, Railings, Grating; H.D.A.: Multiple types/counts.
+- **Specifications (PDF):** EXC2, galvanising standard.
+- **Match Status:** MATCH; QUANTITY totals require reconciliation.
+- **Technical Profile:** Significant galvanised steel scope.
+- **Scope Alerts:** Reconcile tonnage progression.
+
+## Global Inconsistencies
+
+| ID | Category | Location / Zone | Discrepancy Found | Risk / Impact |
+|----|----------|-----------------|-------------------|---------------|
+| 1  | Fire Protection | PH1, PH3, PH4 | Intumescent 1 hr vs 2 hr | High-risk technical inconsistency |
+| 2  | Material Grade | All Phases | S350 vs S355 | Price implications |
+| 3  | H.D.A. | All Phases | Quantity and responsibility | Supply/installation risk |
+| 4  | Tonnage | S03-A2000, S02-A7200 | Phased deliveries or inconsistent counting | Double-counting risk |
+| 5  | Decking Compliance | S05-A2000 | TATA D60 vs EN standards | Major cost impact |
+| 6  | Fire Protection Scope | All Phases | Factory vs site application | Cost definition |
+| 7  | Standards and QA | All Phases | Pre-erection surveys, certified welders | Schedule and cost allowances |
+| 8  | Cost Exposure | S05-A2000 | Large decking area | Cost & programme risk |
+
+### Immediate Recommended Actions
+1. Issue an RFI to clarify fire resistance rating (1 hr vs 2 hr) for each zone.
+2. Reconcile H.D.A. counts and define supply vs install responsibility.
+3. Verify TATA D60 product compliance with EN standards.
+4. Consolidate total steel tonnage by zone/phase against design drawings.
+5. Add explicit allowances for QA/testing, certified welders, and temporary works/erection drawings.

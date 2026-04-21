@@ -1,0 +1,85 @@
+# Executive Summary
+
+## Phase Breakdown
+
+### Phase: PH1
+- **Zone: SW**
+  - **BOQ Specs:** Precast road gullies 450mm dia x 750mm deep to BS 5911 Pt 6, trapped with capped rodding eye, heavy duty cast iron gully cover and frame class D400 to EN 124:1994, gully bedded and surrounded in 150mm C20/25 Dmac 20 concrete with 300 x 300mm concrete surround in paved areas; Half-batter concrete kerb inclusive of all excavations, disposal and footings; Surface course 200mm RC32/40 (slump 50mm) compacted by vibrating beam to EN 206-1, special concrete finish via integral additive or surface waterproof coating; Reinforcement: 1 layer A393 mesh top and bottom, 75mm cover, minimum lap 350mm, epoxy covered dowel; C30/37 concrete to slabs; C35/45 concrete to walls; Structural steel: fabricated to Execution Class 2, steel grade S355, erected per NSSSBC 5th Edition; Supply & install TATA D60 x 1.2mm roof decking; FSA intumescent paint for 2-hour fire rating.
+  - **Specifications (PDF):** Structural Steel Framing (EN/NBN) requiring Execution Class 2 (EXC2), steel grades per NBN EN 10025 (S355JR unless otherwise noted), high-strength bolting and welding standards (NBN EN 14399 / 15048 / 1090), erection drawings, temporary works method statements, quality plan, corrosion protection to NBN EN ISO 12944-2; Steel Decking spec requiring galvanized steel to EN 10346 / EN 10143, typical deck grade S350 (unless otherwise specified), shear-stud and puddle-weld fastening schedules and lap/edge fastening rules; Intumescent coatings spec requiring applied systems to achieve the specified fire resistance rating, with application and testing requirements.
+  - **Match Status:** Partial alignment — Structural steel EXC2 and S355 in BOQ align with Structural Steel Framing PDFs, roof decking product is specified in BOQ but lacks the deck fastening, stud/weld spacings and material grade detail required by Steel Decking PDF (PDF cites S350 as typical unless otherwise agreed), intumescent requirement exists in both sources but BOQ specifies 2 hr while PDFs require "specified fire resistance" without consistent hour value (other BOQ lines show 1 hr), and BOQ omits many procedural/documentation requirements from PDFs (erection/temporary works drawings, quality plan, recycled content declaration, grout and corrosion classification).
+
+### Phase: PH2
+- **Zone: DCH Structural Steel**
+  - **BOQ Specs:** Steel fabricated to Execution Class 2, steel grade S355, erected in accordance with NSSSBC 5th Edition; DCH Structural Steel quantity line (752.0 tn).
+  - **Specifications (PDF):** Structural Steel Framing requiring EXC2, NBN EN 1090 compliance, NBN EN 10025 S355JR material, high-strength bolting NBN EN 14399 / 15048, welded construction NBN EN 1090, erection and temporary works drawings, connection design under PE supervision, quality plan, corrosion protection per NBN EN ISO 12944-2, 70% recycled content declaration required.
+  - **Match Status:** Partial alignment — BOQ intent (EXC2, S355) aligns with PDF material/execution class, but BOQ omits extensive compliance and administrative requirements (detailed fabrication/erection submissions, connection calculations, quality plan, recycled content), creating procedural and potential cost/schedule risk.
+
+- **Zone: DCH Steel Decking**
+  - **BOQ Specs:** Supply & install TATA D60 x 1.2mm roof decking, DCH Steel Decking quantity line (6046.0 m2).
+  - **Specifications (PDF):** Steel Decking spec: galvanized steel to EN 10346 / EN 10143, typical grade S350 unless otherwise specified, shear stud connector properties and compliance to BS EN ISO 13918, minimum bearing 50 mm, puddle weld and fastening schedules (20 mm puddle welds, spacing rules, edge lap and closure fastening minimums), anchoring and welding spacing and tack-weld rules, longitudinal and transverse fastening requirements.
+  - **Match Status:** Partial conflict — BOQ names a specific decking product but does not include the PDF-required fastening/weld/stud schedules, minimum bearing requirements, nor clarify deck steel grade (PDF defaults to S350 while BOQ elsewhere specifies S355 for structural steel), presenting technical and contractual risk.
+
+- **Zone: INTUMESCENT FIRE PROTECTION**
+  - **BOQ Specs:** DCH intumescent paint 1-hour (752.0 tn line item).
+  - **Specifications (PDF):** Intumescent Fireproofing spec: intumescent coatings applied to primary and secondary structural steel members to provide the specified fire resistance rating, with system selection, surface preparation, application thicknesses and testing/QA requirements.
+  - **Match Status:** Conflict — BOQ lists a 1-hour intumescent item (and uses tonnage units), while other BOQ lines (PH1) call out 2-hour paint; PDFs require system selection to meet the specified rating but do not resolve the inconsistent hour rating or the inappropriate units (tn) for coating. Missing application thickness, system identification and QA/testing obligations.
+
+- **Zone: Holding down bolt Assemblies**
+  - **BOQ Specs:** Holding down bolt assemblies.
+  - **Specifications (PDF):** Structural Steel Framing: requirement to provide holes, grouting (non-shrink grout ≥35 MPa), and related erection tolerances; Metal Fabrications and Stairs specs cover fabricated anchors and stair anchorage capacity.
+  - **Match Status:** Partial — BOQ gives a generic line; PDFs define required grouting, tolerances and coordination obligations but BOQ lacks specific anchor type, material/grade, embedment, testing or welding/installation method.
+
+- **Zone: Surface treatment**
+  - **BOQ Specs:** Shotblast, galvanised to EN ISO 1461 (duplicate entries deduplicated), surface touch-up after erection.
+  - **Specifications (PDF):** Structural Steel Framing: corrosion protection to NBN EN ISO 12944-2, touch-up painting after erection; Steel/Erection specs require cleaning and touch-up of field connections.
+  - **Match Status:** Partial conflict — the galvanizing standard cited (EN ISO 1461) aligns with corrosion protection intent, but the BOQ wording "Shotblast, galvanised to EN ISO 1461" is ambiguous (sequence/process unclear), duplicate quantity lines in BOQ show large disparity (0.56304 tn vs 377.0 tn). PDFs require corrosion classification and touch-up regimes that are not fully specified in BOQ.
+
+- **Zone: Reinforcement**
+  - **BOQ Specs:** Reinforcement straight or bent, nominal size 12–25 mm to foundations (deduplicated).
+  - **Specifications (PDF):** No dedicated concrete reinforcement spec provided in supplied PDFs.
+  - **Match Status:** Partial — BOQ gives item and quantities (two different quantities were listed and deduplicated), but no PDF cross-reference exists in provided specs; quantity inconsistencies present within BOQ.
+
+### Phase: PH3
+- **Zone: S03-A2000**
+  - **BOQ Specs:** DCH Structural Steel H.D.A. (59 nr), DCH Intumescent Paint 1 Hr (756 tn), External stair (ground to roof) DCH (1 item), Bollards (9 nr), Stairs over roof parapets (Phase 2 only) (2 nr).
+  - **Specifications (PDF):** Structural Steel Framing, Metal Stairs and Ramps (stairs/landings/railings loadings: top rail 1.0 kN/m and concentrated 0.5 kN), Intumescent Fireproofing spec, Metal Fabrications for bollards/stairs.
+  - **Match Status:** Partial alignment with conflicts — stairs and railing loadings and fabrication obligations are covered by PDFs and align functionally with BOQ stair/bollard items, but BOQ omits the required design loads and fabrication/anchorage detail reference; intumescent scope again listed as 1 hr in BOQ which conflicts with other BOQ entries (2 hr) and lacks system/application detail.
+
+### Phase: PH4
+- **Zone: S03-A2000**
+  - **BOQ Specs:** DCH Structural Steel (747.0 tn), DCH Intumescent Paint 1 Hr (747.0 tn).
+  - **Specifications (PDF):** Structural Steel Framing, Intumescent Fireproofing.
+  - **Match Status:** Conflict/Incomplete — BOQ pairs structural steel tonnage with an equal tonnage of intumescent paint (unit/quantity anomaly — paint not normally quantified in tonnes to match steel tonnage directly), PDFs require fireproofing to be specified by required rating and coating system; BOQ lacks coating specification and units are likely incorrect.
+
+- **Zone: S05-A2000**
+  - **BOQ Specs:** DCH Steel Decking (6046.0 m2), Composite Euroclad top deck roof panel 280mm with Sika VCL and single ply membrane (5944.0 m2).
+  - **Specifications (PDF):** Steel Decking and Roof Panel requirements: galvanized steel to EN standards, deck fastening and stud/weld schedules, roof panel system and vapour control layer requirements.
+  - **Match Status:** Partial alignment — BOQ provides product names and areas, PDFs impose detailed fastening, stud/weld, and material grade requirements that are not specified in BOQ; small area mismatch between decking and roof panel quantities (6046 m2 vs 5944 m2) requires reconciliation.
+
+- **Zone: S02-A7200**
+  - **BOQ Specs:** Steel fabricated to Execution Class 2, steel grade S355, (Shell A) Structural Steel (249.0 tn), Shotblast and galvanised to EN ISO 1461 (249.0 tn).
+  - **Specifications (PDF):** Structural Steel Framing (EXC2, S355JR), corrosion protection to NBN EN ISO 12944-2, galvanizing standard EN ISO 1461.
+  - **Match Status:** Mostly aligned — material/execution class and galvanizing standard align with PDFs, but BOQ again references NSSSBC in other places vs PDF EN/NBN norms; BOQ lacks the full administrative and QA deliverables (shop/erection drawings, quality plan, connection calculations).
+
+- **Zone: S02-A1100**
+  - **BOQ Specs:** C30/37 concrete to slabs (226.6 m3), Reinforcement to foundations 33.99 tn.
+  - **Specifications (PDF):** No dedicated concrete/reinforcement PDF provided in supplied extracts.
+  - **Match Status:** No direct PDF alignment — concrete class and reinforcement quantities given in BOQ, but no corresponding specification document was provided to validate cover, placement, curing, or reinforcement detailing standards.
+
+## Global Inconsistencies
+
+| ID | Category | Location / Zone | Discrepancy Found | Risk / Impact |
+|----|----------|-----------------|-------------------|---------------|
+| 1  | Fireproofing rating mismatch and unit anomalies | Cross-Phase | BOQ contains both 1-hour and 2-hour intumescent paint line items across phases and quantifies paint in tonnes equal to steel tonnages in some zones — PDFs require a specified fire resistance rating and system-based application rates; lack of a single, reconciled fire rating and incorrect units (tn for coating) present major technical and pricing risk. | Major technical and pricing risk |
+| 2  | Material grade and standard conflicts | Cross-Phase | BOQ references steel grade S355 and erection per NSSSBC 5th Edition in some entries, while Steel Decking PDF defaults to S350 for deck sheets and Structural PDFs reference NBN/EN standards (S355JR, EN 1090). Mixed standard references (NSSSBC vs NBN/EN) risk non-conforming procurement, rework and contractual disputes. | Risk of non-conforming procurement, rework and contractual disputes |
+| 3  | Missing installation/assembly details for deck/composite systems | Cross-Phase | BOQ names deck products and areas but omits required fastening schedules, shear stud specification, puddle-weld spacings, minimum bearing, and lap/edge fastening rules from the Steel Decking PDF — this creates structural performance and price variation exposure. | Structural performance and price variation exposure |
+| 4  | Duplicate/contradictory BOQ quantities | Cross-Phase | Reinforcement and shotblast/galvanise entries show duplicate lines with different quantities (e.g., reinforcement 39.3363 tn vs 50.985 tn, shotblast galvanise 0.56304 tn vs 377.0 tn), and decking vs roof panel area mismatch (6046.0 m2 vs 5944.0 m2). These must be reconciled to avoid double-counting or omitted scope and cost error. | Risk of double-counting or omitted scope and cost error |
+| 5  | Administrative and QA omissions in BOQ | Cross-Phase | PDFs require detailed deliverables (erection/shop drawings, temporary works method statements, connection calculations, quality plan, PE-supervised connection design, non-shrink grout spec, corrosion classification), many of which are not specified in BOQ lines — potential for underpriced scope, programme delays and non-compliance. | Potential for underpriced scope, programme delays and non-compliance |
+| 6  | Corrosion-protection process ambiguity | Cross-Phase | BOQ phrase "Shotblast, galvanised to EN ISO 1461" is unclear on sequencing and applicability; combined with missing corrosion classification per NBN EN ISO 12944-2, there is risk of incorrect surface preparation or incompatible coatings leading to durability failures and rework. | Risk of incorrect surface preparation or incompatible coatings leading to durability failures and rework |
+| 7  | Recycled-content and sustainability requirement | Cross-Phase | PDF requires contractor declaration that steel contains 70% recycled content — this procurement/specification constraint is not mirrored in BOQ and may materially affect supplier selection, cost and leadtimes. | May materially affect supplier selection, cost and leadtimes |
+| 8  | Units and measure inconsistencies | Cross-Phase | Multiple BOQ items use non-standard units for items (e.g., tonnage for paint), and combine count (nr/item) and mass/area inconsistently across related items; this increases the risk of pricing errors and measurement disputes on site. | Increases the risk of pricing errors and measurement disputes on site |
+
+## Recommended Immediate Actions
+- Convene a reconciliation workshop with Design, Procurement and Estimating to: confirm the required intumescent fire rating (single agreed value and basis for coating quantities), reconcile steel grades/standards (NSSSBC vs NBN/EN) and normalize to the project's governing standard, resolve duplicate BOQ quantities and mismatched areas, and incorporate PDF-mandated deliverables (drawings, QA, connection calculations) into BOQ scope and pricing.
+- Update BOQ line descriptions to include mandatory PDF requirements for decking fastening, shear studs, grouting, corrosion class, and recycled-content declaration; correct units for coatings and grouting.
+- Re-issue controlled BOQ revisions once reconciled to avoid latent contractual and cost risk.

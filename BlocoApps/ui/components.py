@@ -87,6 +87,14 @@ def render_header(api_key_final: str) -> None:
     )
 
 
+def render_debug_toggle() -> bool:
+    """Renderiza checkbox de debug na barra principal."""
+    col1, col2, col3 = st.columns([1, 8, 1])
+    with col3:
+        debug_mode = st.checkbox("🐞", help="Ativar Modo Debug", value=False)
+    return debug_mode
+
+
 
 def ensure_session_defaults() -> None:
     for chave, valor_default in [
@@ -103,69 +111,37 @@ def ensure_session_defaults() -> None:
             st.session_state[chave] = valor_default
 
 
-def render_upload_section() -> tuple:
-    st.markdown(
-        """
-        <div class="section-card">
-            <span class="section-number">STEP 01 / 03</span>
-            <div class="section-title">📂 Documentos de Entrada</div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+def render_upload_section():
+    st.markdown("""
+    <div class="section-card">
+        <span class="section-number">STEP 01 / 03</span>
+        <div class="section-title">📂 Documentos de Entrada</div>
+    </div>
+    """, unsafe_allow_html=True)
 
     col_boq, col_specs = st.columns(2, gap="medium")
+
     with col_boq:
-        st.markdown(
-            '<div class="upload-label">BOQ — Bill of Quantities</div>'
-            '<div class="upload-desc">Ficheiro de orçamento principal · Excel ou PDF</div>',
-            unsafe_allow_html=True,
-        )
-        file_boq = st.file_uploader("BOQ", type=["xlsx", "xls", "pdf"], key="boq", label_visibility="collapsed")
-        if file_boq:
-            ext = file_boq.name.split(".")[-1].upper()
-            size_kb = round(file_boq.size / 1024, 1)
-            st.markdown(
-                f'<span class="file-chip">📄 {file_boq.name} &nbsp;·&nbsp; {ext} &nbsp;·&nbsp; {size_kb} KB</span>',
-                unsafe_allow_html=True,
-            )
+        st.markdown('<div class="upload-label">BOQ — Bill of Quantities</div>'
+                    '<div class="upload-desc">Ficheiro de orçamento principal · Excel ou PDF</div>',
+                    unsafe_allow_html=True)
+        
+        file_boq = st.file_uploader("BOQ", type=["xlsx","xls","pdf"], key="boq", label_visibility="collapsed")
+        # APAGADO: O bloco "if file_boq: ... st.markdown(file-chip)" que estava aqui
 
     with col_specs:
-        st.markdown(
-            '<div class="upload-label">Cadernos de Encargos — Specs</div>'
-            '<div class="upload-desc">PDFs e Word (.docx) com especificações técnicas</div>',
-            unsafe_allow_html=True,
-        )
-        files_specs = st.file_uploader(
-            "Specs",
-            type=["pdf", "docx"],
-            accept_multiple_files=True,
-            key="specs",
-            label_visibility="collapsed",
-        )
-        if files_specs:
-            for f in files_specs:
-                size_kb = round(f.size / 1024, 1)
-                icon = "📄" if f.name.lower().endswith(".pdf") else "📋"
-                st.markdown(
-                    f'<span class="file-chip">{icon} {f.name} &nbsp;·&nbsp; {size_kb} KB</span>',
-                    unsafe_allow_html=True,
-                )
+        st.markdown('<div class="upload-label">Cadernos de Encargos — Specs</div>'
+                    '<div class="upload-desc">PDFs e Word (.docx) com especificações técnicas</div>',
+                    unsafe_allow_html=True)
+        
+        files_specs = st.file_uploader("Specs", type=["pdf", "docx"], accept_multiple_files=True, key="specs", label_visibility="collapsed")
+        # APAGADO: O bloco "if files_specs: for f in files_specs: ... st.markdown(file-chip)" que estava aqui
 
     st.markdown("<div style='height:0.4rem'></div>", unsafe_allow_html=True)
+
     return file_boq, files_specs
 
-
 def render_focus_section() -> str:
-    st.markdown(
-        """
-        <div class="section-card" style="margin-top:0.8rem">
-            <span class="section-number">STEP 02 / 03</span>
-            <div class="section-title">🎯 Foco da Auditoria</div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
 
     guia_padrao = (
         "Foco Exclusivo: Graus de Aço/Betão, Revestimentos, Espessuras, "
@@ -181,15 +157,6 @@ def render_focus_section() -> str:
 
 
 def render_start_section(api_key_final: str, file_boq, files_specs) -> bool:
-    st.markdown(
-        """
-        <div class="section-card" style="margin-top:0.8rem">
-            <span class="section-number">STEP 03 / 03</span>
-            <div class="section-title">🚀 Iniciar Processamento</div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
 
     col_btn, col_hint = st.columns([2, 5], gap="medium")
     with col_btn:

@@ -1,0 +1,63 @@
+# Executive Summary
+
+## Phase Breakdown
+
+### Phase: PH1
+- **Zone: Sitewide**
+  - **BOQ Specs:** Structural Steel: EXC2, S355; Roof Decking: TATA D60 x 1.2 mm; Fire Protection: FSA Intumescent Paint — 2 hr; Concrete: C35/45 walls, C30/37 slabs; Reinforcement: 12 mm–25 mm; Waterstops: Horizontal to kicker, Vertical at 6.0 m o.c.
+  - **Specifications:** Structural Steel: EXC2, S355JR; Bolts/Fasteners: NBN EN 14399/15048; Welding: NBN EN 1090; Steel Decking: Manufacturer's instructions; Intumescent Coatings: Specified FRR.
+  - **Match Status:** Broad alignment on EXC2/S355 and presence of steel decking/intumescent coatings. Gaps in local code (NSSSBC) vs EN/NBN standards.
+
+### Phase: PH2
+- **Zone: S02-A7200**
+  - **BOQ Specs:** Structural Steel: EXC2, S355; Quantities: 377.0 tn, 0.56304 tn; Surface Treatment: Shotblast, galvanise EN ISO 1461; Secondary Steel: CAT ladders, Cooling Tower Stairs, Railings, Grating.
+  - **Specifications:** Structural Steel: EXC2, S355JR; Fasteners: NBN EN 1090; Surface Prep: Sa 2.5, galvanizing EN ISO 1461.
+  - **Match Status:** Good match on material grade and galvanizing. Issues with local vs EN/ISO standards and missing welding/fastening details.
+
+- **Zone: S02-A1100**
+  - **BOQ Specs:** Similar to S02-A7200.
+  - **Specifications:** Same as S02-A7200.
+  - **Match Status:** Same observations as S02-A7200.
+
+### Phase: PH3
+- **Zone: S03-A2000**
+  - **BOQ Specs:** Structural Steel: EXC2, S355; Intumescent Paint: DCH — 1 hr; Fixings: Holding down bolt assemblies.
+  - **Specifications:** Intumescent: Specified FRR; Structural: EXC2, S355JR; Anchor Bolts: EN 15048.
+  - **Match Status:** Conflict in intumescent rating (1 hr vs 2 hr); BOQ indicates DCH product, PDFs require performance standards.
+
+### Phase: PH4
+- **Zone: S03-A2000**
+  - **BOQ Specs:** Similar to PH3.
+  - **Specifications:** Same as PH3.
+  - **Match Status:** Same as PH3.
+
+- **Zone: S05-A2000**
+  - **BOQ Specs:** Roof system: Euroclad, Sika, Sarnafil; Parapet: 2000 mm; Crickets: PIR insulation; Roof Walkway: Infiltration fleece, rubber matting, plywood, astroturf; Lightning Protection: 5 x 5 m grid.
+  - **Specifications:** Steel Decking: Generic requirements; Roofing/Membrane: Not fully specified.
+  - **Match Status:** BOQ specifies proprietary roof build-up not covered by PDFs.
+
+- **Zone: S02-A7200 (PH4)**
+  - **BOQ Specs:** Similar to PH2.
+  - **Specifications:** Same as PH2.
+  - **Match Status:** Duplicate zone with similar specs — reconcile phase assignment.
+
+## Global Inconsistencies
+
+| ID | Category                        | Location / Zone | Discrepancy Found                                                                 | Risk / Impact                                                                 |
+|----|---------------------------------|-----------------|-----------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
+| 1  | Intumescent Fire Rating Mismatch| PH1, PH3, PH4   | BOQ lists different intumescent ratings (2 hr vs 1 hr); PDFs require specified FRR| Clarify design FRR by area; confirm product & certification acceptance.       |
+| 2  | Standards & Code Conflicts      | All Phases      | BOQ references NSSSBC; PDFs mandate NBN EN/ISO standards                         | Confirm governing standard hierarchy to avoid rework or non-compliance risk.  |
+| 3  | Brand vs Performance Specs      | All Phases      | BOQ uses brand-specific items; PDFs specify performance/standards                | Require approved product submittals and equivalency confirmations.            |
+| 4  | Missing / Under-specified Scope | All Phases      | PDFs require certified welders, independent testing, full QA plans, etc.         | Potential unpriced scope & cost uplift.                                       |
+| 5  | Duplicate Zones Across Phases   | PH2, PH4        | Zone S02-A7200 appears in both phases with overlapping specs                      | Reconcile phase allocation and quantities to avoid double scope/price.        |
+| 6  | Quantity/Line-Item Inconsistencies | All Phases   | Multiple qty lines for the same spec (e.g., 377 tn and 0.56304 tn)               | Validate BOQ line consolidation and verify separate items or duplicated records. |
+| 7  | Roofing/Decking Coordination Risk | PH4           | BOQ includes specific roof assembly not covered by PDFs                          | Obtain roofing system spec and manufacturer interface requirements.           |
+| 8  | Anchor / Hold-down & Grouting Details | All Phases | PDFs list anchor bolt standards; BOQ lacks details                               | Confirm quantities, embedment details, grout specification and acceptance testing. |
+| 9  | Financial Risks                 | All Phases      | Potential unpriced items: temporary works, QA/testing, certified welders, etc.   | Uncertainty in FRR and product approvals may cause change orders and delays.  |
+
+## Recommended Immediate Actions
+- Clarify governing standards (NSSSBC vs NBN EN) and confirm precedence.
+- Resolve FRR requirements per zone/element (confirm 1 hr vs 2 hr locations).
+- Request product submittals for all branded items and confirm equivalency.
+- Reconcile duplicate zones/phase allocations and ambiguous qty lines.
+- Issue RFIs for roofing specification, diaphragm calculations, fastening system design requirements, and list of mandatory QA/testing deliverables for pricing inclusion.

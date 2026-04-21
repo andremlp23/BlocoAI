@@ -2,20 +2,20 @@ import os
 import sys
 from pathlib import Path
 
-# 1. Encontrar a pasta raiz do projeto (BlocoApps), que é o "pai" da pasta "ui"
-root_dir = Path(__file__).resolve().parent.parent
+# 1. Encontrar a pasta raiz do projeto (BlocoApps), onde vivem as pastas "core" e "ui"
+root_dir = Path(__file__).resolve().parent
 
-# 2. Adicionar essa pasta ao "radar" do Python para ele encontrar a pasta "core" e "ui"
+
 if str(root_dir) not in sys.path:
     sys.path.insert(0, str(root_dir))
 
-# 3. Agora os imports locais vão funcionar perfeitamente
 import streamlit as st
 
 from core.langgraph_engine import construir_grafo
 from core.orchestrator import processar_auditoria
 from ui.components import (
     ensure_session_defaults,
+    render_debug_toggle,
     render_focus_section,
     render_header,
     render_results,
@@ -60,6 +60,7 @@ def main() -> None:
 
     api_key_final = setup_sidebar()
     render_header(api_key_final)
+    debug_mode = render_debug_toggle()
 
     grafo_auditoria = construir_grafo()
 
@@ -85,6 +86,7 @@ def main() -> None:
                 guia_input=guia_input,
                 app_file=Path(__file__),
                 pipeline_callback=pipeline_callback,
+                debug_mode=debug_mode,
             )
 
     render_results()

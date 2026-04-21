@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Project — Fluxo de Trabalho</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f5f9;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 52px 24px 72px;
+      color: #1a1f36;
+    }
+
+    /* ── HEADER ─────────────────────────────────────── */
+    header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 100px;
+      margin-bottom: 18px;
+    }
+    header h1 {
+      font-size: 30px;
+      font-weight: 800;
+      color: #111827;
+      letter-spacing: -0.6px;
+    }
+    header p {
+      margin-top: 8px;
+      font-size: 14.5px;
+      color: #6b7280;
+    }
+
+    /* ── FLOW WRAPPER ────────────────────────────────── */
+    .flow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 780px;
+      gap: 0;
+    }
+
+    /* ── BLOCK (section with phase label + cards) ────── */
+    .block {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* ── PHASE PILL ──────────────────────────────────── */
+    .phase-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      align-self: flex-start;
+    }
+    .pill-gray   { background:#f3f4f6; color:#374151; border:1px solid #e5e7eb; }
+    .pill-violet { background:#ede9fe; color:#5b21b6; border:1px solid #c4b5fd; }
+    .pill-blue   { background:#dbeafe; color:#1e40af; border:1px solid #93c5fd; }
+
+    /* ── CARDS ROW ───────────────────────────────────── */
+    .cards-row {
+      display: flex;
+      gap: 14px;
+      width: 100%;
+    }
+    .cards-row.single { justify-content: center; }
+    .cards-row.single .card { max-width: 460px; flex: none; }
+
+    /* ── CARD ────────────────────────────────────────── */
+    .card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 20px 22px;
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.05), 0 4px 14px rgba(0,0,0,.06);
+      border: 1px solid rgba(0,0,0,.07);
+      transition: transform .18s, box-shadow .18s;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,.1);
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      border-radius: 14px 14px 0 0;
+    }
+    .card.c-gray::before   { background: linear-gradient(90deg,#9ca3af,#d1d5db); }
+    .card.c-violet::before { background: linear-gradient(90deg,#7c3aed,#a78bfa); }
+    .card.c-indigo::before { background: linear-gradient(90deg,#4338ca,#818cf8); }
+    .card.c-blue::before   { background: linear-gradient(90deg,#1d4ed8,#60a5fa); }
+    .card.c-teal::before   { background: linear-gradient(90deg,#0f766e,#2dd4bf); }
+
+    .card-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .i-gray   { background:#f3f4f6; }
+    .i-violet { background:#ede9fe; }
+    .i-indigo { background:#e0e7ff; }
+    .i-blue   { background:#dbeafe; }
+    .i-teal   { background:#ccfbf1; }
+
+    .card-body { display: flex; flex-direction: column; gap: 3px; }
+    .card-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      color: #111827;
+    }
+    .card-sub {
+      font-size: 12px;
+      color: #9ca3af;
+      line-height: 1.55;
+    }
+
+    /* ── AI ENGINE BOX ───────────────────────────────── */
+    .ai-engine {
+      border-radius: 16px;
+      padding: 24px 36px;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 8px 32px rgba(0,0,0,.18);
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
+    .ai-engine::after {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.07);
+    }
+    .ai-engine .eng-icon  { font-size: 30px; margin-bottom: 6px; }
+    .ai-engine .eng-label {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase; opacity: .7;
+    }
+    .ai-engine .eng-title {
+      font-size: 22px; font-weight: 800; letter-spacing: -.4px; margin-top: 3px;
+    }
+    .engine-f1 { background: linear-gradient(135deg, #5b21b6 0%, #7c3aed 100%); }
+    .engine-f2 { background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+                 box-shadow: 0 8px 32px rgba(30,64,175,.25); }
+
+    /* ── CONNECTOR (arrow between blocks) ───────────── */
+    .connector {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      padding: 4px 0;
+      position: relative;
+    }
+    .conn-line {
+      width: 2px;
+      height: 36px;
+      border-radius: 2px;
+    }
+    .conn-arrow {
+      width: 0; height: 0;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+    }
+    .conn-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 5px;
+      padding: 3px 10px;
+      border-radius: 100px;
+    }
+
+    /* Violet connector */
+    .conn-v .conn-line  { background: linear-gradient(to bottom, #c4b5fd, #7c3aed); }
+    .conn-v .conn-arrow { border-top: 9px solid #7c3aed; }
+    .conn-v .conn-label { background: #ede9fe; color: #5b21b6; }
+
+    /* Blue connector */
+    .conn-b .conn-line  { background: linear-gradient(to bottom, #93c5fd, #2563eb); }
+    .conn-b .conn-arrow { border-top: 9px solid #2563eb; }
+    .conn-b .conn-label { background: #dbeafe; color: #1e40af; }
+
+    /* ── FUTURE BADGE ────────────────────────────────── */
+    .future-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fef3c7;
+      border: 1px solid #fde68a;
+      color: #92400e;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 6px;
+      align-self: flex-start;
+    }
+
+    /* ── LEGEND ──────────────────────────────────────── */
+    .legend {
+      margin-top: 52px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      color: #6b7280;
+    }
+    .leg-dot {
+      width: 10px; height: 10px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="badge">🤖 AI Project</div>
+    <h1>Fluxo de Trabalho do Modelo AI</h1>
+    <p>Processamento automático de documentação técnica de obra</p>
+  </header>
+
+  <!-- FLOW -->
+  <div class="flow">
+
+    <!-- ①  INPUTS -->
+    <div class="block">
+      <div class="phase-pill pill-gray">📂 Inputs</div>
+      <div class="cards-row">
+        <div class="card c-gray">
+          <div class="card-icon i-gray">🏗️</div>
+          <div class="card-body">
+            <div class="card-title">Documentação Técnica da Obra</div>
+            <div class="card-sub">Peças escritas, desenhos, cadernos de encargos e restante documentação de projeto</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONNECTOR ↓ -->
+    <div class="connector conn-v">
+      <div class="conn-line"></div>
+      <div class="conn-arrow"></div>
+      <div class="conn-label">processamento</div>
+    </div>
+
+    <!-- ②  MODELO AI — FASE 1 -->
+    <div class="block">
+      <div class="phase-pill pill-violet">⚙️ Fase 1 — Modelo AI</div>
+      <div class="cards-row single">
+        <div class="ai-engine engine-f1">
+          <div class="eng-icon">🧠</div>
+          <div class="eng-label">Motor AI</div>
+          <div class="eng-title">Modelo AI — Fase 1</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONNECTOR ↓ -->
+    <div class="connector conn-v">
+      <div class="conn-line"></div>
+      <div class="conn-arrow"></div>
+      <div class="conn-label">saídas geradas</div>
+    </div>
+
+    <!-- ③  RESUMOS (outputs fase 1) -->
+    <div class="block">
+      <div class="phase-pill pill-violet">📄 Saídas — Fase 1</div>
+      <div class="cards-row">
+        <div class="card c-violet">
+          <div class="card-icon i-violet">📋</div>
+          <div class="card-body">
+            <div class="card-title">Resumo de Materiais</div>
+            <div class="card-sub">Compilação estruturada dos materiais identificados na documentação</div>
+          </div>
+        </div>
+        <div class="card c-indigo">
+          <div class="card-icon i-indigo">📐</div>
+          <div class="card-body">
+            <div class="card-title">Resumo de Características Técnicas</div>
+            <div class="card-sub">Formato matriz tabular com os parâmetros técnicos da obra</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONNECTOR ↓ (future) -->
+    <div class="connector conn-b" style="padding: 6px 0 2px;">
+      <div class="conn-line"></div>
+      <div class="conn-arrow"></div>
+      <div class="conn-label" style="background:#dbeafe; color:#1e40af;">alimentam fase 2</div>
+    </div>
+
+    <!-- ④  MODELO AI — FASE 2 -->
+    <div class="block" style="margin-top:4px;">
+      <div class="future-note">🕐 Fase 2 — implementação futura</div>
+      <div class="phase-pill pill-blue">⚙️ Fase 2 — Modelo AI</div>
+      <div class="cards-row single">
+        <div class="ai-engine engine-f2">
+          <div class="eng-icon">🧠</div>
+          <div class="eng-label">Motor AI</div>
+          <div class="eng-title">Modelo AI — Fase 2</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONNECTOR ↓ -->
+    <div class="connector conn-b">
+      <div class="conn-line"></div>
+      <div class="conn-arrow"></div>
+      <div class="conn-label">saídas geradas</div>
+    </div>
+
+    <!-- ⑤  OUTPUTS FASE 2 -->
+    <div class="block">
+      <div class="phase-pill pill-blue">📤 Saídas — Fase 2</div>
+      <div class="cards-row">
+        <div class="card c-blue">
+          <div class="card-icon i-blue">📄</div>
+          <div class="card-body">
+            <div class="card-title">Memória Técnica</div>
+            <div class="card-sub">Doc. Word em formato executivo, pronto a submeter</div>
+          </div>
+        </div>
+        <div class="card c-teal">
+          <div class="card-icon i-teal">🔍</div>
+          <div class="card-body">
+            <div class="card-title">Consultas de Material</div>
+            <div class="card-sub">Pedidos de cotação e fichas técnicas de produtos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- .flow -->
+
+  <!-- LEGEND -->
+  <div class="legend">
+    <div class="legend-item">
+      <div class="leg-dot" style="background:#9ca3af;"></div> Inputs
+    </div>
+    <div class="legend-item">
+      <div class="leg-dot" style="background:#7c3aed;"></div> Fase 1
+    </div>
+    <div class="legend-item">
+      <div class="leg-dot" style="background:#2563eb;"></div> Fase 2 (futura)
+    </div>
+  </div>
+
+</body>
+</html>

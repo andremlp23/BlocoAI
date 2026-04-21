@@ -55,6 +55,7 @@ def processar_auditoria(
     guia_input: str,
     app_file: Path,
     pipeline_callback: Callable[[list], None] = None,
+    debug_mode: bool = False,
 ) -> None:
     texto_boq = ""
     texto_specs = ""
@@ -117,11 +118,36 @@ def processar_auditoria(
 
         estado_final = dict(estado_inicial)
 
+        debug_container = None
+        if debug_mode:
+            debug_container = st.container()
+
         for chunk in grafo_auditoria.stream(estado_inicial, {"recursion_limit": 10}, stream_mode="updates"):
             for node_name, updates in chunk.items():
                 estado_final.update(updates)
                 st.session_state.pipeline_state = _pipeline_state_from_node(node_name, estado_final)
                 pipeline_callback(st.session_state.pipeline_state)
+
+                # Debug output condicional
+                if debug_mode and debug_container:
+                    if node_name == "extrair":
+                        resumo_boq = estado_final.get("resumo_boq", "")
+                        resumo_specs = estado_final.get("resumo_specs", "")
+                        with debug_container.expander("🔍 Output AGT-01 (Extrator)"):
+                            if resumo_boq:
+                                st.markdown("**BOQ Summary:**")
+                                st.text(resumo_boq[:500] + "..." if len(resumo_boq) > 500 else resumo_boq)
+                            if resumo_specs:
+                                st.markdown("**Specs Summary:**")
+                                st.text(resumo_specs[:500] + "..." if len(resumo_specs) > 500 else resumo_specs)
+
+                    elif node_name == "auditar":
+                        auditoria_bruta = estado_final.get("auditoria_bruta", "")
+                        with debug_container.expander("🧠 Output AGT-02 (Auditor)"):
+                            if auditoria_bruta:
+                                st.text(auditoria_bruta[:800] + "..." if len(auditoria_bruta) > 800 else auditoria_bruta)
+                            else:
+                                st.markdown("*Sem output ainda...*")
 
         prog_slot.empty()
         status_slot.empty()

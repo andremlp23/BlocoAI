@@ -28,10 +28,10 @@ html, body, [class*="css"] {
   background-color: var(--bg) !important;
   color: var(--text) !important;
 }
-#MainMenu, footer, header { visibility: hidden; }
+footer, header { visibility: hidden; }
 .block-container { padding: 0 2rem 4rem 2rem !important; max-width: 1280px; }
 
-/* Sidebar */
+
 section[data-testid="stSidebar"] {
   background: var(--sidebar) !important;
   border-right: 1px solid var(--border);

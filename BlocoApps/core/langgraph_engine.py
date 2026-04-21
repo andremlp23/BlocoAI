@@ -89,12 +89,18 @@ def _extrair_chunks(texto: str, nome_ficheiro: str, llm, prog_placeholder, statu
     contexto_str = f"\nPROJECT CONTEXT (Prioritize this):\n{contexto_specs}\n" if contexto_specs else ""
 
     sys_msg = SystemMessage(content=f"""You are an Expert Engineering Classifier.
-CRITICAL EXTRACTION RULES (OBEY THIS JSON STRICTLY):
-{REGRAS_EXTRACAO}
-{contexto_str}
-FORMAT FOR EVERY ITEM FOUND:
-[FILE: {nome_ficheiro}] | Phase: <phase> | Zone: <zone> | Spec: <exact string>
-""")
+    CRITICAL EXTRACTION RULES (OBEY THIS JSON STRICTLY):
+    {REGRAS_EXTRACAO}
+    {contexto_str}
+
+    ZONE IDENTIFICATION RULE (CRITICAL):
+    - A "Zone" is strictly a physical building location, grid reference, or area code (e.g., S03-A2000, S02-A7200, CSA, Roof, Level 1).
+    - NEVER use materials, item descriptions, or trades (e.g., "Intumescent Paint", "Reinforcement", "Steel Decking", "Surface treatment") as a Zone.
+    - If the text does not explicitly state a physical location, you MUST classify the Zone as "Sitewide".
+
+    FORMAT FOR EVERY ITEM FOUND:
+    [FILE: {nome_ficheiro}] | Phase: <phase> | Zone: <zone> | Spec: <exact string>
+    """)
 
     # 1. Pré-alocar a lista para garantir que a ordem dos chunks não se perde
     resumos = [None] * len(chunks)
@@ -140,7 +146,7 @@ def no_router(state: AuditoriaState) -> dict:
 
 
 def no_extrator(state: AuditoriaState) -> dict:
-    llm = ChatOpenAI(model="gpt-4o-mini", api_key=state["_api_key"], temperature=0.0)
+    llm = ChatOpenAI(model="gpt-4o", api_key=state["_api_key"], temperature=0.0)
 
     prog = state["_prog_slot"]
     status = state["_status_slot"]
@@ -185,23 +191,37 @@ def no_auditor(state: AuditoriaState) -> dict:
     if state["modo"] == "CROSS":
         dados = f"=== BOQ EXTRACTS ===\n{state['resumo_boq']}\n\n=== PDF SPECS EXTRACTS ===\n{state['resumo_specs']}"
         missao = "CROSS-DOCUMENT AUDIT"
+        formato_secao = """
+        * [Material/Trade 1] (e.g., Structural Steel):
+            - BOQ: [Extracted BOQ details]
+            - Specs: [Extracted PDF details]
+            - Assessment: [Match / Conflict / Missing detail]
+        * [Material/Trade 2] (e.g., Fire Protection):
+            - ...
+        """
     else:
         dados = state["resumo_boq"] or state["resumo_specs"]
         missao = "SINGLE-DOCUMENT HIERARCHY"
+        formato_secao = """
+        * [Material/Trade 1]:
+            - Specs: [Extracted details]
+            - Inconsistencies: [Any local issues found]
+        """
 
     sys_msg = SystemMessage(
         content=f"""You are a Lead Estimator performing a {missao}.
-CLEAN, DEDUPLICATE, and ORGANIZE the raw data into a readable executive summary.
+CLEAN, DEDUPLICATE, and ORGANIZE the raw data into a highly readable summary.
 
 CRITICAL RULES:
-1. DEDUPLICATION IS MANDATORY: If a spec appears multiple times in the same Zone, write it ONLY ONCE.
-2. NO LONG BULLETED LISTS: Combine specs into neat, comma-separated paragraphs.
-3. GLOBAL AUDIT: Include a "GLOBAL INCONSISTENCIES" section at the end.
+1. DEDUPLICATION: If a spec appears multiple times in the same Zone, merge it into ONE clear bullet point.
+2. GROUP BY MATERIAL: Do not write paragraphs. You MUST group findings by Material/Trade (e.g., Structural Steel, Fire Protection, Concrete, Decking).
+3. STRICT ZONING: Group items strictly by their physical Phase and Zone. 
+4. GLOBAL AUDIT: Include a "GLOBAL INCONSISTENCIES" section at the end.
 
-{"CROSS-DOCUMENT FORMAT:" if missao == "CROSS-DOCUMENT AUDIT" else "SINGLE-DOCUMENT FORMAT:"}
-Phase: [Name]
---> Zone: [Name]
-{"   ---> BOQ SPECS: [...]\n   ---> SPECIFICATIONS (PDF): [...]\n   ---> MATCH STATUS: [Aligned / conflict description]" if missao == "CROSS-DOCUMENT AUDIT" else "   ---> TECHNICAL PROFILE: [...]\n   ---> LOCAL INCONSISTENCIES: [...]"}
+OUTPUT TEMPLATE:
+Phase: [Phase Name]
+--> Zone: [Zone Name]
+{formato_secao}
 
 GLOBAL INCONSISTENCIES (CROSS-PHASE / CROSS-DOC)
 [List major technical and financial risks]
@@ -209,7 +229,7 @@ GLOBAL INCONSISTENCIES (CROSS-PHASE / CROSS-DOC)
     )
 
     try:
-        auditoria = _invocar_llm(llm, [sys_msg, HumanMessage(content=f"Build the clean deduplicated audit:\n\n{dados}")])
+        auditoria = _invocar_llm(llm, [sys_msg, HumanMessage(content=f"Build the structured audit:\n\n{dados}")])
     except Exception as e:
         erros = list(state.get("erros", []))
         erros.append(f"AGT-02 tentativa {tentativas} ({type(e).__name__}): {e}")
@@ -219,17 +239,18 @@ GLOBAL INCONSISTENCIES (CROSS-PHASE / CROSS-DOC)
 
 
 def no_apresentador(state: AuditoriaState) -> dict:
-    llm = ChatOpenAI(model="gpt-4o-mini", api_key=state["_api_key"], temperature=0.1)
+    # Mantemos o gpt-4o (standard) para não perder nenhum detalhe e seguir a formatação visual à risca!
+    llm = ChatOpenAI(model="gpt-4o", api_key=state["_api_key"], temperature=0.1)
 
     sys_msg = SystemMessage(
         content="""You are an Executive Technical Writer for a Construction Firm.
 Format the raw audit into a beautiful, user-friendly Executive Summary.
 
 CRITICAL FORMATTING RULES:
-1. TONE: Professional, concise, user-friendly.
-2. HIERARCHY: Clean Phase/Zone breakdown with comma-separated specs.
-3. THE TABLE: Convert "Global Inconsistencies" into a Markdown Table.
-   Columns: | ID | Category | Location / Zone | Discrepancy Found | Risk / Impact |
+1. PRESERVE STRUCTURE: Keep the nested bullet points exactly as the Auditor provided them. Do NOT convert bullet points into dense paragraphs.
+2. ZERO DATA LOSS: You are strictly forbidden from summarizing, cutting, or omitting any technical details, grades, or assessments. Transcribe all data precisely.
+3. THE TABLE: Convert the "Global Inconsistencies" section into a strict Markdown Table.
+   Columns MUST be: | ID | Category | Location / Zone | Discrepancy Found | Risk / Impact |
 4. NO ADDED DATA: Do not invent new data. Only format what the Auditor provided.
 """
     )
@@ -239,7 +260,7 @@ CRITICAL FORMATTING RULES:
             llm,
             [
                 sys_msg,
-                HumanMessage(content=f"Format this raw audit into a clean Executive Report:\n\n{state['auditoria_bruta']}"),
+                HumanMessage(content=f"Format this raw audit into a clean Executive Report preserving all bullet points:\n\n{state['auditoria_bruta']}"),
             ],
         )
         return {"relatorio_final": relatorio}
