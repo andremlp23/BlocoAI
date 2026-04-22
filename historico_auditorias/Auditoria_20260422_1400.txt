@@ -1,0 +1,111 @@
+# Executive Summary
+
+## Phase: PH3
+### Zone: S03-A2000
+
+- **Structural Steel:**
+  - **BOQ:** DCH Structural Steel H.D.A.
+  - **Specs:** Sitewide structural steel spec (05 12 00): Steel to NBN EN 10025 Grade S355JR; Execution Class 2 (EXC2) per NBN EN 1090-2; contractor to provide connection design, pre-erection conference, shop drawings, anchor bolt checks, temporary bracing, tolerance limits (max variation 6 mm).
+  - **Assessment:** Missing detail — BOQ identifies "DCH Structural Steel H.D.A." but does not state steel grade, confirmation of EXC2, shop-drawing scope or anchor-bolt coordination references required by the PDF. Needs explicit confirmation that DCH = material/finish consistent with EN standards.
+
+- **Intumescent Fireproofing / Paint:**
+  - **BOQ:** DCH Intumescent Paint 1 Hr
+  - **Specs:** Sitewide fireproofing (07 81 23): Intumescent coatings to achieve specified FRR; specific products referenced (Sherwin Williams FIRETEX FX2003, FX6002, C69 primer, M71V2 topcoat); surface prep per EN ISO 8501-1; DFT/wet-film/dry-film measurement, batch numbers, environmental controls, QA testing and records; ASFP guidance (TGD 11).
+  - **Assessment:** Missing detail / Partial match — BOQ specifies 1‑hour rating only. PDFs require product selection, DFTs, surface prep, and QA records. Must confirm which product/system, required DFT, compatibility with shop/field coatings and any galvanised substrates.
+
+- **External Stairs (Ground to Roof level):**
+  - **BOQ:** External Stair (Ground to Roof level) DCH
+  - **Specs:** Sitewide metal stairs & ramps (05 51 00 / 05 50 00): Provide anchors, plates, hangers and attachments; pre-finish for C4 external environment if exposed; weld/site joints per EN 1011; welding certification; shop drawings and connection details required.
+  - **Assessment:** Missing detail — BOQ names the stair but lacks material grade, finish, handrail/anchorage details, corrosion class, manufacturing/erection standards and whether supplied galvanized or intumescent-coated.
+
+### Zone: S02-A7200
+
+- **Structural Steel:**
+  - **BOQ:** Steel fabricated to exc class 2, all steel grade S355. Steel erected in accordance with the NSSSBC 5th Edition.
+  - **Specs:** Sitewide structural steel (05 12 00): EXC2 per NBN EN 1090-2; S355JR per NBN EN 10025; erection & temporary bracing, shop drawings, camber, alignment and anchor-bolt confirmation.
+  - **Assessment:** Partial match / Potential conflict — BOQ specifies EXC2 and S355 which aligns with PDFs; however BOQ cites "NSSSBC 5th Edition" for erection while PDFs require compliance with NBN EN 1090 and local best practice. Confirm which erection standard governs (NSSSBC vs EN-based requirements).
+
+- **Surface Treatment / Galvanising / Blast:**
+  - **BOQ:** Shotblast, galvanised to EN ISO 1461
+  - **Specs:** Sitewide: Hot-dip galvanise to EN ISO 1461; shop painting timing and environmental conditions; surface prep standards (EN ISO 8501-1), profile (EN ISO 8503-2); compatibility requirement between corrosion protection and intumescent systems.
+  - **Assessment:** Partial match / Missing detail — EN ISO 1461 referenced matches PDF. Clarify sequence: shotblasting prior to galvanising is unusual (shotblast typically precedes painting, not hot-dip galvanising). Need confirmation of intended sequence and compatibility with intumescent/topcoat systems.
+
+- **Stairs (Gantry Emergency Stairs; Cooling Tower Stairs):**
+  - **BOQ:** Gantry Emergency Stairs; Cooling Tower Stairs
+  - **Specs:** Metal stairs & ramps (05 51 00): Design, anchors, welding, C4 pre-finish for external, weld certification, shop drawings.
+  - **Assessment:** Missing detail — BOQ lists stair types but lacks material grade, finish (galvanised vs painted vs intumescent), handrail specification and anchor details. PDFs supply requirements that must be referenced.
+
+- **Railings / Handrails:**
+  - **BOQ:** Railings
+  - **Specs:** Sitewide: Provide wall brackets, end closures, flanges, anchors for handrails; pre-finish for C4 external environment; bracket spacing/clearance; anchor types for concrete/masonry (drilled-in expansion anchors).
+  - **Assessment:** Missing detail — BOQ generic. Need confirmation of handrail material, finish class, anchorage type, and coordination with concrete/masonry.
+
+- **Grating:**
+  - **BOQ:** 30mm open mesh grating
+  - **Specs:** Metal fabrications (05 50 00): general metal fabrication requirements, anchors, finishes; specific grating sizes not detailed in PDFs extract.
+  - **Assessment:** Missing detail — BOQ specifies mesh size but PDFs do not confirm grating specification (load rating, material grade, finish). Require structural/load spec and finish.
+
+- **Holding-down / Anchor Bolt Assemblies:**
+  - **BOQ:** Supply Holding down bolt assemblies - MCP; Supply Holding down bolt assemblies - USS; Supply Holding down bolt assemblies - S25
+  - **Specs:** Sitewide: Anchor Bolts per NBN EN 15048; anchor plates and embed placement coordination; verify grades as specified.
+  - **Assessment:** Partial match / Missing detail — BOQ lists types (MCP, USS, S25) but does not give sizes, embed plate details, grades or installation tolerances. PDFs demand NBN EN 15048 compliance and anchor-bolt verification prior to erection — provide sizes/grades/plate details and installation drawings.
+
+## Phase: PH4
+### Zone: S03-A2000
+
+- **Structural Steel:**
+  - **BOQ:** DCH Structural Steel; DCH Structural Steel H.D.A.
+  - **Specs:** Sitewide structural steel (05 12 00): S355JR, EXC2, shop drawings, welding and bolting standards, tolerances, anchor bolt confirmation.
+  - **Assessment:** Missing detail — duplication across PH3/PH4 indicates repeated scope; BOQ lacks clarity on differences between PH3 and PH4 supply (H.D.A. vs non-H.D.A.). Confirm scope duplication and whether separate deliveries/works or cumulative quantities.
+
+- **Intumescent Fireproofing / Paint:**
+  - **BOQ:** DCH Intumescent Paint 1 Hr
+  - **Specs:** Sitewide intumescent spec (07 81 23): product choices (FIRETEX variants), primer/topcoat, DFT requirements, QA/testing, compatibility with corrosion protection, environmental controls.
+  - **Assessment:** Missing detail — same as PH3 S03: BOQ requires a 1 hr rating but lacks system/product/DFT/inspection criteria.
+
+### Zone: S05-A2000
+
+- **Steel Decking / Roof Deck:**
+  - **BOQ:** Supply and Installation TATA D60x1.2mm Roof Decking; DCH Steel Decking
+  - **Specs:** Steel decking (05 31 00): Composite roof deck; deck units from galvanized steel sheet EN 10346 / NBN EN 10143, grade S350 (unless otherwise agreed); supplementary framing for openings ≤ 450 mm; bearing plates/angles; stud shear connectors; anchor composite deck with 20 mm puddle welds at ends/intermediates; provide 1.6 mm slab edge pour stops and related accessories; welders certified for shear studs.
+  - **Assessment:** Partial match / Conflict & Missing detail — BOQ specifies TATA D60 profile at 1.2 mm. PDF requires deck steel grade S350 (not specified in BOQ) and references detailing (edge strips 1.6 mm etc). Need confirmation that 1.2 mm sheet thickness and TATA D60 profile meet structural/composite design and S350 grade requirement; confirm stud/weld and framing details, closure/edge accessories and manufacturer approval.
+
+- **Corrosion Protection / Finish for Decking:**
+  - **BOQ:** (implicit via DCH Steel Decking)
+  - **Specs:** Deck sheet galvanized to EN 10346; installation per manufacturer's recommendations; compatibility with adjacent coatings.
+  - **Assessment:** Missing detail — BOQ lacks sheet material specification (galvanised grade, coating mass), and coordination with underside/topside finishes or roof waterproofing.
+
+### Zone: S02-A7200
+
+- **Structural Steel:**
+  - **BOQ:** Steel fabricated to exc class 2, all steel grade S355. Steel erected in accordance with the NSSSBC 5th Edition.
+  - **Specs:** (same sitewide structural requirements as above: EXC2, S355JR, shop drawings, welding/bolting standards).
+  - **Assessment:** Same as PH3 S02-A7200 — partial match but verify governing erection standard (NSSSBC vs NBN EN 1090) and confirm deliverables.
+
+- **Surface Treatment / Galvanising:**
+  - **BOQ:** Shotblast, galvanised to EN ISO 1461
+  - **Specs:** Hot-dip galvanise per EN ISO 1461; shop painting schedules and environmental limits; compatibility requirements with intumescent coatings and topcoats.
+  - **Assessment:** Same as PH3 S02-A7200 — clarifiy sequence and compatibility; confirm whether items intended for galvanising will also receive paint/intumescent systems (not both without specific compatibility).
+
+- **Stairs; Railings; Grating; Holding Down Bolts:**
+  - **BOQ:** Cooling Tower Stairs; Railings; 30mm open mesh grating; Supply Holding down bolt assemblies - MCP/USS/S25
+  - **Specs:** Metal stairs/railings/metal fabrications sitewide require anchors, finishes (C4 where external), welding and shop drawings; anchors per NBN EN 15048; handrail anchorage details per 05 12 00.
+  - **Assessment:** Missing detail — BOQ lists items but lacks finish, material grade, load rating and anchorage details. Holding down bolt types need sizes/grades and embed details to meet EN spec.
+
+## Global Inconsistencies
+
+| ID | Category | Location / Zone | Discrepancy Found | Risk / Impact |
+|----|----------|-----------------|-------------------|---------------|
+| 1  | Standards conflict risk | Cross-phase | BOQ erection reference to "NSSSBC 5th Edition" vs PDFs focused on NBN EN 1090/EN standards. | Clarify which standard governs erection tolerances, QA and execution to avoid rework or differing contractor responsibilities. |
+| 2  | Fireproofing under-specified in BOQ | Cross-phase | BOQ only states "Intumescent Paint 1 Hr" and "DCH Intumescent Paint" without system, product, required DFTs, or QA acceptance criteria. | Technical and financial risk if coatings or thicknesses later changed. |
+| 3  | Coating compatibility and sequence ambiguity | Cross-phase | BOQ calls for shotblast + galvanise and also intumescent/topcoat systems are required in PDFs. | Hot-dip galvanising then intumescent paints require specific primers/pretreatment and may not be compatible with all intumescent systems — requires confirmation to avoid adhesion failures and rework. |
+| 4  | Decking specification gap | Cross-phase | BOQ lists TATA D60x1.2mm deck but PDFs require deck steel grade S350 and detail accessories (1.6 mm edge strips, stud connectors, puddle weld spacing). | Unclear if 1.2 mm meets structural/composite design — potential scope and cost change if thicker deck or alternate profile required. |
+| 5  | Anchor / holding-down specifics missing | Cross-phase | BOQ lists MCP/USS/S25 types but omits sizes, plate details, embed coordination and grades required by NBN EN 15048 and shop drawings. | Risk of incorrect procurement or foundation rework. |
+| 6  | Repetition without quantity/clarity | Cross-phase | Same items appear across PH3 and PH4 (same zones) without clear differentiation. | Risk of double-claim or omitted work if quantities/scope boundaries are not explicit. Also initial BOQ extracts show RateLimitError for some BOQ blocks — full BOQ data (quantities, unit rates) missing; major commercial risk. |
+| 7  | Material grade variance | Cross-phase | BOQ calls S355 (structural) while decking spec references S350 for sheet. | Ensure coherent material grades across connections and welds (S350 deck to S355 structure) and confirm compatibility. |
+| 8  | Missing design deliverables | Cross-phase | BOQ items lack explicit requirement to submit shop drawings, QA test plans, intumescent certification, wet/dry film records and batch numbers that PDFs require. | This is a contractual risk if not enforced. |
+| 9  | Tolerances & erection QA | Cross-phase | PDFs set tolerances (max 6 mm plumb/offset) and require independent testing agency. | BOQ does not call out these QA deliverables — risk of disputes at erection stage. |
+
+### Actions Recommended
+- Issue clarification RFI to confirm governing erection standard, intumescent system/product & DFTs, galvanising vs paint sequence and compatibility, decking grade/thickness acceptance, and full holding-down bolt schedules with embed plate details.
+- Require submission of shop drawings and QA plan per PDF specs prior to fabrication.

@@ -78,7 +78,7 @@ def render_header(api_key_final: str) -> None:
         <div class="header-band">
             <div>
                 <div class="header-title">Bloco<span>AI</span> — Master Cross-Audit</div>
-                <div class="header-tag">Análise Técnica · Motor LangGraph · 3 Agentes Especializados</div>
+                <div class="header-tag">Análise Técnica · Motor LangGraph · 3 Agentes</div>
             </div>
             <div style="display:flex;align-items:center;gap:0.8rem">{badge_html}</div>
         </div>

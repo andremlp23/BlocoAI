@@ -1,0 +1,282 @@
+# Executive Summary
+
+## Phase: PH1
+
+### Zone: S01-A0201
+
+- **Structural Steel:**
+  - **BOQ:** Steel bollards 32 nr; fabricated steel S355JR default; execution class referenced where applicable.
+  - **Specs:** Steel to NBN EN 10025 S355JR; EXC2 per NBN EN 1090; shop/erection QA & welder certification required (NBN EN ISO 9606-1).
+  - **Assessment:** Match (grade/standards present). Missing detail: shop drawings / weld/bolting submittals and 70% recycled content not referenced in BOQ line.
+
+- **H.D.A. / Cast-in Anchors:**
+  - **BOQ:** Casting-in H.D.A. 10 nr (cast & grout); dowels / chemical anchors total merged qty 191 nr (65+28+69+29).
+  - **Specs:** Anchor bolts per NBN EN 15048; chemical anchors per manufacturer/NBN guidance; high-strength bolts per NBN EN 14399; grout non‑shrink min 35 MPa required by project spec.
+  - **Assessment:** Match on standards. Missing detail: anchor sizes/types, embedment depths, tolerance templates, installation sequence and who supplies H.D.A. (BOQ mixes free-issue vs supply in other zones).
+
+- **Grouting / Concrete interface:**
+  - **BOQ:** Allow for grouting under baseplates where applicable; concrete foundations interface noted for nearby items.
+  - **Specs:** Grout non-shrink, non-metallic, min 35 MPa @28d; grout & levelling to Engineer's tolerances.
+  - **Assessment:** Match in performance requirement. Missing detail: joint tolerances & acceptance criteria not listed.
+
+### Zone: S02-A1200
+
+- **Grouting / Baseplates:**
+  - **BOQ:** Grout in base plates from superstructures; non-shrink non-metallic min 35 MPa; casting-in H.D.A. 6 nr.
+  - **Specs:** Grout spec per PDF (non-shrink, 35 MPa @28d); anchoring per NBN EN 15048.
+  - **Assessment:** Match. Missing detail: staging/sequence (interface with metal stair supplier), grout pack thickness/tolerances.
+
+- **Concrete Foundations:**
+  - **BOQ:** Concrete foundations for metal steps/stairs 150.0 m3; additional foundations for mini-pillars/fuel pipe plinths 100.0 m3.
+  - **Specs:** Interface with cast-in inserts/anchors; engineer details govern recesses and anchor positions.
+  - **Assessment:** Match on interfaces. Missing detail: reinforcement detail, concrete class and curing requirements not specified in BOQ.
+
+### Zone: S02-A1300
+
+- **H.D.A. / Cast-in Anchors:**
+  - **BOQ:** Casting-in H.D.A. and grout in place — merged total 92 nr (items: 10 + 22 + 16 + 8 + 8 + 10 + 18).
+  - **Specs:** Hold-down anchors per NBN EN 15048 / NBN EN 14399 as applicable; grout non-shrink min 35 MPa; coordinate with erection drawings.
+  - **Assessment:** Match on performance/standards. Missing detail: anchor sizes/types, exact HDA Types (BP1/BP2/BP4 referenced elsewhere), responsibility for supply vs free-issue in some lines.
+
+- **Chemical Dowels / Anchors:**
+  - **BOQ:** Chemical anchors / dowels (multiple line items) — merged total 53 nr (22+6+6+7+12).
+  - **Specs:** Install per manufacturer's system and EOR drawings; conform to NBN EN 15048 where applicable.
+  - **Assessment:** Match. Missing detail: adhesive system specified, hole diameters, embedment depths and QA/test regime.
+
+- **Shear/connectivity items:**
+  - **BOQ:** (none explicit here beyond anchors & dowels)
+  - **Specs:** PDF requires connection calculations and shop drawings for all connections.
+  - **Assessment:** Missing detail: Connection design submittals and calculation references are not tied to HDA/dowel BOQ lines.
+
+### Zone: S10-A4000
+
+- **H.D.A. / Cast-in Anchors:**
+  - **BOQ:** Casting-in H.D.A. and grout in place — 48 nr.
+  - **Specs:** Anchors per NBN EN 15048; grout non-shrink min 35 MPa; coordinate with erection drawings.
+  - **Assessment:** Match. Missing detail: anchor schedules, dimensions and responsibility for grout supply/testing.
+
+### Zone: S02-A1500
+
+- **H.D.A. / Cast-in Anchors:**
+  - **BOQ:** Casting-in H.D.A. (free issue from structural steel subcontractor) Type BP1/BP2/BP4 — 200 nr.
+  - **Specs:** Anchors per NBN EN 15048 / NBN EN 14399; grout non-shrink min 35 MPa.
+  - **Assessment:** Match on standards. Conflict/Missing detail: BOQ notes H.D.A. are free‑issue in this zone but other zones mix supply vs free‑issue — clarify supplier responsibility and acceptance testing.
+
+- **Scabble / Stub Columns:**
+  - **BOQ:** Scabble construction joint at each steel stanchion — 200 nr; forming diamond recess 500x500x200 mm — 200 nr; form concrete stub column to surround stanchion — 200 nr.
+  - **Specs:** Scabbling, bonding agent, infill and stub columns per Engineer drawings; D49 wrapping mesh as required.
+  - **Assessment:** Match. Missing detail: sequencing / temporary supports and acceptance criteria for patch repair.
+
+- **Grouting / Baseplates:**
+  - **BOQ:** Allow for grouting steel bases (site grout under baseplates) — 200 nr; grout spec non-shrink 35 MPa.
+  - **Specs:** Grout per PDF requirements.
+  - **Assessment:** Match. Missing detail: baseplate shim system and final tolerance verification.
+
+### Zone: S03-A2000 (PH1 entries — FSA & DCH mixed)
+
+- **Structural Steel — FSA:**
+  - **BOQ:** FSA Structural Steel supply & erection 711.0 t (S355); H.D.A. provision 59 nr; intumescent fire protection 2‑hour tied to 711 tn; fabricated items: internal stair 1 nr; loading dock fencing/handrails 87; cat ladder 2; bollards 22; hop-over steps 15.
+  - **Specs:** Steel S355JR per NBN EN 10025; EXC2 NBN EN 1090; intumescent application and QA per manufacturer and EN 1090 QA; welders certified.
+  - **Assessment:** Mostly Match. Conflict: PDF/other phases specify 1‑hour intumescent in some PHs; BOQ here calls 2‑hour — confirm fire rating scope. Missing detail: coating system manufacturer/DFT and fireproofing preparation responsibilities.
+
+- **Structural Steel — DCH:**
+  - **BOQ:** DCH Structural Steel supply & erection 888.0 t; DCH H.D.A. qty 67 nr; DCH intumescent 2 hr for 888 tn; external stair (ground to roof) 1 nr; cat ladder & balustrade 2 nr; bollards 9; hop-over steps 2 nr.
+  - **Specs:** Same standards: S355JR, EXC2, EN 10025, EN 1090; intumescent to manufacturer spec and QA under EN 1090.
+  - **Assessment:** Match on standards. Conflict: overlapping / duplicate scope between FSA and DCH elements in same zone requires clear scope split (fabrication pockets). Missing detail: delineation of which elements are FSA vs DCH responsibility and intumescent thickness schedules.
+
+- **Surface Treatment / Galvanising:**
+  - **BOQ:** Shotblast & galvanise entries for small Shell A items (7.23051 t) and touch-up after erection 1 no allowance.
+  - **Specs:** Galvanising to EN ISO 1461; surface prep Sa2.5 (ISO 8501-1); touch-up primer same DFT as shop coat per EN ISO 12944.
+  - **Assessment:** Match. Missing detail: shop vs site coating split and repair procedure for field damage.
+
+### Zone: S05-A2000 (PH1)
+
+- **Steel Decking:**
+  - **BOQ:** Supply & install TATA D60 x 1.2 mm roof decking — FSA 3494.0 m2; other deck item KINGSPAN RD 100/825 metal deck 1.5 mm area 77.92 m2; cat ladder, railings qty noted.
+  - **Specs:** Deck sheets to NBN EN 10346 / NBN EN 10143; grade S350 for sheets; install per manufacturer; stud connectors per EN ISO 13918.
+  - **Assessment:** Match. Missing detail: fastening pattern, puddle weld counts and diaphragm calculations (PDF requires Hilti or approved fastening based on calculations) not tied to BOQ quantities.
+
+### Zone: S02-A1600
+
+- **H.D.A. / Cast-in Anchors:**
+  - **BOQ:** Casting-in H.D.A. (Type BP1/BP2/BP4) 306 nr (PH1); PH3 lists 215 nr; PH4 references casting-in & grouting (no qty). Shiraz chemical anchor H.D.A. 600 nr (PH1/PH3/PH4 references).
+  - **Specs:** Anchors per NBN EN 15048 / NBN EN 14399; chemical anchors per manufacturer; grout non-shrink 35 MPa; stud shear connectors per EN ISO 13918 where applicable.
+  - **Assessment:** Conflict: H.D.A. quantities differ between phases (306 vs 215 vs unspecified) — verify cumulative total and which phase executes which anchors. Missing detail: anchor type allocation and installation responsibility.
+
+- **Shear Connectors / ConiBar:**
+  - **BOQ:** Load shear connectors 245.0 qty (PH1/PH3/PH4 variations) and ConiBar tie qty 266.0.
+  - **Specs:** Studs to EN ISO 13918 min yield 350 N/mm2, UTS 450 N/mm2 and 15% elongation; ConiBar per engineer/manufacturer.
+  - **Assessment:** Match on performance standard. Missing detail: stud sizes, welding method, QA/testing and diaphragm calculations linking deck to studs.
+
+- **RSA (galv) inserts:**
+  - **BOQ:** 50x50x6 RSA galvanized with fishtail tangs 8 nr for MV/LV chambers.
+  - **Specs:** Galvanise per EN ISO 1461; cast-in per engineer's drawings.
+  - **Assessment:** Match. Missing detail: exact location drawings and embed detail.
+
+### Zone: S02-A7100
+
+- **Structural Steel (Generator & USS trenches):**
+  - **BOQ:** Generator Trench steel 0.790740 t; USS Trench steel 10.426843 t; holding down bolts supply only — Gen 16 nr; USS 32 nr.
+  - **Specs:** Steel S355, EXC2 per NBN EN 1090; corrosion protection for trenches C2 per EN ISO 12944-2; intumescent factory-applied 60 minutes for trench steels.
+  - **Assessment:** Match for standards. Missing detail: clarification on intumescent 60 min (PDF generally identifies 1 hr/2 hr elsewhere) and touch‑up scope; trench environment classification (C2) matches but confirm exposure conditions.
+
+### Zone: S02-A7200
+
+- **Structural Steel (Cooling Tower Gantry / Shell A / Supports):**
+  - **BOQ:** Multiple entries across phases: Gantry tonnages vary (537.0 t, 377.0 t, 385.0 t, 249.0 t, 385.0 t across PH1-PH4) — numerous variation per phase; Shell A supports small tonnages (1.12608 t, 0.56304 t, 0.37536 t). Cat ladders, stairs, railings, grating quantities vary by phase (railings 702/405/270 etc; gratings 1153/657/438 m2).
+  - **Specs:** S355JR, EXC2 NBN EN 1090; galvanise per EN ISO 1461 where applicable; fabrication/erection per NSSSBC; handrail loads 1.0 kN/m; grating and galvanising standards per project.
+  - **Assessment:** Conflict: Gantry tonnages and quantities differ across phases — need consolidated tonnage/phase split. Missing detail: clear phase-by-phase deliverable allocation (who supplies what per phase), galv vs paint application for each subassembly and final QA responsibilities.
+
+- **Holding-down Bolt Assemblies / Supply:**
+  - **BOQ:** Multiple supply & cast-in H.D.A. entries and supply counts for MCP, ASB, CTB, USS, MUP, S24, S25 (various counts per phase), and phase-specific supply counts change across PH2/PH3/PH4 (e.g., MCP 48/36/24; USS 32/24/16; S25 36/18/12 etc).
+  - **Specs:** Anchor bolts per NBN EN 15048; bolts/nuts per NBN EN 14399 / EN ISO 898; supply to include setting templates and packaging for cast‑in.
+  - **Assessment:** Conflict: Supply quantities vary by phase; BOQ shows inconsistent counts (supply-only vs cast-in lists). Missing detail: consolidated HDA schedule, bolt grades (EN ISO 898 grade not always specified), testing/certificates and templates.
+
+- **Surface Treatment:**
+  - **BOQ:** Shotblast & galvanise to EN ISO 1461 for large gantry tonnages; post‑erection touch-up allowances noted.
+  - **Specs:** EN ISO 1461 galvanising; surface prep Sa2.5 required.
+  - **Assessment:** Match. Missing detail: DFT targets and fireproofing compatibility with galvanising where required.
+
+### Zone: S02-A1000
+
+- **Anchor / Columns Kickers:**
+  - **BOQ:** Steel columns kickers/bolts 832.11 nr + plinths 136 nr; casting-in H.D.A. 6 nr (PH1).
+  - **Specs:** Anchors per NBN EN 15048; embedment and tolerances to project.
+  - **Assessment:** Match. Missing detail: anchor mark-up vs column schedule, sizes and tolerance templates.
+
+### Zone: S04-A2100
+
+- **Secondary Steel for Cladding:**
+  - **BOQ:** Secondary steel (FSA) area 1942.0 m2; (DCH) area 3693.0 m2 / PH3/PH4 similar totals ~2420–2441 m2 depending on phase.
+  - **Specs:** S355JR typical; EXC2 NBN EN 1090; corrosion protection pre-finish for C4 per EN ISO 12944-2 where exposed.
+  - **Assessment:** Match. Missing detail: pre-finish paint system manufacturer and DFT, and coordination with cladding attachments and penetrations.
+
+### Zone: S04-A2200
+
+- **Stairs / Cat Ladder Supports:**
+  - **BOQ:** Safety fabrication supports for assembled stair roof level 5 nr; GNM cat ladder 30 nr (PH1); cat ladder counts vary in other phases.
+  - **Specs:** EXC2 fabrication, stair/ladder design per EN 1993; handrail loads per PDF.
+  - **Assessment:** Match. Missing detail: specific design loads per item, embed and anchor details for supports.
+
+### Zone: S02-A1100
+
+- **Casting-in H.D.A. (Foundations / Pads):**
+  - **BOQ:** Multiple cast-in H.D.A. entries across PH1-PH4 — individual line items (84, 40, 20, 48, 36, 24, 24, 8, 6, 16, etc.) and PH3 entries (64,24,36,18).
+  - **Specs:** Anchors per NBN EN 15048; grouting per non-shrink 35 MPa; H.D.A. position per structural drawings.
+  - **Assessment:** Conflict: Numerous fragmented BOQ lines — need consolidated schedule to avoid double counting; Missing detail: mapping of each HDA qty to drawing/location and who supplies HDA (free issue vs supply).
+
+## Phase: PH2
+
+### Zone: S03-A2000
+
+- **Structural Steel (DCH / PH2):**
+  - **BOQ:** DCH Structural Steel 752.0 t; DCH H.D.A. 59 nr; intumescent fire protection 1-hour allocation (PH2).
+  - **Specs:** S355JR, EXC2 NBN EN 1090; intumescent DFT as required to achieve 1 hr per manufacturer.
+  - **Assessment:** Match on standards. Conflict: Fire rating differs by phase (PH1/P H3 often 2 hr or 1 hr) — confirm fire rating per area.
+
+### Zone: S05-A2000
+
+- **Steel Decking (PH2):**
+  - **BOQ:** TATA D60 x 1.2 mm decking; area per PH2 noted in PH2 lines.
+  - **Specs:** EN 10346 / EN 10143; install per manufacturer & EN 1993.
+  - **Assessment:** Match. Missing detail: stud/fastener spacing, diaphragm calculations, and bearing/lap minimums required by PDF.
+
+### Zone: S02-A7200
+
+- **Small Structural Items / H.D.A.:**
+  - **BOQ:** Shell A small tonnage 0.56304 t; H.D.A. 3 nr; shotblast & galvanise 0.56304 t; cat ladder 1 nr etc.
+  - **Specs:** EXC2 S355JR; galvanise per EN ISO 1461; supply H.D.A. per NBN EN 15048.
+  - **Assessment:** Match. Missing detail: confirm galvanising vs paint where intumescent also required.
+
+## Phase: PH3
+
+### Zone: S03-A2000
+
+- **Structural Steel (DCH / PH3):**
+  - **BOQ:** DCH Primary framing 756.0 tn; H.D.A. 59 nr; intumescent fire protection 1-hour for 756 tn; external stair 1 nr; bollards 9 nr.
+  - **Specs:** S355JR, EXC2, EN 1090, EN 10025; intumescent application per manufacturer and independent QA required.
+  - **Assessment:** Match. Missing detail: intumescent DFT schedule by member and surface prep confirmation.
+
+### Zone: S05-A2000
+
+- **Steel Decking (PH3):**
+  - **BOQ:** TATA D60 decking 6046.0 m2.
+  - **Specs:** NBN EN 10346 / NBN EN 10143; install per manufacturer's recommendations.
+  - **Assessment:** Match. Missing detail: fastening pattern, puddle weld counts and diaphragm calc confirmation.
+
+### Zone: S02-A1600
+
+- **H.D.A. / Chemical Anchors:**
+  - **BOQ:** Casting-in H.D.A. 215 nr; Shiraz chemical anchors 600 nr; shear connectors 245 nr; ConiBar 266 nr; 50x50x6 RSA 8 nr.
+  - **Specs:** EN 15048, chemical anchors per manufacturer, shear studs per EN ISO 13918.
+  - **Assessment:** Match for specs. Missing detail: sequencing, cumulative anchor counts vs other phases, and QA/test procedures.
+
+### Zone: S02-A1100
+
+- **Casting-in H.D.A.:**
+  - **BOQ:** Multiple cast-in H.D.A. entries (64, 24, 36, 18 nr).
+  - **Specs:** NBN EN 15048; grout per non‑shrink 35 MPa.
+  - **Assessment:** Match. Missing detail: mapping to foundation drawings and cumulative reconciliation.
+
+### Zone: S02-A7200
+
+- **Holding-down Supply:**
+  - **BOQ:** MCP 36 nr; USS 24 nr; S25 18 nr (PH3 supply list).
+  - **Specs:** Anchors per NBN EN 15048 / NBN EN 14399; supply templates included.
+  - **Assessment:** Match. Missing detail: grade specification for bolts (EN ISO 898 grade number), certificate/testing scope.
+
+## Phase: PH4
+
+### Zone: S02-A1600
+
+- **Scabble / Stub Columns / Cast-in Inserts:**
+  - **BOQ:** Scabble joints at each stanchion; concrete stub columns to surround stanchions; 50x50x6 RSA inserts; H.D.A. casting-in Type BP1/BP2/BP4; Shiraz chemical anchor H.D.A.; shear studs per EN ISO 13918.
+  - **Specs:** Engineer's details per NBN EN 1993; grout min 35 MPa; shear studs min yield 350 N/mm2, UTS 450 N/mm2, 15% elongation.
+  - **Assessment:** Match. Missing detail: consolidated quantities per PH4 vs PH1/PH3 and installation sequencing.
+
+- **Load Shear Connectors:**
+  - **BOQ:** Shear studs per PH4 spec (quantity referenced earlier in PH1/PH3).
+  - **Specs:** EN ISO 13918 with mechanical property minima; install per manufacturer.
+  - **Assessment:** Match. Missing detail: stud type/size and stud welding constraints (e.g., ambient temp / site conditions).
+
+### Zone: S02-A1200
+
+- **Grouting Steel Bases:**
+  - **BOQ:** Allow for grouting underside of baseplates; non-shrink non-metallic grout min 35 MPa.
+  - **Specs:** PDF grout spec and tolerances to engineer.
+  - **Assessment:** Match. Missing detail: gap-fill thickness and verification method.
+
+### Zone: S03-A2000 (PH4)
+
+- **Structural Steel (DCH total 747.0 t):**
+  - **BOQ:** DCH Structural Steel total 747.0 t EXC2; H.D.A. 59 nr; intumescent paint 1 hr for 747.0 t; cat ladder & balustrade 4 nr; bollards 10 nr; stairs over roof parapets 2 nr.
+  - **Specs:** S355JR, EN 1090 EXC2, welding & QA requirements.
+  - **Assessment:** Match. Missing detail: fire rating reconciliation across phases and intumescent application schedule.
+
+### Zone: S05-A2000 (PH4)
+
+- **Steel Decking:**
+  - **BOQ:** DCH Steel Decking area 6046.0 m2 (PH4).
+  - **Specs:** EN 10346 / EN 10143; install per manufacturer.
+  - **Assessment:** Match. Missing detail: confirm differences between PH3/PH4 decking area allocations and fastening details.
+
+### Zone: S02-A7200 (PH4)
+
+- **Gantry / Cooling Tower / Secondary Steel:**
+  - **BOQ:** Gantry tonnage 249.0 t; H.D.A. 20 nr; shotblast & galvanise 249.0 t; railings 270 units; grating 438.0 m2.
+  - **Specs:** EXC2 S355JR; galvanise per EN ISO 1461; handrail loads per PDF.
+  - **Assessment:** Match. Missing detail: consolidation of gantry tonnages across PH1–PH4 and which phase installs which items; DFT/galv spec per element.
+
+## Global Inconsistencies
+
+| ID | Category | Location / Zone | Discrepancy Found | Risk / Impact |
+|----|----------|-----------------|-------------------|---------------|
+| 1 | Fire protection rating inconsistent | PH1 S03-A2000, PH2/PH3/PH4 | BOQ entries alternate between 1‑hour and 2‑hour intumescent requirements for structural steel across phases/zones | Incorrect coating thickness DFT, cost and procurement errors, and noncompliance with EOR fire strategy |
+| 2 | Fragmented / inconsistent H.D.A. and anchor scheduling | Multiple zones | Multiple cast‑in H.D.A. quantities are split across many BOQ lines, vary between phases, and mix “free‑issue” vs “supply” without a consolidated HDA schedule | Double counting or missed anchors; interface/discrepancy with structural subcontractor & concrete contractor; potential rework and delay |
+| 3 | Surface protection / finish gaps | Various zones | Some BOQ items specify galvanising + pre‑finish for C4; others only provide touch‑up allowances | Inconsistent corrosion protection, warranty and service life impacts; potential for costly touch‑up scope and remedial works |
+| 4 | Decking installation & diaphragm fastenings not tied to quantities | Various zones | PDF requires diaphragm calculations and specific puddle weld/self‑tapping screw spacings; BOQ lists decking areas but does not bind fastening patterns or number of studs/welds | Insufficient fasteners / stud counts in BOQ pricing; structural/noncompliance risk |
+| 5 | Fireproofing / galvanising sequencing unclear | Various zones | Where both galvanising and intumescent coatings are required, sequencing and compatibility are not resolved in BOQ | Incompatible finishes specified; increased cost/time to rework or change coatings |
+| 6 | Missing manufacturer / product & test acceptance references | Various zones | BOQ lacks specific product manufacturers, DFT values for paints/intumescents, adhesive systems for chemical anchors, and testing acceptance criteria referenced in PDF | Procurement of non-compliant products, variation claims and quality disputes |
+| 7 | Welders / QA / submittals and recycled content not enforced in BOQ lines | Various zones | PDF mandates welder certification, shop/erection drawings, QA, and 70% recycled steel content; BOQ items generally do not reference required submittals, certification evidence, or recycled content verification | Contractual non‑conformance and potential commercial claims |
+| 8 | Anchor & bolt grade ambiguity | Various zones | Multiple BOQ entries reference bolts “as specified” but do not state bolt grades (EN ISO 898 grade numbers) consistently despite PDFs requiring Grade 8.8 / NBN EN 14399 compliance | Incorrect bolt procurement and failed on-site tests |
+| 9 | Quantity discrepancies across phases for the same items | Various zones | Significant variations in tonnage and counts for identical named elements (e.g., Cooling Tower Gantry tonnages and H.D.A. counts vary PH1–PH4; decking areas differ PH2/PH3/PH4) | Scope confusion, contract change orders, pricing errors |

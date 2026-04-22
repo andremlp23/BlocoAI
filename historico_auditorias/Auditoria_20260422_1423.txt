@@ -1,0 +1,209 @@
+# Executive Summary
+
+## Phase: PH1
+
+### Zone: SW
+
+- **Drainage / Precast Gullies:**
+  - **BOQ:** Precast road gullies 450mm dia x 750mm deep to BS 5911 Pt 6, trapped with capped rodding eye; heavy duty cast iron gully cover & frame class D400 to EN 124:1994; gully bedded & surrounded in 150mm C20/25 Dmax20 concrete; 300 x 300mm concrete surround in paved areas.
+  - **Specs:** (No PDF extract for road gullies / minor drainage)
+  - **Assessment:** Missing detail (no supporting PDF standard or installation procedure provided)
+
+### Zone: Roads/paths/pavings
+
+- **Kerbs & ACOs:**
+  - **BOQ:** Half batter concrete kerb; Tapered kerb; Aco kerb; Bull-nosed kerb (0–6mm upstand); Bull-nosed kerb (12mm upstand); Square edging. Each "including all excavations, disposal, footings etc."
+  - **Specs:** (No PDF extract for kerbs/ACO details)
+  - **Assessment:** Missing detail (no installation tolerances, profiles or material standard in PDFs)
+
+- **Pavement — Concrete (RC / Treated Concrete Pavement):**
+  - **BOQ:** Surface Course: 200mm RC32/40 (one entry) and also listed as 200mm Concrete 40/50 Dmax20 (other entry); Reinforcement: A393 mesh (1 top & 1 bottom referenced, and another entry saying 1 layer top and bottom) with 75mm cover & min laps 350mm epoxy covered dowel; Separation layer: impermeable plastic membrane; Sand blinding: 50mm sand layer; Visqueen sheet (1000 gauge); CRCs, tenting/heating, sawcut joints, expansion joints, longitudinal contraction joints.
+  - **Specs:** (No pavement/concrete pavement PDF clauses provided)
+  - **Assessment:** Conflict — inconsistent concrete strength notation (RC32/40 vs 40/50 Dmax20). Reinforcement descriptions are duplicative but consistent in intent (mesh top & bottom) — treat as Match internally. Missing detail for waterproofing/membrane installation and CRC/application (no PDF).
+
+- **Pavement — Asphalt / Surface Courses:**
+  - **BOQ:** Footpaths: 20mm SMA surface on 40mm binder; Asphalt Roads / Car Parking: 45mm SMA surf (SMA14 Surf 40/60) on 60mm binder (AC20 HDM 40/60) on 80mm base (AC32 HDM 40/60).
+  - **Specs:** (No pavement/asphalt PDF clauses provided)
+  - **Assessment:** Missing detail (no specification of compaction, tolerances, or QA in PDFs)
+
+- **Drainage (French drain):**
+  - **BOQ:** French drain to perimeter of DCH
+  - **Specs:** (No PDF)
+  - **Assessment:** Missing detail
+
+### Zone: FSA - S46 Plantroom
+
+- **Concrete (Lean mix):**
+  - **BOQ:** Lean mix C12/15 Dmax20
+  - **Specs:** (No PDF; concrete design/spec not in provided PDFs)
+  - **Assessment:** Missing detail
+
+### Zone: FSA Plant Area - Chillers Foundations
+
+- **Concrete (Lean mix):**
+  - **BOQ:** Lean mix C12/15 Dmax20
+  - **Specs:** (No PDF)
+  - **Assessment:** Missing detail
+
+### Zone: DCH AHU
+
+- **Concrete (Lean mix):**
+  - **BOQ:** Lean mix C12/15 Dmax20
+  - **Specs:** (No PDF)
+  - **Assessment:** Missing detail
+
+### Zone: Fuel Oil Offloading Area - EYD
+
+- **Concrete (Lean mix):**
+  - **BOQ:** Lean mix C12/15 Dmax20
+  - **Specs:** (No PDF)
+  - **Assessment:** Missing detail
+
+### Zone: Loading Bay - Concrete Yard
+
+- **Concrete (Lean mix / Slab works):**
+  - **BOQ:** Lean mix C12/15 Dmax20; C30/37 concrete to slabs; Design Joints: Full movement joint; Powerfloat finish to slab; Reinforcement nominal 12–25mm to foundations; Formwork width >500mm.
+  - **Specs:** (No concrete-specific PDF provided)
+  - **Assessment:** Missing detail (no PDF to confirm mix acceptance criteria, curing, or joint detailing)
+
+### Zone: Pump Kiosk Foundation
+
+- **Concrete (Lean mix):**
+  - **BOQ:** Lean mix C12/15 Dmax20
+  - **Specs:** (No PDF)
+  - **Assessment:** Missing detail
+
+### Zone: Pump Kiosk Foundation / (also entries under S02-A1300)
+
+- **Waterproofing (foundations):**
+  - **BOQ:** "Waterproofing Foundations" (repeated across multiple PH1 entries)
+  - **Specs:** (No waterproofing PDF; a specific Cetco blacksheet peel-and-stick membrane entry exists under S02-A1500 items - see Waterproof zone below)
+  - **Assessment:** Missing detail / Partial (general waterproofing noted but project-level system/performance not defined in PDFs)
+
+### Zone: Waterproof
+
+- **Waterproofing / Waterstops / Peel-and-stick membrane:**
+  - **BOQ:** Waterproofing Foundations (repeated); Waterstop horizontal to kicker (qty 270.0); Waterstop vertical to construction joint (spaced every 6.0m o.c., qty 45.0); Cetco blacksheet peel-and-stick membrane 850mm high (including surface cleaning) — 229.5 m2 (from S02-A1500 PH1 items).
+  - **Specs:** (No dedicated waterproofing/spec PDF provided)
+  - **Assessment:** Missing detail (no product performance datasheets, no integration spec with radon/barrier systems in PDFs)
+
+### Zone: Concrete
+
+- **General Concrete (Slabs / Walls / Design joints):**
+  - **BOQ:** C30/37 concrete to slabs; Design Joints — full movement joints; C35/45 concrete to walls; Lift pit/loading docks/hoist works including excavation, lean mix and upstand walls.
+  - **From detailed BOQ lines (S02-A1500):** C35/45 Concrete to Foundations 509.0 m3; Perimeter Beam 200x300mm (10.0 m3); C35/45 to Walls 1.1 m3; Precast rectangular beam info; various forming and cast-in items (diamond forming, scabble construction joint details).
+  - **Specs:** (No concrete technical PDF provided)
+  - **Assessment:** Missing detail for mix design acceptance/testing in PDFs. Note: multiple concrete grades used across BOQ (C12/15, C30/37, C35/45, C35/20 SR) — potential coordination needed.
+
+- **Surface Finishes (Powerfloat):**
+  - **BOQ:** Powerfloat finish to ground floor slab; FM2 finish — 3401.0 m2
+  - **Specs:** (No finishing PDF)
+  - **Assessment:** Missing detail (no acceptance/testing or curing regime in PDFs)
+
+- **Joints (Sawcut / Movement / Isolation / Construction):**
+  - **BOQ:** Movement Joint S.R.M.J to ground floor at 5m x 5m centres; 5mm x 50mm saw cut (1007.0 m); Isolation Joint 20mm non-biodegradable compressible filler with compatible sealant (194.0 m); Construction / contraction joint (75.0)
+  - **Specs:** (No joints spec in PDFs)
+  - **Assessment:** Missing detail (no references in PDFs for joint sealing products, installation tolerances or tolerable movement ranges)
+
+- **Special Formed Items and Holding Down Assemblies:**
+  - **BOQ:** Forming concrete stub columns around stanchions; casting in Holding Down Assemblies (H.D.A.) Type BP1/BP2/BP4 (free issue from structural steel sub) and grout in place — referenced but qty listed; Scabble construction joint treatment per Engineer's drawings.
+  - **Specs:** (No dedicated PDF for HDA installation; Steel PDF references grouting between plates)
+  - **Assessment:** Partial — PDF structural steel spec covers grout requirement for column plates (non-shrink grout, 35 MPa @28d) which is relevant to HDAs; otherwise installation details absent.
+
+- **Reinforcement (detailed tonnages):**
+  - **BOQ:** Reinforcement nominal size 12–25mm; Slabs 152.0 tn; Concrete Encasement 0.15 tn; Foundations 77.0 tn; general reinforcement entries across PH1.
+  - **Specs:** (No reinforcement PDF extract)
+  - **Assessment:** Missing detail (no lap lengths, cover verification method, bar schedules or QA in provided PDFs)
+
+### Zone: Formwork
+
+- **Formwork (general / wide elements):**
+  - **BOQ:** Formwork per Engineer's spec; width exceeding 500mm (949.5265 m2 listed under S02-A1500); CRCs entry (as CRC coating), self-adhesive polymer-modified bitumen coating/DPM to three sides of ground beam (92.0 m2).
+  - **Specs:** (No formwork-specific PDF provided)
+  - **Assessment:** Missing detail (no tolerances, erection sequence or temporary works spec in PDFs)
+
+### Zone: Finishes
+
+- **Floor Finishes:**
+  - **BOQ:** Powerfloat finish to slab (FM2) — repeated in multiple zones; Powerfloat listed 3401.0 m2 under S02-A1500
+  - **Specs:** (No finishing PDF provided)
+  - **Assessment:** Missing detail
+
+### Zone: Blinding
+
+- **Sand Blinding:**
+  - **BOQ:** 50mm thick sand blinding in preparation for DPM (1200 gauge radon DPM referenced elsewhere)
+  - **Specs:** (No separate PDF for blinding)
+  - **Assessment:** Partial — blinding thickness consistent where mentioned, but DPM gauge inconsistency exists across BOQ (see GLOBAL INCONSISTENCIES)
+
+### Zone: Foundations
+
+- **Foundations concrete:**
+  - **BOQ:** C12/15 Dmax20 poured against earth/unblinded hardcore per engineer; C35/45 to foundations 509 m3 (S02-A1300/S02-A1500 items)
+  - **Specs:** (No concrete foundation PDF)
+  - **Assessment:** Missing detail (mix acceptance, sulfates exposure class conflicts noted elsewhere)
+
+### Zone: Slabs
+
+- **In-situ reinforced slabs:**
+  - **BOQ:** Reinforced in-situ C30/37 polypropylene fibre reinforced concrete floor slab with A252 bottom mesh; FM2 flatness requirement (Concrete Society TR34)
+  - **Specs:** (No slab-specific PDF)
+  - **Assessment:** Missing detail (no QA/testing procedure in PDFs)
+
+### Zone: RC Retaining Walls
+
+- **Retaining Wall Concrete:**
+  - **BOQ:** >150mm thick poured against face of formwork
+  - **Specs:** (No PDF)
+  - **Assessment:** Missing detail
+
+### Zone: Lift Pit/Loading Docks/Hoist
+
+- **Excavation / Concrete / Lean mix works:**
+  - **BOQ:** Excavation & disposal, concrete foundations, lean mix and upstand walls to perimeter; quantity lines include Lift Pit/Loading Docks/Hoist 3.0 No (S02-A1500).
+  - **Specs:** (No PDF)
+  - **Assessment:** Missing detail
+
+### Zone: Sitewide
+
+- **Structural Steel:**
+  - **BOQ:** "Steel fabricated to exc class 2, all steel grade S355. Steel erected in accordance with the NSSSBC 5th Edition"; DCH Structural Steel quantity: 888.0 tn (S03-A2000 PH1)
+  - **Specs:** PDFs (05 12 00 Structural Steel Framing and Structural Steel Framing (EMEA) v.3): Design/connection requirements (bolted bearing-type high-strength bolts; slip-critical for moment/bracing), connection design workshop (20 working days), NBN EN 1993 design requirements, S355 grades called out (EN 10025 / EN 10210), execution class EXC2, surface preparation Sa 2.5 at blasting, corrosion protection per NBN EN ISO 12944-2, grouting non-shrink 35 MPa @28d, bolts/nuts to NBN EN standards, welding standards (EN ISO 2553, EN 1011), tolerances, QA/testing and independent testing agency, touch-up and post-erection priming.
+  - **Assessment:** Match — BOQ S355/EXC2 and erection requirement align with PDF structural steel spec. PDF provides extensive connection and QA requirements that appear to be required against BOQ steel scope.
+
+- **Steel Decking:**
+  - **BOQ:** Supply & installation TATA D60x1.2mm roof decking; DCH Steel Decking 7224.0 m2 (S05-A2000 PH1)
+  - **Specs:** PDF (05 31 00 Steel Decking): Install per manufacturer & approved submittals; minimum bearing 50 mm; minimum end laps 50 mm; puddle welds and spacing (20 mm puddle welds, spacing max 300 mm across width, 300 mm along length for supported edges, self-tapping screws for unsupported laps max 150 mm centres), tack weld edge closures max 600 mm; connector type proprietary with min yield 350 N/mm2, min UTS 450 N/mm2, 15% elongation to BS EN ISO 13918; welders certified; do not weld studs below 0°C; independent site QC.
+  - **Assessment:** Match — BOQ decking type and area are covered by PDF installation/connector/welder/QC requirements.
+
+- **Intumescent Fireproofing / Coatings:**
+  - **BOQ:** DCH Intumescent Paint 2 Hr (quantity shown 888.0 tn — same numeric as steel tonnage)
+  - **Specs:** Intumescent Fireproofing spec referenced in PDF package list (07 81 23 - Intumescent Fireproofing (EMEA) v3) and general references to painting/corrosion standards (EN ISO 12944 series); structural steel PDF requires compatibility with intumescent systems and corrosion protection proposals.
+  - **Assessment:** Conflict / Partial — BOQ quant (888 tn) likely incorrect unit (paint quoted in tonnes matching steel tonnage suggests copying error). PDF references intumescent system requirements but detailed application rates, thickness by fire rating and approved products not provided in extracted PDFs. Quantity/unit discrepancy is a high risk.
+
+- **Cladding:**
+  - **BOQ:** Eurobond panel Rockspan Extra 240mm horizontal dark grey — 2955.0 m2; Kingspan QuadCore Roof Liner lined with Sika roof membrane — 437.0 m2; Cladding base detail 348.0; Movement Joint 100.0; Double Width Parapet Capping 100.0; Joint to Existing Cladding 22.0; Penetrations Type A - Cable Tray 1 item.
+  - **Specs:** (No cladding-specific PDF extracts provided)
+  - **Assessment:** Missing detail (no material/performance/product/substrate or fixing specification in provided PDFs; cladding-installation, thermal, fire and fixings requirements absent)
+
+## Global Inconsistencies
+
+| ID | Category | Location / Zone | Discrepancy Found | Risk / Impact |
+|----|----------|-----------------|-------------------|---------------|
+| 1  | Missing PDF coverage | Many BOQ trades | Pavement surfacing (concrete & asphalt), kerbs/ACO units, waterproofing details/products, joints & sealants, concrete mix acceptance and curing regimes, cladding product/fixing specifications | Technical risk: potential for contractor assumptions leading to variations and rework; financial risk: priced allowances may be optimistic/incorrect. |
+| 2  | Conflicting concrete strength designations | Across BOQs | RC32/40 vs "200mm Thick Concrete 40/50 Dmax20" vs explicit C30/37, C35/45, and extra-over C35/20 sulphate resisting | Requires coordination (exposure class, durability, mix selection). Risk: mismatched specifications may produce costly on-site changes or specification of incorrect concrete. |
+| 3  | Repeated / duplicated brief entries | Across zones | "Waterproofing Foundations", "Powerfloat finish", "Lean mix C12/15" | Duplication risk in take-off and double-counting labour/materials. |
+| 4  | DPM / Visqueen / Radon barrier gauge mismatch | PH1 Treated Pavement, PH1 / PH4 Foundations/Floor Slabs / FSA | 1000 gauge, 1200 gauge and 15 MIL | Specification must be unified to avoid procurement/installation errors. |
+| 5  | Quantities vs units suspect | Intumescent paint | 888.0 tn (same as steel tonnage) | High financial risk if accepted without correction. |
+| 6  | Missing product & performance data | Waterproofing and membranes | Cetco blacksheet peel-and-stick membrane | Technical risk (waterproofing failure, warranty issues). |
+| 7  | Structural scope clarity | Holding-down assembly and cast-in items | "Free issue from structural steel subcontractor" | Responsibility and supply chain coordination unclear; contractual risk if free-issue items not provided to schedule. |
+| 8  | Reinforcement & mesh coordination | Multiple mesh designations | A393, A252 and mesh layer counts inconsistent | Need consolidated rebar schedule and bar bending schedules to avoid mismatch and pricing errors. |
+| 9  | Joints & sawcut pattern vs floor finish requirement | Movement joint (5m x 5m centres) and SRMJ sawcut pattern | Compatibility with FM2 flatness and slab layout | Risk: joint pattern vs construction sequencing not reconciled could increase remedial works. |
+| 10 | Standards coverage uneven | Structural steel and steel decking | Comprehensive PDF specs (good), but many civil/groundworks items lack equivalent contractual PDF guidance | Uneven specification risk leading to contractor-led substitutions. |
+
+## Recommendations (Next Steps)
+
+- Validate suspicious quantities/units (notably intumescent paint) with original BOQ authors.
+- Issue clarification request (RFI) for waterproofing system(s), DPM gauge, and coordination between waterproofing and radon barrier.
+- Consolidate concrete grade matrix (where C30/37 vs C35/45 vs C35/20 SR apply) and publish exposure-class-based mix schedule.
+- Produce missing specification extracts or callouts for kerbs, pavements, cladding, waterproofing and joints to enable accurate pricing and execution.

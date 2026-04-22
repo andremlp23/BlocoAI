@@ -1,0 +1,162 @@
+# Executive Summary
+
+## Phase: PH1
+### Zone: CSA
+
+- **Structural Steel:**
+  - **BOQ:** Steel fabricated to execution class 2; steel grade S355; erection per NSSSBC 5th Edition; holding-down bolt assemblies to be cast into reinforced concrete; External Stair, Cat Ladder & balustrade (items listed); Secondary steel for cladding 3693.0 m2.
+  - **Specs:** Execution Class 2 (NBN EN 1090); material S355JR (NBN EN 10025); shop drawings, welders’ certificates, CE marking, QA plan and connection calculations required; grouting of base plates with non-shrink grout (>=35 MPa).
+  - **Assessment:** Match — BOQ requirement for EXC2 / S355 aligns with sitewide specs. Conflict/Action: BOQ references NSSSBC 5th Edition (local code) while the PDF specs mandate EN/NBN standards — confirm governing standard (EN vs NSSSBC) and precedence.
+
+- **Steel Decking:**
+  - **BOQ:** Supply & Install TATA D60 x 1.2mm roof decking; DCH Steel Decking reported as 7,224.0 m2 (PH1 BOQ line).
+  - **Specs:** Composite roof deck; sheet material per EN 10346 / NBN EN 10143 (steel grade S350 unless agreed otherwise); minimum bearing on supporting steel 50 mm; min end laps 50 mm; stud shear connectors per BS EN ISO 13918; puddle weld and stud weld spacing/requirements detailed.
+  - **Assessment:** Partial match. Missing detail / Action: BOQ specifies manufacturer/model (TATA D60x1.2) — confirm compliance with PDF product grades/gauges and provide diaphragm/slab calculations. Verify stud type/spacing and minimum bearing details in supplier submittal.
+
+- **Intumescent Fire Protection:**
+  - **BOQ:** Intumescent paint 2 hr (PH1 entry).
+  - **Specs:** Intumescent coatings to achieve the fire resistance ratings designated for each member; DFT and application requirements; manufacturer’s nominal/average DFT controls (min 50% of nominal); shop/field application requirements.
+  - **Assessment:** Conflict — BOQ shows 2 hr here but other BOQ entries (PH2/PH3/sitewide) show 1 hr or 60 minutes. PDF requires compliance to the design-specified rating but does not set a single rating. Action: Obtain the fire engineer’s schedule to confirm required FRR by member/location (resolve 1 hr vs 2 hr discrepancy).
+
+- **Holding-down Bolts / H.D.A.:**
+  - **BOQ:** Holding down bolt assemblies to be cast into reinforced concrete (multiple counts exist: supply-only counts appear elsewhere — PH1 lists cast-in items); DCH Structural Steel H.D.A. counts referenced.
+  - **Specs:** Anchor bolts per NBN EN 15048; contractor to verify anchor rod locations minimum 20 working days prior to erection; survey and tolerances obligations.
+  - **Assessment:** Match in intent. Missing detail / Action: Clarify supply vs supply+install responsibility on each HDBA line; confirm bolt type (headed vs non-headed), embedment, tolerance band and grouting/specification for grout and pocketing.
+
+- **Connections & Composite Interfaces:**
+  - **BOQ:** Load shear connector details; ConiBar to tie slabs to ground beams; construction/contraction/movement joint details referenced.
+  - **Specs:** Connections designed to NBN EN 1993; shear studs requirements (min yield 350 N/mm2, min tensile 450 N/mm2); bolted connections guidance (Grade 8.8, slip-critical for moment/bracing).
+  - **Assessment:** Match. Missing detail: Exact stud type/length/spacing, ConiBar specification and dowel/dowel-epoxy requirements (lap lengths) must be confirmed prior to procurement/fixings layout.
+
+- **Concrete Interface / Forming for Steel Stanchions:**
+  - **BOQ:** Forming concrete stub column to surround steel stanchion from underside of slab to top of pad foundation; casting in of H.D.A. (free issue) and grout in place (BP1/BP2/BP4).
+  - **Specs:** Grout: non-shrink, non-metallic aggregate, >=35 MPa at 28 days; placement and tolerances required; contractor responsibility to verify embedded locations.
+  - **Assessment:** Match. Missing detail: Tolerances for stanchion pocket, required clearances for shop-applied coatings, and sequence for grouting vs touch-up.
+
+- **Corrosion Protection / Galvanising:**
+  - **BOQ:** (No significant PH1 galvanising qty listed explicitly in PH1 BOQ extracts; galvanising quantities shown in other phases.)
+  - **Specs:** Corrosion categories NBN EN ISO 12944 (internal C2, external C4); all galvanising to NBN EN ISO 1461; surface prep Sa2.5 before blasting.
+  - **Assessment:** Partial / Missing: Confirm which elements are galvanised vs painted. BOQ references both galvanising and shop/field painting in other lines — develop element-by-element corrosion-protection schedule.
+
+## Phase: PH2
+### Zone: CSA
+
+- **Structural Steel:**
+  - **BOQ:** DCH Structural Steel 752.0 tn (PH2); Steel fabricated to EXC2, S355 (multiple PH2 lines); (Shell A) Structural Steel entries (0.56304 tn, 377.0 tn) also present.
+  - **Specs:** EXC2 required; shop drawings, CE marking, welders’ certs and QA plan per NBN EN 1090.
+  - **Assessment:** Match. Inconsistency: multiple different tonnages reported across BOQ lines (752 tn vs 377 tn vs 0.563 t) — these look like split items (Shell A vs DCH) or duplication. Action: Reconcile tonnage roll-up (is 752 tn total or part of it?) to avoid double-counting.
+
+- **Steel Decking:**
+  - **BOQ:** DCH Steel Decking 6,046.0 m2 (PH2); Supply & Install TATA D60x1.2 roof decking also listed.
+  - **Specs:** Composite deck product requirements (EN 10346 / S350 unless otherwise indicated); bearing, laps, stud connectors and weld requirements as per steel-deck spec.
+  - **Assessment:** Match. Missing detail: Confirm which decking areas correspond to which BOQ line (6,046 m2 vs other decking areas in PH1/PH3) to ensure area reconciliation.
+
+- **Intumescent Fire Protection:**
+  - **BOQ:** DCH Intumescent Paint 1 Hr applied to structural steel — quantity shown as 752.0 tn (PH2).
+  - **Specs:** Intumescent applied to primary/secondary members to meet specified fire resistance; DFT requirements; shop vs field application control.
+  - **Assessment:** Conflict with PH1 fire-rating (1 hr here vs 2 hr in PH1). Action: Confirm fire-rating schedule and whether 1 hr applies to PH2 areas only.
+
+- **Shotblast & Galvanising:**
+  - **BOQ:** Shotblast, galvanised to EN ISO 1461 shown for (Shell A) items (377.0 tn and 0.56304 tn lines).
+  - **Specs:** Galvanising per EN ISO 1461; surface prep Sa2.5 prior to shop painting/blasting as specified.
+  - **Assessment:** Match. Flag: Very small quantity line (0.563 t) alongside large 377 t — check if 0.563 t is residual/duplicate entry.
+
+- **Holding-down Bolt Assemblies / H.D.A.:**
+  - **BOQ:** Supply Holding down bolt assemblies - MCP 36 nr; USS 24 nr; S25 18 nr; DCH H.D.A. 59 nr (PH2).
+  - **Specs:** Anchor bolts to NBN EN 15048; contractor must verify locations ahead of erection; survey requirement 20 working days prior to erection.
+  - **Assessment:** Match in general. Missing detail / Risk: Verify which assemblies are supply-only vs supply+cast; confirm bolt dimensions/spec and QA acceptance criteria.
+
+## Phase: PH3
+### Zone: CSA
+
+- **Structural Steel:**
+  - **BOQ:** DCH Structural Steel 756.0 tn (PH3); Steel fabricated EXC2 S355; DCH Structural Steel H.D.A. 59 nr.
+  - **Specs:** EXC2 / S355 requirements and QA per NBN EN 1090; shop drawings, welders’ certificates required.
+  - **Assessment:** Match. Action: Reconcile PH2 vs PH3 totals (752 tn vs 756 tn vs earlier 756/752 values) — potential duplication or phasing split; requires consolidated tonnage roll-up.
+
+- **Steel Decking:**
+  - **BOQ:** DCH Steel Decking 6,046.0 m2 (PH3 repeated); Supply & Install TATA D60x1.2 listed.
+  - **Specs:** Same as PH2 decking requirements (bearing, laps, studs, welding).
+  - **Assessment:** Match. Missing: Ensure decking areas aren’t double-counted between PH2/PH3/PH1 (6046 m2 vs 7224 m2 vs 6046 m2 elsewhere).
+
+- **Intumescent Fire Protection:**
+  - **BOQ:** DCH Intumescent Paint 1 Hr, 756.0 tn (PH3).
+  - **Specs:** As previous — DFT & certification requirements.
+  - **Assessment:** Same fire-rating conflict (PH3 shows 1 hr; PH1 2 hr). Action: Confirm fire rating per element/zone.
+
+- **Metal Fabrications / Sundries:**
+  - **BOQ:** Gantry emergency stairs 1 nr; Railings 405.0 (unit unclear); 30mm open mesh grating 657.0 m2; Bumper railings 261.0 m2; Steps & ramps incl. handrails.
+  - **Specs:** Metal stairs and ramps to support 500 kg/sq.m (design), handrail loads (1.0 kN/m), galvanize items to be embedded, prime paint for others; stair treads detail (metal pan + concrete fill or grating).
+  - **Assessment:** Match. Missing detail: BOQ units for some items ambiguous (e.g., railings 405.0 — unit missing). Confirm units & attachment/anchor details.
+
+## Phase: Construction
+### Zone: Sitewide
+
+- **Structural Steel (small/ancillary items):**
+  - **BOQ:** Generator trench structural steel 0.79074 tn; USS trench 10.42684 tn; associated small tonnage items; holding down bolts (16 nr / 32 nr supply-only per trench lines).
+  - **Specs:** Erection responsibilities, touch-up after erection; corrosion protection paint suitable for C2 environment; intumescent paint (60 minutes) applied in factory for trench items; touch up required after erection prior to handover.
+  - **Assessment:** Match for small items. Missing detail / Action: Confirm corrosion category (C2 stated) and whether factory-applied intumescent 60 min is the final required FRR for these items.
+
+- **Intumescent Fire Protection:**
+  - **BOQ:** For generator trench / USS trench: intumescent paint 60 minutes, factory-applied; touch-up after erection (same qty as tonnage).
+  - **Specs:** PDF allows shop-applied intumescent coatings and sets requirements for DFT and testing; shop coat timing, field touch-up and dry film thickness controls.
+  - **Assessment:** Match. Note: reconcile 60-min requirement here with 1 hr / 2 hr elsewhere (consistency check needed).
+
+- **Corrosion Protection / Paint:**
+  - **BOQ:** Corrosion protection paint suitable for C2 environment for trenches.
+  - **Specs:** Corrosion classes per NBN EN ISO 12944-2 (C2 internal, C4 external); shop/field painting requirements and Sa2.5 blasting.
+  - **Assessment:** Match. Missing detail: For exposed trench steel, confirm whether painting vs galvanising is the specified finish.
+
+## Phase: Construction
+### Zone: PH4
+
+- **Reinforced Concrete / Concrete Interface:**
+  - **BOQ:** Reinforced in-situ concrete slab C30/37 poly-propylene fibre reinforced; A252 bottom mesh; FM2 flatness requirement; 50 mm sand blinding and visqueen separation etc. (S02-A1600 entries).
+  - **Specs:** BOQ lines indicate reinforced slabs for interface with steel (holding down assemblies to be cast into reinforced concrete).
+  - **Assessment:** Match for interface requirement. Missing detail: Confirm coordination drawings for embedded plates / HDBAs and tolerance control for slab levels vs steel base plates.
+
+- **Structural Steel:**
+  - **BOQ:** Steel fabricated to EXC2, S355; shotblast & galvanise to EN ISO 1461 (S02-A7200); supply holding down bolt assemblies (MCP/USS/S25 counts).
+  - **Specs:** EXC2, galvanising standard EN ISO 1461, surface prep Sa2.5, anchor bolt verification 20 working days prior to erection.
+  - **Assessment:** Match. Missing detail: Confirm which members require galvanising vs paint (spec lists both); ensure HDBA supply/install split is clear.
+
+- **Holding-down Bolt Assemblies:**
+  - **BOQ:** Supply Holding down bolt assemblies - MCP / USS / S25 listed (counts given).
+  - **Specs:** Anchors per EN 15048; surveying and verification requirements before erection.
+  - **Assessment:** Match. Missing detail: Define scope of supply (including templates, nuts, washers, setting tolerances) and installation responsibility.
+
+## Phase: Execution
+### Zone: Sitewide
+
+- **Erection / Execution Requirements (Structural Steel):**
+  - **BOQ:** (No direct BOQ lines; execution-phase specs referenced in PDFs)
+  - **Specs:** Steel erection to meet execution class specified (Section 2.6); level/plumb to EN 1090 tolerances; contractor responsible for detailing/fabrication/erection errors; independent testing agency to perform field QC; high-strength bolt testing & verification; visual inspection of field welds; connection design workshop 20 working days prior to detailing.
+  - **Assessment:** Match to BOQ intent. Risk: The requirement for 20 working days’ advanced coordination (connection workshop and anchor verification) creates schedule risk if not planned into procurement/erection programme.
+
+## Phase: Sitewide
+### Zone: Sitewide
+
+- **Structural Steel (General Specs & QA):**
+  - **BOQ:** (multiple BOQ lines reference sitewide items but not in this extract)
+  - **Specs:** Section 05 12 00 covers structural framing (shop drawings, erection drawings, temporary works, recycled content declaration 70% steel content requirement); design connections under Professional Structural Engineer; welders certs; materials lists (S355JR, hollow sections NBN EN 10210); bolts/nuts washers NBN EN 1090 / 14399; surface prep Sa2.5; corrosion classifications; grout spec; shear stud connector properties; NBN EN 10025 / EN 1090 / ISO 1461 references; handrail loads, staircase loads and metal fabrication finish standards.
+  - **Assessment:** Match as master spec. Missing / Action items: 70% recycled steel requirement needs supplier confirmation & mill certs; connection design deliverables and schedule need firm dates; project-specific corrosion categories per element must be prepared.
+
+## Global Inconsistencies
+
+| ID | Category | Location / Zone | Discrepancy Found | Risk / Impact |
+|----|----------|-----------------|-------------------|---------------|
+| 1  | Fire protection rating | PH1, PH2, PH3, Trenches | PH1 lists Intumescent 2 hr; PH2/PH3 list 1 hr; trenches list 60 minutes (factory) | Mispriced coatings, rework, or non-compliance |
+| 2  | Structural steel tonnage / decking area | PH2, PH3, Shell A | Steel tonnages reported: 752 tn (PH2), 756 tn (PH3), 537 tn / 385 tn / 0.563 t (Shell A) and other small line items. Decking areas reported: 7,224 m2 (PH1), 6,046 m2 (PH2/PH3) | Double-counting or omissions leading to major cost variance |
+| 3  | Galvanising / corrosion protection | Various | Some BOQ lines require galvanising (EN ISO 1461), others specify corrosion protection paint suitable for C2/C4 | Contradictory finish specification per element = procurement/price/schedule variance |
+| 4  | Standard/Code conflict | Various | BOQ references NSSSBC 5th Edition in places while PDFs mandate EN / NBN standards (EN 1090, EN 10025, EN ISO 1461) | Design/acceptance mismatches, QA non-conformance |
+| 5  | Holding-down bolt scope & quantities | Various | Multiple HDBA counts and labels (supply-only vs cast-in) | Contractor may assume supply-only and miss installation or vice versa |
+| 6  | Shop vs Field application & QA of coatings | Various | Some items state factory-applied intumescent (trench items), others imply shop application, plus field touch-up required | DFT compliance, transport damage, touch-up scope and warranties |
+| 7  | Missing / ambiguous units and itemization | Various | Several BOQ lines have quantities without units (e.g., Railings: 405.0) | Pricing ambiguity |
+| 8  | Programme / procurement risk | Various | Multiple requirements to verify anchors, hold workshops and submit connection calculations “20 working days” prior to erection | Late submittals will delay fabrication/erection |
+
+### High-priority actions to resolve before final estimating or fabrication:
+1. Issue an RFI to confirm fire-rating (FRR) schedule and shop vs field application for intumescent coatings.
+2. Request consolidated steel tonnage and decking area by drawing / by phase to reconcile BOQ duplicates.
+3. Produce element-by-element corrosion protection schedule (galv vs paint) and confirm governing standard (EN vs local code).
+4. Clarify HDBA supply/install scope, provide anchor layouts and tolerance table.
+5. Request missing units/quantities clarification (railings/grating) and confirm scope of metal fabrications items.
