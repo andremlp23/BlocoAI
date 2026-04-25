@@ -75,9 +75,17 @@ def read_document(file) -> tuple[str, list]:
         xls = pd.ExcelFile(file)
         lines = []
         for sheet in xls.sheet_names:
-            df = xls.parse(sheet).astype(str)
+            df = xls.parse(sheet)
             for idx, row in df.iterrows():
-                vals = [v.strip() for v in row if v.strip().lower() not in RUIDO and len(v.strip()) > 1]
+                vals = []
+                for v in row:
+                    if pd.isna(v):
+                        continue
+                    cell_text = str(v).strip()
+                    if not cell_text:
+                        continue
+                    if cell_text.lower() not in RUIDO and len(cell_text) > 1:
+                        vals.append(cell_text)
                 if len(vals) > 1:
                     lines.append(f"[Linha: {idx+2}] {' | '.join(vals)}")
         return "\n".join(lines), []

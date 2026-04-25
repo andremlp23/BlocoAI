@@ -161,6 +161,7 @@ def processar_auditoria(
             pipeline_callback(st.session_state.pipeline_state)
 
             st.session_state.relatorio_final = relatorio
+            st.session_state.resumo_specs = estado_final.get("resumo_specs", "")
             st.session_state.processado = True
             st.session_state.n_ficheiros = n_ficheiros
             st.session_state.erros_sessao = erros

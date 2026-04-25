@@ -100,6 +100,7 @@ def ensure_session_defaults() -> None:
     for chave, valor_default in [
         ("api_key_env", ""),
         ("relatorio_final", ""),
+        ("resumo_specs", ""),
         ("processado", False),
         ("pipeline_state", ["idle", "idle", "idle"]),
         ("n_ficheiros", 0),
@@ -239,6 +240,34 @@ def render_results() -> None:
     st.markdown(st.session_state.relatorio_final)
     st.markdown("</div>", unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
+
+    if st.session_state.resumo_specs:
+        st.markdown(
+            f"""
+            <div class="results-subsection">
+                <div class="results-subtitle">🧾 Contexto Extraído das SPECS</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+        st.text_area(
+            "Resumo extraído das SPECS",
+            value=st.session_state.resumo_specs,
+            height=220,
+            disabled=True,
+            key="resumo_specs_preview",
+        )
+        st.markdown("<div style='height:0.75rem'></div>", unsafe_allow_html=True)
+        st.markdown('<div class="dl-btn">', unsafe_allow_html=True)
+        col_dl2, _ = st.columns([2, 5])
+        with col_dl2:
+            st.download_button(
+                "📥 Descarregar Contexto SPECS (.txt)",
+                data=st.session_state.resumo_specs,
+                file_name="Specs_Extraction_Context.txt",
+                use_container_width=True,
+            )
+        st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown("<div style='height:1rem'></div>", unsafe_allow_html=True)
     st.markdown('<div class="dl-btn">', unsafe_allow_html=True)
