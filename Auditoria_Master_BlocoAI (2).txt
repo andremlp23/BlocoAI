@@ -1,0 +1,100 @@
+# Executive Summary
+
+## Phase: PH1
+
+### Zone: S03-A2000
+- **BOQ Specs:** Structural Steel (FSA): 711.0 tn, Structural Steel (DCH): 888.0 tn, Intumescent paint 2-hr (FSA): 711.0 tn, Intumescent paint 2-hr (DCH): 888.0 tn, Holding Down Assemblies (FSA H.D.A.): 59 nr, (DCH H.D.A.): 67 nr, Internal Stair (FSA): 1 nr, External Stair (Ground→Roof) (DCH): 1 nr, Cat ladder & balustrade to penthouse roof: 2 nr.
+- **Specifications (PDF):** Structural steel: NBN EN 10025 Grade S355JR, Execution Class EXC2 (EN 1090), Corrosion protection: EN ISO 12944 (internal C2 / external C4), Shop painting & surface prep: Sa2.5 prior to coating, Intumescent system: Sherwin Williams FIRETEX FX2003, Bolts/nuts/washers: NBN EN 1090 / Grade 8.8, Anchor bolts: NBN EN 15048.
+- **Match Status:** PARTIAL MATCH. Material grade and EXC2 consistent with PDF; BOQ references NSSSBC — confirm equivalence with EN 1090. Intumescent product & DFT mismatch to resolve. H.D.A. quantities provided — check if supply-only or supply+install.
+- **Technical Profile:** Steel: EXC2, S355; shop-fabrication encouraged; after-erection touch-up required. Fire protection: intumescent to achieve 2-hr FRR; primer/sealer per FIRETEX system recommended. Stairs/ladders: metal stairs and balustrades per metal stairs spec; handrails required.
+- **Scope Alerts:** Confirm standard acceptance: NSSSBC vs EN 1090/ NBN EN references. Clarify intumescent product, DFT and whether applied shop or site. Confirm H.D.A. supply vs install and anchorage tolerances/setting allowances.
+
+### Zone: S02-A1000
+- **BOQ Specs:** Steel columns kickers/bolts: 832.11 nr, Additional line: 136.0 nr.
+- **Specifications (PDF):** Anchor bolts and bolting: NBN EN 15048 (anchors) and NBN EN 14399/NBN EN 15048 for high-strength bolting.
+- **Match Status:** PARTIAL MATCH / INCOMPLETE. BOQ lists quantities but no reference to bolt grades/standards or scope (supply vs supply+install).
+- **Technical Profile:** Anchors/bolts: require NBN EN compliance, hardened washers, testing for high-strength bolts.
+- **Scope Alerts:** Resolve duplicate quantity lines (832.11 nr vs 136 nr). Clarify bolt types/grades and responsibility for verifying embedded anchors.
+
+### Zone: S02-A7100
+- **BOQ Specs:** Total steel: 0.79074 tn, Corrosion protection paint for C2 environment: qty 0.79074 tn, Intumescent paint (60 min) factory applied: 0.79074 tn, Touch-up after erection prior to handover: 0.79074 tn, Holding down bolts (supply only): 16 nr.
+- **Specifications (PDF):** Steel grade S355JR; corrosion classes per EN ISO 12944 (C2 internal); intumescent products & DFT per intumescent spec.
+- **Match Status:** GOOD for intent but MISSING DETAIL. BOQ aligns with PDF on paint/FRR intent but lacks product names/DFT.
+- **Technical Profile:** Steel: small tonnage; risk of minimum-coat thickness testing required. Fire protection: 60-minute intumescent indicated — product & DFT not specified.
+- **Scope Alerts:** Confirm product/DFT for compliance and testing. Clarify on-site touch-up responsibilities and acceptance criteria.
+
+### Zone: S02-A7200
+- **BOQ Specs:** Steel fabricated EXC Class 2, steel grade S355; Structural Steel (Shell A): 1.12608 tn, Shotblast & galvanise to EN ISO 1461: 1.12608 tn, Cooling Tower Stairs: 4 nr.
+- **Specifications (PDF):** Steel grade S355JR; galvanising per EN ISO 1461; stair and railing requirements per metal stairs spec.
+- **Match Status:** GOOD but CHECK SCOPE BOUNDARIES. Galvanising specified in BOQ and PDF — consistent.
+- **Technical Profile:** Galvanised items: shotblast + galvanise per EN ISO 1461. Stairs/railings/grating: shop-fabricated to metal fabrications spec; finish per corrosion class.
+- **Scope Alerts:** Missing qtys for RMU supports and some HDB assemblies — quantify. Confirm supply vs supply+install for holding down assemblies (MCP/USS/S25).
+
+## Phase: PH2
+
+### Zone: S03-A2000
+- **BOQ Specs:** DCH Structural Steel: 752.0 tn, DCH Intumescent Paint 1-hr: 752.0 tn.
+- **Specifications (PDF):** Structural steel S355JR; intumescent system and DFTs per intumescent spec.
+- **Match Status:** PARTIAL MATCH. BOQ fire rating (1 hr) differs from PH1 (2 hr in some BOQ lines) — confirm required FRR per location/phase.
+- **Technical Profile:** Steel: large tonnage DCH class; EXC2 requirements apply. Fire protection: 1-hr intumescent required — need product/DFT.
+- **Scope Alerts:** Conflicting FRR values across phases (1-hr vs 2-hr) — clarify design fire rating per area.
+
+### Zone: S05-A2000
+- **BOQ Specs:** Supply & Install TATA D60x1.2mm Roof Decking. FSA Steel Decking: 3494.0 m2, DCH Steel Decking: 7224.0 m2.
+- **Specifications (PDF):** Composite roof deck per 05 31 00: steel sheets from galvanised steel EN 10346 / EN 10143.
+- **Match Status:** PARTIAL / INCONSISTENT QUANTITIES. Deck type and supply+install match PDF intent.
+- **Technical Profile:** Decking: TATA D60x1.2mm specified; galvanised steel; composite requirements and shear studs per spec.
+- **Scope Alerts:** Reconcile inconsistent m2 quantities across BOQ lines before pricing/procurement.
+
+## Phase: PH3
+
+### Zone: S03-A2000
+- **BOQ Specs:** DCH Structural Steel: 756.0 tn, DCH Intumescent Paint 1-hr: 756.0 tn.
+- **Specifications (PDF):** Same sitewide structural steel and fire protection requirements: S355JR, EXC2.
+- **Match Status:** PARTIAL MATCH / DUPLICATE SCOPE RISK. Tonnes differ slightly from PH2 and PH1 lines.
+- **Technical Profile:** Steel: EXC2 S355; multiple DCH steel packages.
+- **Scope Alerts:** Verify PH boundary to prevent double counting of tonnage across PH2/PH3/PH4.
+
+### Zone: S02-A7200
+- **BOQ Specs:** Structural Steel - supports for RMU & battery box across trench.
+- **Specifications (PDF):** Metal fabrications and structural steel specs apply; galvanising to EN ISO 1461.
+- **Match Status:** GOOD FOR INTENT; MISSING QUANTITIES/DRAWINGS.
+- **Technical Profile:** Fabrications: galvanised steelwork for outdoor equipment supports.
+- **Scope Alerts:** Require connection design submissions and shop drawings.
+
+## Phase: PH4
+
+### Zone: S03-A2000
+- **BOQ Specs:** Steel fabricated EXC Class 2, S355; DCH Structural Steel (no qty given in some lines).
+- **Specifications (PDF):** As sitewide: EXC2, S355JR.
+- **Match Status:** PARTIAL. BOQ intent matches PDF but many quantities are absent or repeat across PHs.
+- **Technical Profile:** Steel and fire protection per sitewide specs.
+- **Scope Alerts:** Quantities incomplete; risk of under/over pricing if not reconciled with PH1–PH3 totals.
+
+### Zone: S02-A7200
+- **BOQ Specs:** Structural Steel - Support for RMU's & battery box.
+- **Specifications (PDF):** As PH3 S02-A7200.
+- **Match Status:** DUPLICATION RISK. Items repeat across PH3/PH4.
+- **Technical Profile:** Galvanised external fabrications; stair and railing requirements.
+- **Scope Alerts:** Ensure PH split is correct to avoid double-counting.
+
+## Global Inconsistencies
+
+| ID | Category | Location / Zone | Discrepancy Found | Risk / Impact |
+|----|----------|-----------------|-------------------|---------------|
+| 1  | Tonnage  | S03-A2000       | Conflicting tonnages (711 / 752 / 756 / 888 tn) | Double-counting or missing/overstated scope |
+| 2  | Fire Resistance | Multiple Zones | Inconsistent fire-resistance requirements (1-hr vs 2-hr) | Non-compliance or repricing risk |
+| 3  | Standards | Sitewide | BOQ references NSSSBC vs EN standards | Scope disputes |
+| 4  | Decking Area | S05-A2000 | Conflicting m2 values (3494, 6046, 7224 m2) | Procurement and labour estimates affected |
+| 5  | Supply vs Install | Multiple Zones | Ambiguity in supply vs install responsibilities | Major contractual/cost risk |
+| 6  | Missing Quantities | Multiple Zones | Undefined items and missing quantities | Contingency required |
+| 7  | Product Gaps | Multiple Zones | Missing product/DFT specs | Risk of non-conforming materials |
+| 8  | QA Constraints | Sitewide | Missing allowances for QA deliverables | Programme & cost exposure |
+| 9  | Duplicate Lines | S02-A1000 | Duplicate BOQ lines (832.11 nr vs 136 nr) | Verify distinct items or duplication |
+
+## Recommendations
+
+- Conduct a reconciliation meeting with design/BOQ owners to address discrepancies.
+- Issue a Sitewide technical query to confirm acceptance of NSSSBC vs EN standards.
+- Add provisional sums/contingency for scope gaps.
+- Request missing shop drawings, connection calculations, and H.D.A. schedules before final pricing.

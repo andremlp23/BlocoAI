@@ -1,0 +1,189 @@
+# Executive Summary
+
+## Phase: Sitewide
+### Zone: Sitewide
+
+- **Structural Steel (Primary framing):**
+  - **BOQ:** No BOQ extracted (BOQ extracts failed: RateLimitError).
+  - **Specs:** 
+    - Structural steel framing members for primary structural system.
+    - Contractor responsible for connection design/detailing and temporary works analysis.
+    - Shop drawings and erection drawings required.
+    - Fabricate to relevant EN codes.
+    - Execution Class EXC2 (NBN EN 1090-2).
+    - Steel grade NBN EN 10025 S355JR.
+    - Minimum 70% recycled content.
+    - Calculations for all connection designs.
+    - Manufacturer mill certificates.
+    - Welders' certificates (NBN EN ISO 9606-1).
+    - CE marking for relevant execution class.
+    - Beam-to-column connections to minimise eccentricity.
+    - Bolted bearing-type connections and high-strength bolts to NBN EN 14399 / NBN EN 15048.
+    - Shear stud connectors min yield 350 N/mm2.
+    - Anchor bolts per NBN EN 15048 as specified.
+  - **Assessment:** Missing detail
+
+- **Shop / Erection / Temporary Works:**
+  - **BOQ:** No BOQ extracted (BOQ extracts failed: RateLimitError).
+  - **Specs:** 
+    - Shop-fabricate to greatest extent possible.
+    - Shop painting schedule (exceptions noted).
+    - Pre-construction and pre-erection conferences required.
+    - Connection-design workshop.
+    - Temporary works drawings and method statements (sequence, temporary supports, lifting, bolting, welding).
+    - Confirm anchor-bolt alignment/elevations before erection.
+    - Field-installation/member-placement drawings and method statements.
+    - Field quality control by independent testing agency.
+  - **Assessment:** Missing detail
+
+## Phase: Construction
+### Zone: Sitewide
+
+- **Structural Steel (Execution & Compliance):**
+  - **BOQ:** No BOQ extracted (BOQ extracts failed: RateLimitError).
+  - **Specs:** 
+    - Execution Class EXC2.
+    - Comply with NBN EN 1090 (fabrication/welded construction including inspection/testing).
+    - Quality plan per NBN EN 1090.
+    - Welds for high-restraint using double bevels where specified.
+    - Perform site welding per EN 1011 where shown.
+    - Provide holes for other work and anchors/inserts.
+    - Verify compatibility of corrosion protection and intumescent paint systems (ref 07 81 23).
+  - **Assessment:** Missing detail
+
+- **Steel Decking / Composite Roof Deck:**
+  - **BOQ:** No BOQ extracted (BOQ extracts failed: RateLimitError).
+  - **Specs:** 
+    - Composite roof deck with supplementary framing for openings ≤450 mm.
+    - Stud shear connectors.
+    - Metal deck units from galvanized steel to EN 1993 / NBN EN 10346 / NBN EN 10143 (typical grade S350 unless noted).
+    - Minimum deck bearing 50 mm.
+    - Minimum roof deck end laps 50 mm.
+    - Anchor deck units to supporting steel with 20 mm puddle welds at each end and intermediate supports (max avg spacing 300 mm).
+    - Puddle welds not required where headed shear studs are welded through deck.
+    - Provide slab edge pour stops/edge strips/closure strips/sump pans.
+    - Provide framing for deck support at columns/openings.
+  - **Assessment:** Missing detail
+
+- **Metal Fabrications / Miscellaneous Steel Items:**
+  - **BOQ:** No BOQ extracted (BOQ extracts failed: RateLimitError).
+  - **Specs:** 
+    - Shop-fabricated ladders, barrier rails, miscellaneous steel framing/supports, roof opening framing, concrete edge confinement angles.
+    - Provide zinc-coated fasteners for exterior or built-into-exterior-walls.
+    - Prime paint all steel items except where indicated.
+    - Galvanise items embedded in concrete/masonry.
+    - Provide anchors, plates, angles, hangers, struts required to connect stairs/handrails to structure.
+  - **Assessment:** Missing detail
+
+- **Metal Stairs, Ramps, Handrails & Ladders:**
+  - **BOQ:** No BOQ extracted (BOQ extracts failed: RateLimitError).
+  - **Specs:** 
+    - Structural steel stair framing, prefabricated stairs, fixed ladders.
+    - Design to support 500 kg/m2 uniform live load and 150 kg concentrated on 2580 mm2.
+    - Comply with most stringent EU/local regulations.
+    - Attach handrails with wall brackets (min 50 mm clearance) and end fittings.
+    - Anchor handrail ends into concrete/masonry with round flanges welded to rails and drilled-in expansion anchors.
+    - Provide wall brackets, closures, flanges and anchors for pipe/handrail interconnections.
+    - Provide anchors/plates/angles/hangers/struts for stair connections.
+  - **Assessment:** Missing detail
+
+- **Corrosion Protection / Shop Painting / Galvanising:**
+  - **BOQ:** No BOQ extracted (BOQ extracts failed: RateLimitError).
+  - **Specs:** 
+    - Protection to primary steel to NBN EN ISO 12944.
+    - Submit proposals with durability ranges per NBN EN ISO 12944-1 (L to VH).
+    - All galvanising to NBN EN ISO 1461 (hot-dip).
+    - Shop painting schedule: paint all structural steel with shop coat except members encased in concrete or exposed exterior (inorganic zinc-rich primer for exterior items, minimum 60% solids producing ≥85% metallic zinc in film).
+    - External handrails/stairs pre-finished factory to C4 environment (EN ISO 12944-2).
+    - Provide zinc coated fasteners for exterior use.
+  - **Assessment:** Missing detail
+
+- **Bolts, Anchors & Connections:**
+  - **BOQ:** No BOQ extracted (BOQ extracts failed: RateLimitError).
+  - **Specs:** 
+    - High-strength bolted construction to NBN EN 14399 / NBN EN 15048.
+    - Bolted connections bearing type.
+    - Anchor bolts per NBN EN 15048 (grade per design docs).
+    - Anchor posts welded to steel supports.
+    - Welded site joints only where indicated.
+    - Provide anchors/inserts for connecting handrails to concrete/masonry.
+  - **Assessment:** Missing detail
+
+- **Shear Studs / Composite Connectors:**
+  - **BOQ:** No BOQ extracted (BOQ extracts failed: RateLimitError).
+  - **Specs:** 
+    - Shear studs: prepare surfaces per manufacturer.
+    - Shop-weld shear connectors, spaced as shown.
+    - Automatic end welding of headed studs per manufacturer's instructions.
+    - Use studs to connect deck to primary steel where indicated.
+  - **Assessment:** Missing detail
+
+- **Welding / Welders:**
+  - **BOQ:** No BOQ extracted (BOQ extracts failed: RateLimitError).
+  - **Specs:** 
+    - Welders must be certified by recognised authority in project location.
+    - Welders' certificates per NBN EN ISO 9606-1.
+    - Site welding per EN 1011.
+    - Welding of high-restraint welds to use double bevels where specified.
+  - **Assessment:** Missing detail
+
+- **Intumescent Fireproofing / Passive Fire Protection:**
+  - **BOQ:** No BOQ extracted (BOQ extracts failed: RateLimitError).
+  - **Specs:** 
+    - Apply intumescent coatings to primary & secondary structural steel to achieve specified fire resistance ratings.
+    - Specified products include Sherwin Williams FIRETEX FX2003 (DFT per required rating), FX6002 (ultra fast drying), C69 Fast Track Blast Primer (DFT 25 µm nominal per EN ISO 12944-5) and M71V2 Sheen Finish top sealer (DFT 50 µm nominal per EN ISO 12944-5).
+    - Factory-mixed single-pack thin film spray products.
+    - Provide product data sheets, independent EN 13381-4 test results and assessments (per PF Federation guidance), product certificates for compatibility with primers/adhesives/other coatings.
+    - Supply steel section vs DFT tables for each product (AE to provide required fire-rating info).
+    - Manufacturer must have local direct technical employee(s) and provide on-site technical representative at start of installation.
+    - Installer must be manufacturer-certified/qualified and trained by manufacturer's direct employees.
+    - Verify steel preparation including compatible primer.
+    - Install per manufacturer's technical data and applicator's method statement.
+    - Comply with ASFP guidance (Yellow Book, TGD 11).
+    - Deliver in original sealed packaging, store per manufacturer instructions, use before expiry.
+    - Comply with environmental/application limits (temperature, humidity, dew point) and record batch numbers, application dates/times, wet film thickness.
+    - Undertake dry film thickness surveys and record readings by section type (webs/flanges/hollow sections) as specified.
+    - Independent testing agency to perform field quality control tests per Section 01 40 00.
+    - Ensure compatibility between corrosion protection and intumescent systems.
+  - **Assessment:** Missing detail
+
+- **Surface Preparation & QA Measurements:**
+  - **BOQ:** No BOQ extracted (BOQ extracts failed: RateLimitError).
+  - **Specs:** 
+    - Surface preparation per EN ISO 8501-1 (blast cleanliness Sa2½ referenced).
+    - Surface profile per EN ISO 8503-2.
+    - Contamination checks per EN ISO 8502-3.
+    - Wet film thickness checks, dry film thickness surveys and DFT measurement protocols (specific readings per section type: webs/flanges/hollows).
+    - Measurement at primer stage, after basecoat, and on completion.
+    - Records of temperatures, humidity, dew point, batch numbers, application times, and over-coating times.
+    - Thicknesses at each stage per specification.
+    - Visual appearance to match mockup/samples.
+  - **Assessment:** Missing detail
+
+- **Standards & Compliance (General):**
+  - **BOQ:** No BOQ extracted (BOQ extracts failed: RateLimitError).
+  - **Specs:** 
+    - Multiple references to EU/EN standards: NBN EN 1990, EN 1991, EN 1993, EN 1090, EN 10025, EN 12944, EN 1993 Part 1-3 (cold-formed), EN 10346, EN 10143, EN 16623 (reactive coatings for fire protection), EN 13381 (fire resistance test methods), EN 13501 (fire classification).
+    - ASFP guidance documents (Yellow Book, TGD 11).
+    - Execution Class EXC2.
+  - **Assessment:** Missing detail
+
+## Global Inconsistencies
+
+| ID | Category | Location / Zone | Discrepancy Found | Risk / Impact |
+|----|----------|-----------------|-------------------|---------------|
+| 1  | Missing BOQ data | All | All BOQ extracts failed (RateLimitError). Quantities and item descriptions are unavailable | Major pricing, procurement and scheduling risk |
+| 2  | DFT / Fire rating unknowns | All | Intumescent systems require section-specific DFT tables and AE-provided fire-rating designations (not provided) | Financial and compliance risk |
+| 3  | Potential coating/primer sequencing conflict | All | Shop painting schedule (inorganic zinc-rich primers, shop coats, galvanising exceptions) vs specified intumescent primer/topcoat (Sherwin-Williams C69, FX2003/FX6002, M71V2) | Risk of rework, warranty gaps, and schedule delay |
+| 4  | Corrosion protection vs fire protection coordination | All | Multiple documents call for verification of compatibility between corrosion protection systems and intumescent coatings | Specification non-conformance or additional testing/consultant time |
+| 5  | Execution class, CE marking & manufacturer qualifications | All | EXC2 plus CE accreditation and manufacturer local-technical presence will limit fabricator pool | Likely increase cost/time for vendor prequalification |
+| 6  | Material sourcing constraints | All | Requirement for 70% recycled content for steel plus specific grades (S355JR, S350 for decking) | May constrain suppliers or incur premium pricing |
+| 7  | Welding/site constraints | All | Where welding is restricted (site restrictions) the specs allow concealed couplings subject to A/E review | Potential for on-site change orders if restrictions apply or weld access is limited |
+| 8  | Testing & QA burden | All | Extensive independent testing, batch tracking, DFT surveys, field QC per 01 40 00 and manufacturer requirements | Increase cost and programme durations; budgets/time should allow for third-party testing and remedial works |
+| 9  | Design information gaps | All | Several items defer to AE (e.g., steel section vs DFT tables, durability range selections, connection grades as specified in design documents) | Pending AE inputs create scope ambiguity and price risk |
+
+### Recommended Next Actions
+- Re-extract BOQ immediately; suspend procurement/pricing until BOQ available.
+- Request AE to provide: fire-resistance schedules per member/section, required DFT per section, and specified anchor/bolt grades where noted "as specified."
+- Circulate coating compatibility matrix (shop primer ↔ intumescent ↔ topcoat) and pre-approve systems before procurement.
+- Prequalify fabricators/installers with EN/CE/EXC2 capabilities and intumescent installer certification.

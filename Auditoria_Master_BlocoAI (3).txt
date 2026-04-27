@@ -1,0 +1,196 @@
+# Executive Summary
+
+## Phase: PH1
+
+### Zone: S03-A2000
+
+- **Structural Steel:**
+  - **BOQ:** FSA Structural Steel 711.0 tn; DCH Structural Steel 888.0 tn
+  - **Specs:** BOQ statement: "Steel fabricated to EXC class 2, all steel grade S355; erected in accordance with NSSSBC 5th Edition." Sitewide spec applies: Execution Class 2 (NBN EN 1090-2); steel grades S355JR for angles/plates/channels/W-shapes; design and connection requirements to NBN EN 1993.
+  - **Assessment:** Conflict / Ambiguity — two different main-package quantities (FSA vs DCH) reported for same Zone/Phase (risk of double-counting). EXC2 + S355 requirement from specs matches BOQ text (matching on execution class/grade), but clarification required on whether FSA and DCH are separate scopes or duplicate entries.
+
+- **Intumescent Fire Protection:**
+  - **BOQ:** FSA Intumescent Paint 2 Hr — 711.0 tn; DCH Intumescent Paint 2 Hr — 888.0 tn
+  - **Specs:** Sitewide intumescent spec (07 81 23): Sherwin Williams FIRETEX FX2003 (intumescent), FIRETEX C69 blast primer, M71V2 topcoat; DFT required to achieve specified fire resistance; intumescent coatings applied to primary/secondary members.
+  - **Assessment:** Conflict / Missing detail — BOQ lists fire-protection by tonnage equal to steel tonnage (units suspicious: paint measured as "tn"); PDF product and DFT requirements present but BOQ does not reference product/DFT. Also later BOQs for same zone/other phases list 1‑hr intumescent (inconsistent fire rating). Action: require confirmation of target fire rating per element and correct paint quantities/units.
+
+- **Miscellaneous Steel Items (stairs, ladders, railing, grating):**
+  - **BOQ:** Internal Stair (FSA) 1 nr; External Stair (Ground to Roof level) (DCH) 1 item; Holding Down Assemblies: FSA H.D.A. 59 nr; DCH H.D.A. 67 nr
+  - **Specs:** Sitewide metal stairs & fabrications (05 51 00 / 05 50 00): stair framing, handrails/guards, metal stairs with concrete or metal treads, shop-fabrication requirements. Structural Steel Framing spec requires coordination of anchor bolts (survey prior to erection), temporary works and method statements, and shop/erection drawings.
+  - **Assessment:** Missing detail / Ambiguity — FSA vs DCH duplication as above; holding-down bolt counts differ between FSA and DCH (clarify which are to be supplied/installed). Specs require anchor-bolt survey and coordination; BOQ sometimes lists "supply only" or no scope—needs scope clarification (supply vs supply+install).
+
+### Zone: S05-A2000
+
+- **Steel Decking:**
+  - **BOQ:** Supply & Installation TATA D60x1.2 mm Roof Decking (product specified); FSA Steel Decking 3,494.0 m2; DCH Steel Decking 7,224.0 m2 (PH1 entries)
+  - **Specs:** Sitewide Steel Decking (05 31 00): composite roof deck; deck produced from galvanized steel per EN 10346 / EN 10143; typical grade S350 unless agreed otherwise; stud shear connectors requirements and installation, manufacturer instructions, minimum bearing (50 mm), puddle-weld fastening, certified stud-welders.
+  - **Assessment:** Conflict / Missing detail — BOQ contains two different area quantities in same zone/phase (FSA vs DCH). Product (TATA D60x1.2) specified but no confirmation in BOQ that it meets EN standards or S350 requirement — potential nonconformance risk. Also later data shows differing quantities in PH2/PH3 (6046 m2); reconcile totals before procurement.
+
+### Zone: S02-A7100
+
+- **Structural Steel:**
+  - **BOQ:** Total steel 0.79074 tn
+  - **Specs:** Sitewide Structural Steel Framing: Execution Class 2 (EXC2); fabrication to EN codes; shop/erection drawings and temporary works; surface prep Sa2.5 before shop painting.
+  - **Assessment:** Match — small tonnage consistent with local steelwork; EXC2 and shop/erection requirements apply.
+
+- **Corrosion Protection / Paint / Intumescent:**
+  - **BOQ:** Corrosion protection paint for C2 environment — 0.79074 tn; Intumescent paint fire protection (60 minutes) applied in factory — 0.79074 tn; Touch up after erection prior to partial handover — 0.79074 tn
+  - **Specs:** Sitewide corrosion protection to NBN EN ISO 12944 (C2 internal/ C4 external); shop painting, galvanising to NBN EN ISO 1461; intumescent product/spec details as per 07 81 23.
+  - **Assessment:** Partial match / Missing detail — corrosion classification C2 aligns to spec if this is internal steel. Again, paint quantities appear as tonnage equal to steel tonnage (likely incorrect unit/clarification needed). Factory-applied intumescent (60 min) acceptable if suits design rating — confirm product/DFT and certification.
+
+- **Holding Down Bolts:**
+  - **BOQ:** Holding down bolts (supply only) — 16 nr
+  - **Specs:** Structural Steel Framing requires accurate survey of anchor rods at least 20 working days prior to erection; anchor bolt specification to NBN EN 15048.
+  - **Assessment:** Match on need for coordination but scope risk — BOQ says "supply only" while specs necessitate contractor verification/coordination; clarify responsibility for survey, tolerances, and grout/installation interface.
+
+### Zone: S02-A7200
+
+- **Structural Steel:**
+  - **BOQ:** Steel fabricated to EXC class 2, S355 (text); (Shell A) Structural Steel 1.12608 tn; Shotblast & galvanise to EN ISO 1461 — 1.12608 tn
+  - **Specs:** EXC2, S355 material requirements, galvanising to NBN EN ISO 1461, shop painting and surface prep Sa2.5 where applicable.
+  - **Assessment:** Match — specification text and small tonnage align; galvanising requirement present and consistent.
+
+- **Metal Fabrications / Access:**
+  - **BOQ:** H.D.A. (Shell A) 6 nr; Cat ladders 2 nr; Gantry Emergency Stairs 1 nr; Cooling Tower Stairs 4 nr; Railings 702 [unit unspecified]; 30 mm open mesh grating 1,153.0 m2
+  - **Specs:** Metal Fabrications & Metal Stairs: shop-fabrication, stair framing, handrails, grating and edge details.
+  - **Assessment:** Partial match / Missing detail — items align to specs but units and measurement basis unclear for "Railings 702" (linear meters? qty?); confirm units and scope (supply vs supply+install, finish, galvanising/paint).
+
+## Phase: PH2
+
+### Zone: S02-A7200
+
+- **Structural Steel (Shell A):**
+  - **BOQ:** (Shell A) Structural Steel 0.56304 tn and 377.0 tn (duplicate/ambiguous entries); Shotblast & galvanise listed for both weights (0.56304 tn and 377.0 tn)
+  - **Specs:** EXC2 requirements; galvanising to EN ISO 1461; shop/erection and QA requirements.
+  - **Assessment:** Conflict — multiple structural steel tonnages in same zone/phase for same descriptor (possible split between small components and main package or duplication). Require reconciliation and clear breakdown by element.
+
+- **H.D.A. / Hold-downs:**
+  - **BOQ:** (Shell A) Structural Steel H.D.A. 3 nr and 30 nr (duplicate/ambiguous)
+  - **Specs:** Anchor bolts per NBN EN 15048; coordination requirements (surveys, tolerances).
+  - **Assessment:** Conflict / Missing detail — duplicate counts need reconciliation; specify which bolts relate to which steel items and whether supply/installation included.
+
+- **Surface Treatment / Touchup:**
+  - **BOQ:** Surface touch-up after erection — 1 nr
+  - **Specs:** After erection cleaning and touch-up to same primer standards; shop and field painting requirements (EN 12944).
+  - **Assessment:** Match conceptually; quantify scope required.
+
+- **Access / Stairs / Grating / Railings:**
+  - **BOQ:** CAT LADDERS 1 nr; Cooling Tower Stairs 3 nr; Railings 405 [unit unspecified]; 30 mm open mesh grating 657.0 m2; Steps and Ramps incl. handrails
+  - **Specs:** Metal stairs & fabrications; handrails/guards and grating spec.
+  - **Assessment:** Partial match; units/quantities need clarification (railings numeric value without unit).
+
+- **Holding Down Bolt Assemblies (by type):**
+  - **BOQ:** Supply Holding down bolt assemblies - MCP 36 nr; - USS 24 nr; - S25 18 nr
+  - **Specs:** Anchor bolts per NBN EN 15048, grout and installation interface requirements.
+  - **Assessment:** Match on requirement to supply discrete assemblies but scope/range ambiguous—confirm which bolts correspond to which foundations and responsibility for embedment checks.
+
+### Zone: S03-A2000
+
+- **Structural Steel:**
+  - **BOQ:** Steel fabricated to EXC class 2, S355 (text); DCH Structural Steel 752.0 tn
+  - **Specs:** EXC2 and S355 material requirements; connection design, shop and erection deliverables.
+  - **Assessment:** Match on EXC2 and material grade; exists a later PH3/PH4 entry with slightly different tonnages — reconcile totals across phases.
+
+- **H.D.A.:**
+  - **BOQ:** DCH Structural Steel H.D.A. 59.0 nr
+  - **Specs:** Anchor bolt standards and coordination.
+  - **Assessment:** Match to anchor-bolt requirement; confirm supply vs install and embedment responsibilities.
+
+- **Intumescent Fire Protection:**
+  - **BOQ:** DCH Intumescent Paint 1 Hr — 752.0 tn
+  - **Specs:** Sitewide intumescent spec names specific products, primers and DFT requirements; required fire resistance rating per member.
+  - **Assessment:** Conflict / Missing detail — BOQ specifies "1 Hr" whereas earlier PH1 entries indicated "2 Hr". BOQ again uses "tn" unit for paint; confirm required FRR per member and product/DFT; paint quantity units need correction.
+
+### Zone: S05-A2000
+
+- **Steel Decking:**
+  - **BOQ:** Supply & Installation TATA D60x1.2 mm Roof Decking; DCH Steel Decking 6,046.0 m2
+  - **Specs:** Steel decking to EN 10346/EN 10143; deck installation, stud connectors, minimum bearing, welding/fastening, certified welders.
+  - **Assessment:** Partial match — product specified in BOQ but no explicit confirmation of compliance with EN standards or grade (S350) on record. Different decking area numbers exist in other phases/entries — reconcile.
+
+## Phase: PH3
+
+### Zone: S02-A7200
+
+- **Structural Steel / Surface Treatment:**
+  - **BOQ:** Steel fabricated to EXC class 2, S355 (text); Shotblast & galvanise to EN ISO 1461 (spec listed)
+  - **Specs:** EXC2 and galvanising standards.
+  - **Assessment:** Match in principle; no quantities provided in some PH3 entries — missing scope numbers.
+
+- **Access / Stairs:**
+  - **BOQ:** Gantry Emergency Stairs; Cooling Tower Stairs (no qtys provided in PH3 subset)
+  - **Specs:** Metal Stairs & Fabrications sitewide
+  - **Assessment:** Missing detail — quantities not specified in PH3 set; cross-check PH1/PH2 for counts to avoid omission or duplication.
+
+### Zone: S03-A2000
+
+- **Structural Steel:**
+  - **BOQ:** Steel fabricated to EXC class 2, S355 (text); DCH Structural Steel 756.0 tn
+  - **Specs:** EXC2 requirements, S355 material notes.
+  - **Assessment:** Minor discrepancy vs PH2 quantity (752 tn) — likely staging difference but must verify aggregated total and sequencing.
+
+- **H.D.A.:**
+  - **BOQ:** DCH Structural Steel H.D.A. 59.0 nr
+  - **Specs:** Anchor bolts standards and coordination.
+  - **Assessment:** Match with PH2 counts — consistent for H.D.A. count.
+
+- **Intumescent Fire Protection:**
+  - **BOQ:** DCH Intumescent Paint 1 Hr — 756.0 tn
+  - **Specs:** Sitewide intumescent product/DFT requirements
+  - **Assessment:** Same issues as PH2: unit and rating confirmation needed; ensure consistency of FRR between phases.
+
+- **External Stair:**
+  - **BOQ:** External Stair (Ground to Roof level) DCH — 1.0 item
+  - **Specs:** Metal Stairs spec for stairs to roof; handrails/guards requirements.
+  - **Assessment:** Match in concept; confirm finish (galvanised/paint/topcoat) and interface to structure.
+
+### Zone: S05-A2000
+
+- **Steel Decking:**
+  - **BOQ:** Supply & Installation TATA D60x1.2 mm Roof Decking; DCH Steel Decking 6,046.0 m2
+  - **Specs:** As for decking (05 31 00) — stud connectors, welding, minimum bearing, galvanized sheet standards.
+  - **Assessment:** Duplicate/consistency issue — same decking area appears in PH2 & PH3 entries (6,046 m2); reconcile phase split vs total. Confirm product compliance with EN standards and required deck grade.
+
+## Phase: PH4
+
+### Zone: S02-A7200
+
+- **Structural Steel / Surface Treatment:**
+  - **BOQ:** Steel fabricated to EXC class 2, S355 (text); Shotblast & galvanise to EN ISO 1461 (listed)
+  - **Specs:** EXC2 and galvanising per NBN EN ISO 1461.
+  - **Assessment:** Missing quantities — presence of PH4 entries without tonnages is a delivery risk; reconcile with PH1–PH3 totals.
+
+### Zone: S03-A2000
+
+- **Structural Steel:**
+  - **BOQ:** DCH Structural Steel (no qty provided in PH4 subset)
+  - **Specs:** EXC2, intumescent / painting requirements
+  - **Assessment:** Missing quantity and fire-protection detail — potential omission in BOQ; confirm scope and quantities.
+
+### Zone: S05-A2000
+
+- **Steel Decking:**
+  - **BOQ:** Supply & Installation TATA D60x1.2 mm Roof Decking (PH4 mention)
+  - **Specs:** Decking spec (05 31 00)
+  - **Assessment:** Missing quantities / duplicate entries across phases — reconcile.
+
+## Global Inconsistencies
+
+| ID | Category | Location / Zone | Discrepancy Found | Risk / Impact |
+|----|----------|-----------------|-------------------|---------------|
+| 1  | Duplicate / overlapping BOQ entries | Cross-Phase / Cross-Doc | FSA vs DCH for the same Zone/Phase leading to potential double-counting of steel and decking quantities. | Clarify if FSA and DCH are alternative bidders, separate scopes, or accidental duplicates; provide reconciled totals by element. |
+| 2  | Intumescent fire-protection inconsistencies | Cross-Phase | BOQ lists both 1‑hr and 2‑hr ratings (across phases), and records paint quantities as "tn" equal to steel tonnage (implausible). | Confirm required FRR per element, product/DFT, and correct measurement units for coating quantities. |
+| 3  | Decking grade & compliance mismatch | Cross-Phase | BOQ mandates a specific proprietary product (TATA D60x1.2 mm) while sitewide spec references galvanized sheet to EN standards, grade S350 (BOQ steel elsewhere is S355). | Confirm TATA product meets EN 10346/10143 and required grade/galvanising; reconcile S350 vs S355 expectations. |
+| 4  | Anchor / Holding-down bolt scope ambiguity | Cross-Phase | Multiple entries show supply-only vs supply+install; specs require contractor to verify embedded anchors and coordinate. | Risk of misaligned responsibilities leading to rework/delays/costs. Confirm supply/installation responsibilities, tolerances, and pre-erection surveys. |
+| 5  | Units and measurement omissions | Cross-Phase | Several BOQ items lack clear units (e.g., "Railings 702" — is this linear meters, number of segments, or cost line?), and paint quantities recorded as tonnes. | These create pricing and procurement risk. Standardize units and reissue BOQ clarifications. |
+| 6  | Phase split vs totals unclear | Cross-Phase | Same items (decking areas, structural steel tonnages, H.D.A. counts) appear in multiple phases with differing numbers (e.g., 752 tn vs 756 tn vs 711/888 tn). | This impacts schedule, procurement and cost contingency. Produce reconciled master quantity takeoff per final design/drawings and tie to phase delivery plan. |
+| 7  | Missing finishes/installation scope for miscellaneous items | Cross-Phase | Stairs, ladders, grating and railings frequently lack finish specification (galvanised vs painted), extent of supply vs installation and QA acceptance criteria. | Confirm finish and responsibility for each item to avoid contractual disputes. |
+| 8  | QA / certification references | Cross-Phase | Present in PDF (NBN/EN welding, bolting, certified welders, execution class requirements) are not consistently referenced in BOQ lines. | Contractual risk if workmanship standards are not enforced or priced. Incorporate mandatory compliance statements and inspection/testing scope in BOQ pricing. |
+
+## Summary Recommendation (Next Steps)
+
+- Immediate reconciliation workshop to align BOQ (FSA/DCH), phase splits and master quantities against latest design drawings.
+- Issue RFIs to confirm fire-resistance targets, intumescent products/DFTs, and correct units for coatings.
+- Confirm decking product compliance with EN standards and required grade.
+- Clarify holding-down bolt supply/install responsibilities and schedule anchor surveys at least 14–20 working days prior to erection as per spec.
+- Update BOQ line-items to include units, finishes and reference to mandatory standards (NBN/EN clauses) to remove procurement and QA ambiguity.

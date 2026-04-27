@@ -1,0 +1,1061 @@
+
+================================================================================
+        BlocoAI — MASTER CROSS-AUDIT
+        RELATÓRIO TÉCNICO DE DESENVOLVIMENTO
+        Versão 2.0 · Abril 2026
+================================================================================
+
+        "Da necessidade operacional ao sistema inteligente:
+         um percurso de engenharia de software aplicado
+         à auditoria técnica de documentos de construção"
+
+        Autor: André Luís Pereira
+        Empresa: Blocotelha
+        Ambiente: Python 3.12 / Streamlit / LangChain / OpenAI GPT-4o-mini
+        Data do documento: 16 de Abril de 2026
+
+================================================================================
+ÍNDICE
+================================================================================
+
+  1.  Introdução e Contexto do Problema
+  2.  Arquitectura Geral do Sistema
+  3.  Módulo 1 — app.py · Prototipagem Inicial com Ollama
+  4.  Módulo 2 — BlocoAI_pdf.py · Auditoria de Conformidade em PDF
+  5.  Módulo 3 — BlocoAI_steel.py · Extractor Especializado em Estruturas Metálicas
+  6.  Módulo 4 — BlocoAI.py (v1) · Sistema de 3 Agentes com OpenAI
+  7.  Módulo 5 — BlocoAI.py (v2) · Redesign de Interface e Consolidação Final
+  8.  Módulo 6 — excel_export.py · Exportador de Dados Estruturados
+  9.  Análise Crítica dos Prompts de Sistema
+  10. Decisões de Engenharia: Justificação Técnica
+  11. Limitações Identificadas e Trabalho Futuro
+  12. Conclusão
+
+
+================================================================================
+1. INTRODUÇÃO E CONTEXTO DO PROBLEMA
+================================================================================
+
+1.1 O Problema Real
+────────────────────────────────────────────────────────────────────────────────
+
+No sector da construção industrial e comercial, dois tipos de documentos
+coexistem em qualquer projecto de dimensão média a grande:
+
+  · BOQ (Bill of Quantities / Mapa de Quantidades) — documento de origem
+    comercial, produzido pelo dono de obra ou pelo empreiteiro-geral, que lista
+    os elementos a construir, as suas quantidades e os custos associados. Pode
+    existir em formato Excel (.xlsx / .xls) ou, nalguns casos, em PDF.
+
+  · Cadernos de Encargos (Specifications / Cahiers des Charges) — documentos de
+    origem técnica, produzidos pelo projectista, que definem os requisitos
+    normativos, de materiais e de execução. São invariavelmente PDFs, por vezes
+    com dezenas ou centenas de páginas.
+
+O problema que motivou este projecto é concreto: uma empresa de estruturas
+metálicas (Blocotelha) recebe frequentemente estes dois documentos em paralelo,
+muitas vezes em inglês, e precisa de:
+
+    a) Extrair, de forma rápida, os requisitos técnicos críticos
+       (graus de aço, classes de execução, protecções ao fogo, revestimentos).
+
+    b) Cruzar o que está no BOQ contra o que está nos Cadernos de Encargos,
+       detectando inconsistências (ex.: BOQ especifica "1 Hr intumescent" mas
+       Caderno de Encargos exige "2 Hr").
+
+    c) Gerar um relatório executivo que possa ser entregue internamente
+       em menos tempo do que uma revisão manual.
+
+Antes deste sistema, este processo era inteiramente manual: um engenheiro
+(ou estimador sénior) lia os documentos, tomava notas, cruzava informação e
+produzia um resumo. Para um projecto típico, este processo demorava entre
+meio-dia e dois dias de trabalho.
+
+
+1.2 Objectivo do Sistema BlocoAI
+────────────────────────────────────────────────────────────────────────────────
+
+O objectivo central é automatizar este processo de auditoria cruzada,
+mantendo qualidade técnica próxima da de um engenheiro experiente, e
+produzir o relatório em minutos em vez de horas.
+
+Os sub-objectivos técnicos são:
+
+  · Leitura robusta de Excel e PDF, com preservação do layout (fundamental
+    para tabelas técnicas não se tornarem ilegíveis após extracção).
+
+  · Divisão inteligente em chunks para contornar limites de contexto dos LLMs.
+
+  · Arquitectura multi-agente com separação clara de responsabilidades
+    (extrair, auditar, apresentar).
+
+  · Interface web simples, funcional, e de qualidade visual profissional,
+    acessível sem instalação de software adicional pelo utilizador final.
+
+  · Exportação dos resultados em formato descarregável.
+
+
+================================================================================
+2. ARQUITECTURA GERAL DO SISTEMA
+================================================================================
+
+2.1 Visão de Alto Nível
+────────────────────────────────────────────────────────────────────────────────
+
+O sistema BlocoAI na sua versão final (v2.0) é uma aplicação web mono-ficheiro
+construída em Python com o framework Streamlit. Internamente, orquestra três
+agentes de linguagem distintos através da biblioteca LangChain, usando o
+modelo GPT-4o-mini da OpenAI como motor de inferência.
+
+Fluxo de dados de alto nível:
+
+  [Utilizador]
+       │
+       ▼
+  [Upload de Ficheiros] ──────────────────────────────────────────┐
+  · BOQ (Excel ou PDF)                                            │
+  · Cadernos de Encargos (múltiplos PDFs)                         │
+       │                                                          │
+       ▼                                                          │
+  [Leitura e Serialização de Texto]                               │
+  · read_document() → str plana, anotada com [Linha:N] ou [Pág:N]│
+       │                                                          │
+       ▼                                                          │
+  [AGT-01 — Extrator]                                             │
+  · Divide texto em chunks de 75.000 chars                        │
+  · Classifica domínio técnico de cada chunk                      │
+  · Extrai specs no formato padronizado                           │
+  · Output: texto estruturado com rastreabilidade de ficheiro     │
+       │                                                          │
+       ▼                                                          │
+  [AGT-02 — Auditor Sénior]                                       │
+  · Recebe resumo_boq + resumo_specs                              │
+  · Detecta modo: CROSS-DOCUMENT ou SINGLE-DOCUMENT               │
+  · Deduplica, organiza por Fase/Zona                             │
+  · Identifica inconsistências globais                            │
+  · Output: auditoria_bruta (texto hierárquico)                   │
+       │                                                          │
+       ▼                                                          │
+  [AGT-03 — Apresentador]                                         │
+  · Formata auditoria_bruta em Markdown legível                   │
+  · Gera tabela de inconsistências                                │
+  · Output: relatorio_final (Markdown)                            │
+       │                                                          │
+       ▼                                                          │
+  [Interface — Relatório + Download]                              │
+       └──────────────────────────────────────────────────────────┘
+
+2.2 Stack Tecnológico
+────────────────────────────────────────────────────────────────────────────────
+
+  · Python 3.12              — Linguagem base
+  · Streamlit ≥ 1.30         — Framework de UI web reactiva
+  · LangChain Core           — Abstracção de mensagens (SystemMessage, HumanMessage)
+  · LangChain OpenAI         — Wrapper para a API OpenAI
+  · OpenAI GPT-4o-mini       — Motor de LLM (velocidade/custo optimizados)
+  · pdfplumber               — Extracção de texto de PDFs com preservação de layout
+  · pandas                   — Leitura e manipulação de ficheiros Excel
+  · openpyxl                 — Escrita de Excel formatado (módulo excel_export)
+  · python-dotenv (caseiro)  — Gestão de variáveis de ambiente via .env
+
+2.3 Ficheiros do Projecto
+────────────────────────────────────────────────────────────────────────────────
+
+  LangGraph-test/
+  ├── app.py                  ← Protótipo inicial (Ollama local)
+  ├── app2.py                 ← Utilitário de diagnóstico de ligação Ollama
+  ├── BlocoApps/
+  │   ├── BlocoAI.py          ← Aplicação principal (v2.0 — versão final)
+  │   ├── BlocoAI_pdf.py      ← Versão especializada em PDF (Ollama)
+  │   ├── BlocoAI_steel.py    ← Versão especializada em Aço (Ollama + OpenAI)
+  │   └── excel_export.py     ← Exportador JSON → Excel formatado
+
+
+================================================================================
+3. MÓDULO 1 — app.py
+   PROTOTIPAGEM INICIAL COM OLLAMA
+================================================================================
+
+3.1 Descrição
+────────────────────────────────────────────────────────────────────────────────
+
+O ficheiro app.py representa o ponto de partida do projecto. É o protótipo de
+primeira geração, escrito com o único propósito de validar a ideia central:
+"será que um LLM consegue ler um ficheiro de orçamento e extrair
+especificações técnicas relevantes?"
+
+O modelo usado nesta fase era um LLM local (Qwen 3.5 9B) servido através da
+plataforma Ollama numa máquina da rede interna ("a torre"), acessível por IP.
+
+3.2 Análise do Código
+────────────────────────────────────────────────────────────────────────────────
+
+O código é deliberadamente simples — 68 linhas. Os pontos notáveis são:
+
+  (a) Configuração via sidebar: IP da torre e upload de dois ficheiros.
+      Esta estrutura sidebar/main-area manteve-se em todas as versões seguintes,
+      provando ser a disposição mais natural para este tipo de ferramenta.
+
+  (b) Inicialização do LLM fora de qualquer função ou bloco condicional:
+
+        llm = ChatOllama(model="qwen3.5:9b", base_url=f"http://{torre_ip}:11434")
+
+      Este é um problema arquitectural que foi corrigido nas versões seguintes.
+      Nesta versão, o LLM é instanciado no arranque da aplicação, mesmo que
+      o utilizador não tenha feito nada. Se a torre estiver inactiva, a aplicação
+      pode falhar silenciosamente ou lentamente.
+
+  (c) Loop de processamento simulado (blocos 1 a 5 fixos), com progresso
+      puramente cosmético. Não havia ainda lógica real de chunking.
+
+  (d) Output em tabs: "Relatório Técnico" e "JSON Export". A ideia de separar
+      formato humano e formato máquina aparece já aqui.
+
+3.3 Justificação das Escolhas
+────────────────────────────────────────────────────────────────────────────────
+
+A escolha de Ollama + modelo local foi motivada por preocupações de custo e
+privacidade: em fase de prototipagem, não se queria enviar dados de clientes
+para APIs externas. Contudo, os modelos locais de 9B parâmetros demonstraram
+limitações significativas de raciocínio estruturado, o que levou à migração
+para GPT-4o-mini nas versões de produção.
+
+A escolha do Streamlit como framework é justificada pela sua proposta de valor
+única: permite criar uma aplicação web completamente funcional em Python puro,
+sem necessidade de HTML/JS/CSS separados, sem servidor backend explícito, e com
+componentes reactivos (file_uploader, progress, session_state) prontos a usar.
+Para uma ferramenta interna empresarial, este trade-off (velocidade de
+desenvolvimento vs. flexibilidade de design) é o correcto.
+
+
+================================================================================
+4. MÓDULO 2 — BlocoAI_pdf.py
+   AUDITORIA DE CONFORMIDADE EM PDF (MODO ESPONJA)
+================================================================================
+
+4.1 Descrição
+────────────────────────────────────────────────────────────────────────────────
+
+O BlocoAI_pdf.py representa a segunda iteração, focada exclusivamente na
+análise de PDFs de Cadernos de Encargos. Esta versão introduziu o conceito
+de "Modo Esponja" — a IA deve absorver absolutamente tudo o que é informação
+técnica, sem se limitar a uma matriz pré-definida.
+
+O modelo continuava a ser Ollama (Qwen 3.5 9B ou Llama 3.2 3B), mas a
+arquitectura de prompts foi significativamente mais cuidada.
+
+4.2 Inovações Técnicas
+────────────────────────────────────────────────────────────────────────────────
+
+  (a) pdfplumber com layout=True:
+
+        text = page.extract_text(layout=True)
+
+      Esta é a decisão técnica mais importante deste módulo. O parâmetro
+      layout=True instrui o pdfplumber a preservar a posição espacial dos
+      elementos de texto na página, em vez de concatená-los por ordem de
+      leitura do stream PDF. Para documentos de engenharia com tabelas de
+      especificações, esta diferença é crítica: sem layout=True, células de
+      colunas adjacentes fundem-se, tornando os dados ilegíveis.
+
+      Exemplo do impacto:
+        Sem layout: "S355J2 S235JR EXC3 Galvanizado 85µm"
+        Com layout: "S355J2   S235JR   EXC3   Galvanizado   85µm"
+        (espaçamento preserva a estrutura tabular)
+
+  (b) Limpeza de espaços excessivos com regex:
+
+        cleaned_text = re.sub(r' {3,}', '   ', text).strip()
+
+      O layout=True pode gerar sequências de 10 a 30 espaços entre colunas.
+      Reduzir para máximo 3 espaços mantém a legibilidade estrutural sem
+      desperdiçar tokens desnecessariamente.
+
+  (c) Chunking com tamanho fixo de 15.000 caracteres:
+
+      Esta é uma limitação reconhecida do módulo. O chunking por caracteres
+      pode cortar no meio de uma especificação, enviando metade ao LLM
+      num chunk e a outra metade no chunk seguinte. O BlocoAI_steel.py
+      melhorou isto com chunking por linhas completas.
+
+  (d) Actualização em tempo real via st.empty():
+
+        caixa_resultados.text_area(
+            f"Resultados Acumulados (Até Bloco {i+1}):",
+            value=texto_acumulado,
+            height=400
+        )
+
+      O st.empty() é um contentor Streamlit que pode ser sobrescrito. A cada
+      chunk processado, o text_area é substituído pela versão acumulada, dando
+      ao utilizador feedback visual imediato. Esta é uma das técnicas mais
+      poderosas do Streamlit para interfaces reactivas.
+
+  (e) Expanders com o texto cru de cada chunk:
+
+        with st.expander(f"👁️ Ver Texto Cru do PDF (Bloco {i+1})", expanded=False):
+            st.text(chunk)
+
+      Esta funcionalidade tem alto valor para debugging: permite ao utilizador
+      (ou desenvolvedor) verificar exactamente o que o LLM recebeu, facilitando
+      o diagnóstico de extrações incorrectas.
+
+4.3 Formato de Output do Prompt
+────────────────────────────────────────────────────────────────────────────────
+
+O prompt de sistema define um formato pipe-separado para a extracção:
+
+    [Tópico / Material] | [Especificação Técnica Completa]
+
+A escolha do pipe (|) como separador, em vez de vírgula ou tab, é justificada
+pela frequência com que vírgulas e tabs aparecem naturalmente em especificações
+técnicas (ex.: "S355, certificado EN 10025-2, espessura 8-20mm").
+
+4.4 Limitações deste Módulo
+────────────────────────────────────────────────────────────────────────────────
+
+  · Dependência de modelo local (Ollama) com capacidade limitada de seguir
+    instruções estruturadas de forma consistente.
+
+  · Ausência de lógica de cross-document (compara apenas um documento).
+
+  · Sem exportação estruturada (apenas download de texto plano).
+
+  · Sem gestão de erros da API (429 rate limits não são tratados).
+
+
+================================================================================
+5. MÓDULO 3 — BlocoAI_steel.py
+   EXTRACTOR ESPECIALIZADO EM ESTRUTURAS METÁLICAS
+================================================================================
+
+5.1 Descrição
+────────────────────────────────────────────────────────────────────────────────
+
+Este módulo representa a terceira iteração e a mais rica em funcionalidades
+dos módulos experimentais. Introduz três melhorias arquitecturais fundamentais:
+suporte multi-motor (Ollama local, Ollama remoto, OpenAI API), matriz de
+auditoria editável pelo utilizador, e exportação para DataFrame/CSV.
+
+5.2 Inovações Arquitecturais
+────────────────────────────────────────────────────────────────────────────────
+
+  (a) Suporte multi-motor de LLM:
+
+        if modo_execucao == "API Key":
+            llm = ChatOpenAI(model="gpt-4o-mini", api_key=api_key, temperature=0.1)
+        else:
+            llm = ChatOllama(model=modelo_selecionado, base_url=base_url_ollama,
+                             num_ctx=16384)
+
+      Esta arquitectura de "modo de execução" permita à mesma aplicação
+      funcionar tanto em ambiente offline (torre Ollama) como em modo cloud
+      (OpenAI). O parâmetro num_ctx=16384 para o Ollama é relevante: aumenta
+      a janela de contexto do modelo local, que por defeito é frequentemente
+      4096 tokens.
+
+  (b) Chunking por linhas completas (vs. por caracteres):
+
+        for linha in linhas_texto:
+            if len(chunk_atual) + len(linha) + 1 > tamanho_max_chunk:
+                chunks.append(chunk_atual.strip())
+                chunk_atual = linha + "\n"
+            else:
+                chunk_atual += linha + "\n"
+
+      Esta é uma melhoria crítica sobre o módulo anterior. Garantir que
+      cada chunk começa e termina numa linha completa evita o problema de
+      "especificação cortada ao meio". Numa linha do tipo
+      "[Linha: 47] S355 J2 | Estrutura Principal | t=12mm | EN 10025-2",
+      cortar a 15.000 chars poderia separar "EN 10025-2" do resto da linha.
+
+  (c) Lógica de deduplicação no cliente:
+
+        chave = spec.lower()
+        if chave in dados_agrupados:
+            if ref not in dados_agrupados[chave]["Referência"]:
+                dados_agrupados[chave]["Referência"] += f"; {ref}"
+
+      Em vez de pedir ao LLM para deduplicar (o que aumenta o custo e
+      reduz a previsibilidade), a deduplicação é feita em Python puro,
+      usando a spec normalizada (lowercase) como chave de dicionário.
+      Referências múltiplas para a mesma spec são concatenadas com ";",
+      preservando a rastreabilidade.
+
+  (d) Matriz de Auditoria editável:
+
+        guia_padrao = """1. CLASSE EXECUÇÃO: EXC2, EXC3, EXC4
+    2. MATERIAL DE BASE: Tipo/Grade de Aço...
+    ...
+        guia_input = st.text_area("Notas adicionais e Matriz:", value=guia_padrao)
+
+      Esta é uma decisão de product design importante: em vez de hard-coded
+      a lógica do que procurar, o utilizador pode editar a "checklist"
+      directamente na interface. O guia_input é depois injectado no prompt
+      de cada chunk, tornando a ferramenta adaptável a diferentes tipos
+      de projeto sem modificação do código.
+
+  (e) Gestão de Rate Limits da OpenAI:
+
+        if modo == "API Key" and i < len(chunks) - 1:
+            st.toast("⏳ Pausa de 25s (Proteção de Limite de API)")
+            time.sleep(25)
+
+        if "429" in str(e):
+            st.warning("🚨 Limite atingido. Pausa de 60s...")
+            time.sleep(60)
+
+      Esta gestão de erros é rudimentar mas funcional. O sleep fixo de 25s
+      entre chunks é uma solução conservadora para o tier gratuito da API
+      OpenAI. Em produção com tier pago, este valor pode ser reduzido ou
+      eliminado. A detecção do erro 429 por string parsing é frágil; uma
+      solução robusta usaria a estrutura de excepção da LangChain.
+
+5.3 Prompt de Sistema — Agente de Extracção de Aço
+────────────────────────────────────────────────────────────────────────────────
+
+O prompt de sistema deste módulo é o mais especializado de todos:
+
+  "You are a Senior Structural Steel Engineer. Your task is to exhaustively
+   extract ALL elements related to steel, secondary steel, fixings, gratings,
+   and fire protection.
+   CONSOLIDATION & FORMATTING RULE (CRITICAL):
+   - Group identical items within the block by combining their reference tags.
+   - DO NOT ignore items just because they lack detailed technical specifications.
+   Format: Source Reference | Item | Detailed Specification"
+
+A escolha de um "Senior Structural Steel Engineer" como persona do modelo
+é uma técnica estabelecida de prompt engineering (role prompting). Ao atribuir
+uma identidade profissional específica, o modelo tende a adoptar o vocabulário,
+as prioridades e o rigor dessa profissão.
+
+A instrução "DO NOT ignore items just because they lack detailed technical
+specifications" surgiu de um problema observado empiricamente: modelos LLM
+têm tendência para omitir linhas sem especificações completas, pois consideram
+que "não têm informação suficiente para reportar". Esta instrução contrapõe
+esse comportamento, garantindo que mesmo itens ambíguos são capturados.
+
+
+================================================================================
+6. MÓDULO 4 — BlocoAI.py (VERSÃO 1)
+   SISTEMA DE 3 AGENTES COM OPENAI
+================================================================================
+
+6.1 A Transição para Multi-Agente
+────────────────────────────────────────────────────────────────────────────────
+
+A versão 1 do BlocoAI.py representa o salto conceptual mais importante do
+projecto: a passagem de um único LLM com um único prompt para uma pipeline
+de 3 agentes especializados com responsabilidades distintas.
+
+Esta arquitectura foi inspirada no padrão "Chain of Thought" industrial, onde
+tarefas cognitivas complexas são decompostas em sub-tarefas sequenciais, cada
+uma com um especialista dedicado.
+
+O problema que motivou esta mudança foi observado na prática: pedir a um único
+LLM que lesse um BOQ de 200 páginas E cruzasse com 3 Cadernos de Encargos E
+produzisse um relatório executivo resultava em outputs de qualidade degradada
+— o modelo "perdia o fio" após processar demasiada informação.
+
+6.2 Os Três Agentes — Análise Detalhada
+────────────────────────────────────────────────────────────────────────────────
+
+AGENTE 1 — EXTRATOR (gpt-4o-mini, temperature=0.0)
+─────────────────────────────────────────────────
+
+Persona: "Expert Engineering Classifier and Transcriber"
+Temperature: 0.0 (máximo determinismo — queremos extracção factual, não criativa)
+Chunk size: 75.000 caracteres (vs. 15.000 das versões anteriores)
+
+O aumento do chunk de 15k para 75k foi possível graças à janela de contexto
+de 128k tokens do GPT-4o-mini. Um chunk de 75k caracteres corresponde a
+aproximadamente 18.750 tokens (assumindo ~4 chars/token), confortavelmente
+dentro do limite do modelo.
+
+A instrução mais importante do prompt:
+
+  "5. EXACT STRINGS: Use exact names found in text (e.g., 'S355',
+      'TATA D60x1.2mm', 'Intumescent 1 Hr')."
+
+Esta regra visa combater a tendência de parafrasear do LLM. Para auditoria
+técnica, "aço S355" e "aço grau 355" são a mesma coisa para um engenheiro,
+mas podem ser codificados diferentemente num sistema de cruzamento automático.
+Forçar strings exactas garante comparabilidade entre documentos.
+
+O formato de output inclui o nome do ficheiro de origem:
+
+  [FILE: {nome_ficheiro} | DOMAIN: ...] | Phase: ... | Zone: ... | Spec: ...
+
+Esta decisão de rastreabilidade é fundamental: quando o Agente 2 recebe
+centenas de linhas de especificações, precisa de saber de que ficheiro veio
+cada uma para poder fazer o cross-audit BOQ vs. Specs.
+
+
+AGENTE 2 — AUDITOR SÉNIOR (gpt-4o-mini, temperature=0.1)
+──────────────────────────────────────────────────────────
+
+Persona: "Lead Estimator performing a CROSS-DOCUMENT AUDIT"
+Temperature: 0.1 (ligeiramente criativo para permitir síntese, mas ancorado)
+
+Este agente recebe a concatenação dos outputs do Agente 1 (resumo_boq +
+resumo_specs) e tem como missão:
+
+  1. DEDUPLICAÇÃO — Eliminar especificações repetidas na mesma Zona.
+  2. ORGANIZAÇÃO — Estruturar por Fase → Zona.
+  3. COMPARAÇÃO — Para cada Zona, confrontar BOQ vs. Specs.
+  4. DIAGNÓSTICO GLOBAL — Identificar inconsistências cross-fase.
+
+A lógica de detecção de modo é notável:
+
+  if resumo_boq and resumo_specs:
+      missao = "CROSS-DOCUMENT AUDIT"
+  else:
+      missao = "SINGLE-DOCUMENT HIERARCHY"
+
+Em vez de ter dois prompts diferentes, o mesmo prompt acomoda os dois modos
+através de uma variável {missao} injectada no texto. Isto reduz manutenção
+e garante coerência.
+
+O formato de output para CROSS-DOCUMENT AUDIT:
+
+  Phase: [Name]
+  --> Zone: [Name]
+     ---> BOQ SPECS: [...]
+     ---> SPECIFICATIONS (PDF): [...]
+     ---> MATCH STATUS: [Aligned / Descrição do conflito]
+
+A estrutura de "seta dupla" (-->) é uma convenção textual que facilita o
+parsing posterior pelo Agente 3 e a leitura humana directa.
+
+
+AGENTE 3 — APRESENTADOR (gpt-4o-mini, temperature=0.1)
+───────────────────────────────────────────────────────
+
+Persona: "Executive Technical Writer for a Construction Firm"
+Temperature: 0.1
+
+Este agente tem a missão mais "cosmética" mas igualmente crítica: pegar no
+output denso e técnico do Agente 2 e transformá-lo num documento Markdown
+legível, com:
+
+  · Hierarquia clara (títulos, listas)
+  · Tabela Markdown das inconsistências globais
+  · Linguagem profissional mas acessível
+
+A instrução mais importante:
+
+  "4. NO ADDED DATA: Do not invent new data. Only format what the Auditor provided."
+
+Esta restrição é essencial em contexto de engenharia: o Apresentador não
+pode inventar especificações ou inconsistências que não existam nos dados.
+O risco sem esta instrução seria o modelo "alucinaer" conflictos plausíveis
+mas inexistentes, o que numa auditoria técnica seria desastroso.
+
+A separação em Agente 2 (análise) + Agente 3 (formatação) pode parecer
+redundante. A justificação é de qualidade: pedir ao Agente 2 que simultânea-
+mente analise E formate degrada ambas as tarefas. Ao especializar, o resultado
+de cada etapa é significativamente mais consistente.
+
+
+6.3 Leitura de Documentos — read_document()
+────────────────────────────────────────────────────────────────────────────────
+
+A função read_document() é polimórfica: detecta o tipo de ficheiro por extensão
+e aplica o extractor apropriado.
+
+  Para PDF (pdfplumber):
+    - layout=True preserva estrutura tabular
+    - Anotação "[Pág: N]" em cada página para rastreabilidade
+
+  Para Excel (pandas):
+    - Itera por todos os sheets (não apenas o primeiro)
+    - Filtra valores vazios / nan / "0" / "none"
+    - Exige len(vals) > 1 para excluir linhas com um único valor isolado
+    - Anotação "[Linha: N]" para rastreabilidade (N = índice real no Excel, +2 para header)
+
+A filtragem de valores vazios é mais agressiva do que pode parecer:
+
+    vals = [v.strip() for v in row
+            if v.strip().lower() not in ['nan','none','0.0','0','']]
+
+Esta lista de exclusão (nan, none, 0.0, 0, string vazia) elimina o ruído
+típico de ficheiros Excel de orçamentação, onde dezenas de colunas auxiliares
+ficam vazias ou com zeros de padding. Sem esta filtragem, o LLM receberia
+largas percentagens de tokens inúteis.
+
+
+================================================================================
+7. MÓDULO 5 — BlocoAI.py (VERSÃO 2)
+   REDESIGN DE INTERFACE E CONSOLIDAÇÃO FINAL
+================================================================================
+
+7.1 Motivação do Redesign
+────────────────────────────────────────────────────────────────────────────────
+
+A versão 1 do BlocoAI.py, apesar de funcionalmente correcta, apresentava
+uma interface genérica do Streamlit: fundo branco, widgets padronizados,
+sem hierarquia visual clara. Para uma ferramenta usada por engenheiros
+seniores e apresentada a clientes, a percepção de qualidade profissional é
+relevante.
+
+O redesign foi motivado pela necessidade de:
+
+  · Comunicar visualmente a complexidade técnica da ferramenta
+  · Dar ao utilizador feedback claro sobre o estado do processamento
+  · Distinguir visualmente as três fases do fluxo (upload, configurar, executar)
+  · Criar uma identidade visual coerente com o branding Blocotelha
+
+7.2 Decisões de Design da Interface
+────────────────────────────────────────────────────────────────────────────────
+
+PALETA DE CORES — Dark + Azul Técnico
+──────────────────────────────────────
+
+A escolha de dark theme com acentos em azul (#3a8eff, #1a4fc4) sobre fundo
+profundo (#0a0e1a) não é arbitrária. Este esquema é dominante em ferramentas
+de engenharia e software industrial profissional (IDEs, ferramentas CAD,
+dashboards de monitorização de infraestrutura). Comunica competência técnica,
+seriedade, e contrasta com a estética "startup tech" de fundos claros com
+gradientes púrpura.
+
+A escolha específica do azul (#3a8eff) como acento principal é também
+semântica: azul é culturalmente associado a confiança, precisão e tecnologia,
+valores centrais para uma ferramenta de auditoria.
+
+TIPOGRAFIA
+──────────────────────────────────────
+
+Duas fontes com papéis distintos:
+
+  · Space Mono (monospace) — Utilizada para elementos técnicos: labels de
+    agentes (AGT-01), números de passo (STEP 01/03), badges de estado,
+    títulos de secção. A escolha de monospace para estes elementos evoca
+    terminais, código, e precisão técnica. Cada caracter ocupa a mesma
+    largura, criando alinhamento natural em listas.
+
+  · DM Sans (sans-serif humanista) — Utilizada para o corpo de texto, botões,
+    e descrições. É legível, moderna, e confortável para texto corrido.
+    Contrasta bem com a rigidez da Space Mono.
+
+A hierarquia tipográfica (tamanhos, pesos, espaçamento de letras) é usada
+consistentemente para comunicar importância sem cor adicional.
+
+PIPELINE VISUAL — A Inovação de UX Central
+──────────────────────────────────────────────
+
+O pipeline de 3 etapas é o elemento de interface mais importante da v2.0.
+Em vez de mostrar texto genérico ("A processar..."), o utilizador vê
+exactamente em que fase do processo está, com estados visuais distintos:
+
+  idle   → cinzento escuro, ícone ○  — "ainda não começou"
+  active → azul com pulse animation  — "a correr agora"
+  done   → verde escuro, ícone ✓     — "concluído com sucesso"
+  error  → vermelho, ícone ✗         — "falhou"
+
+A animação pulse no passo activo (CSS keyframe de opacity 1→0.5→1) é
+subtil mas eficaz: indica actividade sem distrair.
+
+Tecnicamente, o pipeline é um bloco de HTML puro gerado por uma função Python:
+
+  def render_pipeline(states: list) -> str:
+      ...retorna HTML string...
+
+  pipeline_slot = st.empty()
+  pipeline_slot.markdown(render_pipeline(...), unsafe_allow_html=True)
+
+O st.empty() é sobrescrito durante o processamento para actualizar os
+estados em tempo real. Esta é uma das técnicas mais poderosas do Streamlit
+para criar interfaces dinâmicas dentro do modelo de execução top-to-bottom
+do framework.
+
+SECTION CARDS NUMERADOS
+──────────────────────────────────────
+
+A divisão em três cards numerados (STEP 01/03, STEP 02/03, STEP 03/03)
+serve um propósito pedagógico: torna o fluxo de trabalho óbvio para um
+utilizador novo, sem necessidade de documentação. A numeração sequencial
+comunica ordem de operação implicitamente.
+
+FILE CHIPS
+──────────────────────────────────────
+
+Após o upload de um ficheiro, um "chip" visual mostra o nome, extensão e
+tamanho do ficheiro:
+
+  <span class="file-chip">📄 orcamento.xlsx · XLSX · 142.3 KB</span>
+
+Isto resolve um problema de feedback: o file_uploader padrão do Streamlit
+mostra o nome do ficheiro de forma discreta. O chip personalizado é mais
+visível e inclui informação adicional (tamanho) que permite ao utilizador
+confirmar que carregou o ficheiro correcto.
+
+ÁREA DE RESULTADOS COM MÉTRICAS
+──────────────────────────────────────
+
+Após conclusão, a área de resultados exibe três métricas em pills:
+
+  · Número de ficheiros processados
+  · Número de fases detectadas no relatório
+  · Status de auditoria OK
+
+A detecção de fases é feita por parsing simples do relatório:
+
+  fases = len([l for l in relatorio.split("\n")
+               if l.strip().lower().startswith("phase:")])
+
+É uma heurística frágil (depende de o Agente 3 usar "Phase:" no output),
+mas funcional para a grande maioria dos casos.
+
+7.3 CSS Injectado via st.markdown()
+────────────────────────────────────────────────────────────────────────────────
+
+O Streamlit não expõe uma API de styling rica. A solução padrão é injectar
+CSS via st.markdown(<style>..., unsafe_allow_html=True). Esta abordagem
+tem limitações conhecidas:
+
+  · Os seletores CSS podem ser frágeis às actualizações do Streamlit,
+    que alteram os nomes das classes internas (class*="css").
+  · O unsafe_allow_html=True é necessário mas implica confiança no HTML
+    gerado (neste caso, gerado internamente, sem risco).
+
+Os seletores utilizados visam elementos específicos do DOM do Streamlit:
+
+  section[data-testid="stSidebar"]  — a sidebar
+  div[data-testid="stButton"]       — botões
+  div[data-testid="stFileUploader"] — zonas de upload
+  .stProgress > div > div           — barra de progresso
+
+O uso de data-testid é mais estável que class, pois estes atributos são
+mantidos intencionalmente pelo Streamlit para testes automatizados e tendem
+a não mudar entre versões minor.
+
+
+================================================================================
+8. MÓDULO 6 — excel_export.py
+   EXPORTADOR DE DADOS ESTRUTURADOS
+================================================================================
+
+8.1 Descrição
+────────────────────────────────────────────────────────────────────────────────
+
+O excel_export.py é um utilitário de linha de comando independente da UI,
+projetado para converter o output JSON do BlocoAI_steel.py num ficheiro
+Excel formatado profissionalmente. Representa uma camada de apresentação
+de dados separada da camada de análise.
+
+8.2 Análise do Código
+────────────────────────────────────────────────────────────────────────────────
+
+  (a) pd.json_normalize(data):
+
+      Esta função do pandas "achatamento" de JSONs aninhados. Por exemplo,
+      um objecto {"properties": {"grade": "S355", "standard": "EN10025"}}
+      torna-se colunas "properties.grade" e "properties.standard". É a
+      ferramenta correcta para converter estruturas JSON hierárquicas em
+      tabelas planas para Excel.
+
+  (b) Mapeamento de nomes de colunas:
+
+      rename_map = {
+          "source_block": "Blocos de Origem",
+          "properties.grade": "Grau de Aço (Grade)",
+          ...
+      }
+
+      Esta camada de tradução técnico→legível é essencial para documentos
+      destinados a utilizadores não-técnicos. Os nomes internos do JSON
+      (snake_case inglês) são convertidos para português apresentável.
+
+  (c) Ordenação lógica das colunas:
+
+      ordem_desejada = [
+          "Blocos de Origem", "Categoria Matriz", "Elemento Principal",
+          "Grau de Aço", "Classe Execução", "Norma", ...
+      ]
+
+      O pandas por defeito ordena colunas pela ordem de aparecimento no JSON,
+      que pode ser arbitrária. Definir explicitamente a ordem das colunas
+      garante que o Excel apresenta a informação na sequência lógica de
+      leitura de um engenheiro de estruturas.
+
+  (d) Auto-ajuste de largura de colunas (openpyxl):
+
+      for col in worksheet.columns:
+          max_length = max(len(str(cell.value)) for cell in col)
+          worksheet.column_dimensions[letter].width = min(max_length + 2, 60)
+
+      O Excel por defeito cria colunas de largura fixa que truncam conteúdo.
+      Este loop calcula a largura máxima do conteúdo de cada coluna e ajusta
+      dinamicamente, com cap de 60 caracteres para colunas de texto muito longo.
+
+  (e) Argparse para CLI:
+
+      O uso de argparse em vez de parâmetros hard-coded torna o script
+      reutilizável em pipelines automatizados (ex: cron job ou script batch).
+
+
+================================================================================
+9. ANÁLISE CRÍTICA DOS PROMPTS DE SISTEMA
+================================================================================
+
+9.1 Filosofia Geral de Prompt Engineering
+────────────────────────────────────────────────────────────────────────────────
+
+Ao longo das iterações do projecto, emergiu uma filosofia consistente de
+design de prompts, que pode ser resumida em quatro princípios:
+
+  1. IDENTIDADE PROFISSIONAL — Atribuir uma persona específica ("Senior
+     Structural Steel Engineer") activa o "prior" do modelo sobre o vocabulário,
+     as prioridades e o estilo de comunicação dessa profissão.
+
+  2. REGRAS NEGATIVAS EXPLÍCITAS — Dizer ao modelo o que NÃO fazer é tão
+     importante como dizer o que fazer. "IGNORE SUNDRIES", "DO NOT invent
+     new data", "NO LONG BULLETED LISTS" são mais eficazes do que ausência
+     de instrução.
+
+  3. FORMATO ESTRUTURADO COM EXEMPLOS — Definir o formato de output com
+     exemplos concretos reduz drasticamente a variabilidade. "Format: A | B | C"
+     com exemplos reais é mais eficaz que descrição em prosa do formato.
+
+  4. TEMPERATURA CALIBRADA — temperature=0.0 para extracção factual (sem
+     criatividade desejada), temperature=0.1 para síntese e organização
+     (leve criatividade para combinar informação), nunca acima de 0.3 para
+     tarefas técnicas.
+
+9.2 Tabela Comparativa dos Prompts por Agente
+────────────────────────────────────────────────────────────────────────────────
+
+  Agente     Persona                    Temp   Missão Principal
+  ─────────  ─────────────────────────  ─────  ──────────────────────────────
+  AGT-01     Expert Engineering         0.0    Extracção exacta de specs
+             Classifier & Transcriber           por chunks, com domínio
+  ─────────  ─────────────────────────  ─────  ──────────────────────────────
+  AGT-02     Lead Estimator             0.1    Cross-audit, deduplicação,
+             (Cross-Document)                   organização hierárquica
+  ─────────  ─────────────────────────  ─────  ──────────────────────────────
+  AGT-03     Executive Technical Writer 0.1    Formatação Markdown,
+             (Construction Firm)                tabela de inconsistências
+
+9.3 Observações sobre o Formato de Output Estruturado
+────────────────────────────────────────────────────────────────────────────────
+
+Um padrão observado em todos os módulos é a dependência de formatos de output
+específicos para o parsing posterior. Formatos como:
+
+  Phase: [Name]
+  --> Zone: [Name]
+     ---> BOQ SPECS: [...]
+
+...são semi-estruturados: legíveis por humanos mas parseáveis por código
+simples (split, startswith, etc.).
+
+A alternativa seria pedir output JSON puro, que facilitaria o parsing mas
+que os LLMs produzem de forma menos fiável para documentos longos (tendem a
+introduzir erros de sintaxe JSON em outputs extensos). A abordagem de
+"texto estruturado com convenções" é um compromisso pragmático e efectivo.
+
+
+================================================================================
+10. DECISÕES DE ENGENHARIA: JUSTIFICAÇÃO TÉCNICA
+================================================================================
+
+10.1 Por que Streamlit e não Flask/FastAPI + React?
+────────────────────────────────────────────────────────────────────────────────
+
+A escolha de Streamlit implica trade-offs conscientes:
+
+  PRÓS:
+  · Desenvolvimento 10-20x mais rápido para ferramentas internas.
+  · Sem necessidade de API REST separada — lógica de negócio e UI no mesmo
+    ficheiro Python.
+  · Componentes reactivos (file_uploader, progress, session_state) prontos.
+  · Deploy simples: `streamlit run BlocoAI.py`.
+
+  CONTRAS:
+  · Re-execução total do script Python a cada interacção do utilizador.
+    (Streamlit re-corre o ficheiro do início ao fim a cada clique.)
+  · Limitações de styling (CSS injectado é frágil).
+  · Não escalável para múltiplos utilizadores simultâneos sem infraestrutura
+    adicional (Streamlit Cloud, ou deploy Docker com gestão de sessões).
+  · WebSocket subjacente pode ter latência para actualizações muito frequentes.
+
+Para uma ferramenta interna com utilizador único ou poucos utilizadores,
+Streamlit é a escolha correcta. Para uma ferramenta SaaS com centenas de
+utilizadores, a arquitectura teria de ser repensada.
+
+10.2 Por que GPT-4o-mini e não GPT-4o ou GPT-4?
+────────────────────────────────────────────────────────────────────────────────
+
+A escolha de GPT-4o-mini é deliberada e justificada por três factores:
+
+  · CUSTO: GPT-4o-mini custa aproximadamente 15-20x menos que GPT-4o.
+    Para processar um BOQ de 50 páginas + 3 Cadernos de Encargos de 80 páginas,
+    o custo com GPT-4o-mini é tipicamente < $0.50 por auditoria. Com GPT-4o
+    seria $5-10.
+
+  · VELOCIDADE: GPT-4o-mini tem latência significativamente menor. Para
+    chunking com 10-20 iterações, a diferença acumulada é de minutos.
+
+  · QUALIDADE SUFICIENTE: Para extracção de informação técnica estruturada
+    (não raciocínio complexo), GPT-4o-mini demonstrou qualidade equivalente
+    a GPT-4o em testes internos. A diferença é mais relevante em tarefas
+    de raciocínio multi-passo, que não é o caso aqui.
+
+10.3 Por que LangChain e não chamadas directas à API OpenAI?
+────────────────────────────────────────────────────────────────────────────────
+
+O LangChain é usado de forma minimalista neste projecto: apenas para as
+abstracções SystemMessage e HumanMessage, e para o wrapper ChatOpenAI/ChatOllama.
+
+A justificação para usar LangChain em vez de openai.ChatCompletion directamente é:
+
+  · PORTABILIDADE: O mesmo código funciona com Ollama e OpenAI, trocando
+    apenas a classe LLM (ChatOllama vs. ChatOpenAI). Sem LangChain, teriam
+    de existir dois caminhos de código distintos.
+
+  · SEPARAÇÃO SEMÂNTICA: SystemMessage e HumanMessage são mais expressivos
+    do que dicionários {"role": "system", "content": "..."}, facilitando
+    a leitura e manutenção do código.
+
+  · FUTURO: Se o projecto evoluir para LangGraph (grafo de agentes com
+    memória e loops condicionais), a base LangChain já está presente.
+
+10.4 Por que Chunking Manual e não a API de Embeddings + RAG?
+────────────────────────────────────────────────────────────────────────────────
+
+A arquitectura de RAG (Retrieval-Augmented Generation) com embeddings seria
+uma alternativa: vectorizar o documento inteiro, e depois fazer perguntas
+específicas ("quais são os graus de aço?") usando similaridade semântica.
+
+Esta arquitectura foi considerada e rejeitada pelos seguintes motivos:
+
+  · O BlocoAI precisa de extracção EXAUSTIVA, não de recuperação pontual.
+    RAG é óptimo para perguntas específicas; chunking sequencial é melhor
+    para "lê tudo e extrai tudo".
+
+  · Custo adicional de embeddings (ada-002 ou similar) + infra de vector DB
+    (Pinecone, Chroma, etc.) para um benefício marginal.
+
+  · Complexidade de implementação desproporcional para a fase actual do produto.
+
+  A abordagem de chunking linear é menos elegante mas mais directa e robusta
+  para o caso de uso específico de auditoria documental exaustiva.
+
+
+================================================================================
+11. LIMITAÇÕES IDENTIFICADAS E TRABALHO FUTURO
+================================================================================
+
+11.1 Limitações Actuais
+────────────────────────────────────────────────────────────────────────────────
+
+  L1 — DEPENDÊNCIA DE FORMATO DO LLM
+  O output dos agentes 2 e 3 depende de o LLM seguir exactamente o formato
+  prescrito no prompt. Ocasionalmente, o modelo pode introduzir variações
+  (ex: "PHASE:" em vez de "Phase:") que quebram o parsing da contagem de
+  fases. Solução futura: pós-processamento robusto com regex ou pedido de
+  output JSON estruturado.
+
+  L2 — PDFs BASEADOS EM IMAGEM
+  pdfplumber não consegue extrair texto de PDFs que são digitalizações
+  (imagens). Para estes, seria necessária integração de OCR (ex: pytesseract,
+  AWS Textract, ou Azure Document Intelligence). Esta limitação não afecta
+  os Cadernos de Encargos produzidos digitalmente, mas pode surgir com
+  documentos mais antigos.
+
+  L3 — AUSÊNCIA DE MEMÓRIA ENTRE SESSÕES
+  O st.session_state persiste apenas durante a sessão do browser. Fechar
+  e reabrir o browser perde o relatório. Para persistência, seria necessário
+  guardar em ficheiro ou base de dados.
+
+  L4 — SEM AUTENTICAÇÃO
+  A aplicação não tem sistema de login. Em ambiente de rede interna, isto
+  é aceitável; para deployment cloud, seria necessário adicionar autenticação
+  (ex: streamlit-authenticator).
+
+  L5 — GESTÃO DE ERROS INCOMPLETA
+  O tratamento de erros resume-se a try/except com st.error(). Erros
+  de rede intermitentes, timeouts da API, ou ficheiros corrompidos podem
+  resultar em estados parciais que não são comunicados claramente ao utilizador.
+
+  L6 — CHUNKING SEM SOBREPOSIÇÃO
+  Os chunks são contíguos sem sobreposição. Uma especificação que esteja
+  dividida entre o final de um chunk e o início do seguinte pode ser
+  parcialmente capturada ou perdida. Chunks com sobreposição de 500-1000
+  chars melhorariam a cobertura.
+
+11.2 Roadmap de Melhorias Propostas
+────────────────────────────────────────────────────────────────────────────────
+
+  CURTO PRAZO (1-2 semanas)
+  · Adicionar chunking com sobreposição no Agente 1.
+  · Melhorar detecção de fases no relatório com regex mais robusta.
+  · Adicionar exportação Excel (integrar excel_export.py na UI principal).
+  · Tratamento de erros granular com mensagens específicas por tipo de falha.
+
+  MÉDIO PRAZO (1-3 meses)
+  · Integrar OCR para PDFs baseados em imagem.
+  · Persistência de relatórios em base de dados SQLite local.
+  · Modo comparação de versões: carregar dois BOQs e comparar evolução.
+  · Dashboard de histórico de auditorias.
+
+  LONGO PRAZO (3-12 meses)
+  · Migração para LangGraph para pipeline de agentes com condicional e memória.
+  · API REST para integração com sistemas de gestão de projecto (Procore, Autodesk).
+  · Fine-tuning de modelo especializado em documentação de construção portuguesa.
+  · Módulo de detecção automática de não-conformidades com regulamentação (CE, EN).
+
+
+================================================================================
+12. CONCLUSÃO
+================================================================================
+
+O projecto BlocoAI percorreu um caminho de evolução significativo em poucas
+iterações, partindo de um protótipo de 68 linhas com resultados simulados
+até uma aplicação de produção com arquitectura multi-agente, interface
+profissional e lógica de auditoria cruzada funcional.
+
+As decisões técnicas centrais — Streamlit para UI, LangChain para abstracção
+de LLMs, GPT-4o-mini para inferência, pdfplumber com layout=True para extracção
+de PDFs, chunking por linhas para Excel — provaram ser escolhas sólidas e
+bem fundamentadas para o problema específico em questão.
+
+A arquitectura de 3 agentes especializados (Extractor → Auditor → Apresentador)
+é a contribuição mais relevante do projecto em termos de engenharia de sistemas:
+resolve o problema de degradação de qualidade que ocorre quando se pede a um
+único LLM que execute múltiplas tarefas cognitivas distintas numa única chamada.
+
+Do ponto de vista do produto, a ferramenta cumpre o objectivo central:
+reduzir de horas para minutos o tempo de auditoria cruzada de documentos
+técnicos de construção, com qualidade técnica suficiente para suporte à
+tomada de decisão de engenharia.
+
+As limitações identificadas são reais mas gerenciáveis. Nenhuma é
+arquitecturalmente bloqueante — podem ser endereçadas por evolução incremental
+sem necessidade de reescrita do sistema.
+
+O BlocoAI v2.0 é uma ferramenta interna madura, pronta para uso regular
+em ambiente controlado, e com potencial claro de evolução para produto
+mais abrangente.
+
+────────────────────────────────────────────────────────────────────────────────
+
+  REFERÊNCIAS TÉCNICAS
+
+  · Streamlit Documentation — https://docs.streamlit.io
+  · pdfplumber — https://github.com/jsvine/pdfplumber
+  · LangChain Documentation — https://python.langchain.com
+  · OpenAI API Reference — https://platform.openai.com/docs
+  · OpenAI GPT-4o-mini Model Card — platform.openai.com/docs/models/gpt-4o-mini
+  · pandas Documentation — https://pandas.pydata.org/docs
+  · openpyxl Documentation — https://openpyxl.readthedocs.io
+  · EN 10025-2 — European Standard for Hot-rolled Structural Steel
+  · EN 1090-2 — Execution of Steel Structures (base para classes EXC)
+
+────────────────────────────────────────────────────────────────────────────────
+
+        Fim do Documento
+        BlocoAI v2.0 — Relatório de Desenvolvimento
+        Blocotelha · Abril 2026
+
+================================================================================
