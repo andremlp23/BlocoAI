@@ -1,0 +1,235 @@
+Formatted Audit Report
+
+Phase: Phase 1
+--> Zone: FSA
+    ---> Subzone: Structural Steel
+        * Structural Steel:
+            - BOQ: [Linha: 453] S03-A2000 | Steel fabricated to exc class 2, all steel grade S355. Steel erected in accordance with the NSSSBC 5th Edition; [Linha: 454] 15.1.001 | S03-A2000 | FSA Structural Steel | 711,00 tn; [Linha: 460] 15.4.005 | S03-A2000 | FSA Structural Steel H.D.A. | 59 nr
+            - SPECS: 
+            - STATUS: MISSING BASELINE
+        * Composite Decking:
+            - BOQ: [Linha: 456] S05-A2000 | Supply and Installation TATA D60x1.2mm Roof Decking; [Linha: 457] 17.1.001 | S05-A2000 | FSA Steel Decking | 3 494 m2
+            - SPECS: 
+            - STATUS: MISSING BASELINE
+        * Fire Protection:
+            - BOQ: [Linha: 462] 15.5.010 | S03-A2000 | FSA Intumescent Paint 2 Hr | 711,00 tn
+            - SPECS: 
+            - STATUS: MISSING BASELINE
+        * Corrosion Protection:
+            - BOQ: 
+            - SPECS: 
+            - STATUS: ALIGNED
+        * Metal Fabrications (Stairs/Railings/Gratings):
+            - BOQ: 
+            - SPECS: 
+            - STATUS: ALIGNED
+    ---> Subzone: Envelope
+        * Structural Steel:
+            - BOQ: [Linha: 476] 16.2.015 | S04-A2100 | Secondary steel | 1 942 m2
+            - SPECS: 
+            - STATUS: MISSING BASELINE
+        * Composite Decking:
+            - BOQ: 
+            - SPECS: 
+            - STATUS: ALIGNED
+        * Fire Protection:
+            - BOQ: 
+            - SPECS: 
+            - STATUS: ALIGNED
+        * Corrosion Protection:
+            - BOQ: 
+            - SPECS: 
+            - STATUS: ALIGNED
+        * Metal Fabrications (Stairs/Railings/Gratings):
+            - BOQ: 
+            - SPECS: 
+            - STATUS: ALIGNED
+--> Zone: DCH
+    ---> Subzone: Structural Steel
+        * Structural Steel:
+            - BOQ: [Linha: 644] S03-A2000 | Steel fabricated to exc class 2, all steel grade S355. Steel erected in accordance with the NSSSBC 5th Edition; [Linha: 645] 15.1.001 | S03-A2000 | DCH Structural Steel | 888,00 tn; [Linha: 651] 15.4.005 | S03-A2000 | DCH Structural Steel H.D.A. | 67 nr
+            - SPECS: 
+            - STATUS: MISSING BASELINE
+        * Composite Decking:
+            - BOQ: [Linha: 647] S05-A2000 | Supply and Installation TATA D60x1.2mm Roof Decking; [Linha: 648] 17.1.001 | S05-A2000 | DCH Steel Decking | 7 224 m2
+            - SPECS: 
+            - STATUS: MISSING BASELINE
+        * Fire Protection:
+            - BOQ: [Linha: 653] 15.5.010 | S03-A2000 | DCH Intumescent Paint 2 Hr | 888,00 tn
+            - SPECS: 
+            - STATUS: MISSING BASELINE
+        * Corrosion Protection:
+            - BOQ: 
+            - SPECS: 
+            - STATUS: ALIGNED
+        * Metal Fabrications (Stairs/Railings/Gratings):
+            - BOQ: 
+            - SPECS: 
+            - STATUS: ALIGNED
+--> Zone: CSA
+    ---> Subzone: GENERAL
+        * Structural Steel:
+            - BOQ: [Linha: 760] Dornan 025 | S02-A7100 | Total Tonnes of steel | 0,79 tn; [Linha: 767] Dornan 025 | S02-A7100 | Total Tonnes of steel | 10,43 tn; [Linha: 783] 15.1.001 | S02-A7200 | (Shell A) Structural Steel | 537,00 tn; [Linha: 2006] 15.1.001 | S03-A2000 | (Shell A) Structural Steel | 7,23 tn; [Linha: 2010] S03-A2000 | SUNDRIES; [Linha: 765] Dornan 030 | S02-A7100 | Holding down bolts (supply only) | 16,00 nr; [Linha: 772] Dornan 030 | S02-A7100 | Holding down bolts (supply only) | 32,00 nr; [Linha: 1038] 15.4.007 | S02-A7200 | Supply Holding down bolt assemblies - MCP | 48 nr; [Linha: 1039] 15.4.007 | S02-A7200 | Supply Holding down bolt assemblies - ASB | 10 nr; [Linha: 1040] 15.4.007 | S02-A7200 | Supply Holding down bolt assemblies - CTB | 20 nr; [Linha: 1041] 15.4.007 | S02-A7200 | Supply Holding down bolt assemblies - USS | 32 nr
+            - SPECS: 
+            - STATUS: MISSING BASELINE
+        * Composite Decking:
+            - BOQ: 
+            - SPECS: 
+            - STATUS: ALIGNED
+        * Fire Protection:
+            - BOQ: [Linha: 763] Dornan 028 | S02-A7100 | Intumescent paint fire protection (60 minutes), applied on Factory | 0,79 tn; [Linha: 770] Dornan 028 | S02-A7100 | Intumescent paint fire protection (60 minutes), applied on Factory | 10,43 tn; (See Corrosion Protection)
+            - SPECS: 
+            - STATUS: MISSING BASELINE
+        * Corrosion Protection:
+            - BOQ: [Linha: 762] Dornan 027 | S02-A7100 | Corrosion protection paint suitable for C2 environment category | 0,79 tn; [Linha: 769] Dornan 027 | S02-A7100 | Corrosion protection paint suitable for C2 environment category | 10,43 tn; [Linha: 780] 15.5.015 | S02-A7200 | Shotblast, galvanised to EN ISO 1461 | 1,13 tn; [Linha: 787] 15.5.015 | S02-A7200 | Shotblast, galvanised to EN ISO 1461 | 537,00 tn; [Linha: 788] 15.4.010 | S02-A7200 | Surface touchup after erection | nr; [Linha: 764] Dornan 029 | S02-A7100 | Touch up after erection, prior to partial handover | 0,79 tn; [Linha: 771] Dornan 029 | S02-A7100 | Touch up after erection, prior to partial handover | 10,43 tn; [Linha: 763] (also intumescent listed under Fire Protection but not repeated here)
+            - SPECS: 
+            - STATUS: MISSING BASELINE
+        * Metal Fabrications (Stairs/Railings/Gratings):
+            - BOQ: (See Structural Steel)
+                   (See Corrosion Protection)
+            - SPECS: 
+            - STATUS: MISSING BASELINE
+    ---> Subzone: Roof
+        * Structural Steel:
+            - BOQ: 
+            - SPECS: 
+            - STATUS: ALIGNED
+        * Composite Decking:
+            - BOQ: [Linha: 2013] 17.1.001 | S05-A2000 | Roof Deck Single Sapnning KINGSPAN 1.5mm Gauge RD 100/825 | 78 m2
+            - SPECS: 
+            - STATUS: MISSING BASELINE
+        * Fire Protection:
+            - BOQ: 
+            - SPECS: 
+            - STATUS: ALIGNED
+        * Corrosion Protection:
+            - BOQ: 
+            - SPECS: 
+            - STATUS: ALIGNED
+        * Metal Fabrications (Stairs/Railings/Gratings):
+            - BOQ: 
+            - SPECS: 
+            - STATUS: ALIGNED
+
+Phase: Phase 2
+--> Zone: DCH
+    ---> Subzone: Structural Steel
+        * Structural Steel:
+            - BOQ: [Linha: 1130] 15.1.001 | S03-A2000 | DCH Structural Steel | 752,00 tn
+            - SPECS: 
+            - STATUS: MISSING BASELINE
+        * Composite Decking:
+            - BOQ: [Linha: 1133] 17.1.001 | S05-A2000 | DCH Steel Decking | 6 046 m2
+            - SPECS: 
+            - STATUS: MISSING BASELINE
+        * Fire Protection:
+            - BOQ: [Linha: 1138] 15.5.005 | S03-A2000 | DCH Intumescent Paint 1 Hr | 752,00 tn
+            - SPECS: 
+            - STATUS: MISSING BASELINE
+        * Corrosion Protection:
+            - BOQ: 
+            - SPECS: 
+            - STATUS: ALIGNED
+        * Metal Fabrications (Stairs/Railings/Gratings):
+            - BOQ: 
+            - SPECS: 
+            - STATUS: ALIGNED
+--> Zone: CSA
+    ---> Subzone: GENERAL
+        * Structural Steel:
+            - BOQ: 
+            - SPECS: 
+            - STATUS: ALIGNED
+        * Composite Decking:
+            - BOQ: 
+            - SPECS: 
+            - STATUS: ALIGNED
+        * Fire Protection:
+            - BOQ: 
+            - SPECS: 
+            - STATUS: ALIGNED
+        * Corrosion Protection:
+            - BOQ: [Linha: 1213] 15.5.015 | S02-A7200 | Shotblast, galvanised to EN ISO 1461 | 377,00 tn
+            - SPECS: 
+            - STATUS: MISSING BASELINE
+        * Metal Fabrications (Stairs/Railings/Gratings):
+            - BOQ: 
+            - SPECS: 
+            - STATUS: ALIGNED
+
+Phase: Phase 3
+--> Zone: DCH
+    ---> Subzone: Structural Steel
+        * Structural Steel:
+            - BOQ: [Linha: 1487] 15.1.001 | S03-A2000 | DCH Structural Steel | 756,00 tn
+            - SPECS: 
+            - STATUS: MISSING BASELINE
+        * Composite Decking:
+            - BOQ: [Linha: 1490] 17.1.001 | S05-A2000 | DCH Steel Decking | 6 046 m2
+            - SPECS: 
+            - STATUS: MISSING BASELINE
+        * Fire Protection:
+            - BOQ: [Linha: 1495] 15.5.005 | S03-A2000 | DCH Intumescent Paint 1 Hr | 756,00 tn
+            - SPECS: 
+            - STATUS: MISSING BASELINE
+        * Corrosion Protection:
+            - BOQ: 
+            - SPECS: 
+            - STATUS: ALIGNED
+        * Metal Fabrications (Stairs/Railings/Gratings):
+            - BOQ: 
+            - SPECS: 
+            - STATUS: ALIGNED
+
+Phase: Phase 4
+--> Zone: DCH
+    ---> Subzone: Structural Steel
+        * Structural Steel:
+            - BOQ: [Linha: 1806] 15.1.001 | S03-A2000 | DCH Structural Steel | 747,00 tn
+            - SPECS: 
+            - STATUS: MISSING BASELINE
+        * Composite Decking:
+            - BOQ: [Linha: 1809] 17.1.001 | S05-A2000 | DCH Steel Decking | 6 046 m2
+            - SPECS: 
+            - STATUS: MISSING BASELINE
+        * Fire Protection:
+            - BOQ: [Linha: 1814] 15.5.005 | S03-A2000 | DCH Intumescent Paint 1 Hr | 747,00 tn
+            - SPECS: 
+            - STATUS: MISSING BASELINE
+        * Corrosion Protection:
+            - BOQ: 
+            - SPECS: 
+            - STATUS: ALIGNED
+        * Metal Fabrications (Stairs/Railings/Gratings):
+            - BOQ: 
+            - SPECS: 
+            - STATUS: ALIGNED
+
+GLOBAL INCONSISTENCIES:
+
+| ID | Category | Location (Phase/Zone/Subzone) | Issue | Risk |
+|---:|---|---|---|---|
+| 1 | Structural Steel | Phase 1 -> Zone FSA -> Subzone Structural Steel | MISSING BASELINE | MISSING BASELINE |
+| 2 | Composite Decking | Phase 1 -> Zone FSA -> Subzone Structural Steel | MISSING BASELINE | MISSING BASELINE |
+| 3 | Fire Protection | Phase 1 -> Zone FSA -> Subzone Structural Steel | MISSING BASELINE | MISSING BASELINE |
+| 4 | Structural Steel | Phase 1 -> Zone FSA -> Subzone Envelope | MISSING BASELINE | MISSING BASELINE |
+| 5 | Structural Steel | Phase 1 -> Zone DCH -> Subzone Structural Steel | MISSING BASELINE | MISSING BASELINE |
+| 6 | Composite Decking | Phase 1 -> Zone DCH -> Subzone Structural Steel | MISSING BASELINE | MISSING BASELINE |
+| 7 | Fire Protection | Phase 1 -> Zone DCH -> Subzone Structural Steel | MISSING BASELINE | MISSING BASELINE |
+| 8 | Structural Steel | Phase 1 -> Zone CSA -> Subzone GENERAL | MISSING BASELINE | MISSING BASELINE |
+| 9 | Fire Protection | Phase 1 -> Zone CSA -> Subzone GENERAL | MISSING BASELINE | MISSING BASELINE |
+| 10 | Corrosion Protection | Phase 1 -> Zone CSA -> Subzone GENERAL | MISSING BASELINE | MISSING BASELINE |
+| 11 | Metal Fabrications (Stairs/Railings/Gratings) | Phase 1 -> Zone CSA -> Subzone GENERAL | MISSING BASELINE | MISSING BASELINE |
+| 12 | Composite Decking | Phase 1 -> Zone CSA -> Subzone Roof | MISSING BASELINE | MISSING BASELINE |
+| 13 | Structural Steel | Phase 2 -> Zone DCH -> Subzone Structural Steel | MISSING BASELINE | MISSING BASELINE |
+| 14 | Composite Decking | Phase 2 -> Zone DCH -> Subzone Structural Steel | MISSING BASELINE | MISSING BASELINE |
+| 15 | Fire Protection | Phase 2 -> Zone DCH -> Subzone Structural Steel | MISSING BASELINE | MISSING BASELINE |
+| 16 | Corrosion Protection | Phase 2 -> Zone CSA -> Subzone GENERAL | MISSING BASELINE | MISSING BASELINE |
+| 17 | Structural Steel | Phase 3 -> Zone DCH -> Subzone Structural Steel | MISSING BASELINE | MISSING BASELINE |
+| 18 | Composite Decking | Phase 3 -> Zone DCH -> Subzone Structural Steel | MISSING BASELINE | MISSING BASELINE |
+| 19 | Fire Protection | Phase 3 -> Zone DCH -> Subzone Structural Steel | MISSING BASELINE | MISSING BASELINE |
+| 20 | Structural Steel | Phase 4 -> Zone DCH -> Subzone Structural Steel | MISSING BASELINE | MISSING BASELINE |
+| 21 | Composite Decking | Phase 4 -> Zone DCH -> Subzone Structural Steel | MISSING BASELINE | MISSING BASELINE |
+| 22 | Fire Protection | Phase 4 -> Zone DCH -> Subzone Structural Steel | MISSING BASELINE | MISSING BASELINE |
+
+END_OF_REPORT

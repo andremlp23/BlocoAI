@@ -1,0 +1,173 @@
+Audit Report
+
+Phase: Phase 1
+--> Zone: UNKNOWN
+    ---> Subzone: GENERAL
+        * Structural Steel:
+            - BOQ: Steel fabricated to exc class 2, all steel grade S355. Steel erected in accordance with the NSSSBC 5th Edition; FSA Structural Steel; DCH Structural Steel; (Shell A) Structural Steel; (Shell A) Structural Steel H.D.A.; FSA Structural Steel H.D.A.; DCH Structural Steel H.D.A.; Total Tonnes of steel; steel columns kickers/bolts; Holding down bolts (supply only); Supply Holding down bolt assemblies - MCP, ASB, CTB, USS, S24, S25; Additional - External Steelwork/Metalwork
+            - SPECS:
+                - (See Metal Fabrications)
+                - Structural steel design and fabrication to comply with latest applicable EN standards listed in the Contract (including NBN EN 1990, NBN EN 1991, NBN EN 1993, NBN EN 1090, NBN EN 10025, NBN EN 12944) or the edition mandated by the local AHJ as of bid date.
+                - Fabricator and detailer shop drawings of individual shipping pieces and erection drawings shall be prepared and checked by a suitably qualified professional Structural Engineer prior to issue.
+                - Connection design calculations shall be submitted prior to shop drawing preparation and signed/sealed by a Professional Structural Engineer; calculations must be numbered logically, clouded when revised, include sketches with all pertinent dimensions and be keyed to the connection locations on drawings.
+                - Execution class: steel used on project to be Execution Class 2 (EXC2) per NBN EN 1090-2 unless noted otherwise; steel erection must meet requirements of the specified execution class.
+                - Steel materials: use grades as noted on Structural General Notes; default NBN EN 10025 S355JR for angles/plates/channels/W shapes/tees and NBN EN 10210 S355JR for HSS unless noted otherwise.
+                - Bolts, nuts and washers: high strength bolts to NBN EN 14399 / NBN EN 1090; bolts grade 8.8 unless noted otherwise; all bolts new, not re-used.
+                - Anchor bolts: provide per NBN EN 15048, grade as specified on design documents; non‑headed type unless otherwise indicated; confirm anchor bolt locations by survey at least 20 working days prior to erection.
+                - Fabrication: shop fabricate to the greatest extent possible; mark units for reassembly; fabricate for delivery sequence to minimise field handling; complete assembly and welding before finishing operations where finishing required.
+                - Fabrication tolerances: squareness maximum diagonal difference 3 mm; maximum offset between faces 2 mm; maximum misalignment of adjacent members 2 mm; maximum bow 3 mm in 1200 mm; maximum deviation from plane 2 mm per 1200 mm.
+                - Welding: qualify processes and operators per EN 1011 and NBN EN ISO 9606-1; welders’ certificates to be submitted, verifying qualification within previous 12 months.
+                - Welding materials and electrodes: comply with NBN EN 1090 and referenced welding standards; maintain electrodes in moisture resistant, undamaged packages and sealed until use.
+                - Holes: cut, drill or punch holes perpendicular to metal surfaces; do not flame cut or enlarge holes by burning; drill holes in bearing plates and remove burrs.
+                - Camber: develop camber as indicated; if none indicated, fabricate beams so any natural camber is upward after erection.
+                - Shop and erection documentation: submit quality plan for execution in accordance with NBN EN 1090 at earliest practical time; submit manufacturer's mill certificates, CE marking accreditation for execution class, welders’ certificates, shear studs, welding electrodes and DTI evidence.
+                - Temporary support and erection loads: provide sufficient temporary bracing and supports to maintain structure safe, plumb and true until permanent bracing is completed; provide and install temporary supports per erector’s temporary works drawings and methods statements.
+                - Field erection tolerances and methods: set frames accurately to lines/elevations and align/adjust before permanently fastening; align/level/plumb members within EN 1090 tolerances; splices only where indicated and accepted on shop drawings or subsequently agreed.
+            - STATUS: ALIGNED (BOQ references EXC2 and S355; baseline contains comprehensive EXC2/EN requirements and anchor/bolt provisions). Some BOQ entries (holding down bolt assemblies listed as "supply only") do not specify grades/details required by the baseline (see MISSING BASELINE notes below).
+        * Composite Decking:
+            - BOQ: Supply and Installation TATA D60x1.2mm Roof Decking; FSA Steel Decking; DCH Steel Decking
+            - SPECS:
+                - Steel deck scope: provide composite roof deck wide-rib units, stud shear connectors, bearing plates/angles and supplementary framing for openings up to and including 450 mm; deck sheets to be galvanised to NBN EN 10346 / NBN EN 10143, grade S350 unless noted.
+                - Deck interfaces and minimum bearings: minimum bearing on steel supporting members shall be 50 mm; minimum roof deck end laps 50 mm.
+                - Deck openings: do not cut openings in metal decking unless shown on approved submittals or specifically approved in writing by Engineer of Record; for un-indicated openings submit modified shop drawings and calculations for approval.
+                - Deck fastenings and puddle weld schedule (composite): provide 20 mm diameter puddle welds at panel ends and intermediate supports with maximum average spacing 300 mm across width; longitudinal edges/side laps supported by steel fastened with 20 mm puddle welds maximum 300 mm O.C.; where adjacent panels without steel support, fasten with minimum size 300 mm self‑tapping screws between supports max 150 mm O.C.
+                - Shear stud welding for deck/composite: certified welders per project location; weld studs through deck to primary steel members below; beam top surface must be clean of mill scale/rust/grease/paint; do not weld studs when ambient temperature < 0°C.
+                - Steel deck accessory minima: provide slab edge pour stops/edge strips/closure strips/sump pans min 1.6 mm; fillers/ridge/valley plates and closures min 0.8 mm.
+            - STATUS: MISSING BASELINE (BOQ specifies product/profile and supply/install but does not reference baseline requirements such as galvanizing grade S350, stud shear connectors, bearing/minimum lap, puddle weld/fastening schedules, or restrictions on cutting openings).
+        * Fire Protection:
+            - BOQ: FSA Intumescent Paint 2 Hr; DCH Intumescent Paint 2 Hr (Phase 1 entries); Intumescent paint fire protection (60 minutes), applied on Factory
+            - SPECS:
+                - Intumescent fireproofing interfaces: intumescent coatings must be compatible with primers and corrosion protection; coordinator with Section 07 81 23.
+                - Intumescent coating QA and DFT acceptance: measure dry film thickness per section and location as specified (readings frequency per section shape/face); average DFT per element must be >= specified nominal value and no face average shall be less than 80% of nominal except isolated readings (further readings required) and all DFTs shall be at least 50% of nominal.
+                - Intumescent application environmental controls: confine spraying operations as required to maintain ambient temperature, humidity, air quality and ventilation; protect coatings from rain, direct sunlight, high humidity and high winds during application, drying and curing.
+                - Installer qualifications for intumescent: installer to be certified/licensed/qualified by coating manufacturer and trained by manufacturer’s direct employees; provide installer qualification data and project references.
+                - Intumescent fireproofing interfaces: submit EN 13381-4 test results and steel section vs DFT tables.
+            - STATUS: MISSING BASELINE (BOQ indicates fire rating durations but does not reference baseline QA/DFT/installer qualification/testing and application controls required by the SPECS).
+        * Corrosion Protection:
+            - BOQ: Corrosion protection paint suitable for C2 environment category; Shotblast, galvanised to EN ISO 1461; Surface touchup after erection; Touch up after erection
+            - SPECS:
+                - Corrosion protection: classify exposure per NBN EN ISO 12944-2 unless project documentation states otherwise (internal default C2, external default C4); submit proposals with durability ranges per NBN EN ISO 12944-1.
+                - Galvanizing: all cutting, welding and drilling to be completed before galvanizing; provide vent and drain holes in approved locations; galvanizing to NBN EN ISO 1461.
+                - Shop and touch-up primer: fabricator’s standard grey rust inhibitive primer complying with VOC limits; touch-up primer for galvanized surfaces to comply with VOC limits.
+                - Post-fabrication treatment: do not prime surfaces in direct contact with concrete, where site welding is required, or surfaces to be covered with sprayed fireproofing; prime welds and abrasions after erection except surfaces in contact with concrete.
+                - (See Fire Protection)
+            - STATUS: ALIGNED (BOQ references C2 classification and galvanizing to EN ISO 1461 and touch-up; these are directly matched in the SPECS).
+        * Metal Fabrications (Stairs/Railings/Gratings):
+            - BOQ: Internal Stair (FSA); External Stair (Ground to Roof level) DCH; Cooling Tower Stairs; Railings; Loading Dock - Fencing and Handrails (Slides 1 & 2) (DC); Cat Ladder and balustrade to penthouse roof - (Ground to Roof) 11m; 30mm open mesh grating; Bollards; Additional - External Steelwork/Metalwork
+            - SPECS:
+                - Project steel scope: supply, fabricate, deliver, erect and protect primary structural steel framing members and associated steel fabrications (ladders, barrier rails, miscellaneous supports, roof opening frames, cantilever supports, corner guards, etc.).
+                - Stair and handrail design loads (metal stairs and ramps): design stair assemblies to support uniform live load 500 kg/m2 and concentrated load 150 kg on an area of 2580 mm2 with stringer/landing deflection not exceeding L/360; handrails/top rail top loading uniform 1.0 kN/m and concentrated 0.5 kN; infill area loading horizontal uniform 1.0 kN/m2 and point 0.5 kN.
+                - Stairs and ramps materials and finishes: fabricate stairs, ladders, rails and guards from specified steels (EN 10025, ISO 10799, ISO 4200) and factory galvanise after fabrication or provide prime paint as scheduled; do not prime surfaces in direct contact with concrete or where site welding is required.
+                - Stair and ladder dimensional/profile baselines: typical stringer depth 300 mm; standard rung spacing 225–300 mm; maximum rung width spacing 600 mm; guardrail height minimum 1100 mm (landings) and comply with EN 14122 and local code requirements.
+                - Anchors and embeds coordination: provide setting templates and coordinate anchorages (embedding in concrete or masonry) with Cast‑in‑Place work and other trades; supply anchors and anchor bolt welding as specified.
+            - STATUS: MISSING BASELINE (BOQ lists numerous metal fabrications by type/location but does not reference required design loads, dimensional baselines, material/finish directives, galvanising/finish requirements, or anchors/embed coordination identified in the SPECS).
+
+Phase: Phase 2
+--> Zone: UNKNOWN
+    ---> Subzone: GENERAL
+        * Structural Steel:
+            - BOQ: Steel fabricated to exc class 2, all steel grade S355. Steel erected in accordance with the NSSSBC 5th Edition; DCH Structural Steel; (Shell A) Structural Steel; (Shell A) Structural Steel H.D.A.
+            - SPECS:
+                - (See Metal Fabrications)
+                - Structural steel design and fabrication to comply with latest applicable EN standards listed in the Contract ... or the edition mandated by the local AHJ as of bid date.
+                - Execution class: steel used on project to be Execution Class 2 (EXC2) per NBN EN 1090-2 unless noted otherwise; steel erection must meet requirements of the specified execution class.
+                - Steel materials: default NBN EN 10025 S355JR ...
+                - Fabricator and detailer shop drawings ...; Connection design calculations ...; Fabrication tolerances ...; Welding requirements ...
+            - STATUS: ALIGNED (BOQ references EXC2/S355 and local erection code; aligns with baseline execution class, materials and EN compliance requirements).
+        * Composite Decking:
+            - BOQ: Supply and Installation TATA D60x1.2mm Roof Decking; DCH Steel Decking
+            - SPECS:
+                - Steel deck scope: provide composite roof deck wide-rib units, stud shear connectors, bearing plates/angles and supplementary framing ... deck sheets to be galvanised to NBN EN 10346 ... grade S350.
+                - Deck interfaces and minimum bearings; Deck fastenings and puddle weld schedule; Shear stud welding for deck/composite; Deck openings.
+            - STATUS: MISSING BASELINE (BOQ lists deck product/profile but lacks baseline requirements for galvanizing grade S350, stud connectors, fastening/puddle weld schedule, bearing and opening controls).
+        * Fire Protection:
+            - BOQ: DCH Intumescent Paint 1 Hr
+            - SPECS:
+                - Intumescent fireproofing interfaces; Intumescent coating QA and DFT acceptance; Intumescent application environmental controls; Installer qualifications for intumescent; Submit EN 13381-4 test results and steel section vs DFT tables.
+            - STATUS: MISSING BASELINE (BOQ specifies a fire-rating duration but does not reference the QA/DFT/testing/installer qualification and application controls required by the SPECS).
+        * Corrosion Protection:
+            - BOQ: Shotblast, galvanised to EN ISO 1461
+            - SPECS:
+                - Galvanizing: all cutting, welding and drilling to be completed before galvanizing; provide vent and drain holes in approved locations; galvanizing to NBN EN ISO 1461.
+                - Corrosion protection: classify exposure per NBN EN ISO 12944-2 ...
+                - Shop and touch-up primer; Post-fabrication treatment; Compatibility.
+            - STATUS: ALIGNED (BOQ references galvanizing to EN ISO 1461 consistent with SPECS).
+        * Metal Fabrications (Stairs/Railings/Gratings):
+            - BOQ: Cooling Tower Stairs (implied by general entries), Railings (general)
+            - SPECS:
+                - Project steel scope: supply, fabricate, deliver, erect and protect primary structural steel framing members and associated steel fabrications (ladders, barrier rails, miscellaneous supports, roof opening frames, cantilever supports, corner guards, etc.).
+                - Stair and handrail design loads; Stairs and ramps materials and finishes; Stair dimensional/profile baselines; Anchors and embeds coordination.
+            - STATUS: MISSING BASELINE (BOQ references stairs/railings generically but lacks required design/load/finish/specification detail in the SPECS).
+
+Phase: Phase 3
+--> Zone: UNKNOWN
+    ---> Subzone: GENERAL
+        * Structural Steel:
+            - BOQ: Steel fabricated to exc class 2, all steel grade S355. Steel erected in accordance with the NSSSBC 5th Edition; DCH Structural Steel; (Shell A) Structural Steel; (Shell A) Structural Steel H.D.A.
+            - SPECS:
+                - (See Metal Fabrications)
+                - Project steel scope; Structural steel design and fabrication to comply with latest applicable EN standards ... or the edition mandated by the local AHJ as of bid date.
+                - Execution class EXC2; Steel materials default S355JR; Fabricator/shop drawings; Connection calculations; Fabrication tolerances; Welding and QA requirements.
+            - STATUS: ALIGNED (BOQ references EXC2 and S355 consistent with SPECS).
+        * Composite Decking:
+            - BOQ: Supply and Installation TATA D60x1.2mm Roof Decking; DCH Steel Decking
+            - SPECS:
+                - Steel deck scope; Deck interfaces and minimum bearings; Deck fastenings and puddle weld schedule; Shear stud welding for deck/composite; Deck openings; Steel deck accessory minima.
+            - STATUS: MISSING BASELINE (BOQ does not reference deck galvanizing grade, stud connectors, fastening/puddle weld schedule, minimum bearings or opening controls required by SPECS).
+        * Fire Protection:
+            - BOQ: DCH Intumescent Paint 1 Hr
+            - SPECS:
+                - Intumescent fireproofing interfaces; QA and DFT acceptance; Application environmental controls; Installer qualifications; Submit EN 13381-4 test results and steel section vs DFT tables.
+            - STATUS: MISSING BASELINE (BOQ lacks SPECS-required QA/DFT/testing/installer requirements).
+        * Corrosion Protection:
+            - BOQ: Shotblast, galvanised to EN ISO 1461
+            - SPECS:
+                - Galvanizing to NBN EN ISO 1461; Corrosion protection classification per NBN EN ISO 12944-2; Shop and touch-up primer; Post-fabrication treatment; Compatibility with intumescent.
+            - STATUS: ALIGNED (BOQ references galvanizing standard consistent with SPECS).
+        * Metal Fabrications (Stairs/Railings/Gratings):
+            - BOQ: Cooling Tower Stairs; Railings; 30mm open mesh grating (general items)
+            - SPECS:
+                - Project steel scope: supply, fabricate, deliver, erect and protect primary structural steel framing members and associated steel fabrications (ladders, barrier rails, miscellaneous supports, roof opening frames, cantilever supports, corner guards, etc.).
+                - Stair and handrail design loads; Stairs and ramps materials and finishes; Stair/ladder dimensional baselines; Anchors and embeds coordination.
+            - STATUS: MISSING BASELINE (BOQ lists items but omits design/load/finish/dimensional/anchor details required by SPECS).
+
+Phase: Phase 4
+--> Zone: UNKNOWN
+    ---> Subzone: GENERAL
+        * Structural Steel:
+            - BOQ: Steel fabricated to exc class 2, all steel grade S355. Steel erected in accordance with the NSSSBC 5th Edition; DCH Structural Steel; (Shell A) Structural Steel; (Shell A) Structural Steel H.D.A.
+            - SPECS:
+                - (See Metal Fabrications)
+                - Project steel scope; Structural steel design and fabrication to comply with latest applicable EN standards ... or the edition mandated by the local AHJ as of bid date.
+                - Execution class EXC2; Steel materials default S355JR; Fabricator/shop drawings; Connection calculations; Fabrication tolerances; Welding and QA requirements.
+            - STATUS: ALIGNED (BOQ references EXC2 and S355 consistent with SPECS).
+        * Composite Decking:
+            - BOQ: Supply and Installation TATA D60x1.2mm Roof Decking; DCH Steel Decking
+            - SPECS:
+                - Steel deck scope; Deck interfaces and minimum bearings; Deck fastenings and puddle weld schedule; Shear stud welding for deck/composite; Deck openings; Steel deck accessory minima.
+            - STATUS: MISSING BASELINE (BOQ does not reference required deck details such as galvanizing grade S350, stud connectors, fastening/puddle weld schedule, or bearing/opening controls).
+        * Fire Protection:
+            - BOQ: DCH Intumescent Paint 1 Hr
+            - SPECS:
+                - Intumescent fireproofing interfaces; Intumescent coating QA and DFT acceptance; Intumescent application environmental controls; Installer qualifications; Submit EN 13381-4 test results and steel section vs DFT tables.
+            - STATUS: MISSING BASELINE (BOQ indicates fire rating but omits SPECS-mandated QA/testing/installer and application controls).
+        * Corrosion Protection:
+            - BOQ: Shotblast, galvanised to EN ISO 1461
+            - SPECS:
+                - Galvanizing to NBN EN ISO 1461; Corrosion protection classification per NBN EN ISO 12944-2; Shop and touch-up primer; Post-fabrication treatment; Compatibility with intumescent.
+            - STATUS: ALIGNED (BOQ references galvanizing standard consistent with SPECS).
+        * Metal Fabrications (Stairs/Railings/Gratings):
+            - BOQ: (general entries for stairs/railings as per GENERAL)
+            - SPECS:
+                - Project steel scope: supply, fabricate, deliver, erect and protect primary structural steel framing members and associated steel fabrications (ladders, barrier rails, miscellaneous supports, roof opening frames, cantilever supports, corner guards, etc.).
+                - Stair and handrail design loads; Stairs and ramps materials and finishes; Stair dimensional/profile baselines; Anchors and embeds coordination.
+            - STATUS: MISSING BASELINE (BOQ lists metal fabrications but lacks design/load/finish/dimensional/anchor specifications present in SPECS).
+
+GLOBAL INCONSISTENCIES:
+
+| ID | Category | Location (Phase/Zone/Subzone) | Issue | Risk |
+| --- | --- | --- | --- | --- |
+| 1 | Fire Protection | Phase 1 / UNKNOWN / GENERAL | BOQ contains both "FSA Intumescent Paint 2 Hr" and a separate BOQ line "Intumescent paint fire protection (60 minutes), applied on Factory" (conflicting/duplicate fire-protection durations present in BOQ). |  |
+| 2 | Composite Decking | Phases 1–4 / UNKNOWN / GENERAL | BOQ lists composite/roof decking profiles (TATA D60x1.2mm) but does not reference SPECS-required deck details (galvanizing grade S350, stud shear connectors, bearing/minimum laps, puddle weld/fastening schedules, opening controls). |  |
+| 3 | Anchor/Holding-down Bolts | Phases 1–4 / UNKNOWN / GENERAL | BOQ lists holding down bolt assemblies and "Holding down bolts (supply only)" without specifying anchor bolt standard/grade/details required by the SPECS (NBN EN 15048 and grade per design documents). |  |
+| 4 | Metal Fabrications (Stairs/Railings/Gratings) | Phases 1–4 / UNKNOWN / GENERAL | BOQ lists multiple metal fabrications (stairs, railings, gratings, bollards, ladders) but does not reference SPECS-required design loads, dimensional baselines, material/finish requirements, installer/qualification or anchors/embed coordination. |  |

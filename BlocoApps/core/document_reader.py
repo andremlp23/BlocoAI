@@ -1,5 +1,6 @@
 import io
 from docx import Document
+import csv
 
 import pandas as pd
 import pdfplumber
@@ -26,8 +27,26 @@ RUIDO = {
 }
 
 
+def _detectar_separador_csv(conteudo: str) -> str:
+    """Auto-detecta o separador do CSV (,, ;, \\t, |)."""
+    # Tomar primeiras linhas para análise
+    linhas = conteudo.split('\n')[:5]
+    
+    separadores = {',': 0, ';': 0, '\t': 0, '|': 0}
+    
+    for linha in linhas:
+        if not linha.strip():
+            continue
+        for sep in separadores:
+            separadores[sep] += linha.count(sep)
+    
+    # Retornar o separador mais comum (deve ter contagem > 0)
+    mais_comum = max(separadores.items(), key=lambda x: x[1])
+    return mais_comum[0] if mais_comum[1] > 0 else ','
+
+
 def read_document(file) -> tuple[str, list]:
-    """Lê Excel ou PDF. Devolve (texto, paginas_sem_texto)."""
+    """Lê Excel, CSV ou PDF. Devolve (texto, paginas_sem_texto)."""
     paginas_sem_texto = []
 
     if file.name.lower().endswith(".pdf"):
@@ -71,7 +90,52 @@ def read_document(file) -> tuple[str, list]:
             return "\n".join(partes), []
         except Exception as e:
             return f"[Erro a ler DOCX: {str(e)}]", []
+    elif file.name.lower().endswith('.csv'):
+        # Lógica para ler ficheiros CSV com auto-detect de separador
+        lines = []
+        conteudo_bytes = file.read()
+        
+        for encoding in ['utf-8', 'latin-1', 'cp1252', 'iso-8859-1']:
+            try:
+                conteudo_texto = conteudo_bytes.decode(encoding)
+                separador = _detectar_separador_csv(conteudo_texto)
+                
+                df = pd.read_csv(
+                    io.BytesIO(conteudo_bytes), 
+                    encoding=encoding,
+                    sep=separador,
+                    on_bad_lines='skip',  # Ignorar linhas mal formatadas
+                    dtype=str,  # Ler tudo como string inicialmente
+                )
+                
+                for idx, row in df.iterrows():
+                    vals = []
+                    for v in row:
+                        if pd.isna(v) or v is None:
+                            continue
+                        cell_text = str(v).strip()
+                        if not cell_text:
+                            continue
+                        if cell_text.lower() not in RUIDO and len(cell_text) > 1:
+                            vals.append(cell_text)
+                    if vals:  # Se tem pelo menos 1 valor
+                        lines.append(f"[Linha: {idx+2}] {' | '.join(vals)}")
+                
+                # Se conseguiu ler, retorna
+                return "\n".join(lines) if lines else "[CSV vazio ou sem dados válidos]", []
+                
+            except UnicodeDecodeError:
+                continue
+            except pd.errors.ParserError as e:
+                # Tentar com mais separadores ou skip de linhas problemáticas
+                continue
+            except Exception as e:
+                continue
+        
+        # Se chegou aqui, todos os encodings falharam
+        return f"[Erro: Não foi possível ler o ficheiro CSV com encoding UTF-8, Latin-1, CP1252 ou ISO-8859-1]", []
     else:
+        # Lógica para ler ficheiros Excel
         xls = pd.ExcelFile(file)
         lines = []
         for sheet in xls.sheet_names:

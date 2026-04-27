@@ -124,11 +124,10 @@ def render_upload_section():
 
     with col_boq:
         st.markdown('<div class="upload-label">BOQ — Bill of Quantities</div>'
-                    '<div class="upload-desc">Ficheiro de orçamento principal · Excel ou PDF</div>',
+                    '<div class="upload-desc">Ficheiro de orçamento principal · Excel, CSV ou PDF</div>',
                     unsafe_allow_html=True)
         
-        file_boq = st.file_uploader("BOQ", type=["xlsx","xls","pdf"], key="boq", label_visibility="collapsed")
-        # APAGADO: O bloco "if file_boq: ... st.markdown(file-chip)" que estava aqui
+        file_boq = st.file_uploader("BOQ", type=["xlsx","xls","csv","pdf"], key="boq", label_visibility="collapsed")
 
     with col_specs:
         st.markdown('<div class="upload-label">Cadernos de Encargos — Specs</div>'
@@ -136,7 +135,6 @@ def render_upload_section():
                     unsafe_allow_html=True)
         
         files_specs = st.file_uploader("Specs", type=["pdf", "docx"], accept_multiple_files=True, key="specs", label_visibility="collapsed")
-        # APAGADO: O bloco "if files_specs: for f in files_specs: ... st.markdown(file-chip)" que estava aqui
 
     st.markdown("<div style='height:0.4rem'></div>", unsafe_allow_html=True)
 

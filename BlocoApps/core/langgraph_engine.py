@@ -1,6 +1,4 @@
 import logging
-import time
-import concurrent.futures
 from typing import Any, TypedDict
 
 from langchain_core.messages import HumanMessage, SystemMessage
@@ -51,28 +49,13 @@ class AuditoriaState(TypedDict):
 
 
 # ─────────────────────────────────────────────────────────────
-# Chunking
+# Leitura de Documento Completo
 # ─────────────────────────────────────────────────────────────
-def _chunkar(texto: str, tamanho: int = 35000, overlap_linhas: int = 5) -> list:
+def _obter_documento_completo(texto: str) -> list:
+    """Retorna o texto completo num único chunk (sem divisão)."""
     if not texto:
         return []
-    linhas = texto.splitlines(keepends=True)
-    chunks = []
-    chunk_atual: list[str] = []
-    tamanho_atual = 0
-
-    for linha in linhas:
-        if tamanho_atual + len(linha) > tamanho and chunk_atual:
-            chunks.append("".join(chunk_atual))
-            chunk_atual = chunk_atual[-overlap_linhas:]
-            tamanho_atual = sum(len(l) for l in chunk_atual)
-
-        chunk_atual.append(linha)
-        tamanho_atual += len(linha)
-
-    if chunk_atual:
-        chunks.append("".join(chunk_atual))
-    return chunks
+    return [texto]
 
 
 # ─────────────────────────────────────────────────────────────
@@ -93,7 +76,7 @@ def _invocar_llm(llm, mensagens: list) -> str:
 # AGT-01: SPECS baseline (sem betão)
 # ======================================================================
 def extrair_specs(texto_specs: str, nome_ficheiro: str, llm, prog_placeholder, status_placeholder) -> str:
-    chunks = _chunkar(texto_specs, tamanho=35000, overlap_linhas=5)
+    chunks = _obter_documento_completo(texto_specs)
     if not chunks:
         return ""
 
@@ -115,49 +98,42 @@ OUTPUT FORMAT (STRICT):
 - No recommendations, next steps, questions, or offers.
 """)
 
-    resumos = [None] * len(chunks)
+    try:
+        if status_placeholder:
+            status_placeholder.markdown(
+                f"<div style=\"font-family:'Space Mono',monospace;font-size:0.72rem;color:#3a6aaa\">"
+                f"<span style=\"color:#5a9aff\">AGT-01 (Specs Reader)</span>"
+                f" &nbsp;·&nbsp; Processando documento completo...</div>",
+                unsafe_allow_html=True
+            )
+        if prog_placeholder:
+            prog_placeholder.progress(0.5)
 
-    def processar_bloco_specs(chunk_text: str, index: int) -> str:
-        time.sleep(index * 10.0)
-        return _invocar_llm(llm, [
+        resumo = _invocar_llm(llm, [
             sys_msg,
             HumanMessage(content=(
-                'Extract reusable baseline rules from this chunk.\n'
+                'Extract reusable baseline rules from this specification document.\n'
+                'Process the ENTIRE document from start to end.\n'
                 'Only output bullet lines starting with "- ".\n'
                 'No extra text.\n\n'
                 f'FILE: {nome_ficheiro}\n'
-                f'CHUNK:\n{chunk_text}'
+                f'DOCUMENT:\n{chunks[0]}'
             ))
         ])
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
-        future_to_idx = {executor.submit(processar_bloco_specs, chunk, i): i for i, chunk in enumerate(chunks)}
-        for i, future in enumerate(concurrent.futures.as_completed(future_to_idx)):
-            idx = future_to_idx[future]
-            try:
-                resumos[idx] = future.result()
-            except Exception as e:
-                resumos[idx] = f"[Bloco SPECS {idx+1} falhou: {type(e).__name__}: {e}]"
-
-            if status_placeholder:
-                pct = int(((i + 1) / len(chunks)) * 100)
-                status_placeholder.markdown(
-                    f"<div style=\"font-family:'Space Mono',monospace;font-size:0.72rem;color:#3a6aaa\">"
-                    f"<span style=\"color:#5a9aff\">AGT-01 (Specs Reader)</span>"
-                    f" &nbsp;·&nbsp; Processados {i+1}/{len(chunks)} blocos &nbsp;·&nbsp; {pct}%</div>",
-                    unsafe_allow_html=True
-                )
-            if prog_placeholder:
-                prog_placeholder.progress((i + 1) / len(chunks))
-
-    return "\n".join([r for r in resumos if r])
+        if prog_placeholder:
+            prog_placeholder.progress(1.0)
+        
+        return resumo
+    except Exception as e:
+        return f"[AGT-01 falhou: {type(e).__name__}: {e}]"
 
 
 # ======================================================================
 # AGT-02: BOQ extractor (sem betão) + Phase/Zone/Subzone
 # ======================================================================
 def extrair_boq_com_contexto(texto_boq: str, nome_ficheiro: str, contexto_specs: str, llm, prog_placeholder, status_placeholder) -> str:
-    chunks = _chunkar(texto_boq, tamanho=35000, overlap_linhas=5)
+    chunks = _obter_documento_completo(texto_boq)
     if not chunks:
         return ""
 
@@ -187,7 +163,7 @@ PHASE RULE:
 
 ZONE/SUBZONE CONTEXT RULES (MANDATORY, DO NOT GUESS):
 - Valid ZONE is a 3-letter building code.
-- Maintain CURRENT_ZONE and CURRENT_SUBZONE while reading the chunk TOP-TO-BOTTOM.
+- Maintain CURRENT_ZONE and CURRENT_SUBZONE while reading the ENTIRE DOCUMENT TOP-TO-BOTTOM.
 
 Update CURRENT_ZONE / CURRENT_SUBZONE only using these patterns:
 1) Line is EXACTLY one 3-letter token (e.g., "DCH") → CURRENT_ZONE=<token>, CURRENT_SUBZONE=GENERAL
@@ -195,7 +171,7 @@ Update CURRENT_ZONE / CURRENT_SUBZONE only using these patterns:
 3) Line matches "<ZONE>-<anything>" → CURRENT_ZONE=<ZONE>, CURRENT_SUBZONE=<anything after dash>
 4) Internal headings like "MEMBRANES", "FLOOR SLABS", "STEEL DECKING" are NOT zones/subzones; they inherit CURRENT_ZONE and CURRENT_SUBZONE.
 
-If you cannot establish CURRENT_ZONE from any header above in the chunk, set Zone=UNKNOWN and Subzone=GENERAL.
+If you cannot establish CURRENT_ZONE from any header at the beginning, set Zone=UNKNOWN and Subzone=GENERAL.
 
 WHAT TO EXTRACT:
 - Only primary technical drivers for: steel/metal/decking/corrosion/fire protection.
@@ -204,48 +180,39 @@ WHAT TO EXTRACT:
 
 OUTPUT FORMAT (STRICT):
 - Plain text only (no JSON, no markdown).
-- One line per item, EXACTLY:
-[FILE: {nome_ficheiro}] | Phase: <phase> | Zone: <zone> | Subzone: <subzone> | Spec: <exact wording + [Linha]/[Pág] tag if present>
-- If nothing relevant in this chunk: output exactly "NO_RECORDS"
+- Structured NARRATIVE (NOT one-line templates).
+- Group by Phase → Zone → Subzone, then by category (Structural Steel / Decking / Fire / Corrosion / Metal Fabrics).
 - No recommendations, next steps, questions, or offers.
 """)
 
-    resumos = [None] * len(chunks)
+    try:
+        if status_placeholder:
+            status_placeholder.markdown(
+                f"<div style=\"font-family:'Space Mono',monospace;font-size:0.72rem;color:#3a6aaa\">"
+                f"<span style=\"color:#5a9aff\">AGT-02 (BOQ Hunter)</span>"
+                f" &nbsp;·&nbsp; Processando documento completo...</div>",
+                unsafe_allow_html=True
+            )
+        if prog_placeholder:
+            prog_placeholder.progress(0.5)
 
-    def processar_bloco_boq(chunk_text: str, index: int) -> str:
-        time.sleep(index * 10.0)
-        return _invocar_llm(llm, [
+        resumo = _invocar_llm(llm, [
             sys_msg,
             HumanMessage(content=(
-                "Extract records from this BOQ chunk TOP-TO-BOTTOM.\n"
-                "Preserve exact wording in Spec.\n"
-                "Include [Linha: X] or [Pág: Y] tag in Spec if present.\n"
-                "Output only strict template lines or NO_RECORDS.\n\n"
-                f"CHUNK:\n{chunk_text}"
+                "Extract and organize all technical records from this ENTIRE BOQ document.\n"
+                "Process from TOP-TO-BOTTOM maintaining Phase/Zone/Subzone context.\n"
+                "Output structured narrative grouped by Phase→Zone→Subzone→Category.\n\n"
+                f"FILE: {nome_ficheiro}\n"
+                f"DOCUMENT:\n{chunks[0]}"
             ))
         ])
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
-        future_to_idx = {executor.submit(processar_bloco_boq, chunk, i): i for i, chunk in enumerate(chunks)}
-        for i, future in enumerate(concurrent.futures.as_completed(future_to_idx)):
-            idx = future_to_idx[future]
-            try:
-                resumos[idx] = future.result()
-            except Exception as e:
-                resumos[idx] = f"[Bloco BOQ {idx+1} falhou: {type(e).__name__}: {e}]"
-
-            if status_placeholder:
-                pct = int(((i + 1) / len(chunks)) * 100)
-                status_placeholder.markdown(
-                    f"<div style=\"font-family:'Space Mono',monospace;font-size:0.72rem;color:#3a6aaa\">"
-                    f"<span style=\"color:#5a9aff\">AGT-02 (BOQ Hunter)</span>"
-                    f" &nbsp;·&nbsp; Processados {i+1}/{len(chunks)} blocos &nbsp;·&nbsp; {pct}%</div>",
-                    unsafe_allow_html=True
-                )
-            if prog_placeholder:
-                prog_placeholder.progress((i + 1) / len(chunks))
-
-    return "\n\n".join([r for r in resumos if r])
+        if prog_placeholder:
+            prog_placeholder.progress(1.0)
+        
+        return resumo
+    except Exception as e:
+        return f"[AGT-02 falhou: {type(e).__name__}: {e}]"
 
 
 # ======================================================================
