@@ -88,6 +88,7 @@ ABSOLUTE RULES:
 - Do NOT omit information that is present in the text.
 - Do NOT invent information outside what is written.
 - Ignore EVERYTHING related to CONCRETE (grades, mixes, reinforcement, slabs, blinding, etc.). Concrete is out of scope.
+- NEVER include ANY concrete-related information in the output, no exceptions.
 
 Use these extraction rules exactly as provided (do not rewrite them):
 {REGRAS_EXTRACAO}
@@ -149,6 +150,7 @@ ABSOLUTE RULES:
 - Do NOT omit information that is present in the BOQ.
 - Do NOT invent information outside what is written.
 - Ignore EVERYTHING related to CONCRETE (grades, mixes, reinforcement, slabs, blinding, membranes for concrete works, etc.). Concrete is out of scope.
+- NEVER include ANY concrete-related information in the output, no exceptions.
 
 Use these extraction rules exactly as provided (do not rewrite them):
 {REGRAS_EXTRACAO}
