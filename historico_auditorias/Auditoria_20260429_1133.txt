@@ -1,0 +1,1612 @@
+# Structural Steel Audit Report
+
+---
+
+## Phase PH1
+
+### Zone: FSA Structural Steel  
+#### Subzone: FSA Structural Steel
+
+- **Structural Steel**  
+  - BOQ: EXC2 structural steel frame to NSSSBC/EN 1090-2 with grade S355 primary members for FSA; includes fabrication and erection of beams, columns and bracing (711 t), with associated H.D.A. supply/installation and base grouting.  
+  - SPECS: Structural steel members to NBN EN 10025 S355JR / NBN EN 10210 for HSS; design per NBN EN 1990/1991/1993 and execution per NBN EN 1090-2 EXC2, with full connection design, fabrication and erection rules including high‑strength bolting and welding requirements.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: Steel roof decking using TATA D60x1.2 mm profile over FSA frame; includes supply, installation, fixings and coordination of openings.  
+  - SPECS: Steel deck sheets to NBN EN 10346/NBN EN 10143, S350; installation rules for bearing, laps, fixing/welding patterns, closures and alternative mechanical anchoring systems.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: 2‑hour intumescent fire protection to all FSA structural steel tonnage, coordinated with primers/galvanizing and with DFT checks.  
+  - SPECS: Sherwin‑Williams FIRETEX FX2003/FX6002 systems with DFT determined by EN 13381‑4 testing; detailed surface prep, primer, topcoat, DFT control and QA requirements.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: Reference to coordination of intumescent with primers/galvanizing but no explicit deck or frame corrosion system stated for FSA.  
+  - SPECS: General corrosion protection per EN ISO 12944 (C2 internal/C4 external), blast cleaning to Sa 2.5, shop priming and/or galvanizing systems including for external members.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Internal steel stair, loading dock fencing/handrails, crash protection, cat ladder and balustrade to penthouse roof, bollards and hop‑over steps; all tied into primary frame and roof deck.  
+  - SPECS: Metal fabrications, stairs, handrails and guards to EN 10025/EN 10210/ISO 4200/ISO 10799 with detailed geometric, load, fabrication, galvanizing, coating and access requirements (EN ISO 14122, NAAMM MBG for gratings).  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: FSA Steel Decking  
+#### Subzone: FSA Steel Decking
+
+- **Structural Steel**  
+  - BOQ: Not applicable; scope is steel deck only.  
+  - SPECS: Structural steel framing requirements not specifically referenced at deck‑only subzone level.  
+  - STATUS: MISSING BASELINE  
+
+- **Composite Decking**  
+  - BOQ: TATA D60x1.2 mm roof deck supply and installation with fixings, side laps and coordination of openings.  
+  - SPECS: Galvanized steel deck S350 to NBN EN 10346/10143 with bearing and lap minima, storage/handling protection, and detailed welding/fastening installation rules.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: No fire protection specified for decking.  
+  - SPECS: Intumescent systems apply to structural members, not deck sheets.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: Implicit galvanizing via deck product (TATA profile) but no explicit corrosion classification.  
+  - SPECS: Deck material and galvanizing thickness/quality governed by NBN EN 10346/10143; general C2/C4 classifications given.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: None in this subzone.  
+  - SPECS: Metal fabrications provisions do not directly appear in this deck‑only scope.  
+  - STATUS: MISSING BASELINE  
+
+---
+
+### Zone: FSA Structural Steel Sundries  
+#### Subzone: FSA Structural Steel Sundries
+
+- **Structural Steel**  
+  - BOQ: H.D.A. assemblies including bolts, base plates and grout for FSA steel bases; coordination with structural steel subcontractor.  
+  - SPECS: Anchor bolts to NBN EN 15048; base plates and related steel to EN 10025; grout specified as non‑shrink, non‑metallic with installation details under base plates.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: Not in this subzone.  
+  - SPECS: No specific deck requirements tied to H.D.A. sundries.  
+  - STATUS: MISSING BASELINE  
+
+- **Fire Protection**  
+  - BOQ: None specific to sundries.  
+  - SPECS: Intumescent systems not specifically tied to H.D.A. hardware.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: No explicit corrosion protection for H.D.A./base plates identified.  
+  - SPECS: General corrosion protection for all primary steelwork, including anchors/base plates, under EN ISO 12944 and galvanizing/priming rules.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: No metal fabrications identified in this sundries scope.  
+  - SPECS: Stairs/railings specs not tied here.  
+  - STATUS: MISSING BASELINE  
+
+---
+
+### Zone: FSA Structural Steel Intumescent Protection  
+#### Subzone: FSA Structural Steel Intumescent Protection
+
+- **Structural Steel**  
+  - BOQ: Intumescent protection applied to FSA structural frame elements previously described.  
+  - SPECS: Structural steel material and execution under EXC2 defined; intumescent systems reference these substrates.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: Not in this subzone.  
+  - SPECS: Decking not part of intumescent systems spec.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: 2‑hour intumescent paint to all FSA steel, DFT checks, compatibility with primer/galvanizing, off‑site application preferred with on‑site touch‑up.  
+  - SPECS: Sherwin‑Williams FX2003/FX6002 thin film systems with Sa 2.5 prep, specified primers/topcoats, DFT acceptance criteria, C‑class adjustability, EN 16623/13381‑4/13501 compliance and detailed QA/inspection.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: Only states compatibility/coordination with primers/galvanizing; no explicit system definition.  
+  - SPECS: Requires corrosion protection systems to be fully compatible with intumescent coating and designed to EN ISO 12944; specifies primers (FIRETEX C69) and topcoats.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Not in this subzone.  
+  - SPECS: Fire protection spec does not extend to separate stair/railing items here.  
+  - STATUS: MISSING BASELINE  
+
+---
+
+### Zone: FSA Miscellaneous Steel Items  
+#### Subzone: FSA Miscellaneous Steel Items
+
+- **Structural Steel**  
+  - BOQ: Miscellaneous structural interfaces (fixings into frame/deck) implied but not tonnaged separately.  
+  - SPECS: Structural steel general rules cover any members forming part of these supports.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: Miscellaneous items interface with roof deck for anchorage, but no additional deck product.  
+  - SPECS: Roof deck opening framing and closures included, but not specifically referenced for this FSA subzone.  
+  - STATUS: MISSING BASELINE  
+
+- **Fire Protection**  
+  - BOQ: No explicit intumescent for stair, cat ladder, handrails or bollards in this item.  
+  - SPECS: Intumescent fire protection scoped to structural members; no explicit requirement for these fabrications unless designated as protected members.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: No explicit galvanizing/paint specified for these FSA misc items.  
+  - SPECS: External and exposed metal fabrications/stairs to be galvanized and factory pre‑finished to C4 environment per EN ISO 1461/12944‑2/ISO 9223.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Internal steel stair; loading dock fencing/handrails; crash protection to rising services; cat ladder and roof balustrade; bollards; hop‑over steps; all as fabricated and installed steelwork.  
+  - SPECS: Detailed requirements for metal fabrications, metal stairs (loads, stringers, treads, gratings), handrails and guards (pipe diameters, heights, infill, posts), access ladders and roof stepovers to EN ISO 14122, and NAAMM MBG for gratings.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: FSA Envelope Secondary Steel  
+#### Subzone: FSA Envelope Secondary Steel
+
+- **Structural Steel**  
+  - BOQ: Secondary steel framing behind Eurobond panels and roof liner, plus supports for canopies, cat ladders, downpipes, scuppers and fire barriers.  
+  - SPECS: Structural members and secondary framing covered under EN 10025/10210 S355JR with EXC2 fabrication/erection and connection design requirements.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: Interface with roof liner but no explicit deck product in this line.  
+  - SPECS: Secondary support to deck addressed generally in decking/metal fabrication standards, not specific to this subzone.  
+  - STATUS: MISSING BASELINE  
+
+- **Fire Protection**  
+  - BOQ: No specific intumescent to secondary steel mentioned here.  
+  - SPECS: Fireproofing to be applied where required by design; not explicitly tied to secondary cladding steel.  
+  - STATUS: MISSING BASELINE  
+
+- **Corrosion Protection**  
+  - BOQ: No explicit corrosion system for these supports.  
+  - SPECS: All primary/secondary external steel to receive corrosion protection per EN ISO 12944, with galvanizing or paint systems appropriate to C2/C4.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Includes canopy and cat ladder penetrations/support steel, but stair/railing content is incidental.  
+  - SPECS: Metal fabrications and ladders/stepovers are governed by metal fabrications and metal stairs/handrails clauses.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: DCH Structural Steel PH1  
+#### Subzone: DCH Structural Steel PH1
+
+- **Structural Steel**  
+  - BOQ: 888 t of EXC2, S355 DCH primary structural steel, including fabrication and erection plus H.D.A. assemblies.  
+  - SPECS: Same structural steel general requirements (EN 10025/10210, EN 1090‑2 EXC2, EN 1993, connection design and erection rules).  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: DCH Phase 1 steel roof decking supply and installation.  
+  - SPECS: Steel deck to NBN EN 10346/10143 S350 with detailed installation rules and shear stud welding guidance.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: Application of intumescent fire protection to DCH PH1 frames (noted as 2‑hour system in phase‑level activities, 2‑hour in this PH1 zone description).  
+  - SPECS: Intumescent systems defined to provide required fire resistance; no explicit hour rating stated but EN 13381‑4‑based design allows 1‑ or 2‑hour systems.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: No explicit corrosion system for DCH PH1 primary steel.  
+  - SPECS: General corrosion systems by EN ISO 12944 required for all primary steel (C2 internal/C4 external).  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: None in this structural‑steel‑only zone.  
+  - SPECS: Stairs/railings specs do not directly map to this BOQ item.  
+  - STATUS: MISSING BASELINE  
+
+---
+
+### Zone: DCH Structural Steel PH2  
+#### Subzone: DCH Structural Steel PH2
+
+- **Structural Steel**  
+  - BOQ: 752 t of EXC2, S355 DCH Phase 2 structural steel with H.D.A., fabrication and erection.  
+  - SPECS: Same EXC2/S355 structural steel framework and connection/welding/bolting requirements.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: TATA D60x1.2 mm roof deck for DCH Phase 2.  
+  - SPECS: Steel deck S350 to EN 10346/10143 and SCI decking practice for installation.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: 1‑hour intumescent paint system to DCH Phase 2 structural steel.  
+  - SPECS: Intumescent systems dimensioned via DFT tables for various ratings; 1‑hour rating is within scope.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: No explicit corrosion system for DCH PH2 primary steel.  
+  - SPECS: C2/C4‑class corrosion systems required per EN ISO 12944, compatible with intumescent.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Phase 2 miscellaneous steel at DCH including cat ladders, balustrades, bollards, parapet stairs and small roof stairs.  
+  - SPECS: Metal stairs, handrails, guards, ladders and metal fabrications clauses control geometry, loads, fabrication, galvanizing and coatings.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: DCH Structural Steel PH3  
+#### Subzone: DCH Structural Steel PH3
+
+- **Structural Steel**  
+  - BOQ: 756 t of EXC2, S355 DCH Phase 3 structural steel, including connection design and H.D.A.  
+  - SPECS: Structural steel EXC2/S355 requirements as above.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: TATA D60x1.2 mm deck for DCH Phase 3.  
+  - SPECS: Steel deck sheets and installation requirements as for other phases.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: 1‑hour intumescent paint to DCH Phase 3 steel.  
+  - SPECS: Intumescent systems capable of 1‑hour resistance; DFT per EN 13381‑4 tables.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: No explicit corrosion system for DCH PH3 primary steel.  
+  - SPECS: General corrosion protection per EN ISO 12944 mandatory.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: External steel stair Ground to Roof level, additional bollards and roof parapet stairs for Phase 3.  
+  - SPECS: Metal stairs/ramps and handrails/guards standards dictate capacities, geometry and coatings; external items to be galvanized/C4‑finished.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: DCH Structural Steel PH4  
+#### Subzone: DCH Structural Steel PH4
+
+- **Structural Steel**  
+  - BOQ: 747 t of EXC2, S355 DCH Phase 4 structural steel including H.D.A. assemblies.  
+  - SPECS: Same EXC2/S355 framework and connection rules.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: TATA D60x1.2 mm roof decking for Phase 4.  
+  - SPECS: Steel deck material and installation as in other phases.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: 1‑hour intumescent coating to Phase 4 structural steel.  
+  - SPECS: Intumescent systems designed for required rating; 1‑hour within capability.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: No explicit corrosion system for DCH PH4 primary steel.  
+  - SPECS: EN ISO 12944 corrosion protection for structural steel required.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: External steelwork including cat ladders, bollards, roof parapet stairs and small roof stairs.  
+  - SPECS: Metal stairs, ladders and handrail/guard clauses plus galvanizing/coating requirements for external metalwork.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: DCH Envelope Secondary Steel PH1  
+#### Subzone: DCH Envelope Secondary Steel PH1
+
+- **Structural Steel**  
+  - BOQ: 3 693 m² of secondary steel for DCH Phase 1 envelope including penetrations for canopies, cat ladders and supports for louvres, downpipes, scuppers and fire barriers.  
+  - SPECS: Secondary framing members to EN 10025/10210 S355JR with EXC2 execution and connection design per EN 1993.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: Not primary deck, but supports roof/cladding system elements.  
+  - SPECS: No specific deck clauses for these supports.  
+  - STATUS: MISSING BASELINE  
+
+- **Fire Protection**  
+  - BOQ: No fire protection noted for secondary envelope steel.  
+  - SPECS: Intumescent applied where design requires; secondary steel not specifically identified.  
+  - STATUS: MISSING BASELINE  
+
+- **Corrosion Protection**  
+  - BOQ: No explicit corrosion finish.  
+  - SPECS: External secondary steel to be protected per EN ISO 12944 and metal fabrications galvanizing rules.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Includes supports for cat ladders and canopies but no full stair/grating systems.  
+  - SPECS: Ladders and related supports governed by EN ISO 14122 and metal fabrications clauses.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: DCH Envelope Secondary Steel PH2  
+#### Subzone: DCH Envelope Secondary Steel PH2
+
+- **Structural Steel**  
+  - BOQ: 2 439 m² of secondary steel for DCH Phase 2, anchoring cladding, parapets, flashings and supporting cat ladders/canopies/temporary protection.  
+  - SPECS: Same secondary steel requirements as for PH1/PH3/PH4.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: Not a decking item.  
+  - SPECS: No direct deck reference.  
+  - STATUS: MISSING BASELINE  
+
+- **Fire Protection**  
+  - BOQ: None specified.  
+  - SPECS: Not explicitly addressed for these members.  
+  - STATUS: MISSING BASELINE  
+
+- **Corrosion Protection**  
+  - BOQ: No system identified.  
+  - SPECS: Corrosion protection per EN ISO 12944 and galvanizing/primer rules required.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Support for cat ladders and canopies only.  
+  - SPECS: Metal fabrications/ladders general provisions apply.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: DCH Envelope Secondary Steel PH3  
+#### Subzone: DCH Envelope Secondary Steel PH3
+
+- **Structural Steel**  
+  - BOQ: 2 420 m² secondary steel framing for cladding, parapets, movement joints, GNM cat ladders and temporary protection supports.  
+  - SPECS: Same EN 10025/10210, EXC2 requirements for secondary frames.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: No deck product covered.  
+  - SPECS: Not specifically referenced.  
+  - STATUS: MISSING BASELINE  
+
+- **Fire Protection**  
+  - BOQ: Not mentioned.  
+  - SPECS: No explicit mandate for intumescent on these items.  
+  - STATUS: MISSING BASELINE  
+
+- **Corrosion Protection**  
+  - BOQ: None identified.  
+  - SPECS: EN ISO 12944‑based corrosion protection required for external secondary steel.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Support for GNM cat ladders and temporary protection systems.  
+  - SPECS: Access/ladder and metal fabrication requirements apply.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: DCH Envelope Secondary Steel PH4  
+#### Subzone: DCH Envelope Secondary Steel PH4
+
+- **Structural Steel**  
+  - BOQ: 2 441 m² secondary steel for Eurobond panels, Kingspan roof liner, parapets, movement joints and supports for louvres, scuppers, downpipes and fire barriers.  
+  - SPECS: Secondary structural members under EN 10025/10210 S355JR, EXC2; full structural and fabrication rules apply.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: No deck scope here.  
+  - SPECS: No specific deck reference.  
+  - STATUS: MISSING BASELINE  
+
+- **Fire Protection**  
+  - BOQ: No noted fire protection.  
+  - SPECS: Not specified for these secondary elements.  
+  - STATUS: MISSING BASELINE  
+
+- **Corrosion Protection**  
+  - BOQ: No corrosion system described.  
+  - SPECS: External secondary steel to be coated/galvanized per EN ISO 12944 and galvanizing provisions.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Includes supports to louvres and downpipes but no dedicated stairs/railings.  
+  - SPECS: Metal fabrications details apply to such supports.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: DCH Roof Steel and Associated Items PH1  
+#### Subzone: DCH Roof Steel and Associated Items PH1
+
+- **Structural Steel**  
+  - BOQ: Structural upstands and framing to support Euroclad composite top deck panels, parapet upstands and roof walkways; temporary roof protection fixings to steel deck.  
+  - SPECS: Structural framing and upstands governed by EN 10025/10210 EXC2 rules.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: Euroclad composite top deck roof panels installed over structural deck, with parapet connections and walkways.  
+  - SPECS: SCI Codes for Metal Decking and Diaphragm Design; steel deck base material and installation rules apply to supporting deck.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: No separate fire protection stated for these roof steel items.  
+  - SPECS: Fire protection requirements tied to primary members below deck; not explicit here.  
+  - STATUS: MISSING BASELINE  
+
+- **Corrosion Protection**  
+  - BOQ: No explicit corrosion system for roof steel and walkways.  
+  - SPECS: External roof steel and walkways to be corrosion‑protected/galvanized per EN ISO 12944‑2 and EN ISO 1461; roof access systems per EN 516/EN ISO 14122 with C4 finish.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Roof walkways and temporary protection systems imply metal walkways and possibly guard systems, but not detailed.  
+  - SPECS: Roof access walkways and steps under EN 516 and EN ISO 14122; metal fabrications general requirements.  
+  - STATUS: MISSING BASELINE  
+
+---
+
+### Zone: DCH Roof Steel and Associated Items PH2  
+#### Subzone: DCH Roof Steel and Associated Items PH2
+
+- **Structural Steel**  
+  - BOQ: Steel parapet upstands, movement joint flashings supports, walkway supports and lightning protection fixings.  
+  - SPECS: Structural/parapet steel and supports under EXC2 fabrication/erection rules.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: Installation of composite Euroclad roof panels on Phase 2 deck, including trapezoidal deck infill.  
+  - SPECS: Steel deck material and detailed installation/welding/anchoring guidance.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: No explicit fire protection for roof steel.  
+  - SPECS: Fireproofing spec not specifically applied to parapet upstands/walkway steel.  
+  - STATUS: MISSING BASELINE  
+
+- **Corrosion Protection**  
+  - BOQ: No stated system.  
+  - SPECS: External roof walkways and parapet steel to receive C4‑class galvanizing/painting per EN ISO 1461/12944.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Roof walkways and temporary protection layers; no explicit stairs/rails.  
+  - SPECS: Roof access equipment, walkways and guard rails under EN 516/EN ISO 14122; metal fabrications standards apply.  
+  - STATUS: MISSING BASELINE  
+
+---
+
+### Zone: DCH Roof Steel and Associated Items PH3  
+#### Subzone: DCH Roof Steel and Associated Items PH3
+
+- **Structural Steel**  
+  - BOQ: Roof parapet upstands, movement joints and support steel for walkways and lightning protection.  
+  - SPECS: Structural steel and connection requirements as for other phases.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: Composite roof panels and trapezoidal deck infill for Phase 3.  
+  - SPECS: Deck material and installation standards for non‑composite/composite deck.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: None specified.  
+  - SPECS: Not mandated at this item level.  
+  - STATUS: MISSING BASELINE  
+
+- **Corrosion Protection**  
+  - BOQ: Not described.  
+  - SPECS: C4 corrosion protection/galvanizing for external roof steel and walkways.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Roof walkways and temporary protection; no discrete stairs/rails.  
+  - SPECS: Roof walkways and access under EN 516/EN ISO 14122.  
+  - STATUS: MISSING BASELINE  
+
+---
+
+### Zone: DCH Roof Steel and Associated Items PH4  
+#### Subzone: DCH Roof Steel and Associated Items PH4
+
+- **Structural Steel**  
+  - BOQ: Roof parapet upstands, movement joints, walkway supports, trapezoidal deck infill and lightning protection fixings.  
+  - SPECS: Structural steel member rules under EXC2 apply.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: Composite Euroclad roof panels on Phase 4 area plus deck infill elements.  
+  - SPECS: Steel deck standards and installation rules apply.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: No itemised fireproofing for roof parapet/walkway steel.  
+  - SPECS: Not explicitly required here.  
+  - STATUS: MISSING BASELINE  
+
+- **Corrosion Protection**  
+  - BOQ: No corrosion system indicated.  
+  - SPECS: External C4 corrosion protection/galvanizing required for roof steel and walkways.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Roof walkways and temporary protection; no specific stairs/rails described.  
+  - SPECS: Walkway and guardrail provisions under EN 516/EN ISO 14122 and metal fabrications spec.  
+  - STATUS: MISSING BASELINE  
+
+---
+
+### Zone: EYD S02-A7100 Generator Trench Structural Steel  
+#### Subzone: EYD S02-A7100 Generator Trench Structural Steel
+
+- **Structural Steel**  
+  - BOQ: 0.79 t of trench structural steel plus 16 holding down bolts (supply only) for generator trench.  
+  - SPECS: Structural steel sections to EN 10025/10210, anchors to EN 15048, EXC2 execution.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: None.  
+  - SPECS: Decking standards not applicable.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: Factory‑applied 60‑minute intumescent paint for generator trench steel, with touch‑up prior to partial handover.  
+  - SPECS: Intumescent systems (FX2003/FX6002) with DFT design to required rating, applicable to internal C2 installations.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: Corrosion protection paint suitable for C2 internal environment plus touch‑up after erection.  
+  - SPECS: General corrosion protection for C2 internal steel per EN ISO 12944‑1/‑2, including paint systems and durability ranges.  
+  - STATUS: ALIGNED  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: None.  
+  - SPECS: No stairs/railings required at this BOQ item.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: EYD S02-A7100 USS Trench Structural Steel  
+#### Subzone: EYD S02-A7100 USS Trench Structural Steel
+
+- **Structural Steel**  
+  - BOQ: 10.43 t of structural steel for USS trench plus 32 holding down bolts (supply only).  
+  - SPECS: Structural members/anchors per EN 10025/10210 and EN 15048 with EXC2 execution.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: None.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: Factory 60‑minute intumescent paint with site touch‑up.  
+  - SPECS: Intumescent systems for required rating per EN 13381‑4.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: Corrosion protection paint suitable for C2 environment and touch‑up after erection.  
+  - SPECS: C2 internal corrosion protection using paint systems per EN ISO 12944.  
+  - STATUS: ALIGNED  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: None.  
+  - SPECS: No dedicated metal fabrications here.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: MYD S02-A7200 Structural Steel Support for RMUs & Battery Box PH1  
+#### Subzone: MYD S02-A7200 Structural Steel Support for RMUs & Battery Box PH1
+
+- **Structural Steel**  
+  - BOQ: 1.13 t structural steel supports for RMUs/battery box with H.D.A. for Shell A steel supports.  
+  - SPECS: Structural steel S355JR sections and anchors to EN 15048 under EXC2.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: None.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: None stated.  
+  - SPECS: Intumescent not mandated for this support steel in baseline bullets.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: Shotblasting and galvanizing to EN ISO 1461.  
+  - SPECS: Galvanizing requirements per EN ISO 1461 and design guidance EN ISO 14713‑1 for external C4 conditions.  
+  - STATUS: ALIGNED  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: No stairs/rails in this item.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: MYD S02-A7200 Cooling Tower Gantry Structural Steel PH1  
+#### Subzone: MYD S02-A7200 Cooling Tower Gantry Structural Steel PH1
+
+- **Structural Steel**  
+  - BOQ: 537 t of Shell A gantry structural steel with 50 H.D.A. for supports.  
+  - SPECS: Structural steel members S355JR with EXC2 execution; connection design and erection per EN 1993/1090‑2.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: None (gantry framing only).  
+  - SPECS: Decking specs not applicable.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: No intumescent fire protection indicated for gantry structure.  
+  - SPECS: Fireproofing only where design requires; not specified for external gantry.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: Shotblasting and galvanizing all 537 t to EN ISO 1461 plus surface touch‑up after erection.  
+  - SPECS: Galvanizing to EN ISO 1461 with design rules from EN ISO 14713‑1; C4 external classification requiring factory pre‑finishing of exposed steel.  
+  - STATUS: ALIGNED  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: None in this structural gantry item.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: MYD S02-A7200 Cooling Tower Gantry Access Steel PH1  
+#### Subzone: MYD S02-A7200 Cooling Tower Gantry Access Steel PH1
+
+- **Structural Steel**  
+  - BOQ: Access steel integrated with primary gantry (supporting stairs/ladders/railings/grating).  
+  - SPECS: Treated as secondary structural/metal fabrication members per EN 10025/10210.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: Open mesh grating platforms only (no sheet decking).  
+  - SPECS: Gratings to NAAMM MBG 531/532 for bar gratings.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: None noted for access steel.  
+  - SPECS: Fire protection not required by baseline spec for access steel.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: Not explicitly restated here but access steel is part of galvanised gantry/access steel scope at phase description level.  
+  - SPECS: External stairs, ladders, railings and gratings to be hot dip galvanized per EN ISO 1461 and finished for C4 environment.  
+  - STATUS: ALIGNED  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Cat ladders, gantry emergency stairs, cooling tower stairs, railings and 30 mm open mesh grating platforms integrated with gantry.  
+  - SPECS: Metal stairs/ramps and handrails/guards (loads, geometry, railing details); ladders and walkways to EN ISO 14122; gratings to NAAMM MBG.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: CSA Sitewide Utility Trench / Miscellaneous Steel PH1  
+#### Subzone: CSA Sitewide Utility Trench / Miscellaneous Steel PH1
+
+- **Structural Steel**  
+  - BOQ: Steel interfaces implied at foundations for metal steps, stairs, mini pillars, fuel pipe bases, and base plates from superstructures installed by others (grouted by this scope).  
+  - SPECS: Structural angles/plates and confinement angles with integral anchors and grout interfaces per structural steel/grout specs.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: None.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: Not mentioned.  
+  - SPECS: Not applied to these small interfaces in baseline text.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: No corrosion treatment defined for these miscellaneous steel interfaces.  
+  - SPECS: Galvanizing/priming of confinement angles and embedded steel per metal fabrications/metal fabrications priming and galvanizing system.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Metal steps and stairs around the site interfacing with foundations and thresholds, plus mini pillars and pipe bases supporting superstructures.  
+  - SPECS: Metal stairs, handrails, guards and fabrications (profiles, loads, fabrication and finish) apply to such items.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: RSA Security Fence and Attenuation Pond Steel Interfaces  
+#### Subzone: RSA Security Fence and Attenuation Pond Steel Interfaces
+
+- **Structural Steel**  
+  - BOQ: Metal posts for 3 m chainlink security fence; possible steel fixings at attenuation pond fence/gates.  
+  - SPECS: Structural steel fence posts not explicitly detailed; could fall under metal fabrications general provisions.  
+  - STATUS: MISSING BASELINE  
+
+- **Composite Decking**  
+  - BOQ: None.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: None.  
+  - SPECS: Not required for fences.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: No galvanizing or coating stated for fence steel posts.  
+  - SPECS: External exposed metal fabrications/handrails/fences to be galvanized and finished for C4 environment per EN ISO 1461/12944‑2/ISO 9223.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Metal fence posts and steel fence elements.  
+  - SPECS: Metal fabrications general provisions apply; but no explicit fence system spec in baseline bullets.  
+  - STATUS: MISSING BASELINE  
+
+---
+
+### Zone: SSA Load Bank Garage & Fuel Polishing Building Structural Steel  
+#### Subzone: SSA Load Bank Garage & Fuel Polishing Building Structural Steel
+
+- **Structural Steel**  
+  - BOQ: 7.23 t EXC2, S355 structural steel frame with 78 H.D.A. for SSA building.  
+  - SPECS: Structural steel to EN 10025 S355JR with EN 1090‑2 EXC2 execution and full design/fabrication/erection provisions; anchor bolts to EN 15048.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: No composite deck in this structural frame item.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: No intumescent fire protection mentioned for this SSA building.  
+  - SPECS: Fire protection defined but only when required by design; baseline does not assert requirement here.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: Shotblast and galvanize structural steel to EN ISO 1461 plus surface touch‑up after erection.  
+  - SPECS: Galvanizing per EN ISO 1461 and EN ISO 14713‑1 plus C4 environment finish requirements for external structures.  
+  - STATUS: ALIGNED  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: None in this frame item.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: SSA Load Bank Garage & Fuel Polishing Building Roof Steelwork  
+#### Subzone: SSA Load Bank Garage & Fuel Polishing Building Roof Steelwork
+
+- **Structural Steel**  
+  - BOQ: Roof railings for fall protection and cat ladder for roof access fixed to structural frame.  
+  - SPECS: Handrails/guards and ladders requirements (dimensions, loads, fixings) and metal fabrications design/installation rules.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: Kingspan 1.5 mm RD 100/825 roof deck spanning between SSA steel beams.  
+  - SPECS: Steel deck sheets to EN 10346/10143, with bearing, laps, anchorage and installation rules; SCI deck design guidance.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: None described for roof steelwork.  
+  - SPECS: No explicit fireproofing to deck/railings in baseline text.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: No explicit coating for roof railings and cat ladder; but gantry/SSA steel generally galvanized in phase‑level constraints.  
+  - SPECS: External stairs, ladders, railings and deck to be galvanized and C4‑finished per EN ISO 1461/12944‑2.  
+  - STATUS: ALIGNED  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Roof railings and cat ladder as permanent access/fall‑protection fabrications.  
+  - SPECS: Metal stairs/ramps, handrails and guards, and ladders to EN ISO 14122 (parts 1‑4), plus metal fabrications and coating rules.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: SSA Louvres for Smoke Extract  
+#### Subzone: SSA Louvres for Smoke Extract PH1–PH4
+
+- **Structural Steel**  
+  - BOQ: Louvres supported off structural and secondary steel; interfaces across phases coordinated with frames and envelope steel.  
+  - SPECS: Structural/secondary steel support for louvers governed by structural steel and metal fabrications provisions; no dedicated louvre framing standard listed.  
+  - STATUS: MISSING BASELINE  
+
+- **Composite Decking**  
+  - BOQ: Louvres interface with cladding, not deck.  
+  - SPECS: No decking linkage.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: No intumescent requirement stated for louvre support steel.  
+  - SPECS: Fireproofing not specified for louvre frames in baseline.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: No corrosion system specified for louvre frames/support steel.  
+  - SPECS: External louvre support steel to be galvanized/painted for C4 environment per metal fabrications galvanizing spec.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Louvres only (no stairs/railings/gratings).  
+  - SPECS: Metal fabrications general provisions cover such framing, but louvre units themselves not defined.  
+  - STATUS: MISSING BASELINE  
+
+---
+
+### Zone: SSA AOVs on Roof FSA  
+#### Subzone: SSA AOVs on Roof FSA
+
+- **Structural Steel**  
+  - BOQ: Structural interfaces in steel deck and secondary steel to support AOVs with openings trimmed in steel.  
+  - SPECS: Roof opening framing requirements under metal fabrications and deck installation (header units, edge angles, frames for roof openings).  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: Openings in steel deck for AOVs; coordination with deck structural behaviour.  
+  - SPECS: Deck installation rules for openings, closures, and prohibition of unapproved cuts; SCI diaphragm design for trimmed openings.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: Coordination with fire compartmentation mentioned; no explicit intumescent scope for AOV curb supports.  
+  - SPECS: Intumescent systems defined but not explicitly applied to these frames.  
+  - STATUS: MISSING BASELINE  
+
+- **Corrosion Protection**  
+  - BOQ: No corrosion requirements for AOV frames/trims.  
+  - SPECS: External roof opening frames/angles to be primed/galvanized per metal fabrications priming/galvanizing requirements.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: None.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: SSA Additional AHU Foundation Steel Interfaces  
+#### Subzone: SSA Additional AHU Foundation Steel Interfaces
+
+- **Structural Steel**  
+  - BOQ: Casting in H.D.A. and generator flue HDBA at AHU foundations to receive future steel frames/flue supports; steel quantities not BOQ‑listed.  
+  - SPECS: Anchor bolts to EN 15048 and confinement angles/embedded steels with grout interfaces; general structural steel interface rules.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: None.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: None.  
+  - SPECS: No explicit fireproofing requirement for AHU foundation interfaces in baseline bullets.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: No corrosion system for H.D.A./HDBA interfaces.  
+  - SPECS: Embedded steel/anchors should follow galvanizing/priming rules of metal fabrications and EN ISO 12944.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: None.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+---
+
+## Phase PH2
+
+### Zone: DCH Structural Steel PH2  
+#### Subzone: DCH Structural Steel PH2
+
+- **Structural Steel**  
+  - BOQ: As above under PH2 zone listing: 752 t EXC2 S355 Phase 2 DCH steel with H.D.A.  
+  - SPECS: Structural steel EXC2/S355 framework and connection/fabrication/erection rules.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: DCH Phase 2 TATA D60x1.2 mm roof decking.  
+  - SPECS: Steel deck S350 to EN 10346/10143 plus deck installation rules.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: 1‑hour intumescent paint to DCH PH2.  
+  - SPECS: Intumescent fire protection systems dimensioned for given fire ratings.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: No corrosion system for primary DCH PH2 members.  
+  - SPECS: EN ISO 12944 corrosion protection required.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Additional Phase 2 misc metal (cat ladders, balustrades, bollards, roof stairs) already captured under PH2 activities.  
+  - SPECS: Metal stairs/handrails/ladders and fabrications provisions.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: DCH Envelope Secondary Steel PH2  
+#### Subzone: DCH Envelope Secondary Steel PH2
+
+- **Structural Steel**  
+  - BOQ: As in PH1 section above (2 439 m² secondary steel; supports cladding, parapets, ladders and canopies).  
+  - SPECS: Secondary structural members EXC2/S355.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: Not deck product.  
+  - SPECS: Not specified.  
+  - STATUS: MISSING BASELINE  
+
+- **Fire Protection**  
+  - BOQ: Not present.  
+  - SPECS: Not explicitly required.  
+  - STATUS: MISSING BASELINE  
+
+- **Corrosion Protection**  
+  - BOQ: None stated.  
+  - SPECS: External secondary steel to be protected per EN ISO 12944 and galvanizing.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Supports for cat ladders/canopies and temporary protection.  
+  - SPECS: Metal fabrication and access ladder standards apply.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: DCH Roof Steel and Associated Items PH2  
+#### Subzone: DCH Roof Steel and Associated Items PH2
+
+- **Structural Steel**  
+  - BOQ: As in PH1 section above (parapet upstands, movement joint flashings, walkway supports, LP fixings).  
+  - SPECS: Structural steel execution and metal fabrications for roof elements.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: Composite Euroclad panels on Phase 2 deck plus deck infill.  
+  - SPECS: Deck specs and SCI deck design manuals.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: Not listed separately.  
+  - SPECS: Not expressly required for these items.  
+  - STATUS: MISSING BASELINE  
+
+- **Corrosion Protection**  
+  - BOQ: Not defined.  
+  - SPECS: Roof steel/walkways to be C4‑class protected.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Roof walkways only.  
+  - SPECS: Walkway systems under EN 516/EN ISO 14122.  
+  - STATUS: MISSING BASELINE  
+
+---
+
+### Zone: MYD S02-A7200 Structural Steel Support for RMUs & Battery Box PH2  
+#### Subzone: MYD S02-A7200 Structural Steel Support for RMUs & Battery Box PH2
+
+- **Structural Steel**  
+  - BOQ: 0.56 t structural steel supports with H.D.A.  
+  - SPECS: Structural steel to EN 10025/10210 S355JR with EXC2.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: None.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: None.  
+  - SPECS: Intumescent not indicated.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: Shotblast and galvanize to EN ISO 1461.  
+  - SPECS: Galvanizing per EN ISO 1461 with C4 finish for external steel.  
+  - STATUS: ALIGNED  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: None.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: MYD S02-A7200 Cooling Tower Gantry Structural Steel PH2  
+#### Subzone: MYD S02-A7200 Cooling Tower Gantry Structural Steel PH2
+
+- **Structural Steel**  
+  - BOQ: 377 t gantry steel with 30 H.D.A., fabrication and erection.  
+  - SPECS: EXC2 S355 structural steel requirements for gantries.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: None.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: None.  
+  - SPECS: Not specified for external gantries.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: Shotblast and galvanize full 377 t to EN ISO 1461 plus touch‑up.  
+  - SPECS: Galvanizing and C4 external finish per EN ISO 1461/12944‑2/ISO 9223.  
+  - STATUS: ALIGNED  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: None in this structural item.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: MYD S02-A7200 Cooling Tower Gantry Access Steel PH2  
+#### Subzone: MYD S02-A7200 Cooling Tower Gantry Access Steel PH2
+
+- **Structural Steel**  
+  - BOQ: Access steel elements attached to gantry for ladders, stairs, railings and grating.  
+  - SPECS: Treated as metal fabrications/stairs/ladders rather than primary frame.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: Open mesh grating platforms; no deck sheets.  
+  - SPECS: Gratings per NAAMM MBG.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: No intumescent specified.  
+  - SPECS: None required by baseline.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: Not explicitly stated but implied galvanized with gantry access steel scope at phase constraints.  
+  - SPECS: External stairs, ladders, railings/grating to be galvanized/C4‑finished.  
+  - STATUS: ALIGNED  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Cat ladders, cooling tower stairs, railings, open mesh grating for permanent gantry access.  
+  - SPECS: Metal stairs/ramps, handrails/guards and ladder/access requirements plus NAAMM MBG for grating.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: Steps and Ramps including Handrails for MCP and USS PH2  
+#### Subzone: Steps and Ramps including Handrails for MCP and USS PH2
+
+- **Structural Steel**  
+  - BOQ: Structural steel for steps and ramps including handrails associated with MCP and USS foundations.  
+  - SPECS: Metal stairs structural members to EN 10025 and ISO 10799 with design loads and deflection limits.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: None.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: Not specified.  
+  - SPECS: Not mandated for these stairs/ramps.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: No explicit coating stated.  
+  - SPECS: External stairs/ramps/handrails to be galvanized and C4‑finished per EN ISO 1461/12944‑2.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Steps and ramps with handrails for MCP and USS.  
+  - SPECS: Metal stairs and handrails/guards requirements and coatings for external access systems.  
+  - STATUS: ALIGNED  
+
+---
+
+## Phase PH3
+
+### Zone: DCH Structural Steel PH3  
+#### Subzone: DCH Structural Steel PH3
+
+- **Structural Steel**  
+  - BOQ: 756 t DCH Phase 3 EXC2 S355 structural frames with H.D.A.  
+  - SPECS: Structural steel EXC2/S355 and connection/fabrication/erection requirements.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: TATA D60x1.2 mm steel roof decking Phase 3.  
+  - SPECS: Steel deck S350 and installation rules.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: 1‑hour intumescent paint to DCH PH3 steel.  
+  - SPECS: Intumescent coatings sized to provide required fire resistance.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: None for primary frame.  
+  - SPECS: EN ISO 12944 corrosion protection required.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: External Ground‑to‑Roof stair and parapet stairs as part of PH3 misc steel.  
+  - SPECS: Metal stairs, handrails and guards spec.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: DCH Envelope Secondary Steel PH3  
+#### Subzone: DCH Envelope Secondary Steel PH3
+
+- **Structural Steel**  
+  - BOQ: 2 420 m² secondary steel for Eurobond panels, parapets, movement joints and support for cat ladders/temporary protection.  
+  - SPECS: Secondary structural members per EN 10025/10210 S355JR under EXC2.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: None.  
+  - SPECS: Not directly addressed.  
+  - STATUS: MISSING BASELINE  
+
+- **Fire Protection**  
+  - BOQ: No fireproofing noted.  
+  - SPECS: Not explicitly required for these members.  
+  - STATUS: MISSING BASELINE  
+
+- **Corrosion Protection**  
+  - BOQ: No treatment stated.  
+  - SPECS: External secondary steel to be protected per EN ISO 12944 and galvanizing.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Supports for GNM cat ladders and temporary cladding protection.  
+  - SPECS: Access ladders and metal fabrications rules.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: DCH Roof Steel and Associated Items PH3  
+#### Subzone: DCH Roof Steel and Associated Items PH3
+
+- **Structural Steel**  
+  - BOQ: Roof parapet upstands, movement joints, walkway supports, LP fixings for Phase 3 roof.  
+  - SPECS: Structural steel framing and metal fabrications standards.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: Composite roof panels and trapezoidal deck infill.  
+  - SPECS: Deck materials and installation methodology.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: None noted.  
+  - SPECS: Not specified here.  
+  - STATUS: MISSING BASELINE  
+
+- **Corrosion Protection**  
+  - BOQ: Not defined.  
+  - SPECS: Roof steel/walkways to be C4‑class protected and galvanized.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Roof walkways and temporary protection.  
+  - SPECS: Roof access walkways to EN 516/EN ISO 14122.  
+  - STATUS: MISSING BASELINE  
+
+---
+
+### Zone: EYD Phase 3 Steel Interfaces (kickers/bolts)  
+#### Subzone: EYD Phase 3 Steel Interfaces (kickers/bolts)
+
+- **Structural Steel**  
+  - BOQ: Installation of steel column kickers/bolts within EYD foundation slabs to receive future structural steel framing.  
+  - SPECS: Anchor bolts and base interface steel to EN 15048 and structural steel general notes; grout and confinement angle requirements.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: None.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: None.  
+  - SPECS: Not required at this interface level.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: No corrosion system defined.  
+  - SPECS: Embedded or exposed interface steel should follow corrosion/galvanizing rules.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: None.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: MYD S02-A7200 Structural Steel Support for RMUs & Battery Box PH3  
+#### Subzone: MYD S02-A7200 Structural Steel Support for RMUs & Battery Box PH3
+
+- **Structural Steel**  
+  - BOQ: 0.56 t structural steel supports with H.D.A. connections.  
+  - SPECS: Structural steel S355JR and anchors to EN 15048 under EXC2.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: None.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: None.  
+  - SPECS: Not specified.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: Shotblast and galvanize to EN ISO 1461.  
+  - SPECS: Galvanizing and C4 environment guidance per EN ISO 1461/14713‑1/12944‑2.  
+  - STATUS: ALIGNED  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: None.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: MYD S02-A7200 Cooling Tower Gantry Structural Steel PH3  
+#### Subzone: MYD S02-A7200 Cooling Tower Gantry Structural Steel PH3
+
+- **Structural Steel**  
+  - BOQ: 385 t cooling tower gantry steel with 30 H.D.A.  
+  - SPECS: EXC2/S355 structural steel requirements for gantries.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: None.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: None specified.  
+  - SPECS: Not required in baseline for external gantry.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: Shotblast and galvanize to EN ISO 1461 with external environment durability (C4) referenced at phase level.  
+  - SPECS: Galvanizing and C4 environment guidance.  
+  - STATUS: ALIGNED  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: None in this item.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: MYD S02-A7200 Cooling Tower Gantry Access Steel PH3  
+#### Subzone: MYD S02-A7200 Cooling Tower Gantry Access Steel PH3
+
+- **Structural Steel**  
+  - BOQ: Access steel integrated with gantry for stairs, ladders, bump/guard rails and grating.  
+  - SPECS: Metal fabrications and stairs/handrails spec for structural members of access system.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: Open mesh grating platforms.  
+  - SPECS: NAAMM MBG grating standards.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: None.  
+  - SPECS: Intumescent not specified.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: Not explicitly listed; implied galvanized as part of gantry access scope.  
+  - SPECS: External access steel to be galvanized/C4‑finished.  
+  - STATUS: ALIGNED  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Cat ladders, gantry emergency stairs, cooling tower stairs, railings, open mesh grating and bumper railings.  
+  - SPECS: Metal stairs/ramps, handrails/guards, ladders and gratings per EN ISO 14122 and NAAMM MBG.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: MYD S02-A7200 Structural Steel Support for RMUs & Battery Box PH4 (not PH3)  
+#### Subzone: [No PH3 scope beyond what is already covered above]
+
+- **Structural Steel**  
+  - BOQ: Not applicable to PH3.  
+  - SPECS: Not applicable.  
+  - STATUS: MISSING BASELINE  
+
+- **Composite Decking**  
+  - BOQ: Not applicable.  
+  - SPECS: Not applicable.  
+  - STATUS: MISSING BASELINE  
+
+- **Fire Protection**  
+  - BOQ: Not applicable.  
+  - SPECS: Not applicable.  
+  - STATUS: MISSING BASELINE  
+
+- **Corrosion Protection**  
+  - BOQ: Not applicable.  
+  - SPECS: Not applicable.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Not applicable.  
+  - SPECS: Not applicable.  
+  - STATUS: MISSING BASELINE  
+
+---
+
+### Zone: Steps and Ramps including Handrails for MCP and USS PH3  
+#### Subzone: Steps and Ramps including Handrails for MCP and USS PH3
+
+- **Structural Steel**  
+  - BOQ: Structural components for steps/ramps/handrails in cooling plant areas MCP/USS Phase 3.  
+  - SPECS: Metal stairs and structural members for steps/ramps with specified live loads and deflection criteria.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: None.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: No fire protection shown.  
+  - SPECS: Not mandated.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: No coating noted.  
+  - SPECS: External stairs/ramps/handrails to be galvanized and C4‑finished.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Steps and ramps incl. handrails associated with MCP/USS.  
+  - SPECS: Metal stairs and handrails/guards clauses for fabrication, load, geometry and finish.  
+  - STATUS: ALIGNED  
+
+---
+
+## Phase PH4
+
+### Zone: DCH Structural Steel PH4  
+#### Subzone: DCH Structural Steel PH4
+
+- **Structural Steel**  
+  - BOQ: 747 t EXC2 S355 structural steel and H.D.A. for DCH Phase 4.  
+  - SPECS: Structural steel EXC2/S355 requirements and connection/fabrication/erection rules.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: Phase 4 TATA D60x1.2 mm deck.  
+  - SPECS: Steel deck S350 with installation standards.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: 1‑hour intumescent coating of Phase 4 steel.  
+  - SPECS: Intumescent systems calibrated to required ratings.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: None for primary frame.  
+  - SPECS: EN ISO 12944 corrosion protection required.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: External misc steel (cat ladders, bollards, roof stairs) in separate item.  
+  - SPECS: Metal stairs/handrails/ladders spec applies.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: DCH Envelope Secondary Steel PH4  
+#### Subzone: DCH Envelope Secondary Steel PH4
+
+- **Structural Steel**  
+  - BOQ: 2 441 m² secondary envelope steel supporting cladding, roof liner, parapets and louvres/scuppers/downpipes/fire barriers.  
+  - SPECS: Secondary structural members under EN 10025/10210 S355JR and EXC2.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: None directly.  
+  - SPECS: Not specified.  
+  - STATUS: MISSING BASELINE  
+
+- **Fire Protection**  
+  - BOQ: No fireproofing stated.  
+  - SPECS: Not specifically mandated.  
+  - STATUS: MISSING BASELINE  
+
+- **Corrosion Protection**  
+  - BOQ: No corrosion treatment defined.  
+  - SPECS: External secondary steel to be corrosion‑protected per EN ISO 12944 and galvanizing.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Supports for louvres and external appurtenances.  
+  - SPECS: General metal fabrications provisions.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: DCH Roof Steel and Associated Items PH4  
+#### Subzone: DCH Roof Steel and Associated Items PH4
+
+- **Structural Steel**  
+  - BOQ: Roof parapet upstands, movement joints, walkway supports, trapezoidal deck infill, lightning protection fixings.  
+  - SPECS: Structural steel design/execution and metal fabrications for roof elements.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: Composite Euroclad roof panels and trapezoidal infill.  
+  - SPECS: Deck material and installation standards.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: None noted for these roof items.  
+  - SPECS: Not explicitly applied.  
+  - STATUS: MISSING BASELINE  
+
+- **Corrosion Protection**  
+  - BOQ: No corrosion system stated.  
+  - SPECS: Roof steel/walkways to be C4 protected and galvanized.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Roof walkways and temporary protection layers.  
+  - SPECS: Roof access walkways under EN 516/EN ISO 14122 and metal fabrications spec.  
+  - STATUS: MISSING BASELINE  
+
+---
+
+### Zone: MYD S02-A7200 Structural Steel Support for RMUs & Battery Box PH4  
+#### Subzone: MYD S02-A7200 Structural Steel Support for RMUs & Battery Box PH4
+
+- **Structural Steel**  
+  - BOQ: 0.38 t structural support steel with H.D.A. and galvanizing.  
+  - SPECS: Structural steel S355JR and anchors to EN 15048; galvanizing to EN ISO 1461.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: None.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: No intumescent.  
+  - SPECS: Not required.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: Galvanizing to EN ISO 1461 for these supports.  
+  - SPECS: Galvanizing and external C4 coating regime.  
+  - STATUS: ALIGNED  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: None.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: MYD S02-A7200 Cooling Tower Gantry Structural Steel PH4  
+#### Subzone: MYD S02-A7200 Cooling Tower Gantry Structural Steel PH4
+
+- **Structural Steel**  
+  - BOQ: 249 t gantry structural steel with 20 H.D.A.  
+  - SPECS: EXC2/S355 structural steel rules.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: None.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: No intumescent specified.  
+  - SPECS: Not mandated by baseline.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: Shotblast and galvanize 249 t to EN ISO 1461 plus touch‑up; design for galvanizing and external durability.  
+  - SPECS: Galvanizing per EN ISO 1461 and C4 external durability guidance.  
+  - STATUS: ALIGNED  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: None in this frame item.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: MYD S02-A7200 Cooling Tower Gantry Access Steel PH4  
+#### Subzone: MYD S02-A7200 Cooling Tower Gantry Access Steel PH4
+
+- **Structural Steel**  
+  - BOQ: Access steel tied into gantry for ladders/stairs/railings/grating.  
+  - SPECS: Metal fabrications and stairs/handrails design requirements.  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: Open mesh grating.  
+  - SPECS: Grating to NAAMM MBG.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: None.  
+  - SPECS: Not required.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: Galvanizing implied as part of gantry access steel scope in constraints.  
+  - SPECS: External access steel to be hot dip galvanized and C4‑finished.  
+  - STATUS: ALIGNED  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Cat ladders, cooling tower stairs, railings and open mesh grating for Phase 4 gantry access.  
+  - SPECS: Metal stairs, handrails/guards and ladder/grating standards.  
+  - STATUS: ALIGNED  
+
+---
+
+### Zone: Steps and Ramps including Handrails for MCP and USS PH4  
+#### Subzone: Steps and Ramps including Handrails for MCP and USS PH4
+
+- **Structural Steel**  
+  - BOQ: Structural steel steps and ramps including handrails for MCP and USS Phase 4.  
+  - SPECS: Metal stairs structural requirements and loads (500 kg/m², L/360).  
+  - STATUS: ALIGNED  
+
+- **Composite Decking**  
+  - BOQ: None.  
+  - SPECS: Not applicable.  
+  - STATUS: ALIGNED  
+
+- **Fire Protection**  
+  - BOQ: Not stated.  
+  - SPECS: Not mandated by baseline.  
+  - STATUS: ALIGNED  
+
+- **Corrosion Protection**  
+  - BOQ: No coating described.  
+  - SPECS: External stairs/ramps/handrails to be hot dip galvanized and C4‑finished.  
+  - STATUS: MISSING BASELINE  
+
+- **Metal Fabrications (Stairs/Railings/Gratings)**  
+  - BOQ: Steps and ramps including handrails at MCP/USS Phase 4.  
+  - SPECS: Metal stairs and handrails/guards standards for design, fabrication and finish.  
+  - STATUS: ALIGNED  
+
+---
+
+## Global Inconsistencies
+
+| ID | Category              | Location (Phase/Zone/Subzone)                                                                                                  | Issue                                                                                                                                                                                                                         | Risk |
+|----|-----------------------|-------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|
+| 1  | Corrosion Protection  | PH1–PH4, DCH Structural Steel PH1–PH4                                                                                        | Corrosion protection systems for primary DCH structural steel across PH1–PH4 are not described in the BOQ, while SPECS require EN ISO 12944‑compliant paint/galvanizing systems for all internal/external steel.             | —    |
+| 2  | Corrosion Protection  | PH1, FSA Structural Steel; FSA Miscellaneous Steel Items                                                                     | Corrosion protection for FSA primary and miscellaneous steel (stairs, cat ladders, bollards, roof railings, canopy supports) is not explicitly detailed in the BOQ but is mandatory under EN ISO 12944/EN ISO 1461 in SPECS. | —    |
+| 3  | Corrosion Protection  | PH1–PH4, FSA Envelope Secondary Steel; DCH Envelope Secondary Steel PH1–PH4                                                 | Envelope secondary steel (FSA and DCH PH1–PH4) lacks explicit BOQ corrosion treatment, whereas SPECS require corrosion protection or galvanizing for all external secondary framing in C2/C4 environments.                    | —    |
+| 4  | Corrosion Protection  | PH1–PH4, DCH Roof Steel and Associated Items PH1–PH4; PH1, SSA Load Bank Roof Steelwork                                      | Roof steel items (parapet upstands, roof walkways, movement joint flashings and associated supports) in DCH PH1–PH4 and SSA roof areas do not state corrosion protection in the BOQ but must be galvanized or protected to C4 in SPECS. | —    |
+| 5  | Corrosion Protection  | PH1, CSA Sitewide Utility Trench / Misc Steel; PH1, RSA Security Fence & Attenuation Pond Interfaces; PH1, SSA AHU Interfaces | Sitewide utility trench miscellaneous steel interfaces, RSA security fence steel posts and SSA AHU foundation steel interfaces lack BOQ corrosion finish definitions, while standards require appropriate galvanizing/priming. | —    |
+| 6  | Corrosion & Fire Prot | PH1, SSA Louvres for Smoke Extract PH1–PH4; PH1, SSA AOVs on Roof FSA                                                        | Support and framing steel for SSA smoke extract louvres and AOV roof openings are not assigned specific corrosion or fire protection systems in the BOQ, while SPECS expect external support steel to be corrosion‑protected and fire‑protected where required by design. | —    |

@@ -80,9 +80,9 @@ def extrair_specs(texto_specs: str, nome_ficheiro: str, llm, prog_placeholder, s
     if not chunks:
         return ""
 
-    sys_msg = SystemMessage(content=f"""You are a Senior Construction Specifications Analyst.
+    sys_msg = SystemMessage(content=f"""You are a Senior Construction Specifications Analyst and Technical Data Structuralist.
 
-Goal: Extract PROJECT-WIDE ENGINEERING BASELINES from technical specification documents.
+Goal: Extract PROJECT-WIDE ENGINEERING BASELINES from technical specification documents and structure into JSON format.
 
 ABSOLUTE RULES:
 - Do NOT omit information that is present in the text.
@@ -93,18 +93,70 @@ ABSOLUTE RULES:
 Use these extraction rules exactly as provided (do not rewrite them):
 {REGRAS_EXTRACAO}
 
+REQUIRED JSON OUTPUT SCHEMA (MUST FOLLOW EXACTLY):
+{{
+  "spec_document": {{
+    "section_code": "String (ex: '05 12 00' or 'NOT FOUND')",
+    "title": "String (ex: 'Structural Steel Framing')"
+  }},
+  "reference_standards": [
+    {{
+      "code": "String (ex: 'NBN EN 1090')",
+      "description": "String (Brief description of the standard)"
+    }}
+  ],
+  "materials": [
+    {{
+      "category": "String (ex: 'Structural Steel', 'High-Strength Bolts')",
+      "grade_or_type": "String (ex: 'S355JR', 'Grade 8.8')",
+      "specific_rules": ["String (Rule 1)", "String (Rule 2)"]
+    }}
+  ],
+  "finishes_and_protection": [
+    {{
+      "system_type": "String (ex: 'Galvanizing', 'Intumescent Paint')",
+      "environment_class": "String (ex: 'C4', 'C2', 'NOT SPECIFIED')",
+      "products_or_standards": "String (ex: 'EN ISO 1461', 'FIRETEX FX2003')",
+      "preparation_rules": "String (ex: 'Sa 2.5 blast cleaning')"
+    }}
+  ],
+  "execution_and_tolerances": [
+    {{
+      "element": "String (ex: 'Steel Erection', 'Deck Installation')",
+      "execution_class": "String (ex: 'EXC2', 'NOT SPECIFIED')",
+      "tolerances_and_rules": ["String (Execution rule 1)", "String (Tolerance rule 2)"]
+    }}
+  ],
+  "qa_qc_and_submittals": [
+    {{
+      "requirement_type": "String (ex: 'Testing', 'Shop Drawings')",
+      "description": "String (Detailed quality/submittal requirement)"
+    }}
+  ]
+}}
+
+EXTRACTION INSTRUCTIONS:
+1. SPEC_DOCUMENT: Locate section code and title from document header or intro.
+2. REFERENCE_STANDARDS: Extract ALL referenced EN/CEN/ISO/NBN standards with their purposes.
+3. MATERIALS: Group by material category; extract grades, types, and all applicable rules (no omissions).
+4. FINISHES_AND_PROTECTION: Extract galvanizing, paint systems, corrosion classifications (C2/C4), DFT specs, intumescent details, surface prep standards (Sa 2.5, etc.).
+5. EXECUTION_AND_TOLERANCES: Execution classes (EXC2 etc), tolerances, erection rules, temporary bracing, alignment rules.
+6. QA_QC_AND_SUBMITTALS: Shop drawings, testing requirements, mill certificates, welder certificates, pre-construction meetings, Quality Plan requirements, DFT control, field inspection.
+
 OUTPUT FORMAT (STRICT):
-- Plain text only (no JSON, no markdown).
-- Each line must start with "- " and be one reusable baseline rule.
-- No recommendations, next steps, questions, or offers.
+- ONLY valid JSON (no markdown, no code blocks, no extra text before/after JSON).
+- All string fields must be populated (use "NOT FOUND" only if genuinely absent from document).
+- Arrays can be empty [] if no data found for that section.
+- No recommendations, next steps, questions, or offers in any field.
+- Ensure JSON is properly formatted and valid.
 """)
 
     try:
         if status_placeholder:
             status_placeholder.markdown(
                 f"<div style=\"font-family:'Space Mono',monospace;font-size:0.72rem;color:#3a6aaa\">"
-                f"<span style=\"color:#5a9aff\">AGT-01 (Specs Reader)</span>"
-                f" &nbsp;·&nbsp; Processando documento completo...</div>",
+                f"<span style=\"color:#5a9aff\">AGT-01 (Specs Structurer)</span>"
+                f" &nbsp;·&nbsp; Processando documento e estruturando em JSON...</div>",
                 unsafe_allow_html=True
             )
         if prog_placeholder:
@@ -113,10 +165,12 @@ OUTPUT FORMAT (STRICT):
         resumo = _invocar_llm(llm, [
             sys_msg,
             HumanMessage(content=(
-                'Extract reusable baseline rules from this specification document.\n'
+                'Extract and structure all technical specifications from this document.\n'
                 'Process the ENTIRE document from start to end.\n'
-                'Only output bullet lines starting with "- ".\n'
-                'No extra text.\n\n'
+                'Output ONLY valid JSON following the schema provided.\n'
+                'Do NOT omit any requirements found in the document.\n'
+                'Do NOT invent requirements outside the document.\n'
+                'Do NOT include any CONCRETE-related content.\n\n'
                 f'FILE: {nome_ficheiro}\n'
                 f'DOCUMENT:\n{chunks[0]}'
             ))
@@ -420,6 +474,11 @@ ABSOLUTE RULES:
 - Ignore EVERYTHING related to CONCRETE. Concrete is out of scope.
 - No recommendations, next steps, questions, or offers.
 
+EMPTY ZONE RULE (CRITICAL FOR ANTI-HALLUCINATION):
+- If a Subzone has NO data related to Steel, Decking, Fire, Corrosion, or Metal Fabrications in the BOQ extract, DO NOT force the 5 categories.
+- Instead, simply write under the Subzone: "[OUT OF SCOPE: No relevant structural/metal items]" and move to the next.
+- If a specific category within a valid Subzone is completely empty (no BOQ items and no relevant Specs), DO NOT print that category.
+
 TASK:
 - Deduplicate within each Phase/Zone/Subzone.
 - Compare BOQ vs SPECS baseline and flag: ALIGNED / CONFLICT / MISSING BASELINE.
@@ -429,6 +488,9 @@ OUTPUT FORMAT (STRICT):
 Phase: Phase N
 --> Zone: ZZZ
     ---> Subzone: <name>
+        [OUT OF SCOPE: No relevant structural/metal items]  <-- USE THIS IF TOTALLY EMPTY
+        
+        (If NOT empty, use the categories below. Only print the ones that have data or are missing a baseline):
         * Structural Steel:
             - BOQ: ...
             - SPECS: ...
@@ -531,35 +593,45 @@ OUTPUT:
 # AGT-04: Apresentador (formata)
 # ======================================================================
 def no_apresentador(state: AuditoriaState) -> dict:
-    llm = ChatOpenAI(model="gpt-5.1", api_key=state["_api_key"], temperature=0.1)
+    # Usamos o gpt-4o para garantir que a escrita é profissional e segue as regras de filtragem
+    llm = ChatOpenAI(model="gpt-4o", api_key=state["_api_key"], temperature=0.1)
 
     base = (state.get("auditoria_normalizada") or state.get("auditoria_bruta") or "").strip()
     if not base:
         return {"relatorio_final": ""}
 
-    sys_msg = SystemMessage(content="""You are an Executive Technical Writer.
+    sys_msg = SystemMessage(content="""You are an Executive Technical Writer and Chief Editor.
+Your goal is to transform a raw technical audit into a high-value Executive Report by filtering out noise.
 
-Task: format the audit into a clean, readable report.
+ABSOLUTE FILTRATION RULES:
+1. DELETE OUT-OF-SCOPE: Completely remove any Zone or Subzone marked as "[OUT OF SCOPE...]".
+2. DELETE INCOMPLETE DATA: If a Subzone only contains "MISSING BASELINE" statuses and has zero "ALIGNED" or "CONFLICT" items, DELETE that entire Subzone. We only want to see areas with confirmed data or actual errors.
+3. DELETE EMPTY CATEGORIES: Within a valid Subzone, if a category (e.g., Composite Decking) is empty or only says "None/Not applicable", delete that category.
+4. HIERARCHICAL CLEANUP: 
+   - If all Subzones of a Zone are deleted, delete the Zone.
+   - If all Zones of a Phase are deleted, delete the Phase.
 
-ABSOLUTE RULES:
-- Do NOT add any new info.
-- Do NOT omit any info.
-- Do NOT add recommendations, next steps, questions, or offers.
-- Preserve Phase/Zone/Subzone structure.
-- Ignore/remove any CONCRETE content if still present.
+PRESERVATION RULES:
+- Do NOT delete the "GLOBAL INCONSISTENCIES" table. This table must remain complete as it summarizes the project risks.
+- For the remaining sections, preserve the technical detail (grades, standards, DFTs).
 
-Formatting:
-- Convert GLOBAL INCONSISTENCIES into a Markdown table:
+FORMATTING:
+- Use clear headings and professional Markdown.
+- Ensure the "GLOBAL INCONSISTENCIES" is a clean Markdown table:
 | ID | Category | Location (Phase/Zone/Subzone) | Issue | Risk |
 """)
 
     try:
-        relatorio = _invocar_llm(llm, [sys_msg, HumanMessage(content=f"Format this audit:\n\n{base}")])
+        # Passamos a auditoria bruta/normalizada para o "Editor"
+        relatorio = _invocar_llm(llm, [
+            sys_msg, 
+            HumanMessage(content=f"Filter and format this audit into an Executive Report:\n\n{base}")
+        ])
         return {"relatorio_final": relatorio}
     except Exception as e:
         erros = list(state.get("erros", []))
-        erros.append(f"AGT-04 (format) ({type(e).__name__}): {e}")
-        return {"relatorio_final": "", "erros": erros}
+        erros.append(f"AGT-04 (Executive Filter) ({type(e).__name__}): {e}")
+        return {"relatorio_final": base, "erros": erros}
 
 
 # ======================================================================
