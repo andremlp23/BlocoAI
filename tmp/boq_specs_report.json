@@ -1,0 +1,1284 @@
+{
+  "summary": {
+    "total_requirements": 38,
+    "total_issues": 22,
+    "critical_missing": 0
+  },
+  "issues": [
+    {
+      "requirement": "- Interface obligation: Coordinate structural steel with Sections 05 31 00 Steel Decking, 05 50 00 Metal Fabrications, 05 21 00 Steel Joist Framing, 05 51 00 Metal Stairs and Ramps and 07 81 23 Intumescent Fireproofing; identify and resolve all interfaces in shop and erection drawings.",
+      "spec_snippet": "- Interface obligation: Coordinate structural steel with Sections 05 31 00 Steel Decking, 05 50 00 Metal Fabrications, 05 21 00 Steel Joist Framing, 05 51 00 Metal Stairs and Ramps and 07 81 23 Intumescent Fireproofing; identify and resolve all interfaces in shop and erection drawings.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "intumes",
+          "index": 15,
+          "context": "      - STATUS: MISSING BASELINE\n    * Fire Protection:\n      - BOQ: Intumescent fire protection entry 'FSA Intumescent Paint 2 Hr' quantity 711,00 tn recorded in BOQ (Linha: 462).\n      - SPECS: Intumescent scope/submittals: product data, EN 13381-4 results, compatibility certificates with primers/topcoats, installer qualifications, DFT application/control, environmental controls, batch and application records, independent QA inspections.\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "intumes",
+          "index": 15,
+          "context": "      - STATUS: MISSING BASELINE\n    * Fire Protection:\n      - BOQ: Intumescent fire protection entry 'FSA Intumescent Paint 2 Hr' quantity 711,00 tn recorded in BOQ (Linha: 462).\n      - SPECS: Intumescent scope/submittals: product data, EN 13381-4 results, compatibility certificates with primers/topcoats, installer qualifications, DFT application/control, environmental controls, batch and application records, independent QA inspections.\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "intumes",
+          "index": 16,
+          "context": "    * Fire Protection:\n      - BOQ: Intumescent fire protection entry 'FSA Intumescent Paint 2 Hr' quantity 711,00 tn recorded in BOQ (Linha: 462).\n      - SPECS: Intumescent scope/submittals: product data, EN 13381-4 results, compatibility certificates with primers/topcoats, installer qualifications, DFT application/control, environmental controls, batch and application records, independent QA inspections.\n      - STATUS: MISSING BASELINE\n    * Corrosion Protection:"
+        },
+        {
+          "kw": "intumes",
+          "index": 36,
+          "context": "      - STATUS: MISSING BASELINE\n    * Fire Protection:\n      - BOQ: NOT FOUND (no intumescent specifically tied to FSA decking in BOQ extract).\n      - SPECS: Intumescent coordination with decking where applicable; application and QA requirements.\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "intumes",
+          "index": 37,
+          "context": "    * Fire Protection:\n      - BOQ: NOT FOUND (no intumescent specifically tied to FSA decking in BOQ extract).\n      - SPECS: Intumescent coordination with decking where applicable; application and QA requirements.\n      - STATUS: MISSING BASELINE\n    * Corrosion Protection:"
+        }
+      ],
+      "severity": "Medium"
+    },
+    {
+      "requirement": "- Submittal requirement: Submit shop drawings of individual shipping pieces prepared and checked by a suitably qualified professional Structural Engineer before fabrication.",
+      "spec_snippet": "- Submittal requirement: Submit shop drawings of individual shipping pieces prepared and checked by a suitably qualified professional Structural Engineer before fabrication.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "shop drawing",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 24,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: Miscellaneous metalwork for FSA including internal stair (FSA) BOQ line (Linha: 464); Loading Dock fencing and handrails BOQ quantity 87 (Linha: 466); bollards and other small steel items (Linha: 469-470).\n      - SPECS: Metal fabrications scope and submittals (Section 05 50 00 / 05 51 00): shop drawings, welder certificates, fabrication tolerances, shop priming/finishes, stairs/handrail design loads, fabrication and testing requirements, ladder/access requirements (EN ISO 14122), manufacturer/fabricator qualifications.\n      - STATUS: MISSING BASELINE\n  - Subzone: Steel Decking"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 50,
+          "context": "    * Structural Steel:\n      - BOQ: Secondary steel for cladding: BOQ quantity 1 942 m2 (Linha: 476); Eurobond panels and associated fixings and penetrations listed (Linha: 473-479, 484-488).\n      - SPECS: Secondary steel and cladding coordination obligations; materials standards; provision of holes for services; interface responsibilities; shop drawings and coordination duties.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 88,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: Roof walkway, parapets and access items referenced (Linha: 546, 552).\n      - SPECS: Fabrication and access requirements, shop drawings, loadings and tolerances for stairs/railings.\n      - STATUS: MISSING BASELINE\n- Zone: DCH"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 137,
+          "context": "    * Structural Steel:\n      - BOQ: Secondary steel for cladding PH1: 3 693 m2 (Linha: 666); Eurobond panels and penetrations listed (Linha: 661-679).\n      - SPECS: Secondary steel and cladding coordination, materials and shop drawings, provision of holes for services.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        }
+      ],
+      "severity": "Critical"
+    },
+    {
+      "requirement": "- Submittal requirement: Submit erection drawings and method statements by the fabricator showing member locations, connections, erection sequence, bracing locations, temporary supports and lifting/raising/bolting/welding procedures.",
+      "spec_snippet": "- Submittal requirement: Submit erection drawings and method statements by the fabricator showing member locations, connections, erection sequence, bracing locations, temporary supports and lifting/raising/bolting/welding procedures.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "shop drawing",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 24,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: Miscellaneous metalwork for FSA including internal stair (FSA) BOQ line (Linha: 464); Loading Dock fencing and handrails BOQ quantity 87 (Linha: 466); bollards and other small steel items (Linha: 469-470).\n      - SPECS: Metal fabrications scope and submittals (Section 05 50 00 / 05 51 00): shop drawings, welder certificates, fabrication tolerances, shop priming/finishes, stairs/handrail design loads, fabrication and testing requirements, ladder/access requirements (EN ISO 14122), manufacturer/fabricator qualifications.\n      - STATUS: MISSING BASELINE\n  - Subzone: Steel Decking"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 50,
+          "context": "    * Structural Steel:\n      - BOQ: Secondary steel for cladding: BOQ quantity 1 942 m2 (Linha: 476); Eurobond panels and associated fixings and penetrations listed (Linha: 473-479, 484-488).\n      - SPECS: Secondary steel and cladding coordination obligations; materials standards; provision of holes for services; interface responsibilities; shop drawings and coordination duties.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 88,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: Roof walkway, parapets and access items referenced (Linha: 546, 552).\n      - SPECS: Fabrication and access requirements, shop drawings, loadings and tolerances for stairs/railings.\n      - STATUS: MISSING BASELINE\n- Zone: DCH"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 137,
+          "context": "    * Structural Steel:\n      - BOQ: Secondary steel for cladding PH1: 3 693 m2 (Linha: 666); Eurobond panels and penetrations listed (Linha: 661-679).\n      - SPECS: Secondary steel and cladding coordination, materials and shop drawings, provision of holes for services.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        }
+      ],
+      "severity": "Critical"
+    },
+    {
+      "requirement": "- Submittal requirement: Submit temporary works drawings and method statements by the erector illustrating erection sequence, temporary supports, bracing, and lifting requirements.",
+      "spec_snippet": "- Submittal requirement: Submit temporary works drawings and method statements by the erector illustrating erection sequence, temporary supports, bracing, and lifting requirements.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "shop drawing",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 24,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: Miscellaneous metalwork for FSA including internal stair (FSA) BOQ line (Linha: 464); Loading Dock fencing and handrails BOQ quantity 87 (Linha: 466); bollards and other small steel items (Linha: 469-470).\n      - SPECS: Metal fabrications scope and submittals (Section 05 50 00 / 05 51 00): shop drawings, welder certificates, fabrication tolerances, shop priming/finishes, stairs/handrail design loads, fabrication and testing requirements, ladder/access requirements (EN ISO 14122), manufacturer/fabricator qualifications.\n      - STATUS: MISSING BASELINE\n  - Subzone: Steel Decking"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 50,
+          "context": "    * Structural Steel:\n      - BOQ: Secondary steel for cladding: BOQ quantity 1 942 m2 (Linha: 476); Eurobond panels and associated fixings and penetrations listed (Linha: 473-479, 484-488).\n      - SPECS: Secondary steel and cladding coordination obligations; materials standards; provision of holes for services; interface responsibilities; shop drawings and coordination duties.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 88,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: Roof walkway, parapets and access items referenced (Linha: 546, 552).\n      - SPECS: Fabrication and access requirements, shop drawings, loadings and tolerances for stairs/railings.\n      - STATUS: MISSING BASELINE\n- Zone: DCH"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 137,
+          "context": "    * Structural Steel:\n      - BOQ: Secondary steel for cladding PH1: 3 693 m2 (Linha: 666); Eurobond panels and penetrations listed (Linha: 661-679).\n      - SPECS: Secondary steel and cladding coordination, materials and shop drawings, provision of holes for services.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        }
+      ],
+      "severity": "Critical"
+    },
+    {
+      "requirement": "- Sustainability declaration: Contractor shall declare in writing that steel contains 70% recycled content (pre- and post-consumer); if compliance is impossible submit a written request for exception to the Engineer of Record and copy EXE and DC Sustainability.",
+      "spec_snippet": "- Sustainability declaration: Contractor shall declare in writing that steel contains 70% recycled content (pre- and post-consumer); if compliance is impossible submit a written request for exception to the Engineer of Record and copy EXE and DC Sustainability.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "shop drawing",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 24,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: Miscellaneous metalwork for FSA including internal stair (FSA) BOQ line (Linha: 464); Loading Dock fencing and handrails BOQ quantity 87 (Linha: 466); bollards and other small steel items (Linha: 469-470).\n      - SPECS: Metal fabrications scope and submittals (Section 05 50 00 / 05 51 00): shop drawings, welder certificates, fabrication tolerances, shop priming/finishes, stairs/handrail design loads, fabrication and testing requirements, ladder/access requirements (EN ISO 14122), manufacturer/fabricator qualifications.\n      - STATUS: MISSING BASELINE\n  - Subzone: Steel Decking"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 50,
+          "context": "    * Structural Steel:\n      - BOQ: Secondary steel for cladding: BOQ quantity 1 942 m2 (Linha: 476); Eurobond panels and associated fixings and penetrations listed (Linha: 473-479, 484-488).\n      - SPECS: Secondary steel and cladding coordination obligations; materials standards; provision of holes for services; interface responsibilities; shop drawings and coordination duties.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 88,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: Roof walkway, parapets and access items referenced (Linha: 546, 552).\n      - SPECS: Fabrication and access requirements, shop drawings, loadings and tolerances for stairs/railings.\n      - STATUS: MISSING BASELINE\n- Zone: DCH"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 137,
+          "context": "    * Structural Steel:\n      - BOQ: Secondary steel for cladding PH1: 3 693 m2 (Linha: 666); Eurobond panels and penetrations listed (Linha: 661-679).\n      - SPECS: Secondary steel and cladding coordination, materials and shop drawings, provision of holes for services.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        }
+      ],
+      "severity": "High"
+    },
+    {
+      "requirement": "- Calculation submittal: Submit calculations for all connection designs before preparation of shop drawings; calculations to be signed and sealed by a Professional Structural Engineer.",
+      "spec_snippet": "- Calculation submittal: Submit calculations for all connection designs before preparation of shop drawings; calculations to be signed and sealed by a Professional Structural Engineer.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "shop drawing",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 24,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: Miscellaneous metalwork for FSA including internal stair (FSA) BOQ line (Linha: 464); Loading Dock fencing and handrails BOQ quantity 87 (Linha: 466); bollards and other small steel items (Linha: 469-470).\n      - SPECS: Metal fabrications scope and submittals (Section 05 50 00 / 05 51 00): shop drawings, welder certificates, fabrication tolerances, shop priming/finishes, stairs/handrail design loads, fabrication and testing requirements, ladder/access requirements (EN ISO 14122), manufacturer/fabricator qualifications.\n      - STATUS: MISSING BASELINE\n  - Subzone: Steel Decking"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 50,
+          "context": "    * Structural Steel:\n      - BOQ: Secondary steel for cladding: BOQ quantity 1 942 m2 (Linha: 476); Eurobond panels and associated fixings and penetrations listed (Linha: 473-479, 484-488).\n      - SPECS: Secondary steel and cladding coordination obligations; materials standards; provision of holes for services; interface responsibilities; shop drawings and coordination duties.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 88,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: Roof walkway, parapets and access items referenced (Linha: 546, 552).\n      - SPECS: Fabrication and access requirements, shop drawings, loadings and tolerances for stairs/railings.\n      - STATUS: MISSING BASELINE\n- Zone: DCH"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 137,
+          "context": "    * Structural Steel:\n      - BOQ: Secondary steel for cladding PH1: 3 693 m2 (Linha: 666); Eurobond panels and penetrations listed (Linha: 661-679).\n      - SPECS: Secondary steel and cladding coordination, materials and shop drawings, provision of holes for services.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        }
+      ],
+      "severity": "Critical"
+    },
+    {
+      "requirement": "- Quality Plan submittal: Submit Quality Plan for execution in accordance with NBN EN 1090 at earliest possible time after appointment.",
+      "spec_snippet": "- Quality Plan submittal: Submit Quality Plan for execution in accordance with NBN EN 1090 at earliest possible time after appointment.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "shop drawing",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 24,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: Miscellaneous metalwork for FSA including internal stair (FSA) BOQ line (Linha: 464); Loading Dock fencing and handrails BOQ quantity 87 (Linha: 466); bollards and other small steel items (Linha: 469-470).\n      - SPECS: Metal fabrications scope and submittals (Section 05 50 00 / 05 51 00): shop drawings, welder certificates, fabrication tolerances, shop priming/finishes, stairs/handrail design loads, fabrication and testing requirements, ladder/access requirements (EN ISO 14122), manufacturer/fabricator qualifications.\n      - STATUS: MISSING BASELINE\n  - Subzone: Steel Decking"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 50,
+          "context": "    * Structural Steel:\n      - BOQ: Secondary steel for cladding: BOQ quantity 1 942 m2 (Linha: 476); Eurobond panels and associated fixings and penetrations listed (Linha: 473-479, 484-488).\n      - SPECS: Secondary steel and cladding coordination obligations; materials standards; provision of holes for services; interface responsibilities; shop drawings and coordination duties.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 88,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: Roof walkway, parapets and access items referenced (Linha: 546, 552).\n      - SPECS: Fabrication and access requirements, shop drawings, loadings and tolerances for stairs/railings.\n      - STATUS: MISSING BASELINE\n- Zone: DCH"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 137,
+          "context": "    * Structural Steel:\n      - BOQ: Secondary steel for cladding PH1: 3 693 m2 (Linha: 666); Eurobond panels and penetrations listed (Linha: 661-679).\n      - SPECS: Secondary steel and cladding coordination, materials and shop drawings, provision of holes for services.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        }
+      ],
+      "severity": "Critical"
+    },
+    {
+      "requirement": "- Certification submittal: Provide manufacturer's mill certificates for materials, welders' certificates per NBN EN ISO 9606-1 (within previous 12 months), CE marking accreditation evidence for relevant Execution Class, weld electrodes, shear studs and direct tension indicators as specified.",
+      "spec_snippet": "- Certification submittal: Provide manufacturer's mill certificates for materials, welders' certificates per NBN EN ISO 9606-1 (within previous 12 months), CE marking accreditation evidence for relevant Execution Class, weld electrodes, shear studs and direct tension indicators as specified.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "shop drawing",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 24,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: Miscellaneous metalwork for FSA including internal stair (FSA) BOQ line (Linha: 464); Loading Dock fencing and handrails BOQ quantity 87 (Linha: 466); bollards and other small steel items (Linha: 469-470).\n      - SPECS: Metal fabrications scope and submittals (Section 05 50 00 / 05 51 00): shop drawings, welder certificates, fabrication tolerances, shop priming/finishes, stairs/handrail design loads, fabrication and testing requirements, ladder/access requirements (EN ISO 14122), manufacturer/fabricator qualifications.\n      - STATUS: MISSING BASELINE\n  - Subzone: Steel Decking"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 50,
+          "context": "    * Structural Steel:\n      - BOQ: Secondary steel for cladding: BOQ quantity 1 942 m2 (Linha: 476); Eurobond panels and associated fixings and penetrations listed (Linha: 473-479, 484-488).\n      - SPECS: Secondary steel and cladding coordination obligations; materials standards; provision of holes for services; interface responsibilities; shop drawings and coordination duties.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 88,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: Roof walkway, parapets and access items referenced (Linha: 546, 552).\n      - SPECS: Fabrication and access requirements, shop drawings, loadings and tolerances for stairs/railings.\n      - STATUS: MISSING BASELINE\n- Zone: DCH"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 137,
+          "context": "    * Structural Steel:\n      - BOQ: Secondary steel for cladding PH1: 3 693 m2 (Linha: 666); Eurobond panels and penetrations listed (Linha: 661-679).\n      - SPECS: Secondary steel and cladding coordination, materials and shop drawings, provision of holes for services.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        }
+      ],
+      "severity": "Critical"
+    },
+    {
+      "requirement": "- Pre-construction meeting: Conduct a pre-construction conference at least 14 days prior to start of steel erection including designated representatives (Construction Manager, Site Engineer, Detailer, Fabricator, Erector, Special Inspection Agency, Engineer of Record and Architect if required); record minutes and distribute within 5 days to Owner, Architect and Engineer of Record.",
+      "spec_snippet": "- Pre-construction meeting: Conduct a pre-construction conference at least 14 days prior to start of steel erection including designated representatives (Construction Manager, Site Engineer, Detailer, Fabricator, Erector, Special Inspection Agency, Engineer of Record and Architect if required); record minutes and distribute within 5 days to Owner, Architect and Engineer of Record.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "pre-construction",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "pre-construction",
+          "index": 94,
+          "context": "    * Structural Steel:\n      - BOQ: PH1 Structural steel supply: 888,00 tn (Linha: 645); fabricated to EXC2, steel grade S355; H.D.A. counts referenced (Linha: 651).\n      - SPECS: Structural steel scope, EXC2 execution class, standards, submittals (shop/erection/temporary works), connection calculations signed/sealed, Quality Plan (NBN EN 1090), mill/welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; connection design responsibility and detailed requirements, bolting/welding rules.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "pre-erection",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "pre-erection",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "pre-erection",
+          "index": 94,
+          "context": "    * Structural Steel:\n      - BOQ: PH1 Structural steel supply: 888,00 tn (Linha: 645); fabricated to EXC2, steel grade S355; H.D.A. counts referenced (Linha: 651).\n      - SPECS: Structural steel scope, EXC2 execution class, standards, submittals (shop/erection/temporary works), connection calculations signed/sealed, Quality Plan (NBN EN 1090), mill/welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; connection design responsibility and detailed requirements, bolting/welding rules.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        }
+      ],
+      "severity": "High"
+    },
+    {
+      "requirement": "- Pre-erection meeting: Hold a structural steel pre-erection conference at least 20 working days prior to commencement of erection; agenda to include all parties affecting erection (General Contractor, Steel Erector/Fabricator, Surveyor, Roof Deck Contractor, Testing Agencies, Design Professionals, Owner, Precast/Cladding Contractors); minutes with erection procedure and milestone schedule to be distributed within 5 working days.",
+      "spec_snippet": "- Pre-erection meeting: Hold a structural steel pre-erection conference at least 20 working days prior to commencement of erection; agenda to include all parties affecting erection (General Contractor, Steel Erector/Fabricator, Surveyor, Roof Deck Contractor, Testing Agencies, Design Professionals, Owner, Precast/Cladding Contractors); minutes with erection procedure and milestone schedule to be distributed within 5 working days.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "pre-construction",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "pre-construction",
+          "index": 94,
+          "context": "    * Structural Steel:\n      - BOQ: PH1 Structural steel supply: 888,00 tn (Linha: 645); fabricated to EXC2, steel grade S355; H.D.A. counts referenced (Linha: 651).\n      - SPECS: Structural steel scope, EXC2 execution class, standards, submittals (shop/erection/temporary works), connection calculations signed/sealed, Quality Plan (NBN EN 1090), mill/welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; connection design responsibility and detailed requirements, bolting/welding rules.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "pre-erection",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "pre-erection",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "pre-erection",
+          "index": 94,
+          "context": "    * Structural Steel:\n      - BOQ: PH1 Structural steel supply: 888,00 tn (Linha: 645); fabricated to EXC2, steel grade S355; H.D.A. counts referenced (Linha: 651).\n      - SPECS: Structural steel scope, EXC2 execution class, standards, submittals (shop/erection/temporary works), connection calculations signed/sealed, Quality Plan (NBN EN 1090), mill/welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; connection design responsibility and detailed requirements, bolting/welding rules.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        }
+      ],
+      "severity": "High"
+    },
+    {
+      "requirement": "- Connection design workshop: Fabricator to hold a connection design and detailing workshop at least 20 working days prior to starting connection design and detailing; include General Contractor, Fabricator, Detailer, Connection Engineer, Engineer of Record and Erector; distribute minutes within 5 working days.",
+      "spec_snippet": "- Connection design workshop: Fabricator to hold a connection design and detailing workshop at least 20 working days prior to starting connection design and detailing; include General Contractor, Fabricator, Detailer, Connection Engineer, Engineer of Record and Erector; distribute minutes within 5 working days.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "calculation",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "calculation",
+          "index": 12,
+          "context": "    * Composite Decking:\n      - BOQ: Not applicable / NOT FOUND under FSA Structural Steel (decking is separate FSA Steel Decking entry).\n      - SPECS: Steel decking Section requirements (Section 05 31 00): galvanized deck to NBN EN 10346/10143, minimum bearing 50 mm, fastening and shear stud requirements, deck submittals and calculations, storage and handling.\n      - STATUS: MISSING BASELINE\n    * Fire Protection:"
+        },
+        {
+          "kw": "calculation",
+          "index": 33,
+          "context": "    * Composite Decking:\n      - BOQ: Supply & install TATA D60x1.2mm roof decking - BOQ quantity 3 494 m2 (Linha: 456-457).\n      - SPECS: Steel decking materials to NBN EN 10346 / NBN EN 10143 (grade S350 unless noted), deck submittals and calculations, deck openings/closures rules, fastening for composite/non-composite decks, shear stud installation requirements, storage and handling.\n      - STATUS: MISSING BASELINE\n    * Fire Protection:"
+        },
+        {
+          "kw": "calculation",
+          "index": 76,
+          "context": "    * Composite Decking:\n      - BOQ: Composite Euroclad Top deck Roof Panel supply & install - 3 397 m2 (Linha: 539); roof walkway and temporary protection quantities (Linha: 546, 552); lightning protection grid 5x5m (Linha: 556).\n      - SPECS: Deck materials, deck submittals/calculations, deck fastening, openings and closures, storage, and compatibility with finishes.\n      - STATUS: MISSING BASELINE\n    * Fire Protection:"
+        },
+        {
+          "kw": "calculation",
+          "index": 94,
+          "context": "    * Structural Steel:\n      - BOQ: PH1 Structural steel supply: 888,00 tn (Linha: 645); fabricated to EXC2, steel grade S355; H.D.A. counts referenced (Linha: 651).\n      - SPECS: Structural steel scope, EXC2 execution class, standards, submittals (shop/erection/temporary works), connection calculations signed/sealed, Quality Plan (NBN EN 1090), mill/welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; connection design responsibility and detailed requirements, bolting/welding rules.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        }
+      ],
+      "severity": "Critical"
+    },
+    {
+      "requirement": "- Connection design responsibility: Fabricator’s engineer retains full professional responsibility for connection design and detailing even where submitted for review; connections shall resist loads/reactions shown and at least robustness requirements of NBN EN 1991.",
+      "spec_snippet": "- Connection design responsibility: Fabricator’s engineer retains full professional responsibility for connection design and detailing even where submitted for review; connections shall resist loads/reactions shown and at least robustness requirements of NBN EN 1991.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "shop drawing",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 24,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: Miscellaneous metalwork for FSA including internal stair (FSA) BOQ line (Linha: 464); Loading Dock fencing and handrails BOQ quantity 87 (Linha: 466); bollards and other small steel items (Linha: 469-470).\n      - SPECS: Metal fabrications scope and submittals (Section 05 50 00 / 05 51 00): shop drawings, welder certificates, fabrication tolerances, shop priming/finishes, stairs/handrail design loads, fabrication and testing requirements, ladder/access requirements (EN ISO 14122), manufacturer/fabricator qualifications.\n      - STATUS: MISSING BASELINE\n  - Subzone: Steel Decking"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 50,
+          "context": "    * Structural Steel:\n      - BOQ: Secondary steel for cladding: BOQ quantity 1 942 m2 (Linha: 476); Eurobond panels and associated fixings and penetrations listed (Linha: 473-479, 484-488).\n      - SPECS: Secondary steel and cladding coordination obligations; materials standards; provision of holes for services; interface responsibilities; shop drawings and coordination duties.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 88,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: Roof walkway, parapets and access items referenced (Linha: 546, 552).\n      - SPECS: Fabrication and access requirements, shop drawings, loadings and tolerances for stairs/railings.\n      - STATUS: MISSING BASELINE\n- Zone: DCH"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 137,
+          "context": "    * Structural Steel:\n      - BOQ: Secondary steel for cladding PH1: 3 693 m2 (Linha: 666); Eurobond panels and penetrations listed (Linha: 661-679).\n      - SPECS: Secondary steel and cladding coordination, materials and shop drawings, provision of holes for services.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        }
+      ],
+      "severity": "Critical"
+    },
+    {
+      "requirement": "- Bolted connection rule: Except for moment connections and bracing, provide bearing-type high-strength bolted assemblies (assume threads in shear plane); moment connections and bracing shall be slip-critical and detailed/erected using direct tension indicators or tension-control bolts per manufacturer instructions.",
+      "spec_snippet": "- Bolted connection rule: Except for moment connections and bracing, provide bearing-type high-strength bolted assemblies (assume threads in shear plane); moment connections and bracing shall be slip-critical and detailed/erected using direct tension indicators or tension-control bolts per manufacturer instructions.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "calculation",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "calculation",
+          "index": 12,
+          "context": "    * Composite Decking:\n      - BOQ: Not applicable / NOT FOUND under FSA Structural Steel (decking is separate FSA Steel Decking entry).\n      - SPECS: Steel decking Section requirements (Section 05 31 00): galvanized deck to NBN EN 10346/10143, minimum bearing 50 mm, fastening and shear stud requirements, deck submittals and calculations, storage and handling.\n      - STATUS: MISSING BASELINE\n    * Fire Protection:"
+        },
+        {
+          "kw": "calculation",
+          "index": 33,
+          "context": "    * Composite Decking:\n      - BOQ: Supply & install TATA D60x1.2mm roof decking - BOQ quantity 3 494 m2 (Linha: 456-457).\n      - SPECS: Steel decking materials to NBN EN 10346 / NBN EN 10143 (grade S350 unless noted), deck submittals and calculations, deck openings/closures rules, fastening for composite/non-composite decks, shear stud installation requirements, storage and handling.\n      - STATUS: MISSING BASELINE\n    * Fire Protection:"
+        },
+        {
+          "kw": "calculation",
+          "index": 76,
+          "context": "    * Composite Decking:\n      - BOQ: Composite Euroclad Top deck Roof Panel supply & install - 3 397 m2 (Linha: 539); roof walkway and temporary protection quantities (Linha: 546, 552); lightning protection grid 5x5m (Linha: 556).\n      - SPECS: Deck materials, deck submittals/calculations, deck fastening, openings and closures, storage, and compatibility with finishes.\n      - STATUS: MISSING BASELINE\n    * Fire Protection:"
+        },
+        {
+          "kw": "calculation",
+          "index": 94,
+          "context": "    * Structural Steel:\n      - BOQ: PH1 Structural steel supply: 888,00 tn (Linha: 645); fabricated to EXC2, steel grade S355; H.D.A. counts referenced (Linha: 651).\n      - SPECS: Structural steel scope, EXC2 execution class, standards, submittals (shop/erection/temporary works), connection calculations signed/sealed, Quality Plan (NBN EN 1090), mill/welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; connection design responsibility and detailed requirements, bolting/welding rules.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        }
+      ],
+      "severity": "Critical"
+    },
+    {
+      "requirement": "- Welding rule: Welding shall comply with NBN EN 1090 (and EN 1011 recommendations where applicable), including welder qualification, inspection, testing and acceptance; qualify welding processes and operators per EN 1011.",
+      "spec_snippet": "- Welding rule: Welding shall comply with NBN EN 1090 (and EN 1011 recommendations where applicable), including welder qualification, inspection, testing and acceptance; qualify welding processes and operators per EN 1011.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "welder",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "welder",
+          "index": 24,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: Miscellaneous metalwork for FSA including internal stair (FSA) BOQ line (Linha: 464); Loading Dock fencing and handrails BOQ quantity 87 (Linha: 466); bollards and other small steel items (Linha: 469-470).\n      - SPECS: Metal fabrications scope and submittals (Section 05 50 00 / 05 51 00): shop drawings, welder certificates, fabrication tolerances, shop priming/finishes, stairs/handrail design loads, fabrication and testing requirements, ladder/access requirements (EN ISO 14122), manufacturer/fabricator qualifications.\n      - STATUS: MISSING BASELINE\n  - Subzone: Steel Decking"
+        },
+        {
+          "kw": "welder",
+          "index": 94,
+          "context": "    * Structural Steel:\n      - BOQ: PH1 Structural steel supply: 888,00 tn (Linha: 645); fabricated to EXC2, steel grade S355; H.D.A. counts referenced (Linha: 651).\n      - SPECS: Structural steel scope, EXC2 execution class, standards, submittals (shop/erection/temporary works), connection calculations signed/sealed, Quality Plan (NBN EN 1090), mill/welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; connection design responsibility and detailed requirements, bolting/welding rules.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "welder",
+          "index": 509,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: PH3 miscellaneous fabrications: external stairs, cat ladders, bollards, gratings (Linha: 1497-1500).\n      - SPECS: Fabrication tolerances, stairs design loads and submittals, welder certificates and finish requirements.\n      - STATUS: MISSING BASELINE\n- Zone: EYD"
+        },
+        {
+          "kw": "welder",
+          "index": 622,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: PH4 miscellaneous metal fabrications: stairs, railings, gratings, cat ladders (Linha: 1815-1819).\n      - SPECS: Metal fabrication standards, stairs/railing loadings, tolerances, submittals and welder certificates.\n      - STATUS: MISSING BASELINE\n  - Subzone: Trench / Cooling Tower Gantry (PH4)"
+        }
+      ],
+      "severity": "Low"
+    },
+    {
+      "requirement": "- Shear studs: Use proprietary shear stud connectors to specified minimum mechanical properties (documented type complying with EN ISO 13918 or equivalent) and install per manufacturer instructions.",
+      "spec_snippet": "- Shear studs: Use proprietary shear stud connectors to specified minimum mechanical properties (documented type complying with EN ISO 13918 or equivalent) and install per manufacturer instructions.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "submittal",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "submittal",
+          "index": 12,
+          "context": "    * Composite Decking:\n      - BOQ: Not applicable / NOT FOUND under FSA Structural Steel (decking is separate FSA Steel Decking entry).\n      - SPECS: Steel decking Section requirements (Section 05 31 00): galvanized deck to NBN EN 10346/10143, minimum bearing 50 mm, fastening and shear stud requirements, deck submittals and calculations, storage and handling.\n      - STATUS: MISSING BASELINE\n    * Fire Protection:"
+        },
+        {
+          "kw": "submittal",
+          "index": 16,
+          "context": "    * Fire Protection:\n      - BOQ: Intumescent fire protection entry 'FSA Intumescent Paint 2 Hr' quantity 711,00 tn recorded in BOQ (Linha: 462).\n      - SPECS: Intumescent scope/submittals: product data, EN 13381-4 results, compatibility certificates with primers/topcoats, installer qualifications, DFT application/control, environmental controls, batch and application records, independent QA inspections.\n      - STATUS: MISSING BASELINE\n    * Corrosion Protection:"
+        },
+        {
+          "kw": "submittal",
+          "index": 24,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: Miscellaneous metalwork for FSA including internal stair (FSA) BOQ line (Linha: 464); Loading Dock fencing and handrails BOQ quantity 87 (Linha: 466); bollards and other small steel items (Linha: 469-470).\n      - SPECS: Metal fabrications scope and submittals (Section 05 50 00 / 05 51 00): shop drawings, welder certificates, fabrication tolerances, shop priming/finishes, stairs/handrail design loads, fabrication and testing requirements, ladder/access requirements (EN ISO 14122), manufacturer/fabricator qualifications.\n      - STATUS: MISSING BASELINE\n  - Subzone: Steel Decking"
+        },
+        {
+          "kw": "submittal",
+          "index": 29,
+          "context": "    * Structural Steel:\n      - BOQ: Not applicable / NOT FOUND under this subzone (primary steel listed under FSA Structural Steel).\n      - SPECS: Structural steel general requirements including EXC2, standards, submittals and fabrication responsibilities.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        }
+      ],
+      "severity": "Low"
+    },
+    {
+      "requirement": "- Anchor bolts: Provide anchor bolts per NBN EN 15048 (grade as specified on design documents); note non-headed type unless otherwise indicated and coordinate embedded anchor rod locations with other trades.",
+      "spec_snippet": "- Anchor bolts: Provide anchor bolts per NBN EN 15048 (grade as specified on design documents); note non-headed type unless otherwise indicated and coordinate embedded anchor rod locations with other trades.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "anchor",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "anchor",
+          "index": 94,
+          "context": "    * Structural Steel:\n      - BOQ: PH1 Structural steel supply: 888,00 tn (Linha: 645); fabricated to EXC2, steel grade S355; H.D.A. counts referenced (Linha: 651).\n      - SPECS: Structural steel scope, EXC2 execution class, standards, submittals (shop/erection/temporary works), connection calculations signed/sealed, Quality Plan (NBN EN 1090), mill/welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; connection design responsibility and detailed requirements, bolting/welding rules.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "anchor",
+          "index": 181,
+          "context": "    * Structural Steel:\n      - BOQ: Steel columns kickers/bolts: PH1 BOQ count 832 nr (Linha: 731); PH3 also records 832 nr (Linha: 1562) (note: foundation entries record steel interface counts).\n      - SPECS: Pre-erection anchor verification: at least 20 working days prior to erection verify anchor rods/embedded anchors; anchor bolts per NBN EN 15048; coordination of embedded anchor locations with other trades; grouting and bearing interfaces per specification.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        },
+        {
+          "kw": "anchor",
+          "index": 181,
+          "context": "    * Structural Steel:\n      - BOQ: Steel columns kickers/bolts: PH1 BOQ count 832 nr (Linha: 731); PH3 also records 832 nr (Linha: 1562) (note: foundation entries record steel interface counts).\n      - SPECS: Pre-erection anchor verification: at least 20 working days prior to erection verify anchor rods/embedded anchors; anchor bolts per NBN EN 15048; coordination of embedded anchor locations with other trades; grouting and bearing interfaces per specification.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        },
+        {
+          "kw": "anchor",
+          "index": 181,
+          "context": "    * Structural Steel:\n      - BOQ: Steel columns kickers/bolts: PH1 BOQ count 832 nr (Linha: 731); PH3 also records 832 nr (Linha: 1562) (note: foundation entries record steel interface counts).\n      - SPECS: Pre-erection anchor verification: at least 20 working days prior to erection verify anchor rods/embedded anchors; anchor bolts per NBN EN 15048; coordination of embedded anchor locations with other trades; grouting and bearing interfaces per specification.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        }
+      ],
+      "severity": "High"
+    },
+    {
+      "requirement": "- Shop priming and touch-up: Fabricator's standard grey rust inhibitive shop primer and touch-up primer for galvanised surfaces to comply with local VOC limitations; apply shop coat within specified time after cleaning before rust bloom occurs.",
+      "spec_snippet": "- Shop priming and touch-up: Fabricator's standard grey rust inhibitive shop primer and touch-up primer for galvanised surfaces to comply with local VOC limitations; apply shop coat within specified time after cleaning before rust bloom occurs.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "galvanis",
+          "index": 19,
+          "context": "      - STATUS: MISSING BASELINE\n    * Corrosion Protection:\n      - BOQ: Surface treatment: shotblast/galvanising and shop priming entries referenced in BOQ (general FSA scope lines); specific galvanising/shotblast quantities implicit in surface treatment entries (Linha references in PH1).\n      - SPECS: Surface preparation Sa 2.5, blast conditions, shop painting schedule, corrosion classifications (internal C2, external C4), galvanising to NBN EN ISO 1461, batch control for coatings, post-erection touch-up. (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "galvanis",
+          "index": 19,
+          "context": "      - STATUS: MISSING BASELINE\n    * Corrosion Protection:\n      - BOQ: Surface treatment: shotblast/galvanising and shop priming entries referenced in BOQ (general FSA scope lines); specific galvanising/shotblast quantities implicit in surface treatment entries (Linha references in PH1).\n      - SPECS: Surface preparation Sa 2.5, blast conditions, shop painting schedule, corrosion classifications (internal C2, external C4), galvanising to NBN EN ISO 1461, batch control for coatings, post-erection touch-up. (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "galvanis",
+          "index": 20,
+          "context": "    * Corrosion Protection:\n      - BOQ: Surface treatment: shotblast/galvanising and shop priming entries referenced in BOQ (general FSA scope lines); specific galvanising/shotblast quantities implicit in surface treatment entries (Linha references in PH1).\n      - SPECS: Surface preparation Sa 2.5, blast conditions, shop painting schedule, corrosion classifications (internal C2, external C4), galvanising to NBN EN ISO 1461, batch control for coatings, post-erection touch-up. (See Fire Protection)\n      - STATUS: MISSING BASELINE\n    * Metal Fabrications (Stairs/Railings/Gratings):"
+        },
+        {
+          "kw": "galvanis",
+          "index": 62,
+          "context": "    * Corrosion Protection:\n      - BOQ: Cladding/secondary steel interface entries implying surface treatment and fixings (Linha references).\n      - SPECS: Corrosion protection classifications (C2 internal, C4 external), galvanising requirements, compatibility with other coatings, shop priming exclusions. (See Fire Protection)\n      - STATUS: MISSING BASELINE\n    * Metal Fabrications (Stairs/Railings/Gratings):"
+        },
+        {
+          "kw": "galvanis",
+          "index": 84,
+          "context": "    * Corrosion Protection:\n      - BOQ: Roof surface treatment and temporary protection references (Linha: 536-556).\n      - SPECS: Corrosion protection classifications, shop painting schedule, galvanising and compatibility requirements. (See Composite Decking)\n      - STATUS: MISSING BASELINE\n    * Metal Fabrications (Stairs/Railings/Gratings):"
+        }
+      ],
+      "severity": "Medium"
+    },
+    {
+      "requirement": "- Surface preparation: Blast-clean steel to Sa 2.5 (ISO 8501-1) prior to coating; blast only when relative humidity <85% and surface temperature ≥3°C above dew point; remove abrasive residues and handle blast-cleaned steel with clean gloves.",
+      "spec_snippet": "- Surface preparation: Blast-clean steel to Sa 2.5 (ISO 8501-1) prior to coating; blast only when relative humidity <85% and surface temperature ≥3°C above dew point; remove abrasive residues and handle blast-cleaned steel with clean gloves.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "sa 2.5",
+          "index": 20,
+          "context": "    * Corrosion Protection:\n      - BOQ: Surface treatment: shotblast/galvanising and shop priming entries referenced in BOQ (general FSA scope lines); specific galvanising/shotblast quantities implicit in surface treatment entries (Linha references in PH1).\n      - SPECS: Surface preparation Sa 2.5, blast conditions, shop painting schedule, corrosion classifications (internal C2, external C4), galvanising to NBN EN ISO 1461, batch control for coatings, post-erection touch-up. (See Fire Protection)\n      - STATUS: MISSING BASELINE\n    * Metal Fabrications (Stairs/Railings/Gratings):"
+        },
+        {
+          "kw": "sa2.5",
+          "index": 107,
+          "context": "    * Corrosion Protection:\n      - BOQ: PH1 surface treatment entries: shotblast/galvanising and shop priming references (Linha: 642-654).\n      - SPECS: Blast-cleaning to Sa2.5, galvanising to NBN EN ISO 1461, corrosion classification (C2/C4), compatibility, batch control and shop painting schedule. (See Fire Protection)\n      - STATUS: MISSING BASELINE\n    * Metal Fabrications (Stairs/Railings/Gratings):"
+        },
+        {
+          "kw": "sa2.5",
+          "index": 238,
+          "context": "    * Corrosion Protection:\n      - BOQ: Corrosion protection and galvanising entries referenced.\n      - SPECS: Sa2.5 blast, galvanising to EN ISO 1461, compatibility with intumescent, shop painting schedule. (See Fire Protection)\n      - STATUS: MISSING BASELINE\n    * Metal Fabrications (Stairs/Railings/Gratings):"
+        },
+        {
+          "kw": "sa2.5",
+          "index": 260,
+          "context": "    * Corrosion Protection:\n      - BOQ: Galvanising entries for gantry (Linha: 787 etc); shop priming and shotblast references.\n      - SPECS: Galvanising to NBN EN ISO 1461, surface preparation Sa2.5, shop painting schedule and batch control.\n      - STATUS: MISSING BASELINE\n    * Metal Fabrications (Stairs/Railings/Gratings):"
+        },
+        {
+          "kw": "sa2.5",
+          "index": 393,
+          "context": "    * Corrosion Protection:\n      - BOQ: Galvanising / shotblast and shop priming references (PH2 lines).\n      - SPECS: Surface preparation Sa2.5, galvanising standard, shop painting schedule and compatibility with intumescent systems. (See Fire Protection)\n      - STATUS: MISSING BASELINE\n    * Metal Fabrications (Stairs/Railings/Gratings):"
+        }
+      ],
+      "severity": "Medium"
+    },
+    {
+      "requirement": "- Corrosion protection compatibility: Ensure compatibility between corrosion-protection coatings and intumescent paint systems; submit compatibility evidence and durability proposals.",
+      "spec_snippet": "- Corrosion protection compatibility: Ensure compatibility between corrosion-protection coatings and intumescent paint systems; submit compatibility evidence and durability proposals.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "shop drawing",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 24,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: Miscellaneous metalwork for FSA including internal stair (FSA) BOQ line (Linha: 464); Loading Dock fencing and handrails BOQ quantity 87 (Linha: 466); bollards and other small steel items (Linha: 469-470).\n      - SPECS: Metal fabrications scope and submittals (Section 05 50 00 / 05 51 00): shop drawings, welder certificates, fabrication tolerances, shop priming/finishes, stairs/handrail design loads, fabrication and testing requirements, ladder/access requirements (EN ISO 14122), manufacturer/fabricator qualifications.\n      - STATUS: MISSING BASELINE\n  - Subzone: Steel Decking"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 50,
+          "context": "    * Structural Steel:\n      - BOQ: Secondary steel for cladding: BOQ quantity 1 942 m2 (Linha: 476); Eurobond panels and associated fixings and penetrations listed (Linha: 473-479, 484-488).\n      - SPECS: Secondary steel and cladding coordination obligations; materials standards; provision of holes for services; interface responsibilities; shop drawings and coordination duties.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 88,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: Roof walkway, parapets and access items referenced (Linha: 546, 552).\n      - SPECS: Fabrication and access requirements, shop drawings, loadings and tolerances for stairs/railings.\n      - STATUS: MISSING BASELINE\n- Zone: DCH"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 137,
+          "context": "    * Structural Steel:\n      - BOQ: Secondary steel for cladding PH1: 3 693 m2 (Linha: 666); Eurobond panels and penetrations listed (Linha: 661-679).\n      - SPECS: Secondary steel and cladding coordination, materials and shop drawings, provision of holes for services.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        }
+      ],
+      "severity": "Medium"
+    },
+    {
+      "requirement": "- Shop painting schedule: Apply shop coat to all structural steel except specifically listed exceptions (members encased in concrete, exterior members where inorganic zinc-rich primer specified, contact surfaces of welded connections and areas within 50 mm of field welds when noted, contact surfaces of slip-critical bolted connections, surfaces receiving sprayed-on/intumescent fireproofing where primer compatible with intumescent is required, surfaces receiving field welded steel studs).",
+      "spec_snippet": "- Shop painting schedule: Apply shop coat to all structural steel except specifically listed exceptions (members encased in concrete, exterior members where inorganic zinc-rich primer specified, contact surfaces of welded connections and areas within 50 mm of field welds when noted, contact surfaces of slip-critical bolted connections, surfaces receiving sprayed-on/intumescent fireproofing where primer compatible with intumescent is required, surfaces receiving field welded steel studs).",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "calculation",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "calculation",
+          "index": 12,
+          "context": "    * Composite Decking:\n      - BOQ: Not applicable / NOT FOUND under FSA Structural Steel (decking is separate FSA Steel Decking entry).\n      - SPECS: Steel decking Section requirements (Section 05 31 00): galvanized deck to NBN EN 10346/10143, minimum bearing 50 mm, fastening and shear stud requirements, deck submittals and calculations, storage and handling.\n      - STATUS: MISSING BASELINE\n    * Fire Protection:"
+        },
+        {
+          "kw": "calculation",
+          "index": 33,
+          "context": "    * Composite Decking:\n      - BOQ: Supply & install TATA D60x1.2mm roof decking - BOQ quantity 3 494 m2 (Linha: 456-457).\n      - SPECS: Steel decking materials to NBN EN 10346 / NBN EN 10143 (grade S350 unless noted), deck submittals and calculations, deck openings/closures rules, fastening for composite/non-composite decks, shear stud installation requirements, storage and handling.\n      - STATUS: MISSING BASELINE\n    * Fire Protection:"
+        },
+        {
+          "kw": "calculation",
+          "index": 76,
+          "context": "    * Composite Decking:\n      - BOQ: Composite Euroclad Top deck Roof Panel supply & install - 3 397 m2 (Linha: 539); roof walkway and temporary protection quantities (Linha: 546, 552); lightning protection grid 5x5m (Linha: 556).\n      - SPECS: Deck materials, deck submittals/calculations, deck fastening, openings and closures, storage, and compatibility with finishes.\n      - STATUS: MISSING BASELINE\n    * Fire Protection:"
+        },
+        {
+          "kw": "calculation",
+          "index": 94,
+          "context": "    * Structural Steel:\n      - BOQ: PH1 Structural steel supply: 888,00 tn (Linha: 645); fabricated to EXC2, steel grade S355; H.D.A. counts referenced (Linha: 651).\n      - SPECS: Structural steel scope, EXC2 execution class, standards, submittals (shop/erection/temporary works), connection calculations signed/sealed, Quality Plan (NBN EN 1090), mill/welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; connection design responsibility and detailed requirements, bolting/welding rules.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        }
+      ],
+      "severity": "Critical"
+    },
+    {
+      "requirement": "- Batch control for coatings: Where possible use coating material from single manufacturing batch or keep batches separated and allocated to distinct parts/areas and inform Engineer of Record.",
+      "spec_snippet": "- Batch control for coatings: Where possible use coating material from single manufacturing batch or keep batches separated and allocated to distinct parts/areas and inform Engineer of Record.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "submittal",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "submittal",
+          "index": 12,
+          "context": "    * Composite Decking:\n      - BOQ: Not applicable / NOT FOUND under FSA Structural Steel (decking is separate FSA Steel Decking entry).\n      - SPECS: Steel decking Section requirements (Section 05 31 00): galvanized deck to NBN EN 10346/10143, minimum bearing 50 mm, fastening and shear stud requirements, deck submittals and calculations, storage and handling.\n      - STATUS: MISSING BASELINE\n    * Fire Protection:"
+        },
+        {
+          "kw": "submittal",
+          "index": 16,
+          "context": "    * Fire Protection:\n      - BOQ: Intumescent fire protection entry 'FSA Intumescent Paint 2 Hr' quantity 711,00 tn recorded in BOQ (Linha: 462).\n      - SPECS: Intumescent scope/submittals: product data, EN 13381-4 results, compatibility certificates with primers/topcoats, installer qualifications, DFT application/control, environmental controls, batch and application records, independent QA inspections.\n      - STATUS: MISSING BASELINE\n    * Corrosion Protection:"
+        },
+        {
+          "kw": "submittal",
+          "index": 24,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: Miscellaneous metalwork for FSA including internal stair (FSA) BOQ line (Linha: 464); Loading Dock fencing and handrails BOQ quantity 87 (Linha: 466); bollards and other small steel items (Linha: 469-470).\n      - SPECS: Metal fabrications scope and submittals (Section 05 50 00 / 05 51 00): shop drawings, welder certificates, fabrication tolerances, shop priming/finishes, stairs/handrail design loads, fabrication and testing requirements, ladder/access requirements (EN ISO 14122), manufacturer/fabricator qualifications.\n      - STATUS: MISSING BASELINE\n  - Subzone: Steel Decking"
+        },
+        {
+          "kw": "submittal",
+          "index": 29,
+          "context": "    * Structural Steel:\n      - BOQ: Not applicable / NOT FOUND under this subzone (primary steel listed under FSA Structural Steel).\n      - SPECS: Structural steel general requirements including EXC2, standards, submittals and fabrication responsibilities.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        }
+      ],
+      "severity": "Low"
+    },
+    {
+      "requirement": "- Galvanising: Complete cutting, welding and drilling prior to galvanising; provide necessary vent and drain holes; galvanise to NBN EN ISO 1461 (design for galvanizing to avoid distortion, provide vent holes and consider single-dip where distortion is a concern).",
+      "spec_snippet": "- Galvanising: Complete cutting, welding and drilling prior to galvanising; provide necessary vent and drain holes; galvanise to NBN EN ISO 1461 (design for galvanizing to avoid distortion, provide vent holes and consider single-dip where distortion is a concern).",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "galvanis",
+          "index": 19,
+          "context": "      - STATUS: MISSING BASELINE\n    * Corrosion Protection:\n      - BOQ: Surface treatment: shotblast/galvanising and shop priming entries referenced in BOQ (general FSA scope lines); specific galvanising/shotblast quantities implicit in surface treatment entries (Linha references in PH1).\n      - SPECS: Surface preparation Sa 2.5, blast conditions, shop painting schedule, corrosion classifications (internal C2, external C4), galvanising to NBN EN ISO 1461, batch control for coatings, post-erection touch-up. (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "galvanis",
+          "index": 19,
+          "context": "      - STATUS: MISSING BASELINE\n    * Corrosion Protection:\n      - BOQ: Surface treatment: shotblast/galvanising and shop priming entries referenced in BOQ (general FSA scope lines); specific galvanising/shotblast quantities implicit in surface treatment entries (Linha references in PH1).\n      - SPECS: Surface preparation Sa 2.5, blast conditions, shop painting schedule, corrosion classifications (internal C2, external C4), galvanising to NBN EN ISO 1461, batch control for coatings, post-erection touch-up. (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "galvanis",
+          "index": 20,
+          "context": "    * Corrosion Protection:\n      - BOQ: Surface treatment: shotblast/galvanising and shop priming entries referenced in BOQ (general FSA scope lines); specific galvanising/shotblast quantities implicit in surface treatment entries (Linha references in PH1).\n      - SPECS: Surface preparation Sa 2.5, blast conditions, shop painting schedule, corrosion classifications (internal C2, external C4), galvanising to NBN EN ISO 1461, batch control for coatings, post-erection touch-up. (See Fire Protection)\n      - STATUS: MISSING BASELINE\n    * Metal Fabrications (Stairs/Railings/Gratings):"
+        },
+        {
+          "kw": "galvanis",
+          "index": 62,
+          "context": "    * Corrosion Protection:\n      - BOQ: Cladding/secondary steel interface entries implying surface treatment and fixings (Linha references).\n      - SPECS: Corrosion protection classifications (C2 internal, C4 external), galvanising requirements, compatibility with other coatings, shop priming exclusions. (See Fire Protection)\n      - STATUS: MISSING BASELINE\n    * Metal Fabrications (Stairs/Railings/Gratings):"
+        },
+        {
+          "kw": "galvanis",
+          "index": 84,
+          "context": "    * Corrosion Protection:\n      - BOQ: Roof surface treatment and temporary protection references (Linha: 536-556).\n      - SPECS: Corrosion protection classifications, shop painting schedule, galvanising and compatibility requirements. (See Composite Decking)\n      - STATUS: MISSING BASELINE\n    * Metal Fabrications (Stairs/Railings/Gratings):"
+        }
+      ],
+      "severity": "Medium"
+    },
+    {
+      "requirement": "- Execution class: Steel used on the project is Execution Class 2 (EXC2) as defined by NBN EN 1090-2 unless otherwise shown on A/E drawings; steel erection and quality control must meet requirements of specified execution class.",
+      "spec_snippet": "- Execution class: Steel used on the project is Execution Class 2 (EXC2) as defined by NBN EN 1090-2 unless otherwise shown on A/E drawings; steel erection and quality control must meet requirements of specified execution class.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "quality plan",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "quality plan",
+          "index": 94,
+          "context": "    * Structural Steel:\n      - BOQ: PH1 Structural steel supply: 888,00 tn (Linha: 645); fabricated to EXC2, steel grade S355; H.D.A. counts referenced (Linha: 651).\n      - SPECS: Structural steel scope, EXC2 execution class, standards, submittals (shop/erection/temporary works), connection calculations signed/sealed, Quality Plan (NBN EN 1090), mill/welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; connection design responsibility and detailed requirements, bolting/welding rules.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "quality plan",
+          "index": 380,
+          "context": "    * Structural Steel:\n      - BOQ: PH2 Structural steel supply: 752,00 tn (Linha: 1130); H.D.A. counts per phase listed (Linha: 1136).\n      - SPECS: Structural steel scope, EXC2, standards, submittal and QA requirements, connection calculations, pre-erection anchor verification, Quality Plan and certifications.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "quality plan",
+          "index": 492,
+          "context": "    * Structural Steel:\n      - BOQ: PH3 Structural steel supply: 756,00 tn (Linha: 1487); H.D.A. counts per phase listed (Linha: 1493).\n      - SPECS: Structural steel EXC2, standards, shop and erection submittals, connection calculations, Quality Plan, certifications, pre-erection anchor verification, contractor responsibility for detailing/fabrication/erection.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "quality plan",
+          "index": 605,
+          "context": "    * Structural Steel:\n      - BOQ: PH4 Structural steel supply: 747,00 tn (Linha: 1806); H.D.A. counts listed (Linha: 1812).\n      - SPECS: Structural steel EXC2, standards, shop/erection/temporary works submittals, connection calculations, Quality Plan, certifications and pre-erection anchor verification.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        }
+      ],
+      "severity": "Critical"
+    },
+    {
+      "requirement": "- Pre-erection anchor verification: At least 20 working days prior to structural steel erection, accurately survey and verify location, alignment and elevation of anchor rods/embedded anchors provided by others and immediately notify Design Professionals of discrepancies; do not start erection until corrective measures are performed and accepted.",
+      "spec_snippet": "- Pre-erection anchor verification: At least 20 working days prior to structural steel erection, accurately survey and verify location, alignment and elevation of anchor rods/embedded anchors provided by others and immediately notify Design Professionals of discrepancies; do not start erection until corrective measures are performed and accepted.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "pre-construction",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "pre-construction",
+          "index": 94,
+          "context": "    * Structural Steel:\n      - BOQ: PH1 Structural steel supply: 888,00 tn (Linha: 645); fabricated to EXC2, steel grade S355; H.D.A. counts referenced (Linha: 651).\n      - SPECS: Structural steel scope, EXC2 execution class, standards, submittals (shop/erection/temporary works), connection calculations signed/sealed, Quality Plan (NBN EN 1090), mill/welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; connection design responsibility and detailed requirements, bolting/welding rules.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "pre-erection",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "pre-erection",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "pre-erection",
+          "index": 94,
+          "context": "    * Structural Steel:\n      - BOQ: PH1 Structural steel supply: 888,00 tn (Linha: 645); fabricated to EXC2, steel grade S355; H.D.A. counts referenced (Linha: 651).\n      - SPECS: Structural steel scope, EXC2 execution class, standards, submittals (shop/erection/temporary works), connection calculations signed/sealed, Quality Plan (NBN EN 1090), mill/welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; connection design responsibility and detailed requirements, bolting/welding rules.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        }
+      ],
+      "severity": "High"
+    },
+    {
+      "requirement": "- Delivery and storage: Unload structural steel promptly; store above ground on platforms or skids with positive drainage and protection against water, corrosion and distortion; store bolts and welding rods in original labelled containers and maintain welding electrodes sealed until use.",
+      "spec_snippet": "- Delivery and storage: Unload structural steel promptly; store above ground on platforms or skids with positive drainage and protection against water, corrosion and distortion; store bolts and welding rods in original labelled containers and maintain welding electrodes sealed until use.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "welder",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "welder",
+          "index": 24,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: Miscellaneous metalwork for FSA including internal stair (FSA) BOQ line (Linha: 464); Loading Dock fencing and handrails BOQ quantity 87 (Linha: 466); bollards and other small steel items (Linha: 469-470).\n      - SPECS: Metal fabrications scope and submittals (Section 05 50 00 / 05 51 00): shop drawings, welder certificates, fabrication tolerances, shop priming/finishes, stairs/handrail design loads, fabrication and testing requirements, ladder/access requirements (EN ISO 14122), manufacturer/fabricator qualifications.\n      - STATUS: MISSING BASELINE\n  - Subzone: Steel Decking"
+        },
+        {
+          "kw": "welder",
+          "index": 94,
+          "context": "    * Structural Steel:\n      - BOQ: PH1 Structural steel supply: 888,00 tn (Linha: 645); fabricated to EXC2, steel grade S355; H.D.A. counts referenced (Linha: 651).\n      - SPECS: Structural steel scope, EXC2 execution class, standards, submittals (shop/erection/temporary works), connection calculations signed/sealed, Quality Plan (NBN EN 1090), mill/welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; connection design responsibility and detailed requirements, bolting/welding rules.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "welder",
+          "index": 509,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: PH3 miscellaneous fabrications: external stairs, cat ladders, bollards, gratings (Linha: 1497-1500).\n      - SPECS: Fabrication tolerances, stairs design loads and submittals, welder certificates and finish requirements.\n      - STATUS: MISSING BASELINE\n- Zone: EYD"
+        },
+        {
+          "kw": "welder",
+          "index": 622,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: PH4 miscellaneous metal fabrications: stairs, railings, gratings, cat ladders (Linha: 1815-1819).\n      - SPECS: Metal fabrication standards, stairs/railing loadings, tolerances, submittals and welder certificates.\n      - STATUS: MISSING BASELINE\n  - Subzone: Trench / Cooling Tower Gantry (PH4)"
+        }
+      ],
+      "severity": "Low"
+    },
+    {
+      "requirement": "- Erection temporary bracing: Allow for erection loads and provide sufficient temporary bracing to maintain safe condition, plumb and true alignment until permanent bracing installed.",
+      "spec_snippet": "- Erection temporary bracing: Allow for erection loads and provide sufficient temporary bracing to maintain safe condition, plumb and true alignment until permanent bracing installed.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "submittal",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "submittal",
+          "index": 12,
+          "context": "    * Composite Decking:\n      - BOQ: Not applicable / NOT FOUND under FSA Structural Steel (decking is separate FSA Steel Decking entry).\n      - SPECS: Steel decking Section requirements (Section 05 31 00): galvanized deck to NBN EN 10346/10143, minimum bearing 50 mm, fastening and shear stud requirements, deck submittals and calculations, storage and handling.\n      - STATUS: MISSING BASELINE\n    * Fire Protection:"
+        },
+        {
+          "kw": "submittal",
+          "index": 16,
+          "context": "    * Fire Protection:\n      - BOQ: Intumescent fire protection entry 'FSA Intumescent Paint 2 Hr' quantity 711,00 tn recorded in BOQ (Linha: 462).\n      - SPECS: Intumescent scope/submittals: product data, EN 13381-4 results, compatibility certificates with primers/topcoats, installer qualifications, DFT application/control, environmental controls, batch and application records, independent QA inspections.\n      - STATUS: MISSING BASELINE\n    * Corrosion Protection:"
+        },
+        {
+          "kw": "submittal",
+          "index": 24,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: Miscellaneous metalwork for FSA including internal stair (FSA) BOQ line (Linha: 464); Loading Dock fencing and handrails BOQ quantity 87 (Linha: 466); bollards and other small steel items (Linha: 469-470).\n      - SPECS: Metal fabrications scope and submittals (Section 05 50 00 / 05 51 00): shop drawings, welder certificates, fabrication tolerances, shop priming/finishes, stairs/handrail design loads, fabrication and testing requirements, ladder/access requirements (EN ISO 14122), manufacturer/fabricator qualifications.\n      - STATUS: MISSING BASELINE\n  - Subzone: Steel Decking"
+        },
+        {
+          "kw": "submittal",
+          "index": 29,
+          "context": "    * Structural Steel:\n      - BOQ: Not applicable / NOT FOUND under this subzone (primary steel listed under FSA Structural Steel).\n      - SPECS: Structural steel general requirements including EXC2, standards, submittals and fabrication responsibilities.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        }
+      ],
+      "severity": "Low"
+    },
+    {
+      "requirement": "- Field quality control: An independent testing/inspection agency shall perform field quality control tests per Section 01 40 00; provide testing and verification of high-strength bolted assemblies; visually inspect all field-welded connections; re-inspect failed tests at no cost or time delay to Owner.",
+      "spec_snippet": "- Field quality control: An independent testing/inspection agency shall perform field quality control tests per Section 01 40 00; provide testing and verification of high-strength bolted assemblies; visually inspect all field-welded connections; re-inspect failed tests at no cost or time delay to Owner.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "quality plan",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "quality plan",
+          "index": 94,
+          "context": "    * Structural Steel:\n      - BOQ: PH1 Structural steel supply: 888,00 tn (Linha: 645); fabricated to EXC2, steel grade S355; H.D.A. counts referenced (Linha: 651).\n      - SPECS: Structural steel scope, EXC2 execution class, standards, submittals (shop/erection/temporary works), connection calculations signed/sealed, Quality Plan (NBN EN 1090), mill/welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; connection design responsibility and detailed requirements, bolting/welding rules.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "quality plan",
+          "index": 380,
+          "context": "    * Structural Steel:\n      - BOQ: PH2 Structural steel supply: 752,00 tn (Linha: 1130); H.D.A. counts per phase listed (Linha: 1136).\n      - SPECS: Structural steel scope, EXC2, standards, submittal and QA requirements, connection calculations, pre-erection anchor verification, Quality Plan and certifications.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "quality plan",
+          "index": 492,
+          "context": "    * Structural Steel:\n      - BOQ: PH3 Structural steel supply: 756,00 tn (Linha: 1487); H.D.A. counts per phase listed (Linha: 1493).\n      - SPECS: Structural steel EXC2, standards, shop and erection submittals, connection calculations, Quality Plan, certifications, pre-erection anchor verification, contractor responsibility for detailing/fabrication/erection.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "quality plan",
+          "index": 605,
+          "context": "    * Structural Steel:\n      - BOQ: PH4 Structural steel supply: 747,00 tn (Linha: 1806); H.D.A. counts listed (Linha: 1812).\n      - SPECS: Structural steel EXC2, standards, shop/erection/temporary works submittals, connection calculations, Quality Plan, certifications and pre-erection anchor verification.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        }
+      ],
+      "severity": "Critical"
+    },
+    {
+      "requirement": "- Deck fastening (composite): Anchor composite metal deck units to supporting steel with puddle welds (20 mm diameter) at each end and intermediate supports with maximum spacing of 300 mm across width; puddle welds not required where headed shear studs are welded through deck; longitudinal laps supported by steel to be puddle welded or fastened per specified spacing.",
+      "spec_snippet": "- Deck fastening (composite): Anchor composite metal deck units to supporting steel with puddle welds (20 mm diameter) at each end and intermediate supports with maximum spacing of 300 mm across width; puddle welds not required where headed shear studs are welded through deck; longitudinal laps supported by steel to be puddle welded or fastened per specified spacing.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "anchor",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "anchor",
+          "index": 94,
+          "context": "    * Structural Steel:\n      - BOQ: PH1 Structural steel supply: 888,00 tn (Linha: 645); fabricated to EXC2, steel grade S355; H.D.A. counts referenced (Linha: 651).\n      - SPECS: Structural steel scope, EXC2 execution class, standards, submittals (shop/erection/temporary works), connection calculations signed/sealed, Quality Plan (NBN EN 1090), mill/welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; connection design responsibility and detailed requirements, bolting/welding rules.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "anchor",
+          "index": 181,
+          "context": "    * Structural Steel:\n      - BOQ: Steel columns kickers/bolts: PH1 BOQ count 832 nr (Linha: 731); PH3 also records 832 nr (Linha: 1562) (note: foundation entries record steel interface counts).\n      - SPECS: Pre-erection anchor verification: at least 20 working days prior to erection verify anchor rods/embedded anchors; anchor bolts per NBN EN 15048; coordination of embedded anchor locations with other trades; grouting and bearing interfaces per specification.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        },
+        {
+          "kw": "anchor",
+          "index": 181,
+          "context": "    * Structural Steel:\n      - BOQ: Steel columns kickers/bolts: PH1 BOQ count 832 nr (Linha: 731); PH3 also records 832 nr (Linha: 1562) (note: foundation entries record steel interface counts).\n      - SPECS: Pre-erection anchor verification: at least 20 working days prior to erection verify anchor rods/embedded anchors; anchor bolts per NBN EN 15048; coordination of embedded anchor locations with other trades; grouting and bearing interfaces per specification.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        },
+        {
+          "kw": "anchor",
+          "index": 181,
+          "context": "    * Structural Steel:\n      - BOQ: Steel columns kickers/bolts: PH1 BOQ count 832 nr (Linha: 731); PH3 also records 832 nr (Linha: 1562) (note: foundation entries record steel interface counts).\n      - SPECS: Pre-erection anchor verification: at least 20 working days prior to erection verify anchor rods/embedded anchors; anchor bolts per NBN EN 15048; coordination of embedded anchor locations with other trades; grouting and bearing interfaces per specification.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        }
+      ],
+      "severity": "High"
+    },
+    {
+      "requirement": "- Shear studs welding (deck): Weld shear studs by certified welders; weld studs to primary steel members below; ensure beam/top flange surface is clean of mill scale, rust, grease, oil and paint prior to welding; do not weld studs below 0°C ambient.",
+      "spec_snippet": "- Shear studs welding (deck): Weld shear studs by certified welders; weld studs to primary steel members below; ensure beam/top flange surface is clean of mill scale, rust, grease, oil and paint prior to welding; do not weld studs below 0°C ambient.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "sa 2.5",
+          "index": 20,
+          "context": "    * Corrosion Protection:\n      - BOQ: Surface treatment: shotblast/galvanising and shop priming entries referenced in BOQ (general FSA scope lines); specific galvanising/shotblast quantities implicit in surface treatment entries (Linha references in PH1).\n      - SPECS: Surface preparation Sa 2.5, blast conditions, shop painting schedule, corrosion classifications (internal C2, external C4), galvanising to NBN EN ISO 1461, batch control for coatings, post-erection touch-up. (See Fire Protection)\n      - STATUS: MISSING BASELINE\n    * Metal Fabrications (Stairs/Railings/Gratings):"
+        },
+        {
+          "kw": "sa2.5",
+          "index": 107,
+          "context": "    * Corrosion Protection:\n      - BOQ: PH1 surface treatment entries: shotblast/galvanising and shop priming references (Linha: 642-654).\n      - SPECS: Blast-cleaning to Sa2.5, galvanising to NBN EN ISO 1461, corrosion classification (C2/C4), compatibility, batch control and shop painting schedule. (See Fire Protection)\n      - STATUS: MISSING BASELINE\n    * Metal Fabrications (Stairs/Railings/Gratings):"
+        },
+        {
+          "kw": "sa2.5",
+          "index": 238,
+          "context": "    * Corrosion Protection:\n      - BOQ: Corrosion protection and galvanising entries referenced.\n      - SPECS: Sa2.5 blast, galvanising to EN ISO 1461, compatibility with intumescent, shop painting schedule. (See Fire Protection)\n      - STATUS: MISSING BASELINE\n    * Metal Fabrications (Stairs/Railings/Gratings):"
+        },
+        {
+          "kw": "sa2.5",
+          "index": 260,
+          "context": "    * Corrosion Protection:\n      - BOQ: Galvanising entries for gantry (Linha: 787 etc); shop priming and shotblast references.\n      - SPECS: Galvanising to NBN EN ISO 1461, surface preparation Sa2.5, shop painting schedule and batch control.\n      - STATUS: MISSING BASELINE\n    * Metal Fabrications (Stairs/Railings/Gratings):"
+        },
+        {
+          "kw": "sa2.5",
+          "index": 393,
+          "context": "    * Corrosion Protection:\n      - BOQ: Galvanising / shotblast and shop priming references (PH2 lines).\n      - SPECS: Surface preparation Sa2.5, galvanising standard, shop painting schedule and compatibility with intumescent systems. (See Fire Protection)\n      - STATUS: MISSING BASELINE\n    * Metal Fabrications (Stairs/Railings/Gratings):"
+        }
+      ],
+      "severity": "Medium"
+    },
+    {
+      "requirement": "- Finish requirements for metal fabrications: Prime paint all steel items except items to be galvanized, items embedded in other substrates, surfaces in direct contact with concrete, and items to be covered with sprayed fireproofing; shop prime to minimum 50 micron DFT grey metal primer or approved equal; factory pre-finish external exposed items for C4 environment per EN ISO 12944-2.",
+      "spec_snippet": "- Finish requirements for metal fabrications: Prime paint all steel items except items to be galvanized, items embedded in other substrates, surfaces in direct contact with concrete, and items to be covered with sprayed fireproofing; shop prime to minimum 50 micron DFT grey metal primer or approved equal; factory pre-finish external exposed items for C4 environment per EN ISO 12944-2.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "galvanis",
+          "index": 19,
+          "context": "      - STATUS: MISSING BASELINE\n    * Corrosion Protection:\n      - BOQ: Surface treatment: shotblast/galvanising and shop priming entries referenced in BOQ (general FSA scope lines); specific galvanising/shotblast quantities implicit in surface treatment entries (Linha references in PH1).\n      - SPECS: Surface preparation Sa 2.5, blast conditions, shop painting schedule, corrosion classifications (internal C2, external C4), galvanising to NBN EN ISO 1461, batch control for coatings, post-erection touch-up. (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "galvanis",
+          "index": 19,
+          "context": "      - STATUS: MISSING BASELINE\n    * Corrosion Protection:\n      - BOQ: Surface treatment: shotblast/galvanising and shop priming entries referenced in BOQ (general FSA scope lines); specific galvanising/shotblast quantities implicit in surface treatment entries (Linha references in PH1).\n      - SPECS: Surface preparation Sa 2.5, blast conditions, shop painting schedule, corrosion classifications (internal C2, external C4), galvanising to NBN EN ISO 1461, batch control for coatings, post-erection touch-up. (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "galvanis",
+          "index": 20,
+          "context": "    * Corrosion Protection:\n      - BOQ: Surface treatment: shotblast/galvanising and shop priming entries referenced in BOQ (general FSA scope lines); specific galvanising/shotblast quantities implicit in surface treatment entries (Linha references in PH1).\n      - SPECS: Surface preparation Sa 2.5, blast conditions, shop painting schedule, corrosion classifications (internal C2, external C4), galvanising to NBN EN ISO 1461, batch control for coatings, post-erection touch-up. (See Fire Protection)\n      - STATUS: MISSING BASELINE\n    * Metal Fabrications (Stairs/Railings/Gratings):"
+        },
+        {
+          "kw": "galvanis",
+          "index": 62,
+          "context": "    * Corrosion Protection:\n      - BOQ: Cladding/secondary steel interface entries implying surface treatment and fixings (Linha references).\n      - SPECS: Corrosion protection classifications (C2 internal, C4 external), galvanising requirements, compatibility with other coatings, shop priming exclusions. (See Fire Protection)\n      - STATUS: MISSING BASELINE\n    * Metal Fabrications (Stairs/Railings/Gratings):"
+        },
+        {
+          "kw": "galvanis",
+          "index": 84,
+          "context": "    * Corrosion Protection:\n      - BOQ: Roof surface treatment and temporary protection references (Linha: 536-556).\n      - SPECS: Corrosion protection classifications, shop painting schedule, galvanising and compatibility requirements. (See Composite Decking)\n      - STATUS: MISSING BASELINE\n    * Metal Fabrications (Stairs/Railings/Gratings):"
+        }
+      ],
+      "severity": "High"
+    },
+    {
+      "requirement": "- Intumescent fire protection scope: Apply intumescent coatings to primary and secondary structural steel members where fire resistance ratings are specified; intumescent systems and application work to be coordinated with corrosion protection and shop painting.",
+      "spec_snippet": "- Intumescent fire protection scope: Apply intumescent coatings to primary and secondary structural steel members where fire resistance ratings are specified; intumescent systems and application work to be coordinated with corrosion protection and shop painting.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "intumes",
+          "index": 15,
+          "context": "      - STATUS: MISSING BASELINE\n    * Fire Protection:\n      - BOQ: Intumescent fire protection entry 'FSA Intumescent Paint 2 Hr' quantity 711,00 tn recorded in BOQ (Linha: 462).\n      - SPECS: Intumescent scope/submittals: product data, EN 13381-4 results, compatibility certificates with primers/topcoats, installer qualifications, DFT application/control, environmental controls, batch and application records, independent QA inspections.\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "intumes",
+          "index": 15,
+          "context": "      - STATUS: MISSING BASELINE\n    * Fire Protection:\n      - BOQ: Intumescent fire protection entry 'FSA Intumescent Paint 2 Hr' quantity 711,00 tn recorded in BOQ (Linha: 462).\n      - SPECS: Intumescent scope/submittals: product data, EN 13381-4 results, compatibility certificates with primers/topcoats, installer qualifications, DFT application/control, environmental controls, batch and application records, independent QA inspections.\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "intumes",
+          "index": 16,
+          "context": "    * Fire Protection:\n      - BOQ: Intumescent fire protection entry 'FSA Intumescent Paint 2 Hr' quantity 711,00 tn recorded in BOQ (Linha: 462).\n      - SPECS: Intumescent scope/submittals: product data, EN 13381-4 results, compatibility certificates with primers/topcoats, installer qualifications, DFT application/control, environmental controls, batch and application records, independent QA inspections.\n      - STATUS: MISSING BASELINE\n    * Corrosion Protection:"
+        },
+        {
+          "kw": "intumes",
+          "index": 36,
+          "context": "      - STATUS: MISSING BASELINE\n    * Fire Protection:\n      - BOQ: NOT FOUND (no intumescent specifically tied to FSA decking in BOQ extract).\n      - SPECS: Intumescent coordination with decking where applicable; application and QA requirements.\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "intumes",
+          "index": 37,
+          "context": "    * Fire Protection:\n      - BOQ: NOT FOUND (no intumescent specifically tied to FSA decking in BOQ extract).\n      - SPECS: Intumescent coordination with decking where applicable; application and QA requirements.\n      - STATUS: MISSING BASELINE\n    * Corrosion Protection:"
+        }
+      ],
+      "severity": "Medium"
+    },
+    {
+      "requirement": "- Intumescent submittals: Submit product data, EN 13381-4 fire test results and assessments used to calculate required DFTs for full range of section sizes, compatibility certificates with primers/topcoats, steel section vs DFT tables, installer qualification/project references and samples.",
+      "spec_snippet": "- Intumescent submittals: Submit product data, EN 13381-4 fire test results and assessments used to calculate required DFTs for full range of section sizes, compatibility certificates with primers/topcoats, steel section vs DFT tables, installer qualification/project references and samples.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "shop drawing",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 24,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: Miscellaneous metalwork for FSA including internal stair (FSA) BOQ line (Linha: 464); Loading Dock fencing and handrails BOQ quantity 87 (Linha: 466); bollards and other small steel items (Linha: 469-470).\n      - SPECS: Metal fabrications scope and submittals (Section 05 50 00 / 05 51 00): shop drawings, welder certificates, fabrication tolerances, shop priming/finishes, stairs/handrail design loads, fabrication and testing requirements, ladder/access requirements (EN ISO 14122), manufacturer/fabricator qualifications.\n      - STATUS: MISSING BASELINE\n  - Subzone: Steel Decking"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 50,
+          "context": "    * Structural Steel:\n      - BOQ: Secondary steel for cladding: BOQ quantity 1 942 m2 (Linha: 476); Eurobond panels and associated fixings and penetrations listed (Linha: 473-479, 484-488).\n      - SPECS: Secondary steel and cladding coordination obligations; materials standards; provision of holes for services; interface responsibilities; shop drawings and coordination duties.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 88,
+          "context": "    * Metal Fabrications (Stairs/Railings/Gratings):\n      - BOQ: Roof walkway, parapets and access items referenced (Linha: 546, 552).\n      - SPECS: Fabrication and access requirements, shop drawings, loadings and tolerances for stairs/railings.\n      - STATUS: MISSING BASELINE\n- Zone: DCH"
+        },
+        {
+          "kw": "shop drawing",
+          "index": 137,
+          "context": "    * Structural Steel:\n      - BOQ: Secondary steel for cladding PH1: 3 693 m2 (Linha: 666); Eurobond panels and penetrations listed (Linha: 661-679).\n      - SPECS: Secondary steel and cladding coordination, materials and shop drawings, provision of holes for services.\n      - STATUS: MISSING BASELINE\n    * Composite Decking:"
+        }
+      ],
+      "severity": "Critical"
+    },
+    {
+      "requirement": "- Intumescent surface preparation: Clean substrates of substances impairing adhesion (oil, grease, incompatible primers, rust, mill scale); prime with approved compatible primer fully cured before intumescent application.",
+      "spec_snippet": "- Intumescent surface preparation: Clean substrates of substances impairing adhesion (oil, grease, incompatible primers, rust, mill scale); prime with approved compatible primer fully cured before intumescent application.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "intumes",
+          "index": 15,
+          "context": "      - STATUS: MISSING BASELINE\n    * Fire Protection:\n      - BOQ: Intumescent fire protection entry 'FSA Intumescent Paint 2 Hr' quantity 711,00 tn recorded in BOQ (Linha: 462).\n      - SPECS: Intumescent scope/submittals: product data, EN 13381-4 results, compatibility certificates with primers/topcoats, installer qualifications, DFT application/control, environmental controls, batch and application records, independent QA inspections.\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "intumes",
+          "index": 15,
+          "context": "      - STATUS: MISSING BASELINE\n    * Fire Protection:\n      - BOQ: Intumescent fire protection entry 'FSA Intumescent Paint 2 Hr' quantity 711,00 tn recorded in BOQ (Linha: 462).\n      - SPECS: Intumescent scope/submittals: product data, EN 13381-4 results, compatibility certificates with primers/topcoats, installer qualifications, DFT application/control, environmental controls, batch and application records, independent QA inspections.\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "intumes",
+          "index": 16,
+          "context": "    * Fire Protection:\n      - BOQ: Intumescent fire protection entry 'FSA Intumescent Paint 2 Hr' quantity 711,00 tn recorded in BOQ (Linha: 462).\n      - SPECS: Intumescent scope/submittals: product data, EN 13381-4 results, compatibility certificates with primers/topcoats, installer qualifications, DFT application/control, environmental controls, batch and application records, independent QA inspections.\n      - STATUS: MISSING BASELINE\n    * Corrosion Protection:"
+        },
+        {
+          "kw": "intumes",
+          "index": 36,
+          "context": "      - STATUS: MISSING BASELINE\n    * Fire Protection:\n      - BOQ: NOT FOUND (no intumescent specifically tied to FSA decking in BOQ extract).\n      - SPECS: Intumescent coordination with decking where applicable; application and QA requirements.\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "intumes",
+          "index": 37,
+          "context": "    * Fire Protection:\n      - BOQ: NOT FOUND (no intumescent specifically tied to FSA decking in BOQ extract).\n      - SPECS: Intumescent coordination with decking where applicable; application and QA requirements.\n      - STATUS: MISSING BASELINE\n    * Corrosion Protection:"
+        }
+      ],
+      "severity": "Medium"
+    },
+    {
+      "requirement": "- Application DFT control: Apply primer, intumescent basecoat and top sealer to manufacturer-specified DFTs; record wet film thickness and perform dry film thickness surveys at primer stage, after basecoat and on completion.",
+      "spec_snippet": "- Application DFT control: Apply primer, intumescent basecoat and top sealer to manufacturer-specified DFTs; record wet film thickness and perform dry film thickness surveys at primer stage, after basecoat and on completion.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "intumes",
+          "index": 15,
+          "context": "      - STATUS: MISSING BASELINE\n    * Fire Protection:\n      - BOQ: Intumescent fire protection entry 'FSA Intumescent Paint 2 Hr' quantity 711,00 tn recorded in BOQ (Linha: 462).\n      - SPECS: Intumescent scope/submittals: product data, EN 13381-4 results, compatibility certificates with primers/topcoats, installer qualifications, DFT application/control, environmental controls, batch and application records, independent QA inspections.\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "intumes",
+          "index": 15,
+          "context": "      - STATUS: MISSING BASELINE\n    * Fire Protection:\n      - BOQ: Intumescent fire protection entry 'FSA Intumescent Paint 2 Hr' quantity 711,00 tn recorded in BOQ (Linha: 462).\n      - SPECS: Intumescent scope/submittals: product data, EN 13381-4 results, compatibility certificates with primers/topcoats, installer qualifications, DFT application/control, environmental controls, batch and application records, independent QA inspections.\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "intumes",
+          "index": 16,
+          "context": "    * Fire Protection:\n      - BOQ: Intumescent fire protection entry 'FSA Intumescent Paint 2 Hr' quantity 711,00 tn recorded in BOQ (Linha: 462).\n      - SPECS: Intumescent scope/submittals: product data, EN 13381-4 results, compatibility certificates with primers/topcoats, installer qualifications, DFT application/control, environmental controls, batch and application records, independent QA inspections.\n      - STATUS: MISSING BASELINE\n    * Corrosion Protection:"
+        },
+        {
+          "kw": "intumes",
+          "index": 36,
+          "context": "      - STATUS: MISSING BASELINE\n    * Fire Protection:\n      - BOQ: NOT FOUND (no intumescent specifically tied to FSA decking in BOQ extract).\n      - SPECS: Intumescent coordination with decking where applicable; application and QA requirements.\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "intumes",
+          "index": 37,
+          "context": "    * Fire Protection:\n      - BOQ: NOT FOUND (no intumescent specifically tied to FSA decking in BOQ extract).\n      - SPECS: Intumescent coordination with decking where applicable; application and QA requirements.\n      - STATUS: MISSING BASELINE\n    * Corrosion Protection:"
+        }
+      ],
+      "severity": "Medium"
+    },
+    {
+      "requirement": "- Field quality control for intumescent: Independent testing agency to verify surface preparation standard, surface profile, contamination, ambient conditions, batch numbers, application times, wet film thickness and DFT sampling per specified reading frequencies for different section shapes and lengths.",
+      "spec_snippet": "- Field quality control for intumescent: Independent testing agency to verify surface preparation standard, surface profile, contamination, ambient conditions, batch numbers, application times, wet film thickness and DFT sampling per specified reading frequencies for different section shapes and lengths.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "quality plan",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "quality plan",
+          "index": 94,
+          "context": "    * Structural Steel:\n      - BOQ: PH1 Structural steel supply: 888,00 tn (Linha: 645); fabricated to EXC2, steel grade S355; H.D.A. counts referenced (Linha: 651).\n      - SPECS: Structural steel scope, EXC2 execution class, standards, submittals (shop/erection/temporary works), connection calculations signed/sealed, Quality Plan (NBN EN 1090), mill/welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; connection design responsibility and detailed requirements, bolting/welding rules.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "quality plan",
+          "index": 380,
+          "context": "    * Structural Steel:\n      - BOQ: PH2 Structural steel supply: 752,00 tn (Linha: 1130); H.D.A. counts per phase listed (Linha: 1136).\n      - SPECS: Structural steel scope, EXC2, standards, submittal and QA requirements, connection calculations, pre-erection anchor verification, Quality Plan and certifications.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "quality plan",
+          "index": 492,
+          "context": "    * Structural Steel:\n      - BOQ: PH3 Structural steel supply: 756,00 tn (Linha: 1487); H.D.A. counts per phase listed (Linha: 1493).\n      - SPECS: Structural steel EXC2, standards, shop and erection submittals, connection calculations, Quality Plan, certifications, pre-erection anchor verification, contractor responsibility for detailing/fabrication/erection.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "quality plan",
+          "index": 605,
+          "context": "    * Structural Steel:\n      - BOQ: PH4 Structural steel supply: 747,00 tn (Linha: 1806); H.D.A. counts listed (Linha: 1812).\n      - SPECS: Structural steel EXC2, standards, shop/erection/temporary works submittals, connection calculations, Quality Plan, certifications and pre-erection anchor verification.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        }
+      ],
+      "severity": "Critical"
+    },
+    {
+      "requirement": "- Intumescent DFT acceptance criteria: Average dry film thickness on each element shall be ≥ specified nominal; average measured DFT on any face shall not be less than 80% of nominal; isolated readings <80% acceptable only within limits (no more than 10% of readings on a member) and must be rectified; all dry film thicknesses shall be at least 50% of nominal; do not exceed manufacturer's recommended maximum thickness for the member shape/orientation.",
+      "spec_snippet": "- Intumescent DFT acceptance criteria: Average dry film thickness on each element shall be ≥ specified nominal; average measured DFT on any face shall not be less than 80% of nominal; isolated readings <80% acceptable only within limits (no more than 10% of readings on a member) and must be rectified; all dry film thicknesses shall be at least 50% of nominal; do not exceed manufacturer's recommended maximum thickness for the member shape/orientation.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "intumes",
+          "index": 15,
+          "context": "      - STATUS: MISSING BASELINE\n    * Fire Protection:\n      - BOQ: Intumescent fire protection entry 'FSA Intumescent Paint 2 Hr' quantity 711,00 tn recorded in BOQ (Linha: 462).\n      - SPECS: Intumescent scope/submittals: product data, EN 13381-4 results, compatibility certificates with primers/topcoats, installer qualifications, DFT application/control, environmental controls, batch and application records, independent QA inspections.\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "intumes",
+          "index": 15,
+          "context": "      - STATUS: MISSING BASELINE\n    * Fire Protection:\n      - BOQ: Intumescent fire protection entry 'FSA Intumescent Paint 2 Hr' quantity 711,00 tn recorded in BOQ (Linha: 462).\n      - SPECS: Intumescent scope/submittals: product data, EN 13381-4 results, compatibility certificates with primers/topcoats, installer qualifications, DFT application/control, environmental controls, batch and application records, independent QA inspections.\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "intumes",
+          "index": 16,
+          "context": "    * Fire Protection:\n      - BOQ: Intumescent fire protection entry 'FSA Intumescent Paint 2 Hr' quantity 711,00 tn recorded in BOQ (Linha: 462).\n      - SPECS: Intumescent scope/submittals: product data, EN 13381-4 results, compatibility certificates with primers/topcoats, installer qualifications, DFT application/control, environmental controls, batch and application records, independent QA inspections.\n      - STATUS: MISSING BASELINE\n    * Corrosion Protection:"
+        },
+        {
+          "kw": "intumes",
+          "index": 36,
+          "context": "      - STATUS: MISSING BASELINE\n    * Fire Protection:\n      - BOQ: NOT FOUND (no intumescent specifically tied to FSA decking in BOQ extract).\n      - SPECS: Intumescent coordination with decking where applicable; application and QA requirements.\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "intumes",
+          "index": 37,
+          "context": "    * Fire Protection:\n      - BOQ: NOT FOUND (no intumescent specifically tied to FSA decking in BOQ extract).\n      - SPECS: Intumescent coordination with decking where applicable; application and QA requirements.\n      - STATUS: MISSING BASELINE\n    * Corrosion Protection:"
+        }
+      ],
+      "severity": "Medium"
+    },
+    {
+      "requirement": "- Pre-application coordination: Conduct a pre-construction fireproofing meeting at least 14 days before start of intumescent application with responsible representatives (Construction Manager, Site Engineer, Inspection Agency, Fireproofing Applicator, Engineer of Record and Architect); distribute minutes within 5 days and notify external parties at least 7 days prior.",
+      "spec_snippet": "- Pre-application coordination: Conduct a pre-construction fireproofing meeting at least 14 days before start of intumescent application with responsible representatives (Construction Manager, Site Engineer, Inspection Agency, Fireproofing Applicator, Engineer of Record and Architect); distribute minutes within 5 days and notify external parties at least 7 days prior.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "pre-construction",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "pre-construction",
+          "index": 94,
+          "context": "    * Structural Steel:\n      - BOQ: PH1 Structural steel supply: 888,00 tn (Linha: 645); fabricated to EXC2, steel grade S355; H.D.A. counts referenced (Linha: 651).\n      - SPECS: Structural steel scope, EXC2 execution class, standards, submittals (shop/erection/temporary works), connection calculations signed/sealed, Quality Plan (NBN EN 1090), mill/welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; connection design responsibility and detailed requirements, bolting/welding rules.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "pre-erection",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "pre-erection",
+          "index": 7,
+          "context": "    * Structural Steel:\n      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).\n      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "pre-erection",
+          "index": 94,
+          "context": "    * Structural Steel:\n      - BOQ: PH1 Structural steel supply: 888,00 tn (Linha: 645); fabricated to EXC2, steel grade S355; H.D.A. counts referenced (Linha: 651).\n      - SPECS: Structural steel scope, EXC2 execution class, standards, submittals (shop/erection/temporary works), connection calculations signed/sealed, Quality Plan (NBN EN 1090), mill/welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; connection design responsibility and detailed requirements, bolting/welding rules.\n      - (See Fire Protection)\n      - STATUS: MISSING BASELINE"
+        }
+      ],
+      "severity": "High"
+    },
+    {
+      "requirement": "- Responsibility and coordination: Contractor is responsible for coordination of corrosion protection, intumescent fireproofing, shop finishes and erection sequencing to avoid conflicts and to ensure compatibility between coatings and construction sequencing.",
+      "spec_snippet": "- Responsibility and coordination: Contractor is responsible for coordination of corrosion protection, intumescent fireproofing, shop finishes and erection sequencing to avoid conflicts and to ensure compatibility between coatings and construction sequencing.",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "intumes",
+          "index": 15,
+          "context": "      - STATUS: MISSING BASELINE\n    * Fire Protection:\n      - BOQ: Intumescent fire protection entry 'FSA Intumescent Paint 2 Hr' quantity 711,00 tn recorded in BOQ (Linha: 462).\n      - SPECS: Intumescent scope/submittals: product data, EN 13381-4 results, compatibility certificates with primers/topcoats, installer qualifications, DFT application/control, environmental controls, batch and application records, independent QA inspections.\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "intumes",
+          "index": 15,
+          "context": "      - STATUS: MISSING BASELINE\n    * Fire Protection:\n      - BOQ: Intumescent fire protection entry 'FSA Intumescent Paint 2 Hr' quantity 711,00 tn recorded in BOQ (Linha: 462).\n      - SPECS: Intumescent scope/submittals: product data, EN 13381-4 results, compatibility certificates with primers/topcoats, installer qualifications, DFT application/control, environmental controls, batch and application records, independent QA inspections.\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "intumes",
+          "index": 16,
+          "context": "    * Fire Protection:\n      - BOQ: Intumescent fire protection entry 'FSA Intumescent Paint 2 Hr' quantity 711,00 tn recorded in BOQ (Linha: 462).\n      - SPECS: Intumescent scope/submittals: product data, EN 13381-4 results, compatibility certificates with primers/topcoats, installer qualifications, DFT application/control, environmental controls, batch and application records, independent QA inspections.\n      - STATUS: MISSING BASELINE\n    * Corrosion Protection:"
+        },
+        {
+          "kw": "intumes",
+          "index": 36,
+          "context": "      - STATUS: MISSING BASELINE\n    * Fire Protection:\n      - BOQ: NOT FOUND (no intumescent specifically tied to FSA decking in BOQ extract).\n      - SPECS: Intumescent coordination with decking where applicable; application and QA requirements.\n      - STATUS: MISSING BASELINE"
+        },
+        {
+          "kw": "intumes",
+          "index": 37,
+          "context": "    * Fire Protection:\n      - BOQ: NOT FOUND (no intumescent specifically tied to FSA decking in BOQ extract).\n      - SPECS: Intumescent coordination with decking where applicable; application and QA requirements.\n      - STATUS: MISSING BASELINE\n    * Corrosion Protection:"
+        }
+      ],
+      "severity": "Medium"
+    },
+    {
+      "requirement": "Intumescent quantities/unit check",
+      "spec_snippet": "Intumescent DFT and application requirements (specs expect DFT/area, not tonnes)",
+      "found_in_boq": true,
+      "boq_matches": [
+        {
+          "kw": "tn",
+          "context": "Intumescent fire protection entry 'FSA Intumescent Paint 2 Hr' quantity 711,00 tn"
+        },
+        {
+          "kw": "tn",
+          "context": "Intumescent paint fire protection (60 minutes) 0,79 tn"
+        },
+        {
+          "kw": "tn",
+          "context": "intumescent paint quantities using unit 'tn"
+        }
+      ],
+      "severity": "Medium",
+      "note": "BOQ shows intumescent quantities in tn — possible unit mismatch vs SPECS (area/DFT)."
+    }
+  ]
+}

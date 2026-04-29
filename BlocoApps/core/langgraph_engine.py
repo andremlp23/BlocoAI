@@ -133,7 +133,142 @@ OUTPUT FORMAT (STRICT):
 # ======================================================================
 # AGT-02: BOQ extractor (sem betão) + Phase/Zone/Subzone
 # ======================================================================
+# ======================================================================
+# AGT-02: Extração estruturada de BOQ em JSON (para CSV)
+# ======================================================================
+def extrair_boq_json_estruturado(texto_boq: str, nome_ficheiro: str, contexto_specs: str, llm, prog_placeholder, status_placeholder) -> str:
+    """Extrai BOQ CSV em JSON estruturado com Phase/Zone mapping completo."""
+    chunks = _obter_documento_completo(texto_boq)
+    if not chunks:
+        return ""
+
+    sys_msg = SystemMessage(content=f"""You are an Expert BOQ Analyst and Data Structuralist.
+
+Goal: Extract COMPLETE Project Structure from BOQ document into JSON format with full Phase→Zone mapping.
+
+ABSOLUTE RULES:
+- Do NOT omit information from the BOQ.
+- Do NOT invent information outside what is written.
+- Ignore EVERYTHING related to CONCRETE. Concrete is out of scope.
+- NEVER include ANY concrete information.
+
+Use these extraction rules:
+{REGRAS_EXTRACAO}
+
+SPECS CONTEXT (for Phase/Zone reference only):
+{contexto_specs}
+
+EXTRACTION STRATEGY (7-STEP):
+
+1) FULL EXTRACTION (Mandatory Structure)
+   Extract ALL Phases and Zones from document. Output ONLY valid JSON with this schema:
+   {{
+     "phases": [
+       {{
+         "name": "Phase 1",
+         "description": "...",
+         "zones": ["ZoneA", "ZoneB"],
+         "activities": ["Steel erection", "..."],
+         "dependencies": ["Phase 0 complete"],
+         "constraints": ["Access via north door"],
+         "source": "Section 2.1, Line X-Y"
+       }}
+     ],
+     "zones": [
+       {{
+         "name": "ZoneA",
+         "description": "...",
+         "phases": ["Phase 1", "Phase 2"],
+         "activities": ["Structural prep", "..."],
+         "logistics": "Crane access from main gate",
+         "source": "Section 3.2"
+       }}
+     ]
+   }}
+
+2) AGGRESSIVE KEYWORD SWEEP
+   Scan for: "phase", "stage", "zone", "area", "sector", "work package"
+   Extract FULL surrounding context.
+
+3) PHASE → ZONE MAPPING (no gaps)
+   Build complete mapping Phase→Zones. If phase has no zone, mark UNDEFINED.
+   If zone has no phase, flag it.
+
+4) SEQUENCING AND DEPENDENCIES
+   Reconstruct execution order: ordered phases, parallel phases, dependencies.
+
+5) CONTEXT ENFORCEMENT (For EACH Phase and Zone)
+   Extract:
+   * Work being executed
+   * Teams/roles (if present)
+   * Constraints (access, safety, sequencing)
+   * Risks
+   Use "NOT FOUND" if missing.
+
+6) CONSISTENCY CHECK
+   Validate: duplicate names, conflicting descriptions, missing links.
+   Flag issues with references.
+
+7) FINAL COMPRESSED OUTPUT
+   Include in JSON response:
+   {{
+     ...phases/zones above...,
+     "metadata": {{
+       "total_phases": N,
+       "total_zones": N,
+       "key_execution_logic": ["...", "...", "..."],
+       "critical_gaps": ["...", "..."]
+     }}
+   }}
+
+OUTPUT:
+- ONLY valid JSON (no markdown, no comments, no extra text).
+- All text fields must be populated (no empty strings).
+- Include page/section references in "source" fields.
+- Deterministic, fully traceable to source.
+""")
+
+    try:
+        if status_placeholder:
+            status_placeholder.markdown(
+                f"<div style=\"font-family:'Space Mono',monospace;font-size:0.72rem;color:#3a6aaa\">"
+                f"<span style=\"color:#5a9aff\">AGT-02 (BOQ Structurer)</span>"
+                f" &nbsp;·&nbsp; Processando estrutura de fases e zonas...</div>",
+                unsafe_allow_html=True
+            )
+        if prog_placeholder:
+            prog_placeholder.progress(0.5)
+
+        resumo = _invocar_llm(llm, [
+            sys_msg,
+            HumanMessage(content=(
+                "Extract complete project structure from this BOQ document.\n"
+                "Process TOP-TO-BOTTOM and output ONLY valid JSON.\n"
+                "Follow all 7 extraction steps above.\n"
+                "Include metadata with summary.\n\n"
+                f"FILE: {nome_ficheiro}\n"
+                f"DOCUMENT:\n{chunks[0]}"
+            ))
+        ])
+
+        if prog_placeholder:
+            prog_placeholder.progress(1.0)
+        
+        return resumo
+    except Exception as e:
+        return f"[AGT-02 (JSON) falhou: {type(e).__name__}: {e}]"
+
+
+# ======================================================================
+# AGT-02: Extração narrativa de BOQ (para PDF/DOCX)
+# ======================================================================
 def extrair_boq_com_contexto(texto_boq: str, nome_ficheiro: str, contexto_specs: str, llm, prog_placeholder, status_placeholder) -> str:
+    # Detectar se é CSV para usar prompt estruturado
+    eh_csv = ".csv" in nome_ficheiro.lower()
+    
+    if eh_csv:
+        return extrair_boq_json_estruturado(texto_boq, nome_ficheiro, contexto_specs, llm, prog_placeholder, status_placeholder)
+    
     chunks = _obter_documento_completo(texto_boq)
     if not chunks:
         return ""
@@ -226,8 +361,8 @@ def no_router(state: AuditoriaState) -> dict:
 
 
 def no_extrator(state: AuditoriaState) -> dict:
-    llm_specs = ChatOpenAI(model="gpt-5-mini", api_key=state["_api_key"], temperature=0.0)
-    llm_boq = ChatOpenAI(model="gpt-5-mini", api_key=state["_api_key"], temperature=0.0)
+    llm_specs = ChatOpenAI(model="gpt-5.1", api_key=state["_api_key"], temperature=0.0)
+    llm_boq = ChatOpenAI(model="gpt-5.1", api_key=state["_api_key"], temperature=0.0)
 
     prog = state["_prog_slot"]
     status = state["_status_slot"]
@@ -265,7 +400,7 @@ def no_extrator(state: AuditoriaState) -> dict:
 # AGT-02B: Auditor (cruza BOQ vs SPECS) -> auditoria_bruta
 # ======================================================================
 def no_auditor(state: AuditoriaState) -> dict:
-    llm = ChatOpenAI(model="gpt-5-mini", api_key=state["_api_key"], temperature=0.1)
+    llm = ChatOpenAI(model="gpt-5.1", api_key=state["_api_key"], temperature=0.1)
     tentativas = state.get("tentativas", 0) + 1
 
     dados = (
@@ -333,7 +468,7 @@ END_OF_REPORT
 # AGT-03: Deduplicador cross-categoria (novo)
 # ======================================================================
 def no_deduplicador(state: AuditoriaState) -> dict:
-    llm = ChatOpenAI(model="gpt-5-mini", api_key=state["_api_key"], temperature=0.1)
+    llm = ChatOpenAI(model="gpt-5.1", api_key=state["_api_key"], temperature=0.1)
 
     base = (state.get("auditoria_bruta") or "").strip()
     if not base:
@@ -396,7 +531,7 @@ OUTPUT:
 # AGT-04: Apresentador (formata)
 # ======================================================================
 def no_apresentador(state: AuditoriaState) -> dict:
-    llm = ChatOpenAI(model="gpt-5-mini", api_key=state["_api_key"], temperature=0.1)
+    llm = ChatOpenAI(model="gpt-5.1", api_key=state["_api_key"], temperature=0.1)
 
     base = (state.get("auditoria_normalizada") or state.get("auditoria_bruta") or "").strip()
     if not base:

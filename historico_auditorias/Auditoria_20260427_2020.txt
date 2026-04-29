@@ -1,0 +1,731 @@
+Audit Report
+
+Phase: PH1
+- Zone: FSA
+  - Subzone: Structural Steel
+    * Structural Steel:
+      - BOQ: Supply of structural steel: 711,00 tn (Linha: 454); fabricated to EXC2, steel grade S355; Holding Down Assemblies H.D.A. listed 59 nr for FSA (Linha: 460).
+      - SPECS: Scope covers structural steel framing and associated shop-fabricated metalwork; Execution Class EXC2; Standards: latest EN/CEN/ISO unless AHJ requires different edition; Submittals required: shop drawings, erection drawings/method statements, temporary works drawings, connection calculations (signed/sealed), Quality Plan (NBN EN 1090), mill and welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; Contractor responsibility for detailing, fabrication and erection; Connection design responsibility rests with Fabricator’s engineer; Bolting and welding rules; Shop fabrication, marking, delivery/storage and erection tolerances per EN 1090.
+      - (See Fire Protection)
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: Not applicable / NOT FOUND under FSA Structural Steel (decking is separate FSA Steel Decking entry).
+      - SPECS: Steel decking Section requirements (Section 05 31 00): galvanized deck to NBN EN 10346/10143, minimum bearing 50 mm, fastening and shear stud requirements, deck submittals and calculations, storage and handling.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: Intumescent fire protection entry 'FSA Intumescent Paint 2 Hr' quantity 711,00 tn recorded in BOQ (Linha: 462).
+      - SPECS: Intumescent scope/submittals: product data, EN 13381-4 results, compatibility certificates with primers/topcoats, installer qualifications, DFT application/control, environmental controls, batch and application records, independent QA inspections.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: Surface treatment: shotblast/galvanising and shop priming entries referenced in BOQ (general FSA scope lines); specific galvanising/shotblast quantities implicit in surface treatment entries (Linha references in PH1).
+      - SPECS: Surface preparation Sa 2.5, blast conditions, shop painting schedule, corrosion classifications (internal C2, external C4), galvanising to NBN EN ISO 1461, batch control for coatings, post-erection touch-up. (See Fire Protection)
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: Miscellaneous metalwork for FSA including internal stair (FSA) BOQ line (Linha: 464); Loading Dock fencing and handrails BOQ quantity 87 (Linha: 466); bollards and other small steel items (Linha: 469-470).
+      - SPECS: Metal fabrications scope and submittals (Section 05 50 00 / 05 51 00): shop drawings, welder certificates, fabrication tolerances, shop priming/finishes, stairs/handrail design loads, fabrication and testing requirements, ladder/access requirements (EN ISO 14122), manufacturer/fabricator qualifications.
+      - STATUS: MISSING BASELINE
+
+  - Subzone: Steel Decking
+    * Structural Steel:
+      - BOQ: Not applicable / NOT FOUND under this subzone (primary steel listed under FSA Structural Steel).
+      - SPECS: Structural steel general requirements including EXC2, standards, submittals and fabrication responsibilities.
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: Supply & install TATA D60x1.2mm roof decking - BOQ quantity 3 494 m2 (Linha: 456-457).
+      - SPECS: Steel decking materials to NBN EN 10346 / NBN EN 10143 (grade S350 unless noted), deck submittals and calculations, deck openings/closures rules, fastening for composite/non-composite decks, shear stud installation requirements, storage and handling.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: NOT FOUND (no intumescent specifically tied to FSA decking in BOQ extract).
+      - SPECS: Intumescent coordination with decking where applicable; application and QA requirements.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: NOT FOUND specific to decking beyond general surface treatment entries.
+      - SPECS: (See Composite Decking)
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: Cat ladders and roof access items referenced elsewhere for FSA (Linha references present in roof/stairs entries).
+      - SPECS: Metal fabrications and access requirements including ladders and cat ladders per EN ISO 14122, submittals and tolerances.
+      - STATUS: MISSING BASELINE
+
+  - Subzone: Envelope (Secondary Steel / Cladding)
+    * Structural Steel:
+      - BOQ: Secondary steel for cladding: BOQ quantity 1 942 m2 (Linha: 476); Eurobond panels and associated fixings and penetrations listed (Linha: 473-479, 484-488).
+      - SPECS: Secondary steel and cladding coordination obligations; materials standards; provision of holes for services; interface responsibilities; shop drawings and coordination duties.
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: NOT FOUND (envelope subzone relates to cladding, not decking).
+      - SPECS: Decking interface obligations where applicable.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: NOT FOUND specific to cladding intumescent treatment.
+      - SPECS: Intumescent coordination and compatibility requirements where intumescent is applied to members supporting cladding.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: Cladding/secondary steel interface entries implying surface treatment and fixings (Linha references).
+      - SPECS: Corrosion protection classifications (C2 internal, C4 external), galvanising requirements, compatibility with other coatings, shop priming exclusions. (See Fire Protection)
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: Penetrations and ancillary flashings/penetration fixings listed (Linha: 473-479, 484-488).
+      - SPECS: Metal fabrications coordination, provision of holes for other work, finish requirements and shop submittals.
+      - STATUS: MISSING BASELINE
+
+  - Subzone: Roof
+    * Structural Steel:
+      - BOQ: Roof support steel implicit in roof scope; Composite Euroclad Top deck Roof Panel supply & install - BOQ quantity 3 397 m2 (Linha: 539); roof relies on steel decking and roof support steel (Linha: 536-556).
+      - SPECS: Structural steel and decking responsibilities, execution class, erection tolerances, coordination with roofing systems.
+      - (See Composite Decking)
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: Composite Euroclad Top deck Roof Panel supply & install - 3 397 m2 (Linha: 539); roof walkway and temporary protection quantities (Linha: 546, 552); lightning protection grid 5x5m (Linha: 556).
+      - SPECS: Deck materials, deck submittals/calculations, deck fastening, openings and closures, storage, and compatibility with finishes.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: Roof entries present; no specific intumescent quantity for roof members in extract.
+      - SPECS: Intumescent application requirements and pre-application coordination where fireproofing applied to roof supporting steel.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: Roof surface treatment and temporary protection references (Linha: 536-556).
+      - SPECS: Corrosion protection classifications, shop painting schedule, galvanising and compatibility requirements. (See Composite Decking)
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: Roof walkway, parapets and access items referenced (Linha: 546, 552).
+      - SPECS: Fabrication and access requirements, shop drawings, loadings and tolerances for stairs/railings.
+      - STATUS: MISSING BASELINE
+
+- Zone: DCH
+  - Subzone: Structural Steel (PH1)
+    * Structural Steel:
+      - BOQ: PH1 Structural steel supply: 888,00 tn (Linha: 645); fabricated to EXC2, steel grade S355; H.D.A. counts referenced (Linha: 651).
+      - SPECS: Structural steel scope, EXC2 execution class, standards, submittals (shop/erection/temporary works), connection calculations signed/sealed, Quality Plan (NBN EN 1090), mill/welder certificates, pre-construction/pre-erection meetings, pre-erection anchor verification 20 working days prior; connection design responsibility and detailed requirements, bolting/welding rules.
+      - (See Fire Protection)
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: PH1 decking: TATA D60x1.2mm roof decking - 7 224 m2 (Linha: 648).
+      - SPECS: Deck materials to EN standards, deck submittals and calculations, fastening, shear studs and stud welding requirements, deck openings and closure rules.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: PH1 intumescent fire protection entries recorded for DCH (Linha: 652).
+      - SPECS: Intumescent product data, testing, installer qualifications, DFT control, QA inspection and records, compatibility with primers/topcoats.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: PH1 surface treatment entries: shotblast/galvanising and shop priming references (Linha: 642-654).
+      - SPECS: Blast-cleaning to Sa2.5, galvanising to NBN EN ISO 1461, corrosion classification (C2/C4), compatibility, batch control and shop painting schedule. (See Fire Protection)
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: PH1 miscellaneous metal fabrications for DCH: external stairs and access items (Linha: 655-660); bollards and small fabrications.
+      - SPECS: Metal fabrications scope/submittals, stair/railings loadings and tolerances, fabrication qualifications and tolerances, finishes and galvanising rules. (See Structural Steel)
+      - STATUS: MISSING BASELINE
+
+  - Subzone: Steel Decking (PH1)
+    * Structural Steel:
+      - BOQ: Not applicable / NOT FOUND (primary steel in DCH Structural Steel).
+      - SPECS: Structural steel obligations (standards, submittals).
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: PH1 TATA D60x1.2mm roof decking - 7 224 m2 (Linha: 648).
+      - SPECS: Deck materials, fastening, shear studs, deck submittals and calculations, storage and handling.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: NOT FOUND specific to decking in extract.
+      - SPECS: Intumescent coordination if applied to decking support members.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: NOT FOUND specific for decking beyond general surface treatment entries.
+      - SPECS: (See Composite Decking)
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: Deck interfaces with openings and closures implied (Linha references).
+      - SPECS: Deck openings rules, provision of closures and reinforcement details.
+      - STATUS: MISSING BASELINE
+
+  - Subzone: Envelope (Secondary Steel / Cladding) (PH1)
+    * Structural Steel:
+      - BOQ: Secondary steel for cladding PH1: 3 693 m2 (Linha: 666); Eurobond panels and penetrations listed (Linha: 661-679).
+      - SPECS: Secondary steel and cladding coordination, materials and shop drawings, provision of holes for services.
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: NOT FOUND (envelope).
+      - SPECS: Decking interface where applicable.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: NOT FOUND specific to cladding members in extract.
+      - SPECS: Intumescent compatibility where fireproofing applied to members supporting cladding.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: Cladding/secondary steel entries implying surface treatment and fixings (Linha references).
+      - SPECS: Corrosion classification, galvanising and compatibility, shop painting schedule. (See Fire Protection)
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: Penetrations and ancillary flashings/penetration fixings listed (Linha: 676-680 and others).
+      - SPECS: Metal fabrications requirements and submittals for cladding interfaces.
+      - STATUS: MISSING BASELINE
+
+  - Subzone: Roof (PH1)
+    * Structural Steel:
+      - BOQ: Composite Euroclad roof panel supply & install PH1: 7 115 m2 (Linha: 712); roof walkways and parapets referenced.
+      - SPECS: Roof support structural requirements, erection tolerances and coordination with decking and cladding.
+      - (See Composite Decking)
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: PH1 Euroclad roof panels 7 115 m2 (Linha: 712).
+      - SPECS: Deck materials, submittals, fastening and shear studs requirements.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: Roof entries present; no detailed intumescent data in extract.
+      - SPECS: Intumescent coordination and QA where applicable.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: Roof temporary protection and surface treatment entries (Linha: 709-724).
+      - SPECS: Corrosion protection classifications and shop painting/galvanising rules. (See Composite Decking)
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: Roof walkways, parapet upstands and temporary protection referenced.
+      - SPECS: Fabrication and access requirements, shop drawings and loadings for railings.
+      - STATUS: MISSING BASELINE
+
+- Zone: EYD
+  - Subzone: Foundations (steel column kickers/bolts interface)
+    * Structural Steel:
+      - BOQ: Steel columns kickers/bolts: PH1 BOQ count 832 nr (Linha: 731); PH3 also records 832 nr (Linha: 1562) (note: foundation entries record steel interface counts).
+      - SPECS: Pre-erection anchor verification: at least 20 working days prior to erection verify anchor rods/embedded anchors; anchor bolts per NBN EN 15048; coordination of embedded anchor locations with other trades; grouting and bearing interfaces per specification.
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: NOT FOUND for this subzone.
+      - SPECS: N/A (decking not applicable).
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: NOT FOUND for this subzone.
+      - SPECS: N/A for foundation kickers.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: NOT FOUND specific to kickers/bolts beyond H.D.A. coordination references.
+      - SPECS: Anchor bolt specification (NBN EN 15048) and corrosion classifications for exposed anchors; coordination required. (See Structural Steel)
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: NOT FOUND for this subzone.
+      - SPECS: N/A.
+      - STATUS: MISSING BASELINE
+
+- Zone: Generator Trench
+  - Subzone: Structural Steel
+    * Structural Steel:
+      - BOQ: Total tonnes for Generator Trench: 0,79 tn (Linha: 760).
+      - SPECS: Structural steel scope and standards, submittals, execution class and fabrication responsibilities; anchor bolts per NBN EN 15048 and pre-erection anchor verification responsibilities.
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: NOT FOUND.
+      - SPECS: N/A.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: Intumescent paint fire protection (60 minutes) 0,79 tn (Linha: 763).
+      - SPECS: Intumescent requirements including product data, DFT schedules, installer qualifications and QA.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: Corrosion protection (C2) paint quantity 0,79 tn (Linha: 762); touch up after erection 0,79 tn (Linha: 764).
+      - SPECS: Corrosion protection classifications, shop painting schedule, surface preparation and compatibility with intumescent.
+      - (See Fire Protection)
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: Holding down bolts (supply only) 16 nr (Linha: 765).
+      - SPECS: (See Structural Steel)
+      - STATUS: MISSING BASELINE
+
+- Zone: USS Trench
+  - Subzone: Structural Steel
+    * Structural Steel:
+      - BOQ: PH1 total tonnes 10,43 tn (Linha: 767) and H.D.A. supply counts PH1 holding down bolt supply 32 nr (Linha: 772); PH2/PH3/PH4 H.D.A counts referenced in phase lines (Linha: 1311-1314; 1710-1712; 1986-1989).
+      - SPECS: Structural steel requirements, submittals and anchor bolt standards including pre-erection anchor verification (20 working days prior).
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: NOT FOUND.
+      - SPECS: N/A.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: Corrosion protection & intumescent entries present for trenches (Linha references).
+      - SPECS: Intumescent and corrosion protection submittal and QA requirements.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: Corrosion protection and galvanising entries referenced.
+      - SPECS: Sa2.5 blast, galvanising to EN ISO 1461, compatibility with intumescent, shop painting schedule. (See Fire Protection)
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: H.D.A. supply counts listed per phase for USS trench anchors.
+      - SPECS: (See Structural Steel)
+      - STATUS: MISSING BASELINE
+
+- Zone: MYD
+  - Subzone: Cooling Tower Gantry Structural Steel
+    * Structural Steel:
+      - BOQ: PH1 Cooling Tower Gantry structural steel: 537,00 tn (Linha: 783) with galvanising entries (Linha: 787); PH2: 377,00 tn (Linha: 1209); PH3: 385,00 tn (Linha: 1601); PH4: 249,00 tn (Linha: 1884). Misc items: cat ladders, gantry emergency stairs, railings, grating quantities per phase (Linha ranges).
+      - SPECS: Structural steel execution class EXC2, standards, shop/erection submittals, connection calculations, fabrication and erection responsibilities, galvanising and coating compatibility noted (see Corrosion Protection for coating rules), QA requirements.
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: NOT FOUND specifically for gantry subzone.
+      - SPECS: N/A unless decking interfaces apply.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: Intumescent and touch-up entries referenced for gantry where applicable (Linha references to intumescent/galvanising).
+      - SPECS: Intumescent product/installation/submittal and QA requirements; compatibility with galvanising and primers.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: Galvanising entries for gantry (Linha: 787 etc); shop priming and shotblast references.
+      - SPECS: Galvanising to NBN EN ISO 1461, surface preparation Sa2.5, shop painting schedule and batch control.
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: Cat ladders, gantry emergency stairs, railings, open mesh grating quantities per phase (Linha: 793-794 and phase-specific lines).
+      - SPECS: Metal fabrications scope, ladder/access (EN ISO 14122), stairs/railings loadings and submittal/calculations requirements.
+      - STATUS: MISSING BASELINE
+
+- Zone: Supply Hold Down Bolt Assembly (sitewide)
+  - Subzone: Supply H.D.A.
+    * Structural Steel:
+      - BOQ: PH1 supply counts: MCP 48 nr, ASB 10 nr, CTB 20 nr, USS 32 nr, S24 36 nr, S25 24 nr (Linha: 1038-1044); PH2 MCP 36 nr, USS 24 nr, S25 18 nr (Linha: 1312-1314); PH3 MCP 36 nr, USS 24 nr, S25 18 nr (Linha: 1710-1712); PH4 MCP 24 nr, USS 16 nr, S25 12 nr (Linha: 1986-1989).
+      - SPECS: Anchor bolts per NBN EN 15048; pre-erection anchor verification at least 20 working days prior; coordination of embedded anchor locations with other trades; grouting and bearing interface requirements.
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: NOT FOUND.
+      - SPECS: N/A.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: NOT FOUND.
+      - SPECS: N/A for H.D.A. supply (unless fireproofed anchors).
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: NOT FOUND specific to H.D.A. corrosion protection in extract.
+      - SPECS: Anchor bolt corrosion requirements, shop painting and galvanising where applicable. (See Structural Steel)
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: H.D.A. supply only (anchor assemblies).
+      - SPECS: (See Structural Steel)
+      - STATUS: MISSING BASELINE
+
+- Zone: SSA
+  - Subzone: Load Bank Garage & Fuel Polishing Building - Structural Steel
+    * Structural Steel:
+      - BOQ: Structural steel (Shell A) PH1: 7,23 tn (Linha: 2006); H.D.A. - 78 nr castings (Linha: 2008); galvanising / shotblast and touch-up entries present (Linha: 2009-2011).
+      - SPECS: Structural steel scope, EXC2 rules, submittals, anchor bolt standards and pre-erection verification, galvanising and painting requirements (see Corrosion Protection for coating specifics).
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: Roof deck (Kingspan RD) 78 m2 (Linha: 2013).
+      - SPECS: Deck materials and submittals; factory pre-finish for external items per EN ISO 12944-2.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: NOT FOUND specific intumescent for SSA building in extract.
+      - SPECS: Intumescent coordination and submittals where applicable.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: Galvanising / shotblast and surface touch-up entries present (Linha: 2009-2011).
+      - SPECS: Galvanising standard EN ISO 1461, blast-cleaning, shop painting schedule.
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: Railing at roof 44 m2 (Linha: 2014); cat ladder reference present (Linha: 2015).
+      - SPECS: Metal fabrications submittals, ladder/stair design and tolerances, shop priming/finish requirements.
+      - STATUS: MISSING BASELINE
+
+  - Subzone: Envelope / Cladding (Load Bank Garage)
+    * Structural Steel:
+      - BOQ: Euroclad Rockspan Cladding panels 240mm thick - BOQ 241 m2 (Linha: 2017); parapet capping 44 m2 (Linha: 2018); rolling shutter reference 4m x 3.6m (Linha: 2021).
+      - SPECS: Cladding and secondary steel coordination, shop drawings and penetrations, provision of fixings and penetrations.
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: NOT FOUND.
+      - SPECS: N/A.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: NOT FOUND.
+      - SPECS: Intumescent compatibility where applicable.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: NOT FOUND specific to cladding fixings in extract beyond general entries.
+      - SPECS: Corrosion classification and finish requirements for exposed fabrications. (See Structural Steel / Metal Fabrications)
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: Rolling shutter reference and parapet capping noted.
+      - SPECS: Metal fabrications requirements, finish requirements and coordination with openings.
+      - STATUS: MISSING BASELINE
+
+- Zone: RSA
+  - Subzone: Security Fence & Infrastructure
+    * Structural Steel:
+      - BOQ: 3m high chainlink fence on metal posts, no razor wire - BOQ quantity 1 342 (Linha: 1997).
+      - SPECS: Metal fabrications scope includes fencing; shop fabrication and finish requirements, galvanising where applicable. (See Corrosion Protection)
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: NOT FOUND.
+      - SPECS: N/A.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: NOT FOUND.
+      - SPECS: N/A.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: NOT FOUND explicit corrosion spec for fence in extract.
+      - SPECS: Corrosion classification and galvanising requirements for external metalwork (C4).
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: Fence posts and gates referenced.
+      - SPECS: Metal fabrications and finish requirements, galvanising guidelines. (See Corrosion Protection)
+      - STATUS: MISSING BASELINE
+
+- Zone: SSA Louvres
+  - Subzone: Louvres (Smoke extract louvres)
+    * Structural Steel:
+      - BOQ: PH1 louvres: BOQ list 10 nr for FSA (Linha: 2063); PH2-PH4 louvre references present (Linha: 2064-2067).
+      - SPECS: Metal fabrications scope for louvers, submittal and fabrication requirements. (See Metal Fabrications)
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: NOT FOUND.
+      - SPECS: N/A.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: Louvres for smoke extract referenced.
+      - SPECS: Fire-related coordination and submittals where smoke extract components interface with structural works.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: NOT FOUND specific corrosion treatment for louvres in extract.
+      - SPECS: Finish and corrosion protection for external metalwork. (See Metal Fabrications)
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: Louvres count entries.
+      - SPECS: Fabrication and shop drawing requirements for louvres.
+      - STATUS: MISSING BASELINE
+
+Phase: PH2
+- Zone: DCH
+  - Subzone: Structural Steel (PH2)
+    * Structural Steel:
+      - BOQ: PH2 Structural steel supply: 752,00 tn (Linha: 1130); H.D.A. counts per phase listed (Linha: 1136).
+      - SPECS: Structural steel scope, EXC2, standards, submittal and QA requirements, connection calculations, pre-erection anchor verification, Quality Plan and certifications.
+      - (See Fire Protection)
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: PH2 decking: TATA D60x1.2mm roof decking - 6 046 m2 (Linha: 1133).
+      - SPECS: Deck materials, fastening, shear studs, submittals and calculations.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: PH2 intumescent fire protection entries recorded (Linha: 1137).
+      - SPECS: Intumescent product data, installer qualifications, DFT control, environmental controls and QA inspections.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: Galvanising / shotblast and shop priming references (PH2 lines).
+      - SPECS: Surface preparation Sa2.5, galvanising standard, shop painting schedule and compatibility with intumescent systems. (See Fire Protection)
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: Provision of cat ladders, bollards, roof stairs and associated metalwork (PH2 lines).
+      - SPECS: Metal fabrications submittals, stair/railing loads and tolerances, fabricator qualifications.
+      - STATUS: MISSING BASELINE
+
+- Zone: MYD
+  - Subzone: Cooling Tower Gantry (PH2)
+    * Structural Steel:
+      - BOQ: PH2 Cooling Tower Gantry structural steel: 377,00 tn (Linha: 1209) with galvanising entries (Linha: 1213); miscellaneous access items PH2 (Linha: 1216-1219).
+      - SPECS: Structural steel execution class, submittals, connection calculations, galvanising and QA. (See Corrosion Protection)
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: NOT FOUND (gantry structural scope).
+      - SPECS: N/A.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: Intumescent/galvanising entries referenced (Linha references).
+      - SPECS: Intumescent submittal and application requirements; compatibility with galvanising.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: Galvanising entries for gantry (Linha: 1213).
+      - SPECS: Galvanising to EN ISO 1461, design for galvanising, vent/drain holes and distortion avoidance.
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: Cat ladders, emergency stairs, railings, gratings counts recorded (Linha: 1216-1219).
+      - SPECS: Metal fabrications, ladder standards, stairs/railings loads and submittals.
+      - STATUS: MISSING BASELINE
+
+- Zone: Supply Hold Down Bolt Assembly (PH2)
+  - Subzone: Supply H.D.A.
+    * Structural Steel:
+      - BOQ: PH2 supply counts: MCP 36 nr, USS 24 nr, S25 18 nr (Linha: 1312-1314).
+      - SPECS: Anchor bolt specification (NBN EN 15048), pre-erection verification and coordination with foundations.
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: NOT FOUND.
+      - SPECS: N/A.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: NOT FOUND.
+      - SPECS: N/A.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: NOT FOUND explicit to H.D.A in PH2 extract.
+      - SPECS: Anchor corrosion protection and finish requirements. (See Structural Steel)
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: H.D.A. supply counts.
+      - SPECS: (See Structural Steel)
+      - STATUS: MISSING BASELINE
+
+- Zone: External Doors / Roller Shutters
+  - Subzone: Doors / Shutters (PH2)
+    * Structural Steel:
+      - BOQ: External Doors / Roller Shutters references (steel doors/shutters) in PH2 lines (Linha: 1174-1182).
+      - SPECS: Metal fabrications and cladding interface requirements; provision of openings and coordination with secondary steel.
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: NOT FOUND.
+      - SPECS: N/A.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: NOT FOUND specific to shutters in extract.
+      - SPECS: Fire coordination where shutters are part of smoke/fire systems.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: NOT FOUND specific finish instructions in extract.
+      - SPECS: Finish requirements for external doors/shutters and corrosion protection. (See Metal Fabrications)
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: Roller shutter 4m x 3.6m referenced elsewhere (SSA).
+      - SPECS: Metal fabrications submittals and manufacturer's certifications where applicable.
+      - STATUS: MISSING BASELINE
+
+- Zone: SSA / Cladding Temporary Protection
+  - Subzone: SSA Cladding Protection (PH2)
+    * Structural Steel:
+      - BOQ: References to temporary protection where steel interfaces exist (PH2).
+      - SPECS: Coordination responsibilities for temporary protection, shop painting and finishes.
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: NOT FOUND.
+      - SPECS: N/A.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: NOT FOUND.
+      - SPECS: Intumescent coordination and protection requirements where applicable.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: Temporary protection and touch-up references.
+      - SPECS: Shop painting, storage and touch-up requirements.
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: NOT FOUND specific in extract.
+      - SPECS: N/A.
+      - STATUS: MISSING BASELINE
+
+Phase: PH3
+- Zone: DCH
+  - Subzone: Structural Steel (PH3)
+    * Structural Steel:
+      - BOQ: PH3 Structural steel supply: 756,00 tn (Linha: 1487); H.D.A. counts per phase listed (Linha: 1493).
+      - SPECS: Structural steel EXC2, standards, shop and erection submittals, connection calculations, Quality Plan, certifications, pre-erection anchor verification, contractor responsibility for detailing/fabrication/erection.
+      - (See Fire Protection)
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: PH3 decking: TATA D60x1.2mm roof decking - 6 046 m2 (Linha: 1490).
+      - SPECS: Deck materials, submittals and fastening/shear stud requirements.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: PH3 intumescent quantities referenced for DCH (Linha: 1494).
+      - SPECS: Intumescent submittals, installer qualifications, DFT control and QA.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: PH3 shotblast/galvanising/shop priming references (Linha: 1485-1496).
+      - SPECS: Sa2.5, galvanising standard, shop priming and compatibility with intumescent coatings. (See Fire Protection)
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: PH3 miscellaneous fabrications: external stairs, cat ladders, bollards, gratings (Linha: 1497-1500).
+      - SPECS: Fabrication tolerances, stairs design loads and submittals, welder certificates and finish requirements.
+      - STATUS: MISSING BASELINE
+
+- Zone: EYD
+  - Subzone: Foundations (PH3 entries)
+    * Structural Steel:
+      - BOQ: EYD/Foundation entries PH3 showing steel columns kickers/bolts: PH3 BOQ count 832 nr (Linha: 1562).
+      - SPECS: Pre-erection anchor verification, anchor bolt specification (NBN EN 15048), coordination with other trades.
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: NOT FOUND.
+      - SPECS: N/A.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: NOT FOUND.
+      - SPECS: N/A.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: NOT FOUND explicit to kickers in extract.
+      - SPECS: Anchor corrosion protection and related specifications. (See Structural Steel)
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: NOT FOUND.
+      - SPECS: N/A.
+      - STATUS: MISSING BASELINE
+
+- Zone: MYD
+  - Subzone: Densified Structural Steel (PH3)
+    * Structural Steel:
+      - BOQ: PH3 MYD densified structural steel: references in S02-A7200 PH3 entries (Linha: 1592-1606) and Cooling Tower Gantry PH3 steel 385,00 tn (Linha: 1601).
+      - SPECS: Structural steel standards and submittal requirements, execution class EXC2, QA and certifications.
+      - (See Corrosion Protection)
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: NOT FOUND.
+      - SPECS: N/A.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: Galvanising and intumescent entries for MYD PH3 (Linha: 1605 etc).
+      - SPECS: Intumescent submittal and QA requirements; compatibility with galvanising and primers.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: Galvanising entries and surface treatment references (Linha: 1605-1613).
+      - SPECS: Galvanising to EN ISO 1461, blast-cleaning, and compatibility with intumescent systems.
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: Cat ladders, railings, grating quantities for PH3 (Linha: 1608-1613).
+      - SPECS: Metal fabrications submittals, ladder standards and stair/railing loading criteria.
+      - STATUS: MISSING BASELINE
+
+- Zone: Supply Hold Down Bolt Assembly (PH3)
+  - Subzone: Supply H.D.A.
+    * Structural Steel:
+      - BOQ: PH3 supply counts: MCP 36 nr, USS 24 nr, S25 18 nr (Linha: 1710-1712).
+      - SPECS: Anchor bolt specification, pre-erection verification and coordination requirements.
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: NOT FOUND.
+      - SPECS: N/A.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: NOT FOUND.
+      - SPECS: N/A.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: NOT FOUND explicit to these H.D.A. supply lines.
+      - SPECS: Anchor corrosion protection and finish requirements. (See Structural Steel)
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: H.D.A. supply counts recorded.
+      - SPECS: (See Structural Steel)
+      - STATUS: MISSING BASELINE
+
+- Zone: SSA Louvres
+  - Subzone: Louvres (PH3)
+    * Structural Steel:
+      - BOQ: PH3 louvre references present (Linha: 2064-2067).
+      - SPECS: Metal fabrications and shop drawing requirements for louvers. (See Metal Fabrications)
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: NOT FOUND.
+      - SPECS: N/A.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: Louvres listed for smoke extract (PH3).
+      - SPECS: Fire coordination and submittals where louvres form part of smoke systems.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: NOT FOUND.
+      - SPECS: Finish and corrosion protection for external louvres. (See Metal Fabrications)
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: Louvres counts recorded.
+      - SPECS: Metal fabrication submittal requirements.
+      - STATUS: MISSING BASELINE
+
+Phase: PH4
+- Zone: DCH
+  - Subzone: Structural Steel (PH4)
+    * Structural Steel:
+      - BOQ: PH4 Structural steel supply: 747,00 tn (Linha: 1806); H.D.A. counts listed (Linha: 1812).
+      - SPECS: Structural steel EXC2, standards, shop/erection/temporary works submittals, connection calculations, Quality Plan, certifications and pre-erection anchor verification.
+      - (See Fire Protection)
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: PH4 decking: TATA D60x1.2mm roof decking - 6 046 m2 (Linha: 1809).
+      - SPECS: Deck materials, submittals, fastening and shear connector requirements.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: PH4 intumescent fire protection entries recorded (Linha: 1813).
+      - SPECS: Intumescent product/installer/submittal and QA requirements and DFT acceptance criteria.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: PH4 galvanising / shotblast and shop priming references (Linha: 1804-1815).
+      - SPECS: Sa2.5 blast-cleaning, galvanising to EN ISO 1461, compatibility with intumescent systems and shop painting schedule. (See Fire Protection)
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: PH4 miscellaneous metal fabrications: stairs, railings, gratings, cat ladders (Linha: 1815-1819).
+      - SPECS: Metal fabrication standards, stairs/railing loadings, tolerances, submittals and welder certificates.
+      - STATUS: MISSING BASELINE
+
+  - Subzone: Trench / Cooling Tower Gantry (PH4)
+    * Structural Steel:
+      - BOQ: PH4 Cooling Tower Gantry structural steel: 249,00 tn (Linha: 1884); MYD / Trench structural steel entries (Linha: 1874-1888).
+      - SPECS: Structural steel standards, galvanising and fabrication/erection submittal obligations. (See Corrosion Protection)
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: NOT FOUND for trench/gantry in PH4 extract.
+      - SPECS: N/A.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: Intumescent and touch-up entries for gantry/trench referenced (Linha: 1888 etc).
+      - SPECS: Intumescent submittals, installer qualifications and QA.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: Galvanising entries for gantry/trench (Linha: 1888).
+      - SPECS: Galvanising to EN ISO 1461, design for galvanising and finish compatibility.
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: Cat ladders, railings, open mesh grating quantities referenced (Linha: 1891-1894).
+      - SPECS: Metal fabrications submittals, fabrication tolerances, ladder/stair standards.
+      - STATUS: MISSING BASELINE
+
+  - Subzone: Supply Hold Down Bolt Assembly (PH4)
+    * Structural Steel:
+      - BOQ: PH4 supply counts: MCP 24 nr, USS 16 nr, S25 12 nr (Linha: 1986-1989).
+      - SPECS: Anchor bolt specification (NBN EN 15048), pre-erection anchor verification, coordination with foundations and survey prior to erection.
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: NOT FOUND.
+      - SPECS: N/A.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: NOT FOUND.
+      - SPECS: N/A.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: NOT FOUND explicit to these H.D.A. supply lines.
+      - SPECS: Anchor corrosion protection and related finish requirements. (See Structural Steel)
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: H.D.A. supply counts recorded.
+      - SPECS: (See Structural Steel)
+      - STATUS: MISSING BASELINE
+
+  - Subzone: Envelope / Roof Finishing (PH4)
+    * Structural Steel:
+      - BOQ: DCH Envelope and roof PH4 entries: secondary steel 2 441 m2 (Linha: 1825); Composite Euroclad roof PH4: 5 944 m2 (Linha: 1860); roof and envelope entries (Linha: 1821-1834, 1858-1872).
+      - SPECS: Cladding/roof coordination, secondary steel requirements, shop drawings and penetrations; standards and submittal obligations.
+      - (See Composite Decking)
+      - STATUS: MISSING BASELINE
+    * Composite Decking:
+      - BOQ: DCH PH4 roof decking Euroclad 5 944 m2 (Linha: 1860).
+      - SPECS: Deck submittals, fastening, shear studs and decking material standards.
+      - STATUS: MISSING BASELINE
+    * Fire Protection:
+      - BOQ: Intumescent entries for DCH PH4 (Linha: 1813 etc).
+      - SPECS: Intumescent product submittals, DFT requirements and QA.
+      - STATUS: MISSING BASELINE
+    * Corrosion Protection:
+      - BOQ: Galvanising/shotblast/touch-up PH4 entries referenced.
+      - SPECS: Surface prep Sa2.5, galvanising standard, compatibility and shop painting schedule. (See Fire Protection)
+      - STATUS: MISSING BASELINE
+    * Metal Fabrications (Stairs/Railings/Gratings):
+      - BOQ: Supply and installation of stairs, railings, gratings, cat ladders and bump railings recorded for PH4 (Linha: 1815-1819 and others).
+      - SPECS: Metal fabrication design loads, tolerances, submittals and fabrication quality requirements.
+      - STATUS: MISSING BASELINE
+
+GLOBAL INCONSISTENCIES:
+
+| ID | Category | Location (Phase/Zone/Subzone) | Issue | Risk |
+|----|----------|-------------------------------|-------|------|
+| 1 | Submittals / Documentation | BOQ extracts | BOQ provides quantities (tonnes, m2, counts) for structural steel, decking, intumescent paint, galvanising and H.D.A. but does not include the SPECS-required submittals and documentation (shop drawings, erection drawings/method statements, temporary works drawings, connection calculations signed/sealed, Quality Plan per NBN EN 1090, mill/welder certificates, intumescent product test data and compatibility evidence, installer qualifications, DFT records, independent QA agency inspections) | NOT FOUND in BOQ extracts. |
+| 2 | Connection Design Responsibility | BOQ extracts | BOQ lacks explicit responsibility for connection design and associated calculations and sign-off (SPECS require Fabricator’s engineer responsibility and stamped calculations) | NOT FOUND in BOQ. |
+| 3 | Erection Sequencing / Temporary Works | BOQ extracts | BOQ lacks explicit erection sequencing, temporary works drawings and method statements (SPECS require these submittals by fabricator/erector) | NOT FOUND in BOQ. |
+| 4 | Pre-erection Verification | BOQ extracts | BOQ lacks pre-erection anchor verification requirement and timing (SPECS require verification at least 20 working days prior to erection) despite listing H.D.A. supply counts and anchor quantities | Coordination detail NOT FOUND in BOQ. |
+| 5 | Units / Quantities | BOQ extracts | BOQ lists intumescent paint quantities using unit 'tn' in multiple locations (examples Linha: 462, Linha: 652, Linha: 1137) which is inconsistent with expected unit types for coating quantities (identified in BOQ critical_gaps) | Inconsistent unit usage; identified in BOQ critical_gaps. |
+| 6 | Surface Preparation & Coating Controls | BOQ extracts | BOQ quantifies galvanising/shotblast and shop priming but does not include SPECS-level surface preparation and coating control requirements (Sa2.5, humidity/temperature limits, batch control, compatibility evidence) | NOT FOUND in BOQ. |
+
+END_OF_REPORT
