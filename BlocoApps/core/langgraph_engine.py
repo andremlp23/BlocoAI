@@ -667,14 +667,17 @@ def decidir_apos_dedupe(state: AuditoriaState) -> str:
 # ======================================================================
 # Construção do grafo
 # ======================================================================
-def construir_grafo() -> Any:
+def construir_grafo_extracao() -> Any:
+    """
+    Grafo curto:
+    - corre só AGT-01 Specs
+    - corre só AGT-02 BOQ
+    - para antes da auditoria
+    """
     workflow = StateGraph(AuditoriaState)
 
     workflow.add_node("router", no_router)
     workflow.add_node("extrair", no_extrator)
-    workflow.add_node("auditar", no_auditor)        # AGT-02B
-    workflow.add_node("dedupe", no_deduplicador)    # AGT-03
-    workflow.add_node("formatar", no_apresentador)  # AGT-04
     workflow.add_node("erro", no_erro)
 
     workflow.set_entry_point("router")
@@ -684,19 +687,50 @@ def construir_grafo() -> Any:
     workflow.add_conditional_edges(
         "extrair",
         decidir_apos_extracao,
-        {"auditar": "auditar", "erro": "erro"}
+        {
+            "auditar": END,
+            "erro": "erro",
+        },
     )
+
+    workflow.add_edge("erro", END)
+
+    return workflow.compile()
+
+
+def construir_grafo_auditoria() -> Any:
+    """
+    Grafo final:
+    - recebe resumo_specs e resumo_boq já editados/manualizados
+    - corre auditoria
+    - corre dedupe
+    - formata relatório final
+    """
+    workflow = StateGraph(AuditoriaState)
+
+    workflow.add_node("auditar", no_auditor)
+    workflow.add_node("dedupe", no_deduplicador)
+    workflow.add_node("formatar", no_apresentador)
+    workflow.add_node("erro", no_erro)
+
+    workflow.set_entry_point("auditar")
 
     workflow.add_conditional_edges(
         "auditar",
         decidir_apos_auditoria,
-        {"dedupe": "dedupe", "retry": "auditar", "erro": "erro"}
+        {
+            "dedupe": "dedupe",
+            "retry": "auditar",
+            "erro": "erro",
+        },
     )
 
     workflow.add_conditional_edges(
         "dedupe",
         decidir_apos_dedupe,
-        {"formatar": "formatar"}
+        {
+            "formatar": "formatar",
+        },
     )
 
     workflow.add_edge("formatar", END)

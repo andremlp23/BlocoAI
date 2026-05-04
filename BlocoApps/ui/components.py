@@ -1,4 +1,5 @@
 import streamlit as st
+import json
 import os
 
 
@@ -100,8 +101,20 @@ def ensure_session_defaults() -> None:
     for chave, valor_default in [
         ("api_key_env", ""),
         ("relatorio_final", ""),
+
+        # outputs brutos dos agentes
         ("resumo_specs", ""),
+        ("resumo_boq", ""),
+
+        # versões editáveis
+        ("edited_specs_json", ""),
+        ("edited_boq_json", ""),
+
+        # controlo de fluxo
+        ("contextos_extraidos", False),
+        ("contextos_validados", False),
         ("processado", False),
+
         ("pipeline_state", ["idle", "idle", "idle"]),
         ("n_ficheiros", 0),
         ("n_fases_hint", "—"),
@@ -159,7 +172,7 @@ def render_start_section(api_key_final: str, file_boq, files_specs) -> bool:
 
     col_btn, col_hint = st.columns([2, 5], gap="medium")
     with col_btn:
-        iniciar = st.button("▶  INICIAR AUDITORIA MASTER", use_container_width=True)
+        iniciar = st.button("① GERAR CONTEXTOS JSON", use_container_width=True)
     with col_hint:
         if not api_key_final:
             st.markdown(
@@ -170,7 +183,7 @@ def render_start_section(api_key_final: str, file_boq, files_specs) -> bool:
         elif not file_boq and not files_specs:
             st.markdown(
                 '<div style="font-size:0.78rem;color:#4a6fa0;padding-top:0.65rem">'
-                'Carrega pelo menos um documento (BOQ ou Caderno de Encargos).</div>',
+                'Carrega documentos para gerar os JSONs editáveis.</div>',
                 unsafe_allow_html=True,
             )
         else:
@@ -260,11 +273,20 @@ def render_results() -> None:
         col_dl2, _ = st.columns([2, 5])
         with col_dl2:
             st.download_button(
-                "📥 Descarregar Contexto SPECS (.txt)",
+                "📥 Descarregar Contexto SPECS (.json)",
                 data=st.session_state.resumo_specs,
-                file_name="Specs_Extraction_Context.txt",
+                file_name="Specs_Extraction_Context.json",
+                mime="application/json",
                 use_container_width=True,
             )
+            if st.session_state.resumo_boq:
+                st.download_button(
+                    "📥 Descarregar Contexto BOQ (.json)",
+                    data=st.session_state.resumo_boq,
+                    file_name="BOQ_Extraction_Context.json",
+                    mime="application/json",
+                    use_container_width=True,
+                )
         st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown("<div style='height:1rem'></div>", unsafe_allow_html=True)
@@ -278,3 +300,131 @@ def render_results() -> None:
             use_container_width=True,
         )
     st.markdown("</div>", unsafe_allow_html=True)
+
+def _validar_json_texto(texto: str) -> tuple[bool, str]:
+    try:
+        json.loads(texto)
+        return True, "JSON válido."
+    except Exception as e:
+        return False, f"JSON inválido: {e}"
+
+
+def render_context_review_section() -> bool:
+    """
+    Secção simples para:
+    - descarregar os JSONs gerados pelos agentes
+    - carregar versões editadas manualmente
+    - validar ambos
+    - avançar para a auditoria
+    """
+    if not st.session_state.get("contextos_extraidos"):
+        return False
+
+    st.markdown("""
+    <div class="section-card" style="margin-top:0.8rem">
+        <span class="section-number">REVIEW / EDIT</span>
+        <div class="section-title">🧾 Contextos JSON para Revisão Manual</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.info(
+        "Descarrega os ficheiros JSON gerados, edita manualmente fora da aplicação e volta a carregá-los aqui. "
+        "É necessário carregar os dois ficheiros válidos antes de prosseguir."
+    )
+
+    # Garante defaults
+    if not st.session_state.get("edited_specs_json"):
+        st.session_state.edited_specs_json = st.session_state.get("resumo_specs", "")
+
+    if not st.session_state.get("edited_boq_json"):
+        st.session_state.edited_boq_json = st.session_state.get("resumo_boq", "")
+
+    col1, col2 = st.columns(2, gap="large")
+
+    # ==========================================================
+    # SPECS
+    # ==========================================================
+    with col1:
+        st.markdown("### AGT-01 — Specs Context JSON")
+
+        if st.session_state.get("resumo_specs"):
+            st.download_button(
+                "📥 Descarregar Specs JSON",
+                data=st.session_state.resumo_specs,
+                file_name="AGT01_Specs_Context_Editavel.json",
+                mime="application/json",
+                use_container_width=True,
+            )
+
+        uploaded_specs = st.file_uploader(
+            "Carregar Specs JSON editado manualmente",
+            type=["json"],
+            key="upload_specs_json_editado",
+        )
+
+        specs_ok = False
+
+        if uploaded_specs is not None:
+            try:
+                raw = uploaded_specs.read().decode("utf-8")
+                parsed = json.loads(raw)
+                st.session_state.edited_specs_json = json.dumps(parsed, ensure_ascii=False, indent=2)
+                specs_ok = True
+                st.success("Specs JSON carregado e validado.")
+            except Exception as e:
+                st.error(f"Erro no Specs JSON: {e}")
+        else:
+            # se não houver upload, só conta como válido se existir JSON já guardado e validado manualmente antes
+            if st.session_state.get("edited_specs_json"):
+                ok, _ = _validar_json_texto(st.session_state.edited_specs_json)
+                specs_ok = ok
+
+    # ==========================================================
+    # BOQ
+    # ==========================================================
+    with col2:
+        st.markdown("### AGT-02 — BOQ Context JSON")
+
+        if st.session_state.get("resumo_boq"):
+            st.download_button(
+                "📥 Descarregar BOQ JSON",
+                data=st.session_state.resumo_boq,
+                file_name="AGT02_BOQ_Context_Editavel.json",
+                mime="application/json",
+                use_container_width=True,
+            )
+
+        uploaded_boq = st.file_uploader(
+            "Carregar BOQ JSON editado manualmente",
+            type=["json"],
+            key="upload_boq_json_editado",
+        )
+
+        boq_ok = False
+
+        if uploaded_boq is not None:
+            try:
+                raw = uploaded_boq.read().decode("utf-8")
+                parsed = json.loads(raw)
+                st.session_state.edited_boq_json = json.dumps(parsed, ensure_ascii=False, indent=2)
+                boq_ok = True
+                st.success("BOQ JSON carregado e validado.")
+            except Exception as e:
+                st.error(f"Erro no BOQ JSON: {e}")
+        else:
+            if st.session_state.get("edited_boq_json"):
+                ok, _ = _validar_json_texto(st.session_state.edited_boq_json)
+                boq_ok = ok
+
+    st.markdown("---")
+
+    st.session_state.contextos_validados = specs_ok and boq_ok
+
+    if not st.session_state.contextos_validados:
+        st.warning("Carrega os dois ficheiros JSON editados e válidos para prosseguir.")
+        return False
+
+    return st.button(
+        "✅ Prosseguir para Auditoria com Ficheiros Editados",
+        use_container_width=True,
+    )
