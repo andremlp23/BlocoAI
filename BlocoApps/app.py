@@ -18,7 +18,7 @@ from core.orchestrator import (
 )
 from ui.components import (
     ensure_session_defaults,
-    render_context_review_section,
+    render_context_upload_section,
     render_debug_toggle,
     render_focus_section,
     render_header,
@@ -69,16 +69,23 @@ def main() -> None:
     grafo_extracao = construir_grafo_extracao()
     grafo_auditoria = construir_grafo_auditoria()
 
+    # STEP 1: Upload de documentos
     file_boq, files_specs = render_upload_section()
+    
+    # STEP 2: Upload de JSONs editados (ANTES de gerar contextos)
+    specs_pre_carregado, boq_pre_carregado = render_context_upload_section()
+    
+    # STEP 3: Instruções de filtragem
     guia_input = render_focus_section()
 
+    # STEP 4: Gerar contextos (ou usar os pré-carregados)
     gerar_contextos = render_start_section(api_key_final, file_boq, files_specs)
 
     if gerar_contextos:
         if not api_key_final:
             st.error("🔑 API Key em falta. Adiciona-a na barra lateral.")
-        elif not file_boq and not files_specs:
-            st.warning("Carrega pelo menos um documento para gerar os contextos.")
+        elif not file_boq and not files_specs and not (specs_pre_carregado or boq_pre_carregado):
+            st.warning("Carrega pelo menos um documento ou JSONs para prosseguir.")
         else:
             def pipeline_callback(state: list) -> None:
                 pass
@@ -92,29 +99,35 @@ def main() -> None:
                 app_file=Path(__file__),
                 pipeline_callback=pipeline_callback,
                 debug_mode=debug_mode,
+                pre_loaded_specs_json=st.session_state.get("pre_loaded_specs_json"),
+                pre_loaded_boq_json=st.session_state.get("pre_loaded_boq_json"),
             )
+            
+            # STEP 5: Auditoria automática em sequência após gerar contextos
+            if st.session_state.get("contextos_extraidos"):
+                st.markdown("---")
+                st.markdown("""
+                <div class="section-card">
+                    <span class="section-number">STEP 03 / 03</span>
+                    <div class="section-title">🔍 Auditoria & Validação</div>
+                </div>
+                """, unsafe_allow_html=True)
+                
+                st.info("Contextos gerados com sucesso. Iniciando auditoria automática...")
 
-    prosseguir_auditoria = render_context_review_section()
+                def pipeline_callback_auditoria(state: list) -> None:
+                    pass
 
-    if prosseguir_auditoria:
-        if not api_key_final:
-            st.error("🔑 API Key em falta.")
-        elif not st.session_state.get("contextos_validados"):
-            st.warning("Valida os JSONs antes de prosseguir.")
-        else:
-            def pipeline_callback(state: list) -> None:
-                pass
-
-            processar_auditoria_com_contextos_editados(
-                grafo_auditoria=grafo_auditoria,
-                api_key_final=api_key_final,
-                specs_json_editado=st.session_state.edited_specs_json,
-                boq_json_editado=st.session_state.edited_boq_json,
-                guia_input=guia_input,
-                app_file=Path(__file__),
-                pipeline_callback=pipeline_callback,
-                debug_mode=debug_mode,
-            )
+                processar_auditoria_com_contextos_editados(
+                    grafo_auditoria=grafo_auditoria,
+                    api_key_final=api_key_final,
+                    specs_json_editado=st.session_state.edited_specs_json,
+                    boq_json_editado=st.session_state.edited_boq_json,
+                    guia_input=guia_input,
+                    app_file=Path(__file__),
+                    pipeline_callback=pipeline_callback_auditoria,
+                    debug_mode=debug_mode,
+                )
 
     render_results()
 

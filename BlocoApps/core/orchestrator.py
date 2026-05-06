@@ -101,14 +101,46 @@ def processar_extracao_contextos(
     app_file: Path,
     pipeline_callback: Callable[[list], None] = None,
     debug_mode: bool = False,
+    pre_loaded_specs_json: str = None,
+    pre_loaded_boq_json: str = None,
 ) -> None:
     """
     Passo 1:
-    - lê documentos;
-    - corre apenas AGT-01 e AGT-02;
-    - guarda Specs JSON e BOQ JSON;
-    - coloca ambos em session_state para edição manual.
+    - Se pré-carregados: usa os JSONs fornecidos diretamente;
+    - Caso contrário: lê documentos e corre AGT-01 e AGT-02;
+    - Guarda Specs JSON e BOQ JSON em session_state.
     """
+    # Se ambos os JSONs foram pré-carregados, usá-los diretamente
+    if pre_loaded_specs_json and pre_loaded_boq_json:
+        try:
+            st.info("✓ Usando contextos pré-carregados...")
+            
+            st.session_state.resumo_specs = pre_loaded_specs_json
+            st.session_state.resumo_boq = pre_loaded_boq_json
+
+            st.session_state.edited_specs_json = pre_loaded_specs_json
+            st.session_state.edited_boq_json = pre_loaded_boq_json
+
+            st.session_state.contextos_extraidos = True
+            st.session_state.contextos_validados = True  # Já validados
+            st.session_state.processado = False
+
+            st.session_state.n_ficheiros = 0
+            if file_boq:
+                st.session_state.n_ficheiros += 1
+            if files_specs:
+                st.session_state.n_ficheiros += len(files_specs)
+
+            st.session_state.paginas_aviso = []
+
+            st.success("✓ Contextos pré-carregados aplicados com sucesso!")
+            return
+
+        except Exception as e:
+            st.error(f"Erro ao processar JSONs pré-carregados: {e}")
+            return
+
+    # Caso contrário, proceder com extração normal
     texto_boq = ""
     texto_specs = ""
     nomes_specs = []
@@ -212,7 +244,7 @@ def processar_extracao_contextos(
         st.session_state.edited_boq_json = boq_json
 
         st.session_state.contextos_extraidos = True
-        st.session_state.contextos_validados = False
+        st.session_state.contextos_validados = True  # Após extração, já estão validados
         st.session_state.processado = False
 
         st.session_state.n_ficheiros = n_ficheiros
