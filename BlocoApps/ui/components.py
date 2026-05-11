@@ -79,7 +79,7 @@ def render_header(api_key_final: str) -> None:
         <div class="header-band">
             <div>
                 <div class="header-title">Bloco<span>AI</span> — Master Cross-Audit</div>
-                <div class="header-tag">Análise Técnica · Motor LangGraph · 3 Agentes</div>
+                <div class="header-tag">Análise Técnica · Motor LangGraph · Multi-Agentes</div>
             </div>
             <div style="display:flex;align-items:center;gap:0.8rem">{badge_html}</div>
         </div>
@@ -132,7 +132,6 @@ def ensure_session_defaults() -> None:
 def render_upload_section():
     st.markdown("""
     <div class="section-card">
-        <span class="section-number">STEP 01 / 03</span>
         <div class="section-title">📂 Documentos de Entrada</div>
     </div>
     """, unsafe_allow_html=True)
@@ -141,10 +140,10 @@ def render_upload_section():
 
     with col_boq:
         st.markdown('<div class="upload-label">BOQ — Bill of Quantities</div>'
-                    '<div class="upload-desc">Ficheiro de orçamento principal · Excel, CSV ou PDF</div>',
+                    '<div class="upload-desc">Ficheiro de orçamento principal · CSV</div>',
                     unsafe_allow_html=True)
         
-        file_boq = st.file_uploader("BOQ", type=["xlsx","xls","csv","pdf"], key="boq", label_visibility="collapsed")
+        file_boq = st.file_uploader("BOQ", type=["csv"], key="boq", label_visibility="collapsed")
 
     with col_specs:
         st.markdown('<div class="upload-label">Cadernos de Encargos — Specs</div>'
@@ -172,84 +171,14 @@ def render_focus_section() -> str:
     )
 
 
-def render_context_upload_section() -> tuple[bool, bool]:
-    """
-    Secção para carregar JSONs editados de contexto ANTES da extração.
-    Retorna (specs_carregado, boq_carregado)
-    """
-    st.markdown("""
-    <div class="section-card">
-        <span class="section-number">STEP 02 / 03</span>
-        <div class="section-title">📋 Contextos JSON Editados (Opcional)</div>
-    </div>
-    """, unsafe_allow_html=True)
-
-    st.info(
-        "Se tens JSONs de contexto já editados, carrega-os aqui. "
-        "Caso contrário, serão gerados automaticamente a partir dos documentos."
-    )
-
-    col1, col2 = st.columns(2, gap="large")
-
-    specs_carregado = False
-    boq_carregado = False
-
-    # SPECS
-    with col1:
-        st.markdown("### AGT-01 — Specs Context JSON")
-        
-        uploaded_specs = st.file_uploader(
-            "Carregar Specs JSON editado (opcional)",
-            type=["json"],
-            key="upload_specs_pre_extracao",
-        )
-
-        if uploaded_specs is not None:
-            try:
-                raw = uploaded_specs.read().decode("utf-8")
-                parsed = json.loads(raw)
-                st.session_state.pre_loaded_specs_json = json.dumps(parsed, ensure_ascii=False, indent=2)
-                specs_carregado = True
-                st.success("✓ Specs JSON carregado.")
-            except Exception as e:
-                st.error(f"✗ Erro no Specs JSON: {e}")
-        else:
-            if st.session_state.get("pre_loaded_specs_json"):
-                specs_carregado = True
-                st.caption("✓ Specs JSON já carregado")
-
-    # BOQ
-    with col2:
-        st.markdown("### AGT-02 — BOQ Context JSON")
-        
-        uploaded_boq = st.file_uploader(
-            "Carregar BOQ JSON editado (opcional)",
-            type=["json"],
-            key="upload_boq_pre_extracao",
-        )
-
-        if uploaded_boq is not None:
-            try:
-                raw = uploaded_boq.read().decode("utf-8")
-                parsed = json.loads(raw)
-                st.session_state.pre_loaded_boq_json = json.dumps(parsed, ensure_ascii=False, indent=2)
-                boq_carregado = True
-                st.success("✓ BOQ JSON carregado.")
-            except Exception as e:
-                st.error(f"✗ Erro no BOQ JSON: {e}")
-        else:
-            if st.session_state.get("pre_loaded_boq_json"):
-                boq_carregado = True
-                st.caption("✓ BOQ JSON já carregado")
-
-    return specs_carregado, boq_carregado
+   
 
 
 def render_start_section(api_key_final: str, file_boq, files_specs) -> bool:
 
     col_btn, col_hint = st.columns([2, 5], gap="medium")
     with col_btn:
-        iniciar = st.button("① GERAR CONTEXTOS JSON", use_container_width=True)
+        iniciar = st.button("Iniciar Extração Completa", use_container_width=True)
     with col_hint:
         if not api_key_final:
             st.markdown(
@@ -296,7 +225,7 @@ def render_results() -> None:
     st.markdown(
         f"""
         <div class="results-header">
-            <div class="results-title">📋 Relatório Executivo de Auditoria</div>
+            <div class="results-title">📋 Relatório Completo</div>
             <div class="results-meta">Auditoria concluída · {st.session_state.n_ficheiros} ficheiro(s)</div>
         </div>
         """,
@@ -329,43 +258,7 @@ def render_results() -> None:
     st.markdown("</div>", unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
 
-    if st.session_state.resumo_specs:
-        st.markdown(
-            f"""
-            <div class="results-subsection">
-                <div class="results-subtitle">🧾 Contexto Extraído das SPECS</div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-        st.text_area(
-            "Resumo extraído das SPECS",
-            value=st.session_state.resumo_specs,
-            height=220,
-            disabled=True,
-            key="resumo_specs_preview",
-        )
-        st.markdown("<div style='height:0.75rem'></div>", unsafe_allow_html=True)
-        st.markdown('<div class="dl-btn">', unsafe_allow_html=True)
-        col_dl2, _ = st.columns([2, 5])
-        with col_dl2:
-            st.download_button(
-                "📥 Descarregar Contexto SPECS (.json)",
-                data=st.session_state.resumo_specs,
-                file_name="Specs_Extraction_Context.json",
-                mime="application/json",
-                use_container_width=True,
-            )
-            if st.session_state.resumo_boq:
-                st.download_button(
-                    "📥 Descarregar Contexto BOQ (.json)",
-                    data=st.session_state.resumo_boq,
-                    file_name="BOQ_Extraction_Context.json",
-                    mime="application/json",
-                    use_container_width=True,
-                )
-        st.markdown("</div>", unsafe_allow_html=True)
-
+ 
     st.markdown("<div style='height:1rem'></div>", unsafe_allow_html=True)
     st.markdown('<div class="dl-btn">', unsafe_allow_html=True)
     col_dl1, _ = st.columns([2, 5])
@@ -373,163 +266,11 @@ def render_results() -> None:
         st.download_button(
             "📥 Descarregar Relatório (.txt)",
             data=st.session_state.relatorio_final,
-            file_name="Auditoria_Master_BlocoAI.txt",
+            file_name="BlocoAI_Relatorio.txt",
             use_container_width=True,
         )
     st.markdown("</div>", unsafe_allow_html=True)
 
-def _validar_json_texto(texto: str) -> tuple[bool, str]:
-    try:
-        json.loads(texto)
-        return True, "JSON válido."
-    except Exception as e:
-        return False, f"JSON inválido: {e}"
 
 
-def render_context_review_section() -> bool:
-    """
-    Secção para:
-    - descarregar os JSONs gerados pelos agentes
-    - carregar versões editadas manualmente (OPCIONAL)
-    - usar valores por defeito ou avançar com edições
-    - avançar para a auditoria
-    """
-    if not st.session_state.get("contextos_extraidos"):
-        return False
-
-    st.markdown("""
-    <div class="section-card" style="margin-top:0.8rem">
-        <span class="section-number">REVIEW / EDIT</span>
-        <div class="section-title">🧾 Contextos JSON para Revisão Manual</div>
-    </div>
-    """, unsafe_allow_html=True)
-
-    st.info(
-        "✓ Podes descarregar os JSONs, editar manualmente e recarregar aqui. "
-        "Ou prosseguir com os valores por defeito."
-    )
-
-    # Garante defaults
-    if not st.session_state.get("edited_specs_json"):
-        st.session_state.edited_specs_json = st.session_state.get("resumo_specs", "")
-
-    if not st.session_state.get("edited_boq_json"):
-        st.session_state.edited_boq_json = st.session_state.get("resumo_boq", "")
-
-    col1, col2 = st.columns(2, gap="large")
-
-    # ==========================================================
-    # SPECS
-    # ==========================================================
-    with col1:
-        st.markdown("### AGT-01 — Specs Context JSON")
-
-        if st.session_state.get("resumo_specs"):
-            st.download_button(
-                "📥 Descarregar Specs JSON",
-                data=st.session_state.resumo_specs,
-                file_name="AGT01_Specs_Context_Editavel.json",
-                mime="application/json",
-                use_container_width=True,
-            )
-
-        uploaded_specs = st.file_uploader(
-            "Carregar Specs JSON editado manualmente (opcional)",
-            type=["json"],
-            key="upload_specs_json_editado",
-        )
-
-        specs_custom_loaded = False
-
-        if uploaded_specs is not None:
-            try:
-                raw = uploaded_specs.read().decode("utf-8")
-                parsed = json.loads(raw)
-                st.session_state.edited_specs_json = json.dumps(parsed, ensure_ascii=False, indent=2)
-                specs_custom_loaded = True
-                st.success("✓ Specs JSON carregado e validado.")
-            except Exception as e:
-                st.error(f"✗ Erro no Specs JSON: {e}")
-        
-        if not uploaded_specs:
-            st.caption("Deixar em branco para usar contexto por defeito")
-
-    # ==========================================================
-    # BOQ
-    # ==========================================================
-    with col2:
-        st.markdown("### AGT-02 — BOQ Context JSON")
-
-        if st.session_state.get("resumo_boq"):
-            st.download_button(
-                "📥 Descarregar BOQ JSON",
-                data=st.session_state.resumo_boq,
-                file_name="AGT02_BOQ_Context_Editavel.json",
-                mime="application/json",
-                use_container_width=True,
-            )
-
-        uploaded_boq = st.file_uploader(
-            "Carregar BOQ JSON editado manualmente (opcional)",
-            type=["json"],
-            key="upload_boq_json_editado",
-        )
-
-        boq_custom_loaded = False
-
-        if uploaded_boq is not None:
-            try:
-                raw = uploaded_boq.read().decode("utf-8")
-                parsed = json.loads(raw)
-                st.session_state.edited_boq_json = json.dumps(parsed, ensure_ascii=False, indent=2)
-                boq_custom_loaded = True
-                st.success("✓ BOQ JSON carregado e validado.")
-            except Exception as e:
-                st.error(f"✗ Erro no BOQ JSON: {e}")
-        
-        if not uploaded_boq:
-            st.caption("Deixar em branco para usar contexto por defeito")
-
-    st.markdown("---")
-
-    # Lógica de decisão: podes prosseguir mesmo sem carregar ficheiros
-    ficheiros_editados_carregados = specs_custom_loaded and boq_custom_loaded
-    pode_usar_defaults = st.session_state.get("resumo_specs") and st.session_state.get("resumo_boq")
-
-    # Marca se há contextos validados (quer do custom upload, quer dos defaults)
-    st.session_state.contextos_validados = True
-
-    if ficheiros_editados_carregados:
-        st.markdown(
-            '<div style="padding:0.6rem;background:#0a3a1a;border-left:3px solid #4ade80;border-radius:4px;margin-bottom:0.8rem">'
-            '<span style="color:#4ade80;font-weight:600">✓ Ficheiros editados carregados</span> — A auditoria será executada com os teus JSONs customizados.</div>',
-            unsafe_allow_html=True,
-        )
-    elif pode_usar_defaults:
-        st.markdown(
-            '<div style="padding:0.6rem;background:#1a2a3a;border-left:3px solid #5a9aff;border-radius:4px;margin-bottom:0.8rem">'
-            '<span style="color:#5a9aff;font-weight:600">ℹ Modo padrão</span> — A auditoria será executada com os contextos gerados automaticamente.</div>',
-            unsafe_allow_html=True,
-        )
-    else:
-        st.warning("✗ Sem contextos disponíveis. Volta à etapa anterior para gerar os JSONs.")
-        return False
-
-    col_btn_cont, col_btn_skip = st.columns(2, gap="medium")
-
-    with col_btn_cont:
-        prosseguir = st.button(
-            "✅ Prosseguir para Auditoria",
-            use_container_width=True,
-            type="primary",
-        )
-    
-    with col_btn_skip:
-        st.button(
-            "🔄 Regenerar Contextos",
-            use_container_width=True,
-            disabled=True,
-            help="Volta à etapa anterior se precisares de novos contextos.",
-        )
-
-    return prosseguir
+ 
