@@ -87,8 +87,10 @@ Goal: Extract PROJECT-WIDE ENGINEERING BASELINES from technical specification do
 ABSOLUTE RULES:
 - Do NOT omit information that is present in the text.
 - Do NOT invent information outside what is written.
-- Ignore EVERYTHING related to CONCRETE (grades, mixes, reinforcement, slabs, blinding, etc.). Concrete is out of scope.
+- Ignore EVERYTHING related to CONCRETE (grades, mixes, reinforcement, slabs, blinding, membranes, waterproofing for concrete, etc.). Concrete is OUT OF SCOPE - NEVER INCLUDE IT.
 - NEVER include ANY concrete-related information in the output, no exceptions.
+- QUANTITIES ARE NOT IMPORTANT: Do not include volume, weight, linear meters, quantities, or unit prices. Focus ONLY on technical specifications, standards, and execution rules.
+- Discard any commercial/purchasing information (quantities, supplier names, delivery dates, costs).
 
 Use these extraction rules exactly as provided (do not rewrite them):
 {REGRAS_EXTRACAO}
@@ -168,9 +170,10 @@ OUTPUT FORMAT (STRICT):
                 'Extract and structure all technical specifications from this document.\n'
                 'Process the ENTIRE document from start to end.\n'
                 'Output ONLY valid JSON following the schema provided.\n'
-                'Do NOT omit any requirements found in the document.\n'
+                'Do NOT omit any technical requirements found in the document.\n'
                 'Do NOT invent requirements outside the document.\n'
-                'Do NOT include any CONCRETE-related content.\n\n'
+                'STRICT: Do NOT include ANY CONCRETE-related content whatsoever.\n'
+                'STRICT: Ignore ALL quantities, volumes, weights, and commercial data.\n\n'
                 f'FILE: {nome_ficheiro}\n'
                 f'DOCUMENT:\n{chunks[0]}'
             ))
@@ -201,10 +204,12 @@ def extrair_boq_json_estruturado(texto_boq: str, nome_ficheiro: str, contexto_sp
 Goal: Extract COMPLETE Project Structure from BOQ document into JSON format with full Phase→Zone mapping.
 
 ABSOLUTE RULES:
-- Do NOT omit information from the BOQ.
+- Do NOT omit STRUCTURAL INFORMATION from the BOQ.
 - Do NOT invent information outside what is written.
-- Ignore EVERYTHING related to CONCRETE. Concrete is out of scope.
-- NEVER include ANY concrete information.
+- Ignore EVERYTHING related to CONCRETE (grades, slabs, reinforcement, waterproofing, membranes for concrete). Concrete is OUT OF SCOPE - NEVER INCLUDE IT.
+- NEVER include ANY concrete information whatsoever.
+- QUANTITIES ARE NOT IMPORTANT: Exclude volumes, weights, unit prices, delivery dates. Extract ONLY technical/structural content.
+- Discard all commercial line items (purchasing info, supplier data, costs, quantities).
 
 Use these extraction rules:
 {REGRAS_EXTRACAO}
@@ -299,6 +304,8 @@ OUTPUT:
                 "Extract complete project structure from this BOQ document.\n"
                 "Process TOP-TO-BOTTOM and output ONLY valid JSON.\n"
                 "Follow all 7 extraction steps above.\n"
+                "CRITICAL: Do NOT include ANY concrete-related items whatsoever.\n"
+                "CRITICAL: Do NOT include quantities, volumes, weights, or commercial data.\n"
                 "Include metadata with summary.\n\n"
                 f"FILE: {nome_ficheiro}\n"
                 f"DOCUMENT:\n{chunks[0]}"
@@ -329,17 +336,19 @@ def extrair_boq_com_contexto(texto_boq: str, nome_ficheiro: str, contexto_specs:
 
     sys_msg = SystemMessage(content=f"""You are an Expert Estimator and Technical Data Hunter.
 
-Goal: Extract technical cost drivers from BOQ text.
+Goal: Extract technical specifications and execution requirements from BOQ text.
 You may USE the SPECS context ONLY to:
 - recognize what is technical/important,
 - and enable later cross-document comparison.
 You MUST NOT treat it as truth that overrides BOQ text.
 
 ABSOLUTE RULES:
-- Do NOT omit information that is present in the BOQ.
+- Do NOT omit TECHNICAL INFORMATION that is present in the BOQ.
 - Do NOT invent information outside what is written.
-- Ignore EVERYTHING related to CONCRETE (grades, mixes, reinforcement, slabs, blinding, membranes for concrete works, etc.). Concrete is out of scope.
+- Ignore EVERYTHING related to CONCRETE (grades, mixes, reinforcement, slabs, blinding, membranes for concrete works, waterproofing for concrete, etc.). Concrete is OUT OF SCOPE - NEVER INCLUDE IT.
 - NEVER include ANY concrete-related information in the output, no exceptions.
+- QUANTITIES ARE NOT IMPORTANT: Exclude all quantities, volumes, weights, unit prices, commercial totals, and purchasing data.
+- Extract ONLY technical specifications, standards, execution requirements, and structural details.
 
 Use these extraction rules exactly as provided (do not rewrite them):
 {REGRAS_EXTRACAO}
@@ -390,9 +399,11 @@ OUTPUT FORMAT (STRICT):
         resumo = _invocar_llm(llm, [
             sys_msg,
             HumanMessage(content=(
-                "Extract and organize all technical records from this ENTIRE BOQ document.\n"
+                "Extract and organize all TECHNICAL records from this ENTIRE BOQ document.\n"
                 "Process from TOP-TO-BOTTOM maintaining Phase/Zone/Subzone context.\n"
-                "Output structured narrative grouped by Phase→Zone→Subzone→Category.\n\n"
+                "Output structured narrative grouped by Phase→Zone→Subzone→Category.\n"
+                "CRITICAL: Do NOT include concrete-related items, quantities, or commercial data.\n"
+                "Focus ONLY on technical specifications, standards, and execution requirements.\n\n"
                 f"FILE: {nome_ficheiro}\n"
                 f"DOCUMENT:\n{chunks[0]}"
             ))
@@ -469,10 +480,12 @@ INPUT:
 - SPECS baseline bullets
 
 ABSOLUTE RULES:
-- Do NOT omit information present in the inputs.
+- Do NOT omit TECHNICAL INFORMATION present in the inputs.
 - Do NOT invent information outside the inputs.
-- Ignore EVERYTHING related to CONCRETE. Concrete is out of scope.
+- Ignore EVERYTHING related to CONCRETE (all concrete-related items are OUT OF SCOPE - NEVER INCLUDE THEM).
+- QUANTITIES ARE NOT IMPORTANT: Exclude all quantities, volumes, weights, and commercial data from the audit.
 - No recommendations, next steps, questions, or offers.
+- Focus ONLY on technical specifications, standards, and execution rules.
 
 EMPTY ZONE RULE (CRITICAL FOR ANTI-HALLUCINATION):
 - If a Subzone has NO data related to Steel, Decking, Fire, Corrosion, or Metal Fabrications in the BOQ extract, DO NOT force the 5 categories.
@@ -542,10 +555,12 @@ INPUT:
 - A structured audit with Phase/Zone/Subzone and categories.
 
 ABSOLUTE RULES:
-- Do NOT omit any information that exists in the input audit.
+- Do NOT omit any TECHNICAL INFORMATION that exists in the input audit.
 - Do NOT invent any information outside the input audit.
-- Remove/ignore EVERYTHING related to CONCRETE. Concrete is out of scope.
+- REMOVE/IGNORE EVERYTHING related to CONCRETE (all concrete items are OUT OF SCOPE - NEVER INCLUDE THEM).
+- QUANTITIES ARE NOT IMPORTANT: Remove/ignore all quantities, volumes, weights, and commercial information.
 - No recommendations, next steps, questions, or offers.
+- Keep ONLY technical specifications, standards, and execution requirements.
 
 GOAL:
 - Prevent the SAME technical spec from appearing in multiple categories within the same Subzone.
@@ -605,15 +620,20 @@ Your goal is to transform a raw technical audit into a high-value Executive Repo
 
 ABSOLUTE FILTRATION RULES:
 1. DELETE OUT-OF-SCOPE: Completely remove any Zone or Subzone marked as "[OUT OF SCOPE...]".
-2. DELETE INCOMPLETE DATA: If a Subzone only contains "MISSING BASELINE" statuses and has zero "ALIGNED" or "CONFLICT" items, DELETE that entire Subzone. We only want to see areas with confirmed data or actual errors.
-3. DELETE EMPTY CATEGORIES: Within a valid Subzone, if a category (e.g., Composite Decking) is empty or only says "None/Not applicable", delete that category.
-4. HIERARCHICAL CLEANUP: 
+2. DELETE ALL CONCRETE REFERENCES: Remove ANY text, categories, or items mentioning concrete, concrete reinforcement, concrete slabs, concrete waterproofing, or concrete-related work. Concrete is COMPLETELY OUT OF SCOPE.
+3. DELETE ALL QUANTITIES: Remove ALL quantities, volumes, weights, unit prices, linear meters, and commercial information. Quantities do NOT matter for this report.
+4. DELETE INCOMPLETE DATA: If a Subzone only contains "MISSING BASELINE" statuses and has zero "ALIGNED" or "CONFLICT" items, DELETE that entire Subzone. We only want to see areas with confirmed data or actual errors.
+5. DELETE EMPTY CATEGORIES: Within a valid Subzone, if a category (e.g., Composite Decking) is empty or only says "None/Not applicable", delete that category.
+6. HIERARCHICAL CLEANUP: 
    - If all Subzones of a Zone are deleted, delete the Zone.
    - If all Zones of a Phase are deleted, delete the Phase.
 
 PRESERVATION RULES:
 - Do NOT delete the "GLOBAL INCONSISTENCIES" table. This table must remain complete as it summarizes the project risks.
-- For the remaining sections, preserve the technical detail (grades, standards, DFTs).
+- For the remaining sections, preserve ONLY the technical detail (grades, standards, DFTs, execution classes, standards references).
+- DO NOT preserve quantities, volumes, weights, costs, or any concrete-related information.
+- Only keep information relevant to Steel, Decking, Fire Protection, Corrosion Protection, and Metal Fabrications.
+- Focus on WHAT must be done, not HOW MUCH of it.
 
 FORMATTING:
 - Use clear headings and professional Markdown.
