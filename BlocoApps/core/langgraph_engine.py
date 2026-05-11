@@ -1,6 +1,4 @@
 import logging
-import time
-import concurrent.futures
 from typing import Any, TypedDict
 
 from langchain_core.messages import HumanMessage, SystemMessage
@@ -51,28 +49,13 @@ class AuditoriaState(TypedDict):
 
 
 # ─────────────────────────────────────────────────────────────
-# Chunking
+# Leitura de Documento Completo
 # ─────────────────────────────────────────────────────────────
-def _chunkar(texto: str, tamanho: int = 35000, overlap_linhas: int = 5) -> list:
+def _obter_documento_completo(texto: str) -> list:
+    """Retorna o texto completo num único chunk (sem divisão)."""
     if not texto:
         return []
-    linhas = texto.splitlines(keepends=True)
-    chunks = []
-    chunk_atual: list[str] = []
-    tamanho_atual = 0
-
-    for linha in linhas:
-        if tamanho_atual + len(linha) > tamanho and chunk_atual:
-            chunks.append("".join(chunk_atual))
-            chunk_atual = chunk_atual[-overlap_linhas:]
-            tamanho_atual = sum(len(l) for l in chunk_atual)
-
-        chunk_atual.append(linha)
-        tamanho_atual += len(linha)
-
-    if chunk_atual:
-        chunks.append("".join(chunk_atual))
-    return chunks
+    return [texto]
 
 
 # ─────────────────────────────────────────────────────────────
@@ -93,88 +76,279 @@ def _invocar_llm(llm, mensagens: list) -> str:
 # AGT-01: SPECS baseline (sem betão)
 # ======================================================================
 def extrair_specs(texto_specs: str, nome_ficheiro: str, llm, prog_placeholder, status_placeholder) -> str:
-    chunks = _chunkar(texto_specs, tamanho=35000, overlap_linhas=5)
+    chunks = _obter_documento_completo(texto_specs)
     if not chunks:
         return ""
 
-    sys_msg = SystemMessage(content=f"""You are a Senior Construction Specifications Analyst.
+    sys_msg = SystemMessage(content=f"""You are a Senior Construction Specifications Analyst and Technical Data Structuralist.
 
-Goal: Extract PROJECT-WIDE ENGINEERING BASELINES from technical specification documents.
+Goal: Extract PROJECT-WIDE ENGINEERING BASELINES from technical specification documents and structure into JSON format.
 
 ABSOLUTE RULES:
 - Do NOT omit information that is present in the text.
 - Do NOT invent information outside what is written.
-- Ignore EVERYTHING related to CONCRETE (grades, mixes, reinforcement, slabs, blinding, etc.). Concrete is out of scope.
+- Ignore EVERYTHING related to CONCRETE (grades, mixes, reinforcement, slabs, blinding, membranes, waterproofing for concrete, etc.). Concrete is OUT OF SCOPE - NEVER INCLUDE IT.
 - NEVER include ANY concrete-related information in the output, no exceptions.
+- QUANTITIES ARE NOT IMPORTANT: Do not include volume, weight, linear meters, quantities, or unit prices. Focus ONLY on technical specifications, standards, and execution rules.
+- Discard any commercial/purchasing information (quantities, supplier names, delivery dates, costs).
 
 Use these extraction rules exactly as provided (do not rewrite them):
 {REGRAS_EXTRACAO}
 
+REQUIRED JSON OUTPUT SCHEMA (MUST FOLLOW EXACTLY):
+{{
+  "spec_document": {{
+    "section_code": "String (ex: '05 12 00' or 'NOT FOUND')",
+    "title": "String (ex: 'Structural Steel Framing')"
+  }},
+  "reference_standards": [
+    {{
+      "code": "String (ex: 'NBN EN 1090')",
+      "description": "String (Brief description of the standard)"
+    }}
+  ],
+  "materials": [
+    {{
+      "category": "String (ex: 'Structural Steel', 'High-Strength Bolts')",
+      "grade_or_type": "String (ex: 'S355JR', 'Grade 8.8')",
+      "specific_rules": ["String (Rule 1)", "String (Rule 2)"]
+    }}
+  ],
+  "finishes_and_protection": [
+    {{
+      "system_type": "String (ex: 'Galvanizing', 'Intumescent Paint')",
+      "environment_class": "String (ex: 'C4', 'C2', 'NOT SPECIFIED')",
+      "products_or_standards": "String (ex: 'EN ISO 1461', 'FIRETEX FX2003')",
+      "preparation_rules": "String (ex: 'Sa 2.5 blast cleaning')"
+    }}
+  ],
+  "execution_and_tolerances": [
+    {{
+      "element": "String (ex: 'Steel Erection', 'Deck Installation')",
+      "execution_class": "String (ex: 'EXC2', 'NOT SPECIFIED')",
+      "tolerances_and_rules": ["String (Execution rule 1)", "String (Tolerance rule 2)"]
+    }}
+  ],
+  "qa_qc_and_submittals": [
+    {{
+      "requirement_type": "String (ex: 'Testing', 'Shop Drawings')",
+      "description": "String (Detailed quality/submittal requirement)"
+    }}
+  ]
+}}
+
+EXTRACTION INSTRUCTIONS:
+1. SPEC_DOCUMENT: Locate section code and title from document header or intro.
+2. REFERENCE_STANDARDS: Extract ALL referenced EN/CEN/ISO/NBN standards with their purposes.
+3. MATERIALS: Group by material category; extract grades, types, and all applicable rules (no omissions).
+4. FINISHES_AND_PROTECTION: Extract galvanizing, paint systems, corrosion classifications (C2/C4), DFT specs, intumescent details, surface prep standards (Sa 2.5, etc.).
+5. EXECUTION_AND_TOLERANCES: Execution classes (EXC2 etc), tolerances, erection rules, temporary bracing, alignment rules.
+6. QA_QC_AND_SUBMITTALS: Shop drawings, testing requirements, mill certificates, welder certificates, pre-construction meetings, Quality Plan requirements, DFT control, field inspection.
+
 OUTPUT FORMAT (STRICT):
-- Plain text only (no JSON, no markdown).
-- Each line must start with "- " and be one reusable baseline rule.
-- No recommendations, next steps, questions, or offers.
+- ONLY valid JSON (no markdown, no code blocks, no extra text before/after JSON).
+- All string fields must be populated (use "NOT FOUND" only if genuinely absent from document).
+- Arrays can be empty [] if no data found for that section.
+- No recommendations, next steps, questions, or offers in any field.
+- Ensure JSON is properly formatted and valid.
 """)
 
-    resumos = [None] * len(chunks)
+    try:
+        if status_placeholder:
+            status_placeholder.markdown(
+                f"<div style=\"font-family:'Space Mono',monospace;font-size:0.72rem;color:#3a6aaa\">"
+                f"<span style=\"color:#5a9aff\">AGT-01 (Specs Structurer)</span>"
+                f" &nbsp;·&nbsp; Processando documento e estruturando em JSON...</div>",
+                unsafe_allow_html=True
+            )
+        if prog_placeholder:
+            prog_placeholder.progress(0.5)
 
-    def processar_bloco_specs(chunk_text: str, index: int) -> str:
-        time.sleep(index * 10.0)
-        return _invocar_llm(llm, [
+        resumo = _invocar_llm(llm, [
             sys_msg,
             HumanMessage(content=(
-                'Extract reusable baseline rules from this chunk.\n'
-                'Only output bullet lines starting with "- ".\n'
-                'No extra text.\n\n'
+                'Extract and structure all technical specifications from this document.\n'
+                'Process the ENTIRE document from start to end.\n'
+                'Output ONLY valid JSON following the schema provided.\n'
+                'Do NOT omit any technical requirements found in the document.\n'
+                'Do NOT invent requirements outside the document.\n'
+                'STRICT: Do NOT include ANY CONCRETE-related content whatsoever.\n'
+                'STRICT: Ignore ALL quantities, volumes, weights, and commercial data.\n\n'
                 f'FILE: {nome_ficheiro}\n'
-                f'CHUNK:\n{chunk_text}'
+                f'DOCUMENT:\n{chunks[0]}'
             ))
         ])
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
-        future_to_idx = {executor.submit(processar_bloco_specs, chunk, i): i for i, chunk in enumerate(chunks)}
-        for i, future in enumerate(concurrent.futures.as_completed(future_to_idx)):
-            idx = future_to_idx[future]
-            try:
-                resumos[idx] = future.result()
-            except Exception as e:
-                resumos[idx] = f"[Bloco SPECS {idx+1} falhou: {type(e).__name__}: {e}]"
-
-            if status_placeholder:
-                pct = int(((i + 1) / len(chunks)) * 100)
-                status_placeholder.markdown(
-                    f"<div style=\"font-family:'Space Mono',monospace;font-size:0.72rem;color:#3a6aaa\">"
-                    f"<span style=\"color:#5a9aff\">AGT-01 (Specs Reader)</span>"
-                    f" &nbsp;·&nbsp; Processados {i+1}/{len(chunks)} blocos &nbsp;·&nbsp; {pct}%</div>",
-                    unsafe_allow_html=True
-                )
-            if prog_placeholder:
-                prog_placeholder.progress((i + 1) / len(chunks))
-
-    return "\n".join([r for r in resumos if r])
+        if prog_placeholder:
+            prog_placeholder.progress(1.0)
+        
+        return resumo
+    except Exception as e:
+        return f"[AGT-01 falhou: {type(e).__name__}: {e}]"
 
 
 # ======================================================================
 # AGT-02: BOQ extractor (sem betão) + Phase/Zone/Subzone
 # ======================================================================
+# ======================================================================
+# AGT-02: Extração estruturada de BOQ em JSON (para CSV)
+# ======================================================================
+def extrair_boq_json_estruturado(texto_boq: str, nome_ficheiro: str, contexto_specs: str, llm, prog_placeholder, status_placeholder) -> str:
+    """Extrai BOQ CSV em JSON estruturado com Phase/Zone mapping completo."""
+    chunks = _obter_documento_completo(texto_boq)
+    if not chunks:
+        return ""
+
+    sys_msg = SystemMessage(content=f"""You are an Expert BOQ Analyst and Data Structuralist.
+
+Goal: Extract COMPLETE Project Structure from BOQ document into JSON format with full Phase→Zone mapping.
+
+ABSOLUTE RULES:
+- Do NOT omit STRUCTURAL INFORMATION from the BOQ.
+- Do NOT invent information outside what is written.
+- Ignore EVERYTHING related to CONCRETE (grades, slabs, reinforcement, waterproofing, membranes for concrete). Concrete is OUT OF SCOPE - NEVER INCLUDE IT.
+- NEVER include ANY concrete information whatsoever.
+- QUANTITIES ARE NOT IMPORTANT: Exclude volumes, weights, unit prices, delivery dates. Extract ONLY technical/structural content.
+- Discard all commercial line items (purchasing info, supplier data, costs, quantities).
+
+Use these extraction rules:
+{REGRAS_EXTRACAO}
+
+SPECS CONTEXT (for Phase/Zone reference only):
+{contexto_specs}
+
+EXTRACTION STRATEGY (7-STEP):
+
+1) FULL EXTRACTION (Mandatory Structure)
+   Extract ALL Phases and Zones from document. Output ONLY valid JSON with this schema:
+   {{
+     "phases": [
+       {{
+         "name": "Phase 1",
+         "description": "...",
+         "zones": ["ZoneA", "ZoneB"],
+         "activities": ["Steel erection", "..."],
+         "dependencies": ["Phase 0 complete"],
+         "constraints": ["Access via north door"],
+         "source": "Section 2.1, Line X-Y"
+       }}
+     ],
+     "zones": [
+       {{
+         "name": "ZoneA",
+         "description": "...",
+         "phases": ["Phase 1", "Phase 2"],
+         "activities": ["Structural prep", "..."],
+         "logistics": "Crane access from main gate",
+         "source": "Section 3.2"
+       }}
+     ]
+   }}
+
+2) AGGRESSIVE KEYWORD SWEEP
+   Scan for: "phase", "stage", "zone", "area", "sector", "work package"
+   Extract FULL surrounding context.
+
+3) PHASE → ZONE MAPPING (no gaps)
+   Build complete mapping Phase→Zones. If phase has no zone, mark UNDEFINED.
+   If zone has no phase, flag it.
+
+4) SEQUENCING AND DEPENDENCIES
+   Reconstruct execution order: ordered phases, parallel phases, dependencies.
+
+5) CONTEXT ENFORCEMENT (For EACH Phase and Zone)
+   Extract:
+   * Work being executed
+   * Teams/roles (if present)
+   * Constraints (access, safety, sequencing)
+   * Risks
+   Use "NOT FOUND" if missing.
+
+6) CONSISTENCY CHECK
+   Validate: duplicate names, conflicting descriptions, missing links.
+   Flag issues with references.
+
+7) FINAL COMPRESSED OUTPUT
+   Include in JSON response:
+   {{
+     ...phases/zones above...,
+     "metadata": {{
+       "total_phases": N,
+       "total_zones": N,
+       "key_execution_logic": ["...", "...", "..."],
+       "critical_gaps": ["...", "..."]
+     }}
+   }}
+
+OUTPUT:
+- ONLY valid JSON (no markdown, no comments, no extra text).
+- All text fields must be populated (no empty strings).
+- Include page/section references in "source" fields.
+- Deterministic, fully traceable to source.
+""")
+
+    try:
+        if status_placeholder:
+            status_placeholder.markdown(
+                f"<div style=\"font-family:'Space Mono',monospace;font-size:0.72rem;color:#3a6aaa\">"
+                f"<span style=\"color:#5a9aff\">AGT-02 (BOQ Structurer)</span>"
+                f" &nbsp;·&nbsp; Processando estrutura de fases e zonas...</div>",
+                unsafe_allow_html=True
+            )
+        if prog_placeholder:
+            prog_placeholder.progress(0.5)
+
+        resumo = _invocar_llm(llm, [
+            sys_msg,
+            HumanMessage(content=(
+                "Extract complete project structure from this BOQ document.\n"
+                "Process TOP-TO-BOTTOM and output ONLY valid JSON.\n"
+                "Follow all 7 extraction steps above.\n"
+                "CRITICAL: Do NOT include ANY concrete-related items whatsoever.\n"
+                "CRITICAL: Do NOT include quantities, volumes, weights, or commercial data.\n"
+                "Include metadata with summary.\n\n"
+                f"FILE: {nome_ficheiro}\n"
+                f"DOCUMENT:\n{chunks[0]}"
+            ))
+        ])
+
+        if prog_placeholder:
+            prog_placeholder.progress(1.0)
+        
+        return resumo
+    except Exception as e:
+        return f"[AGT-02 (JSON) falhou: {type(e).__name__}: {e}]"
+
+
+# ======================================================================
+# AGT-02: Extração narrativa de BOQ (para PDF/DOCX)
+# ======================================================================
 def extrair_boq_com_contexto(texto_boq: str, nome_ficheiro: str, contexto_specs: str, llm, prog_placeholder, status_placeholder) -> str:
-    chunks = _chunkar(texto_boq, tamanho=35000, overlap_linhas=5)
+    # Detectar se é CSV para usar prompt estruturado
+    eh_csv = ".csv" in nome_ficheiro.lower()
+    
+    if eh_csv:
+        return extrair_boq_json_estruturado(texto_boq, nome_ficheiro, contexto_specs, llm, prog_placeholder, status_placeholder)
+    
+    chunks = _obter_documento_completo(texto_boq)
     if not chunks:
         return ""
 
     sys_msg = SystemMessage(content=f"""You are an Expert Estimator and Technical Data Hunter.
 
-Goal: Extract technical cost drivers from BOQ text.
+Goal: Extract technical specifications and execution requirements from BOQ text.
 You may USE the SPECS context ONLY to:
 - recognize what is technical/important,
 - and enable later cross-document comparison.
 You MUST NOT treat it as truth that overrides BOQ text.
 
 ABSOLUTE RULES:
-- Do NOT omit information that is present in the BOQ.
+- Do NOT omit TECHNICAL INFORMATION that is present in the BOQ.
 - Do NOT invent information outside what is written.
-- Ignore EVERYTHING related to CONCRETE (grades, mixes, reinforcement, slabs, blinding, membranes for concrete works, etc.). Concrete is out of scope.
+- Ignore EVERYTHING related to CONCRETE (grades, mixes, reinforcement, slabs, blinding, membranes for concrete works, waterproofing for concrete, etc.). Concrete is OUT OF SCOPE - NEVER INCLUDE IT.
 - NEVER include ANY concrete-related information in the output, no exceptions.
+- QUANTITIES ARE NOT IMPORTANT: Exclude all quantities, volumes, weights, unit prices, commercial totals, and purchasing data.
+- Extract ONLY technical specifications, standards, execution requirements, and structural details.
 
 Use these extraction rules exactly as provided (do not rewrite them):
 {REGRAS_EXTRACAO}
@@ -189,7 +363,7 @@ PHASE RULE:
 
 ZONE/SUBZONE CONTEXT RULES (MANDATORY, DO NOT GUESS):
 - Valid ZONE is a 3-letter building code.
-- Maintain CURRENT_ZONE and CURRENT_SUBZONE while reading the chunk TOP-TO-BOTTOM.
+- Maintain CURRENT_ZONE and CURRENT_SUBZONE while reading the ENTIRE DOCUMENT TOP-TO-BOTTOM.
 
 Update CURRENT_ZONE / CURRENT_SUBZONE only using these patterns:
 1) Line is EXACTLY one 3-letter token (e.g., "DCH") → CURRENT_ZONE=<token>, CURRENT_SUBZONE=GENERAL
@@ -197,7 +371,7 @@ Update CURRENT_ZONE / CURRENT_SUBZONE only using these patterns:
 3) Line matches "<ZONE>-<anything>" → CURRENT_ZONE=<ZONE>, CURRENT_SUBZONE=<anything after dash>
 4) Internal headings like "MEMBRANES", "FLOOR SLABS", "STEEL DECKING" are NOT zones/subzones; they inherit CURRENT_ZONE and CURRENT_SUBZONE.
 
-If you cannot establish CURRENT_ZONE from any header above in the chunk, set Zone=UNKNOWN and Subzone=GENERAL.
+If you cannot establish CURRENT_ZONE from any header at the beginning, set Zone=UNKNOWN and Subzone=GENERAL.
 
 WHAT TO EXTRACT:
 - Only primary technical drivers for: steel/metal/decking/corrosion/fire protection.
@@ -206,48 +380,41 @@ WHAT TO EXTRACT:
 
 OUTPUT FORMAT (STRICT):
 - Plain text only (no JSON, no markdown).
-- One line per item, EXACTLY:
-[FILE: {nome_ficheiro}] | Phase: <phase> | Zone: <zone> | Subzone: <subzone> | Spec: <exact wording + [Linha]/[Pág] tag if present>
-- If nothing relevant in this chunk: output exactly "NO_RECORDS"
+- Structured NARRATIVE (NOT one-line templates).
+- Group by Phase → Zone → Subzone, then by category (Structural Steel / Decking / Fire / Corrosion / Metal Fabrics).
 - No recommendations, next steps, questions, or offers.
 """)
 
-    resumos = [None] * len(chunks)
+    try:
+        if status_placeholder:
+            status_placeholder.markdown(
+                f"<div style=\"font-family:'Space Mono',monospace;font-size:0.72rem;color:#3a6aaa\">"
+                f"<span style=\"color:#5a9aff\">AGT-02 (BOQ Hunter)</span>"
+                f" &nbsp;·&nbsp; Processando documento completo...</div>",
+                unsafe_allow_html=True
+            )
+        if prog_placeholder:
+            prog_placeholder.progress(0.5)
 
-    def processar_bloco_boq(chunk_text: str, index: int) -> str:
-        time.sleep(index * 10.0)
-        return _invocar_llm(llm, [
+        resumo = _invocar_llm(llm, [
             sys_msg,
             HumanMessage(content=(
-                "Extract records from this BOQ chunk TOP-TO-BOTTOM.\n"
-                "Preserve exact wording in Spec.\n"
-                "Include [Linha: X] or [Pág: Y] tag in Spec if present.\n"
-                "Output only strict template lines or NO_RECORDS.\n\n"
-                f"CHUNK:\n{chunk_text}"
+                "Extract and organize all TECHNICAL records from this ENTIRE BOQ document.\n"
+                "Process from TOP-TO-BOTTOM maintaining Phase/Zone/Subzone context.\n"
+                "Output structured narrative grouped by Phase→Zone→Subzone→Category.\n"
+                "CRITICAL: Do NOT include concrete-related items, quantities, or commercial data.\n"
+                "Focus ONLY on technical specifications, standards, and execution requirements.\n\n"
+                f"FILE: {nome_ficheiro}\n"
+                f"DOCUMENT:\n{chunks[0]}"
             ))
         ])
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
-        future_to_idx = {executor.submit(processar_bloco_boq, chunk, i): i for i, chunk in enumerate(chunks)}
-        for i, future in enumerate(concurrent.futures.as_completed(future_to_idx)):
-            idx = future_to_idx[future]
-            try:
-                resumos[idx] = future.result()
-            except Exception as e:
-                resumos[idx] = f"[Bloco BOQ {idx+1} falhou: {type(e).__name__}: {e}]"
-
-            if status_placeholder:
-                pct = int(((i + 1) / len(chunks)) * 100)
-                status_placeholder.markdown(
-                    f"<div style=\"font-family:'Space Mono',monospace;font-size:0.72rem;color:#3a6aaa\">"
-                    f"<span style=\"color:#5a9aff\">AGT-02 (BOQ Hunter)</span>"
-                    f" &nbsp;·&nbsp; Processados {i+1}/{len(chunks)} blocos &nbsp;·&nbsp; {pct}%</div>",
-                    unsafe_allow_html=True
-                )
-            if prog_placeholder:
-                prog_placeholder.progress((i + 1) / len(chunks))
-
-    return "\n\n".join([r for r in resumos if r])
+        if prog_placeholder:
+            prog_placeholder.progress(1.0)
+        
+        return resumo
+    except Exception as e:
+        return f"[AGT-02 falhou: {type(e).__name__}: {e}]"
 
 
 # ======================================================================
@@ -259,8 +426,8 @@ def no_router(state: AuditoriaState) -> dict:
 
 
 def no_extrator(state: AuditoriaState) -> dict:
-    llm_specs = ChatOpenAI(model="gpt-5-mini", api_key=state["_api_key"], temperature=0.0)
-    llm_boq = ChatOpenAI(model="gpt-5-mini", api_key=state["_api_key"], temperature=0.0)
+    llm_specs = ChatOpenAI(model="gpt-5.1", api_key=state["_api_key"], temperature=0.0)
+    llm_boq = ChatOpenAI(model="gpt-5.1", api_key=state["_api_key"], temperature=0.0)
 
     prog = state["_prog_slot"]
     status = state["_status_slot"]
@@ -298,7 +465,7 @@ def no_extrator(state: AuditoriaState) -> dict:
 # AGT-02B: Auditor (cruza BOQ vs SPECS) -> auditoria_bruta
 # ======================================================================
 def no_auditor(state: AuditoriaState) -> dict:
-    llm = ChatOpenAI(model="gpt-5-mini", api_key=state["_api_key"], temperature=0.1)
+    llm = ChatOpenAI(model="gpt-5.1", api_key=state["_api_key"], temperature=0.1)
     tentativas = state.get("tentativas", 0) + 1
 
     dados = (
@@ -313,10 +480,17 @@ INPUT:
 - SPECS baseline bullets
 
 ABSOLUTE RULES:
-- Do NOT omit information present in the inputs.
+- Do NOT omit TECHNICAL INFORMATION present in the inputs.
 - Do NOT invent information outside the inputs.
-- Ignore EVERYTHING related to CONCRETE. Concrete is out of scope.
+- Ignore EVERYTHING related to CONCRETE (all concrete-related items are OUT OF SCOPE - NEVER INCLUDE THEM).
+- QUANTITIES ARE NOT IMPORTANT: Exclude all quantities, volumes, weights, and commercial data from the audit.
 - No recommendations, next steps, questions, or offers.
+- Focus ONLY on technical specifications, standards, and execution rules.
+
+EMPTY ZONE RULE (CRITICAL FOR ANTI-HALLUCINATION):
+- If a Subzone has NO data related to Steel, Decking, Fire, Corrosion, or Metal Fabrications in the BOQ extract, DO NOT force the 5 categories.
+- Instead, simply write under the Subzone: "[OUT OF SCOPE: No relevant structural/metal items]" and move to the next.
+- If a specific category within a valid Subzone is completely empty (no BOQ items and no relevant Specs), DO NOT print that category.
 
 TASK:
 - Deduplicate within each Phase/Zone/Subzone.
@@ -327,6 +501,9 @@ OUTPUT FORMAT (STRICT):
 Phase: Phase N
 --> Zone: ZZZ
     ---> Subzone: <name>
+        [OUT OF SCOPE: No relevant structural/metal items]  <-- USE THIS IF TOTALLY EMPTY
+        
+        (If NOT empty, use the categories below. Only print the ones that have data or are missing a baseline):
         * Structural Steel:
             - BOQ: ...
             - SPECS: ...
@@ -366,7 +543,7 @@ END_OF_REPORT
 # AGT-03: Deduplicador cross-categoria (novo)
 # ======================================================================
 def no_deduplicador(state: AuditoriaState) -> dict:
-    llm = ChatOpenAI(model="gpt-5-mini", api_key=state["_api_key"], temperature=0.1)
+    llm = ChatOpenAI(model="gpt-5.1", api_key=state["_api_key"], temperature=0.1)
 
     base = (state.get("auditoria_bruta") or "").strip()
     if not base:
@@ -378,10 +555,12 @@ INPUT:
 - A structured audit with Phase/Zone/Subzone and categories.
 
 ABSOLUTE RULES:
-- Do NOT omit any information that exists in the input audit.
+- Do NOT omit any TECHNICAL INFORMATION that exists in the input audit.
 - Do NOT invent any information outside the input audit.
-- Remove/ignore EVERYTHING related to CONCRETE. Concrete is out of scope.
+- REMOVE/IGNORE EVERYTHING related to CONCRETE (all concrete items are OUT OF SCOPE - NEVER INCLUDE THEM).
+- QUANTITIES ARE NOT IMPORTANT: Remove/ignore all quantities, volumes, weights, and commercial information.
 - No recommendations, next steps, questions, or offers.
+- Keep ONLY technical specifications, standards, and execution requirements.
 
 GOAL:
 - Prevent the SAME technical spec from appearing in multiple categories within the same Subzone.
@@ -429,35 +608,66 @@ OUTPUT:
 # AGT-04: Apresentador (formata)
 # ======================================================================
 def no_apresentador(state: AuditoriaState) -> dict:
-    llm = ChatOpenAI(model="gpt-5-mini", api_key=state["_api_key"], temperature=0.1)
+    # Usamos o gpt-4o para reestruturação complexa de dados (Data Pivot)
+    llm = ChatOpenAI(model="gpt-4o", api_key=state["_api_key"], temperature=0.1)
 
     base = (state.get("auditoria_normalizada") or state.get("auditoria_bruta") or "").strip()
     if not base:
         return {"relatorio_final": ""}
 
-    sys_msg = SystemMessage(content="""You are an Executive Technical Writer.
-
-Task: format the audit into a clean, readable report.
+    sys_msg = SystemMessage(content="""You are a Lead Estimator and Executive Technical Writer.
+Your task is to PIVOT a location-based technical audit into a TRADE PACKAGE-based Estimating Summary.
 
 ABSOLUTE RULES:
-- Do NOT add any new info.
-- Do NOT omit any info.
-- Do NOT add recommendations, next steps, questions, or offers.
-- Preserve Phase/Zone/Subzone structure.
-- Ignore/remove any CONCRETE content if still present.
+1. PIVOT THE DATA: The input is grouped by Phase -> Zone -> Subzone. You must completely restructure the output to be grouped by TRADE PACKAGE (e.g., Structural Steel, Composite Decking, Fire Protection, etc.).
+2. DO NOT INVENT DATA: Base everything ONLY on the provided audit. 
+3. BASELINE EXTRACTION: For each Trade Package, read all the "SPECS" entries in the input and synthesize them into a single "Baseline Scope" bulleted list (avoiding repetition).
+4. VARIATIONS TABLE: For each Trade Package, map the "BOQ" and "STATUS" entries into the "Scope Variations / Inclusions" table.
+5. DELETE NOISE: Ignore any zones marked as [OUT OF SCOPE] or completely missing.
 
-Formatting:
-- Convert GLOBAL INCONSISTENCIES into a Markdown table:
-| ID | Category | Location (Phase/Zone/Subzone) | Issue | Risk |
+REQUIRED OUTPUT FORMAT (Markdown STRICT):
+
+# Cross-Document Technical Audit:
+
+## 1. TRADE PACKAGE: STRUCTURAL STEEL
+**Baseline Scope:**
+- [Bullet points summarizing the core SPECS requirements for this trade (e.g., Grades, Execution class, Standards)]
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| [Phase] | [Zone] | [Brief BOQ description] | [Status or deviation from SPECS] |
+
+## 2. TRADE PACKAGE: COMPOSITE DECKING
+[Repeat structure...]
+
+## 3. TRADE PACKAGE: FIRE PROTECTION
+[Repeat structure...]
+
+## 4. TRADE PACKAGE: CORROSION PROTECTION
+[Repeat structure...]
+
+## 5. TRADE PACKAGE: METAL FABRICATIONS (STAIRS / RAILINGS / GRATINGS)
+[Repeat structure...]
+
+## GLOBAL INCONSISTENCIES (ESTIMATING RISK REGISTER)
+| ID | Trade Package | Issue | Risk | Estimating Action |
+|----|---------------|-------|------|-------------------|
+| 1  | [Trade]       | [Issue from input] | [High/Medium/Low] | [Recommended action for estimator] |
+
+END_OF_REPORT
 """)
 
     try:
-        relatorio = _invocar_llm(llm, [sys_msg, HumanMessage(content=f"Format this audit:\n\n{base}")])
+        relatorio = _invocar_llm(llm, [
+            sys_msg, 
+            HumanMessage(content=f"Pivot and format this location-based audit into the requested Trade Package Estimating Summary:\n\n{base}")
+        ])
         return {"relatorio_final": relatorio}
     except Exception as e:
         erros = list(state.get("erros", []))
-        erros.append(f"AGT-04 (format) ({type(e).__name__}): {e}")
-        return {"relatorio_final": "", "erros": erros}
+        erros.append(f"AGT-04 (Estimating Pivot) ({type(e).__name__}): {e}")
+        return {"relatorio_final": base, "erros": erros}
 
 
 # ======================================================================
@@ -493,14 +703,17 @@ def decidir_apos_dedupe(state: AuditoriaState) -> str:
 # ======================================================================
 # Construção do grafo
 # ======================================================================
-def construir_grafo() -> Any:
+def construir_grafo_extracao() -> Any:
+    """
+    Grafo curto:
+    - corre só AGT-01 Specs
+    - corre só AGT-02 BOQ
+    - para antes da auditoria
+    """
     workflow = StateGraph(AuditoriaState)
 
     workflow.add_node("router", no_router)
     workflow.add_node("extrair", no_extrator)
-    workflow.add_node("auditar", no_auditor)        # AGT-02B
-    workflow.add_node("dedupe", no_deduplicador)    # AGT-03
-    workflow.add_node("formatar", no_apresentador)  # AGT-04
     workflow.add_node("erro", no_erro)
 
     workflow.set_entry_point("router")
@@ -510,19 +723,50 @@ def construir_grafo() -> Any:
     workflow.add_conditional_edges(
         "extrair",
         decidir_apos_extracao,
-        {"auditar": "auditar", "erro": "erro"}
+        {
+            "auditar": END,
+            "erro": "erro",
+        },
     )
+
+    workflow.add_edge("erro", END)
+
+    return workflow.compile()
+
+
+def construir_grafo_auditoria() -> Any:
+    """
+    Grafo final:
+    - recebe resumo_specs e resumo_boq já editados/manualizados
+    - corre auditoria
+    - corre dedupe
+    - formata relatório final
+    """
+    workflow = StateGraph(AuditoriaState)
+
+    workflow.add_node("auditar", no_auditor)
+    workflow.add_node("dedupe", no_deduplicador)
+    workflow.add_node("formatar", no_apresentador)
+    workflow.add_node("erro", no_erro)
+
+    workflow.set_entry_point("auditar")
 
     workflow.add_conditional_edges(
         "auditar",
         decidir_apos_auditoria,
-        {"dedupe": "dedupe", "retry": "auditar", "erro": "erro"}
+        {
+            "dedupe": "dedupe",
+            "retry": "auditar",
+            "erro": "erro",
+        },
     )
 
     workflow.add_conditional_edges(
         "dedupe",
         decidir_apos_dedupe,
-        {"formatar": "formatar"}
+        {
+            "formatar": "formatar",
+        },
     )
 
     workflow.add_edge("formatar", END)

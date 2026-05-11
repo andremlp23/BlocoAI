@@ -1,4 +1,5 @@
 import streamlit as st
+import json
 import os
 
 
@@ -78,7 +79,7 @@ def render_header(api_key_final: str) -> None:
         <div class="header-band">
             <div>
                 <div class="header-title">Bloco<span>AI</span> — Master Cross-Audit</div>
-                <div class="header-tag">Análise Técnica · Motor LangGraph · 3 Agentes</div>
+                <div class="header-tag">Análise Técnica · Motor LangGraph · Multi-Agentes</div>
             </div>
             <div style="display:flex;align-items:center;gap:0.8rem">{badge_html}</div>
         </div>
@@ -100,8 +101,24 @@ def ensure_session_defaults() -> None:
     for chave, valor_default in [
         ("api_key_env", ""),
         ("relatorio_final", ""),
+
+        # outputs brutos dos agentes
         ("resumo_specs", ""),
+        ("resumo_boq", ""),
+
+        # versões editáveis
+        ("edited_specs_json", ""),
+        ("edited_boq_json", ""),
+
+        # JSONs pré-carregados (ANTES da extração)
+        ("pre_loaded_specs_json", None),
+        ("pre_loaded_boq_json", None),
+
+        # controlo de fluxo
+        ("contextos_extraidos", False),
+        ("contextos_validados", False),
         ("processado", False),
+
         ("pipeline_state", ["idle", "idle", "idle"]),
         ("n_ficheiros", 0),
         ("n_fases_hint", "—"),
@@ -115,7 +132,6 @@ def ensure_session_defaults() -> None:
 def render_upload_section():
     st.markdown("""
     <div class="section-card">
-        <span class="section-number">STEP 01 / 03</span>
         <div class="section-title">📂 Documentos de Entrada</div>
     </div>
     """, unsafe_allow_html=True)
@@ -124,11 +140,10 @@ def render_upload_section():
 
     with col_boq:
         st.markdown('<div class="upload-label">BOQ — Bill of Quantities</div>'
-                    '<div class="upload-desc">Ficheiro de orçamento principal · Excel ou PDF</div>',
+                    '<div class="upload-desc">Ficheiro de orçamento principal · CSV</div>',
                     unsafe_allow_html=True)
         
-        file_boq = st.file_uploader("BOQ", type=["xlsx","xls","pdf"], key="boq", label_visibility="collapsed")
-        # APAGADO: O bloco "if file_boq: ... st.markdown(file-chip)" que estava aqui
+        file_boq = st.file_uploader("BOQ", type=["csv"], key="boq", label_visibility="collapsed")
 
     with col_specs:
         st.markdown('<div class="upload-label">Cadernos de Encargos — Specs</div>'
@@ -136,7 +151,6 @@ def render_upload_section():
                     unsafe_allow_html=True)
         
         files_specs = st.file_uploader("Specs", type=["pdf", "docx"], accept_multiple_files=True, key="specs", label_visibility="collapsed")
-        # APAGADO: O bloco "if files_specs: for f in files_specs: ... st.markdown(file-chip)" que estava aqui
 
     st.markdown("<div style='height:0.4rem'></div>", unsafe_allow_html=True)
 
@@ -157,11 +171,14 @@ def render_focus_section() -> str:
     )
 
 
+   
+
+
 def render_start_section(api_key_final: str, file_boq, files_specs) -> bool:
 
     col_btn, col_hint = st.columns([2, 5], gap="medium")
     with col_btn:
-        iniciar = st.button("▶  INICIAR AUDITORIA MASTER", use_container_width=True)
+        iniciar = st.button("Iniciar Extração Completa", use_container_width=True)
     with col_hint:
         if not api_key_final:
             st.markdown(
@@ -172,7 +189,7 @@ def render_start_section(api_key_final: str, file_boq, files_specs) -> bool:
         elif not file_boq and not files_specs:
             st.markdown(
                 '<div style="font-size:0.78rem;color:#4a6fa0;padding-top:0.65rem">'
-                'Carrega pelo menos um documento (BOQ ou Caderno de Encargos).</div>',
+                'Carrega documentos para gerar os JSONs editáveis.</div>',
                 unsafe_allow_html=True,
             )
         else:
@@ -208,7 +225,7 @@ def render_results() -> None:
     st.markdown(
         f"""
         <div class="results-header">
-            <div class="results-title">📋 Relatório Executivo de Auditoria</div>
+            <div class="results-title">📋 Relatório Completo</div>
             <div class="results-meta">Auditoria concluída · {st.session_state.n_ficheiros} ficheiro(s)</div>
         </div>
         """,
@@ -241,34 +258,7 @@ def render_results() -> None:
     st.markdown("</div>", unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
 
-    if st.session_state.resumo_specs:
-        st.markdown(
-            f"""
-            <div class="results-subsection">
-                <div class="results-subtitle">🧾 Contexto Extraído das SPECS</div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-        st.text_area(
-            "Resumo extraído das SPECS",
-            value=st.session_state.resumo_specs,
-            height=220,
-            disabled=True,
-            key="resumo_specs_preview",
-        )
-        st.markdown("<div style='height:0.75rem'></div>", unsafe_allow_html=True)
-        st.markdown('<div class="dl-btn">', unsafe_allow_html=True)
-        col_dl2, _ = st.columns([2, 5])
-        with col_dl2:
-            st.download_button(
-                "📥 Descarregar Contexto SPECS (.txt)",
-                data=st.session_state.resumo_specs,
-                file_name="Specs_Extraction_Context.txt",
-                use_container_width=True,
-            )
-        st.markdown("</div>", unsafe_allow_html=True)
-
+ 
     st.markdown("<div style='height:1rem'></div>", unsafe_allow_html=True)
     st.markdown('<div class="dl-btn">', unsafe_allow_html=True)
     col_dl1, _ = st.columns([2, 5])
@@ -276,7 +266,11 @@ def render_results() -> None:
         st.download_button(
             "📥 Descarregar Relatório (.txt)",
             data=st.session_state.relatorio_final,
-            file_name="Auditoria_Master_BlocoAI.txt",
+            file_name="BlocoAI_Relatorio.txt",
             use_container_width=True,
         )
     st.markdown("</div>", unsafe_allow_html=True)
+
+
+
+ 

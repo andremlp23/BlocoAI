@@ -1,0 +1,239 @@
+Audit Report
+
+Phase: Phase 1
+--> Zone: UNKNOWN
+    ---> Subzone: GENERAL
+        * Structural Steel:
+            - BOQ: FSA - Structural Steel; Structural Steel; Steel fabricated to exc class 2, all steel grade S355; Steel erected in accordance with the NSSSBC 5th Edition; FSA Structural Steel H.D.A.; CSA - Structural Steel; CSA - Structural Steel (duplicate); Steelwork Penetrations - Canopies, Cat Ladders the like; steel columns kickers/bolts; Total Tonnes of steel; Holding down bolt Assemblies; Supply of Hold Down Bolt Assembly; Supply Holding down bolt assemblies - MCP/ASB/CTB/USS/MUP/S24/S25; Dowels; chemical anchors @ 300mm centres; Grout in base plates from superstructures installed by others.
+            - SPECS: Referenced standards (NBN EN 1990/1991/1993/1090/10025); Execution Class EXC2 per NBN EN 1090; Fabricate structural steel members in accordance with EN codes and national annex; Shop drawings (shipping pieces) prepared and checked by a qualified Structural Engineer; Erection drawings and method statements by fabricator; Temporary works drawings and method statements by erector; Connection calculations submitted prior to shop drawings; Quality Plan per NBN EN 1090; Manufacturer's mill certificates; Welders' certificates per NBN EN ISO 9606‑1; CE Marking confirmation for Execution Class; Anchor bolts per NBN EN 15048 and survey of anchor rods 20 working days prior to erection; Contractor’s Engineer responsible for analysis of stresses for fabrication/shipping/erection/temporary conditions; Bolted and welded connection requirements per NBN EN 1993 and NBN EN 14399/NBN EN 15048 where applicable.
+            - STATUS: ALIGNED
+        * Composite Decking:
+            - BOQ: STEEL DECKING; Supply and Installation TATA D60x1.2mm Roof Decking; Roof Deck Single Spanning KINGSPAN 1.5mm Gauge RD 100/825 (77.92 m2).
+            - SPECS: Scope includes composite roof deck and supplementary framing (openings up to 450 mm), stud shear connectors to EN ISO 13918; Deck units produced from galvanized steel per NBN EN 10346 / NBN EN 10143 (Grade S350 unless otherwise indicated); Minimum bearing on supporting members 50 mm; Minimum roof deck end laps 50 mm; Puddle welds / headed stud rules and spacing; Shop drawings to include profile, gauge, finish, openings, anchorage, lap details, accessories, welding data; Design calculations signed/sealed by PE; Installation per manufacturer's recommendations and approved submittals.
+            - STATUS: ALIGNED
+        * Fire Protection:
+            - BOQ: INTUMESCENT FIRE PROTECTION; FSA Intumescent Paint 2 Hr; Intumescent paint fire protection (60 minutes), applied on Factory; DCH Intumescent Paint 2 Hr (duplicate phrasing across locations).
+            - SPECS: Apply intumescent coatings where specified to achieve required fire resistance; Submit product data, independent fire test results (EN 13381‑4) and DFT tables; Installer qualifications and manufacturer technical support; Surface preparation, primer compatibility and application conditions; Field quality control by independent testing agency; Pre-construction conference for fireproofing works; Sampling and DFT acceptance criteria.
+            - STATUS: ALIGNED
+        * Corrosion Protection:
+            - BOQ: Corrosion protection paint suitable for C2 environment category; Galvanising; Shotblast, galvanised to EN ISO 1461; Surface touchup after erection; Touch up after erection, prior to partial handover.
+            - SPECS: Corrosion protection per NBN EN ISO 12944 (classifications: internal C2, external C4); Galvanising to EN ISO 1461; Surface preparation blast clean to Sa 2.5 (ISO 8501‑1); Shop painting schedule and exceptions; Compatibility between corrosion protection and intumescent systems; Submit corrosion protection proposals including durability ranges; Shop and touch‑up primer requirements.
+            - STATUS: ALIGNED
+        * Metal Fabrications (Stairs/Railings/Gratings):
+            - BOQ: Internal Stair (FSA); Loading Dock - Fencing and Handrails; Cat Ladder and balustrade to penthouse roof (Ground to Roof) 11m; Bollards; Hop-over Step on roof; Cat ladders; Gantry Emergency Stairs; Cooling Tower Stairs; Railings; 30mm open mesh grating.
+            - SPECS: Fabricate stairs, ladders, railings, gratings to specified design/loadings (stairs 500 kg/m2; handrails 1.0 kN/m top rail; infill loads); Gratings to NAAMM MBG 531/532; Shop assembly to minimize field splicing; (See Structural Steel); (See Corrosion Protection)
+            - STATUS: ALIGNED
+
+Phase: UNKNOWN
+--> Zone: DCH
+    ---> Subzone: Structural Steel
+        * Structural Steel:
+            - BOQ: DCH - Structural Steel.
+            - SPECS: Execution Class EXC2 per NBN EN 1090; Steel fabricated to EN standards (NBN EN 10025 S355); Shop drawings, connection calculations, erection and temporary works method statements; Quality Plan per NBN EN 1090; Mill certificates and welder qualifications.
+            - STATUS: ALIGNED
+        * Composite Decking:
+            - BOQ: (none listed in this subzone)
+            - SPECS: (as per Composite Decking baseline: deck standards, shop drawings, PE calculations, min bearing, puddle welds/headed studs, EN 10346 / Grade S350, installation/fastening rules)
+            - STATUS: MISSING BASELINE
+        * Fire Protection:
+            - BOQ: (none listed in this subzone)
+            - SPECS: (intumescent baseline: product submittals, DFT, installer qual, testing, compatibility)
+            - STATUS: MISSING BASELINE
+        * Corrosion Protection:
+            - BOQ: (none listed in this subzone)
+            - SPECS: (NBN EN ISO 12944, galvanising EN ISO 1461, Sa2.5 blast, shop painting)
+            - STATUS: MISSING BASELINE
+        * Metal Fabrications (Stairs/Railings/Gratings):
+            - BOQ: (none listed in this subzone)
+            - SPECS: (stairs/railings/gratings baseline bullets)
+            - STATUS: MISSING BASELINE
+
+Phase: Phase 2
+--> Zone: DCH
+    ---> Subzone: Structural Steel
+        * Structural Steel:
+            - BOQ: Structural Steel; Steel fabricated to exc class 2, all steel grade S355; DCH Structural Steel; DCH Structural Steel H.D.A.
+            - SPECS: EN standards (NBN EN 1990/1991/1993/1090/10025); EXC2 execution; Shop and erection drawings, temporary works, connection calculations and PE responsibilities; Quality Plan NBN EN 1090; Mill certificates and welders' certificates; Anchor bolts and H.D.A. requirements.
+            - STATUS: ALIGNED
+        * Composite Decking:
+            - BOQ: STEEL DECKING; Supply and Installation TATA D60x1.2mm Roof Decking; Trapezoidal Infill of Roofing Deck.
+            - SPECS: Composite deck scope including profile, gauge, finishes; deck produced to EN 10346 / NBN EN 10143, Grade S350; stud/puddle weld requirements; shop drawings and PE-signed calculations; installation per manufacturer's recommendations.
+            - STATUS: ALIGNED
+        * Fire Protection:
+            - BOQ: INTUMESCENT FIRE PROTECTION; DCH Intumescent Paint 1 Hr.
+            - SPECS: Intumescent application requirements, submittals, DFT testing, installer qualifications, pre‑construction conference, compatibility with corrosion protection.
+            - STATUS: ALIGNED
+        * Corrosion Protection:
+            - BOQ: Shotblast, galvanised to EN ISO 1461; Surface touchup after erection.
+            - SPECS: Galvanising to EN ISO 1461; Sa 2.5 blast at time of blasting; shop painting exceptions and touch‑up primer; corrosion classification guidance (C2/C4) and compatibility with intumescent systems.
+            - STATUS: ALIGNED
+        * Metal Fabrications (Stairs/Railings/Gratings):
+            - BOQ: CAT LADDERS; Cooling Tower Stairs; Railings; 30mm open mesh grating; (See Structural Steel)
+            - SPECS: Shop drawings, PE-signed calculations for metal fabrications; stair/ladder/railing design loads and detailing; gratings standard; (See Structural Steel); (See Corrosion Protection)
+            - STATUS: ALIGNED
+    ---> Subzone: Envelope
+        * Structural Steel:
+            - BOQ: DCH - Envelope; SECONDARY STEEL.
+            - SPECS: Secondary steel and envelope interface requirements; fabricate per EN standards; shop drawings and coordination with envelope trades; material standards NBN EN 10025 and EN 10346 for sheet accessories.
+            - STATUS: ALIGNED
+        * Composite Decking:
+            - BOQ: (none listed in this subzone)
+            - SPECS: (deck baseline: shop drawings, product data, calculations)
+            - STATUS: MISSING BASELINE
+        * Fire Protection:
+            - BOQ: (none listed in this subzone)
+            - SPECS: (intumescent baseline where applicable)
+            - STATUS: MISSING BASELINE
+        * Corrosion Protection:
+            - BOQ: Pre Finished Steel Parapet Capping; Vertical Cover Flashing D26.5xL290mm.
+            - SPECS: Pre-finish external metal fabrications (finish suitable for C4 per EN ISO 12944-2); shop finishing and paint/galvanising requirements; product data and sample control.
+            - STATUS: ALIGNED
+        * Metal Fabrications (Stairs/Railings/Gratings):
+            - BOQ: GNM-Cat Ladder.
+            - SPECS: Fabrication for ladders: dimensions, rungs, safety cage, support spacing, shop galvanising after fabrication; shop drawings and PE-signed calculations. (See Corrosion Protection)
+            - STATUS: ALIGNED
+    ---> Subzone: Roof
+        * Structural Steel:
+            - BOQ: STRUCTURAL STEEL - Support for RMU's & Battery Box sitting across the Trench; Steel fabricated to exc class 2, S355; (Shell A) Structural Steel; (Shell A) Structural Steel H.D.A.; STRUCTURAL STEEL - Cooling Tower Gantry; Surface touchup after erection.
+            - SPECS: Structural steel fabrication/execution EXC2, shop/erection/temporary works submittals, connection calculations, H.D.A. and holding down bolt coordination; execution class and tolerances.
+            - STATUS: ALIGNED
+        * Composite Decking:
+            - BOQ: Composite Euroclad Top deck Roof Panel; 280mm thick ...; Trapezoidal Infill of Roofing Deck.
+            - SPECS: Composite roof deck product requirements; deck profiles, insulation and membrane interface; shop drawings, calculations for deck section properties; installation per manufacturer's recommendations; coordination of roof system interfaces.
+            - STATUS: ALIGNED
+        * Fire Protection:
+            - BOQ: INTUMESCENT FIRE PROTECTION entries (roof/local).
+            - SPECS: Intumescent application and testing requirements; pre-conference and QA; product submittals and DFT verification.
+            - STATUS: ALIGNED
+        * Corrosion Protection:
+            - BOQ: Shotblast, galvanised to EN ISO 1461; Surface touchup after erection.
+            - SPECS: Galvanising EN ISO 1461; surface preparation Sa2.5; touch-up primer for galvanised surfaces; compatibility with other coatings.
+            - STATUS: ALIGNED
+        * Metal Fabrications (Stairs/Railings/Gratings):
+            - BOQ: CAT LADDERS; Cooling Tower Stairs; Railings; 30mm open mesh grating; (See Structural Steel)
+            - SPECS: Shop drawings, PE-signed calculations, fabrication tolerances, railing and stair loading and detailing, grating standards and anchorage; (See Structural Steel); (See Corrosion Protection)
+            - STATUS: ALIGNED
+
+Phase: Phase 3
+--> Zone: DCH
+    ---> Subzone: Structural Steel
+        * Structural Steel:
+            - BOQ: DCH - Structural Steel; Steel fabricated to exc class 2, all steel grade S355; DCH Structural Steel (756.0 tn); DCH Structural Steel H.D.A. (59 nr).
+            - SPECS: EN codes and standards references; EXC2 execution class; shop and erection drawings, temporary works, connection calculations submitted prior to shop drawings; quality plan NBN EN 1090; mill certificates and welder qualification; intumescent and corrosion protection interfaces to be coordinated (See Fire Protection); steel decking design/installation interfaces (See Composite Decking).
+            - STATUS: ALIGNED
+        * Composite Decking:
+            - BOQ: STEEL DECKING; Supply and Installation TATA D60x1.2mm Roof Decking; DCH Steel Decking (6046.0 m2).
+            - SPECS: Deck production to NBN EN 10346 and NBN EN 10143; shop drawings, calculations, stud/puddle weld requirements, min bearing, end laps and accessories.
+            - STATUS: ALIGNED
+        * Fire Protection:
+            - BOQ: INTUMESCENT FIRE PROTECTION; DCH Intumescent Paint 1 Hr.
+            - SPECS: Intumescent application, testing, DFT acceptance, installer qualifications and pre-conference requirements.
+            - STATUS: ALIGNED
+        * Corrosion Protection:
+            - BOQ: Shotblast, galvanised to EN ISO 1461; Surface touchup after erection.
+            - SPECS: Galvanising EN ISO 1461, surface preparation Sa2.5, paint compatibility, shop/touch-up primer requirements, corrosion classifications (C2/C4).
+            - STATUS: ALIGNED
+        * Metal Fabrications (Stairs/Railings/Gratings):
+            - BOQ: (none explicit in this subzone)
+            - SPECS: (See Structural Steel); (See Corrosion Protection)
+            - STATUS: MISSING BASELINE
+    ---> Subzone: Envelope
+        * Structural Steel:
+            - BOQ: SECONDARY STEEL (2420.0 m2).
+            - SPECS: Secondary steel per EN standards; shop drawings and coordination with envelope trades; materials and finish requirements (EN 10346 for sheet accessories).
+            - STATUS: ALIGNED
+        * Composite Decking:
+            - BOQ: (none listed)
+            - SPECS: (deck baseline)
+            - STATUS: MISSING BASELINE
+        * Fire Protection:
+            - BOQ: (none listed)
+            - SPECS: (intumescent baseline)
+            - STATUS: MISSING BASELINE
+        * Corrosion Protection:
+            - BOQ: (none listed)
+            - SPECS: (corrosion baseline)
+            - STATUS: MISSING BASELINE
+        * Metal Fabrications (Stairs/Railings/Gratings):
+            - BOQ: (none listed)
+            - SPECS: (metal fabrications baseline)
+            - STATUS: MISSING BASELINE
+    ---> Subzone: Roof
+        * Structural Steel:
+            - BOQ: S05-A2000 | CSA | DCH - Roof; Steel fabricated to exc class 2, S355; (Shell A) Structural Steel H.D.A.; Surface touchup after erection.
+            - SPECS: Composite roof deck support framing and structural steel fabrication/execution EXC2, shop/erection/temporary works submittals, connection calculations, H.D.A. and holding down bolt coordination; execution class and tolerances. (See Composite Decking)
+            - STATUS: ALIGNED
+        * Composite Decking:
+            - BOQ: Composite Euroclad Top deck Roof Panel (detailed composition) (5944.0 m2); S05-A2000 Supply and Installation TATA D60x1.2mm indicated in other phases.
+            - SPECS: Deck product data, insulation and membrane coordination, shop drawings, calculations, installation per manufacturer's recommendations and interface with roofing.
+            - STATUS: ALIGNED
+        * Fire Protection:
+            - BOQ: (none explicit beyond general intumescent elsewhere)
+            - SPECS: Intumescent baseline where applicable to roof structural members. (See Fire Protection)
+            - STATUS: MISSING BASELINE
+        * Corrosion Protection:
+            - BOQ: (none explicit beyond general galvanising elsewhere)
+            - SPECS: Corrosion protection baseline for external exposures (C4) and galvanising. (See Corrosion Protection)
+            - STATUS: MISSING BASELINE
+        * Metal Fabrications (Stairs/Railings/Gratings):
+            - BOQ: (no explicit metal fabrications listed under this roof subzone beyond deck)
+            - SPECS: (See Structural Steel); (See Corrosion Protection)
+            - STATUS: MISSING BASELINE
+
+Phase: Phase 3
+--> Zone: MYD
+    ---> Subzone: Densified - Water Cooled
+        * Structural Steel:
+            - BOQ: S02-A7200 | CSA | MYD - Densified - Water Cooled; STRUCTURAL STEEL - Support for RMU's & Battery Box sitting across the Trench; Steel fabricated to exc class 2, all steel grade S355; (Shell A) Structural Steel (0.56304 tn and other entries); (Shell A) Structural Steel (385.0 tn) for Cooling Tower Gantry; (Shell A) Structural Steel H.D.A. (30 nr).
+            - SPECS: EN standards and EXC2 execution class; shop/erection drawings, connection calculations and PE responsibilities; H.D.A. and holding down bolt coordination; surface touch‑up after erection.
+            - STATUS: ALIGNED
+        * Composite Decking:
+            - BOQ: (none listed)
+            - SPECS: (deck baseline where applicable)
+            - STATUS: MISSING BASELINE
+        * Fire Protection:
+            - BOQ: (none explicit beyond general intumescent entries)
+            - SPECS: Intumescent baseline and application/testing where specified.
+            - STATUS: MISSING BASELINE
+        * Corrosion Protection:
+            - BOQ: Shotblast, galvanised to EN ISO 1461 (385.0 tn); Surface touchup after erection (1 nr).
+            - SPECS: Galvanising to EN ISO 1461; shotblast and surface handling; touch‑up primer for galvanised surfaces; compatibility with intumescent systems.
+            - STATUS: ALIGNED
+        * Metal Fabrications (Stairs/Railings/Gratings):
+            - BOQ: Supply Holding down bolt assemblies - MCP (36 nr); Supply Holding down bolt assemblies - USS (24 nr); Supply Holding down bolt assemblies - S25 (18 nr).
+            - SPECS: (See Structural Steel)
+            - STATUS: ALIGNED
+
+Phase: Phase 4
+--> Zone: UNKNOWN
+    ---> Subzone: GENERAL
+        * Structural Steel:
+            - BOQ: Holding down assemblies; S03-A2000 | CSA | PH4 | Steel fabricated to exc class 2, all steel grade S355; S03-A2000 DCH Structural Steel (747.0 tn); DCH Structural Steel H.D.A. (59 nr); Supply and Installation TATA D60x1.2mm Roof Decking; DCH Steel Decking (6046.0 m2); Holding down bolt Assemblies etc; Supply of Hold Down Bolt Assembly; Supply Holding down bolt assemblies - MCP/USS/S25 quantities (24/16/12).
+            - SPECS: EN standards and EXC2 execution class; shop/erection drawings, temporary works, connection calculations; H.D.A. and post‑installed anchors per Structural General Notes and NBN EN 15048; Quality Plan NBN EN 1090; mill certificates and welder qualifications; holding down bolt survey and templates.
+            - STATUS: ALIGNED
+        * Composite Decking:
+            - BOQ: S05-A2000 | CSA | PH4 | Supply and Installation TATA D60x1.2mm Roof Decking; S05-A2000 DCH Steel Decking (6046.0 m2); 17.1.010 Composite Euroclad Top deck Roof Panel; 17.1.001 DCH Steel Decking entries.
+            - SPECS: Composite roof deck requirements: shop drawings, PE calculations, deck production standards (EN 10346 Grade S350), minimum bearing, stud/puddle weld requirements, accessories and closures, installation practices and coordination with roofing membrane.
+            - STATUS: ALIGNED
+        * Fire Protection:
+            - BOQ: 15.5.005 DCH Intumescent Paint 1 Hr (747.0 tn).
+            - SPECS: Intumescent product submittals, DFT tables and testing, installer qualifications, pre-construction conference and field quality control; compatibility with corrosion protection systems.
+            - STATUS: ALIGNED
+        * Corrosion Protection:
+            - BOQ: Shotblast, galvanised to EN ISO 1461 (0.37536 tn ; 249.0 tn entries); Surface touchup after erection (1 nr); Shotblast, galvanised to EN ISO 1461 (249.0 tn).
+            - SPECS: Galvanising to EN ISO 1461; Sa2.5 blast cleaning at time of blasting; shop and touch‑up primer requirements; corrosion classification guidance (C2/C4) and product submission for durability ranges.
+            - STATUS: ALIGNED
+        * Metal Fabrications (Stairs/Railings/Gratings):
+            - BOQ: Cat Ladder and balustrade to penthouse roof - (Ground to Roof) (4 nr); Bollards (10 nr); Stairs over roof parapets (2 nr); CAT LADDERS (1 nr); Cooling Tower Stairs (3 nr); Railings (270); 30mm open mesh grating (438.0 m2).
+            - SPECS: Stairs, ladders, railings and gratings design loads and detailing; shop drawings and PE‑signed calculations; fabrication tolerances, finish (galvanise/paint) and anchorage; grating standards; (See Structural Steel); (See Corrosion Protection)
+            - STATUS: ALIGNED
+
+GLOBAL INCONSISTENCIES (converted to table)
+
+| ID | Category | Location (Phase/Zone/Subzone) | Issue | Risk |
+| --- | --- | --- | --- | --- |
+| 1 | Composite Decking; Fire Protection; Corrosion Protection; Metal Fabrications | Phase: UNKNOWN / Zone: DCH / Subzone: Structural Steel | several categories had no BOQ items but SPECS baseline items apply | MISSING BASELINE |
+| 2 | Composite Decking; Fire Protection; Corrosion Protection; Metal Fabrications | Phase: Phase 3 / Zone: DCH / Subzones: Envelope; Roof; Structural Steel subzone | multiple categories show no BOQ items while SPECS baseline applies | MISSING BASELINE |
+| 3 | Composite Decking; Fire Protection | Phase: Phase 3 / Zone: MYD / Subzone: Densified - Water Cooled | Composite Decking and Fire Protection categories present in SPECS but no corresponding BOQ items | MISSING BASELINE
+
+END_OF_REPORT
