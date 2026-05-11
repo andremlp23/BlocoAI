@@ -608,49 +608,65 @@ OUTPUT:
 # AGT-04: Apresentador (formata)
 # ======================================================================
 def no_apresentador(state: AuditoriaState) -> dict:
-    # Usamos o gpt-4o para garantir que a escrita é profissional e segue as regras de filtragem
+    # Usamos o gpt-4o para reestruturação complexa de dados (Data Pivot)
     llm = ChatOpenAI(model="gpt-4o", api_key=state["_api_key"], temperature=0.1)
 
     base = (state.get("auditoria_normalizada") or state.get("auditoria_bruta") or "").strip()
     if not base:
         return {"relatorio_final": ""}
 
-    sys_msg = SystemMessage(content="""You are an Executive Technical Writer and Chief Editor.
-Your goal is to transform a raw technical audit into a high-value Executive Report by filtering out noise.
+    sys_msg = SystemMessage(content="""You are a Lead Estimator and Executive Technical Writer.
+Your task is to PIVOT a location-based technical audit into a TRADE PACKAGE-based Estimating Summary.
 
-ABSOLUTE FILTRATION RULES:
-1. DELETE OUT-OF-SCOPE: Completely remove any Zone or Subzone marked as "[OUT OF SCOPE...]".
-2. DELETE ALL CONCRETE REFERENCES: Remove ANY text, categories, or items mentioning concrete, concrete reinforcement, concrete slabs, concrete waterproofing, or concrete-related work. Concrete is COMPLETELY OUT OF SCOPE.
-3. DELETE ALL QUANTITIES: Remove ALL quantities, volumes, weights, unit prices, linear meters, and commercial information. Quantities do NOT matter for this report.
-4. DELETE INCOMPLETE DATA: If a Subzone only contains "MISSING BASELINE" statuses and has zero "ALIGNED" or "CONFLICT" items, DELETE that entire Subzone. We only want to see areas with confirmed data or actual errors.
-5. DELETE EMPTY CATEGORIES: Within a valid Subzone, if a category (e.g., Composite Decking) is empty or only says "None/Not applicable", delete that category.
-6. HIERARCHICAL CLEANUP: 
-   - If all Subzones of a Zone are deleted, delete the Zone.
-   - If all Zones of a Phase are deleted, delete the Phase.
+ABSOLUTE RULES:
+1. PIVOT THE DATA: The input is grouped by Phase -> Zone -> Subzone. You must completely restructure the output to be grouped by TRADE PACKAGE (e.g., Structural Steel, Composite Decking, Fire Protection, etc.).
+2. DO NOT INVENT DATA: Base everything ONLY on the provided audit. 
+3. BASELINE EXTRACTION: For each Trade Package, read all the "SPECS" entries in the input and synthesize them into a single "Baseline Scope" bulleted list (avoiding repetition).
+4. VARIATIONS TABLE: For each Trade Package, map the "BOQ" and "STATUS" entries into the "Scope Variations / Inclusions" table.
+5. DELETE NOISE: Ignore any zones marked as [OUT OF SCOPE] or completely missing.
 
-PRESERVATION RULES:
-- Do NOT delete the "GLOBAL INCONSISTENCIES" table. This table must remain complete as it summarizes the project risks.
-- For the remaining sections, preserve ONLY the technical detail (grades, standards, DFTs, execution classes, standards references).
-- DO NOT preserve quantities, volumes, weights, costs, or any concrete-related information.
-- Only keep information relevant to Steel, Decking, Fire Protection, Corrosion Protection, and Metal Fabrications.
-- Focus on WHAT must be done, not HOW MUCH of it.
+REQUIRED OUTPUT FORMAT (Markdown STRICT):
 
-FORMATTING:
-- Use clear headings and professional Markdown.
-- Ensure the "GLOBAL INCONSISTENCIES" is a clean Markdown table:
-| ID | Category | Location (Phase/Zone/Subzone) | Issue | Risk |
+# Cross-Document Technical Audit:
+
+## 1. TRADE PACKAGE: STRUCTURAL STEEL
+**Baseline Scope:**
+- [Bullet points summarizing the core SPECS requirements for this trade (e.g., Grades, Execution class, Standards)]
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| [Phase] | [Zone] | [Brief BOQ description] | [Status or deviation from SPECS] |
+
+## 2. TRADE PACKAGE: COMPOSITE DECKING
+[Repeat structure...]
+
+## 3. TRADE PACKAGE: FIRE PROTECTION
+[Repeat structure...]
+
+## 4. TRADE PACKAGE: CORROSION PROTECTION
+[Repeat structure...]
+
+## 5. TRADE PACKAGE: METAL FABRICATIONS (STAIRS / RAILINGS / GRATINGS)
+[Repeat structure...]
+
+## GLOBAL INCONSISTENCIES (ESTIMATING RISK REGISTER)
+| ID | Trade Package | Issue | Risk | Estimating Action |
+|----|---------------|-------|------|-------------------|
+| 1  | [Trade]       | [Issue from input] | [High/Medium/Low] | [Recommended action for estimator] |
+
+END_OF_REPORT
 """)
 
     try:
-        # Passamos a auditoria bruta/normalizada para o "Editor"
         relatorio = _invocar_llm(llm, [
             sys_msg, 
-            HumanMessage(content=f"Filter and format this audit into an Executive Report:\n\n{base}")
+            HumanMessage(content=f"Pivot and format this location-based audit into the requested Trade Package Estimating Summary:\n\n{base}")
         ])
         return {"relatorio_final": relatorio}
     except Exception as e:
         erros = list(state.get("erros", []))
-        erros.append(f"AGT-04 (Executive Filter) ({type(e).__name__}): {e}")
+        erros.append(f"AGT-04 (Estimating Pivot) ({type(e).__name__}): {e}")
         return {"relatorio_final": base, "erros": erros}
 
 
