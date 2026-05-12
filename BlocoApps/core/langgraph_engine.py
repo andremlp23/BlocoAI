@@ -31,6 +31,7 @@ class AuditoriaState(TypedDict):
 
     resumo_boq: str
     resumo_specs: str
+    contexto_projeto: dict
 
     auditoria_bruta: str
     auditoria_normalizada: str  # <- NOVO (AGT-03)
@@ -193,7 +194,7 @@ OUTPUT FORMAT (STRICT):
 # ======================================================================
 # AGT-02: Extração estruturada de BOQ em JSON (para CSV)
 # ======================================================================
-def extrair_boq_json_estruturado(texto_boq: str, nome_ficheiro: str, contexto_specs: str, llm, prog_placeholder, status_placeholder) -> str:
+def extrair_boq_json_estruturado(texto_boq: str, nome_ficheiro: str, contexto_specs: str, contexto_projeto: dict, llm, prog_placeholder, status_placeholder) -> str:
     """Extrai BOQ CSV em JSON estruturado com Phase/Zone mapping completo."""
     chunks = _obter_documento_completo(texto_boq)
     if not chunks:
@@ -210,6 +211,9 @@ ABSOLUTE RULES:
 - NEVER include ANY concrete information whatsoever.
 - QUANTITIES ARE NOT IMPORTANT: Exclude volumes, weights, unit prices, delivery dates. Extract ONLY technical/structural content.
 - Discard all commercial line items (purchasing info, supplier data, costs, quantities).
+
+PROJECT SCOPE CONTEXT (Use this as the source of truth for Project Structure):
+{contexto_projeto}
 
 Use these extraction rules:
 {REGRAS_EXTRACAO}
@@ -323,12 +327,12 @@ OUTPUT:
 # ======================================================================
 # AGT-02: Extração narrativa de BOQ (para PDF/DOCX)
 # ======================================================================
-def extrair_boq_com_contexto(texto_boq: str, nome_ficheiro: str, contexto_specs: str, llm, prog_placeholder, status_placeholder) -> str:
+def extrair_boq_com_contexto(texto_boq: str, nome_ficheiro: str, contexto_specs: str, contexto_projeto: dict, llm, prog_placeholder, status_placeholder) -> str:
     # Detectar se é CSV para usar prompt estruturado
     eh_csv = ".csv" in nome_ficheiro.lower()
     
     if eh_csv:
-        return extrair_boq_json_estruturado(texto_boq, nome_ficheiro, contexto_specs, llm, prog_placeholder, status_placeholder)
+        return extrair_boq_json_estruturado(texto_boq, nome_ficheiro, contexto_specs, contexto_projeto, llm, prog_placeholder, status_placeholder)
     
     chunks = _obter_documento_completo(texto_boq)
     if not chunks:
@@ -449,6 +453,7 @@ def no_extrator(state: AuditoriaState) -> dict:
             texto_boq=state["texto_boq"],
             nome_ficheiro=f"BOQ: {state.get('nome_boq','')}",
             contexto_specs=resumo_specs,
+            contexto_projeto=state.get("contexto_projeto", {}),
             llm=llm_boq,
             prog_placeholder=prog,
             status_placeholder=status
@@ -473,7 +478,15 @@ def no_auditor(state: AuditoriaState) -> dict:
         f"=== SPECS BASELINE BULLETS ===\n{state.get('resumo_specs','')}"
     )
 
-    sys_msg = SystemMessage(content="""You are a Lead Estimator performing a CROSS-DOCUMENT AUDIT.
+    ctx = state.get("contexto_projeto") or {}
+    
+    if ctx:
+        import json
+        info_projeto = f"PROJECT CONTEXT BASELINE:\n{json.dumps(ctx, indent=2)}"
+    else:
+        info_projeto = "PROJECT CONTEXT: No specific baseline provided. Use standard construction logic."
+    
+    sys_msg = SystemMessage(content=f"""You are a Lead Estimator performing a CROSS-DOCUMENT AUDIT.
 
 INPUT:
 - BOQ extracts (Phase/Zone/Subzone/Spec)
@@ -486,6 +499,10 @@ ABSOLUTE RULES:
 - QUANTITIES ARE NOT IMPORTANT: Exclude all quantities, volumes, weights, and commercial data from the audit.
 - No recommendations, next steps, questions, or offers.
 - Focus ONLY on technical specifications, standards, and execution rules.
+- You are auditing based on the following Project Baseline:
+{info_projeto}
+
+If the Project Context says 'steel_decking': true, but you find no decking in the BOQ for a building zone, mark it as a CRITICAL MISSING ITEM.
 
 EMPTY ZONE RULE (CRITICAL FOR ANTI-HALLUCINATION):
 - If a Subzone has NO data related to Steel, Decking, Fire, Corrosion, or Metal Fabrications in the BOQ extract, DO NOT force the 5 categories.

@@ -154,7 +154,7 @@ def read_document(file) -> tuple[str, list]:
                     lines.append(f"[Linha: {idx+2}] {' | '.join(vals)}")
         return "\n".join(lines), []
 
-# Carregar o JSON do disco (ajusta o caminho se o ficheiro estiver noutra pasta)
+# Carregar o JSON
 def carregar_regras_json():
     caminho_json = os.path.join(os.path.dirname(os.path.dirname(__file__)), "RegrasMekkin.json")
     

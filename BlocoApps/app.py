@@ -1,27 +1,28 @@
 import os
+import json
 import sys
 from pathlib import Path
 
 # 1. Encontrar a pasta raiz do projeto (BlocoApps), onde vivem as pastas "core" e "ui"
 root_dir = Path(__file__).resolve().parent
 
-
 if str(root_dir) not in sys.path:
     sys.path.insert(0, str(root_dir))
 
 import streamlit as st
 
+# Importação dos grafos
 from core.langgraph_engine import construir_grafo_extracao, construir_grafo_auditoria
-from core.orchestrator import (
-    processar_extracao_contextos,
-    processar_auditoria_com_contextos_editados,
-)
+
+from core.orchestrator import executar_pipeline_completo
+
 from ui.components import (
     ensure_session_defaults,
     render_debug_toggle,
     render_focus_section,
     render_header,
     render_results,
+    render_project_context_section, # Novo componente para o JSON
     render_start_section,
     render_upload_section,
     setup_sidebar,
@@ -61,68 +62,82 @@ def main() -> None:
 
     apply_global_styles()
 
+    # Configuração da Barra Lateral e API Key
     api_key_final = setup_sidebar()
     render_header(api_key_final)
     debug_mode = render_debug_toggle()
 
+    # Inicialização dos Grafos de LangGraph
     grafo_extracao = construir_grafo_extracao()
     grafo_auditoria = construir_grafo_auditoria()
 
-    # STEP 1: Upload de documentos
+    # ---------------------------------------------------------
+    # UI STEPS
+    # ---------------------------------------------------------
+    
+    # STEP 1: Project Baseline JSON (Contexto do Projeto)
+    contexto_projeto_raw = render_project_context_section()
+
+    # STEP 2: Upload de documentos (BOQ e SPECS)
     file_boq, files_specs = render_upload_section()
     
-    # STEP 2: Instruções de filtragem
+    # STEP 3: Instruções de filtragem/foco
     guia_input = render_focus_section()
 
-    # STEP 3: Gerar contextos
-    gerar_contextos = render_start_section(api_key_final, file_boq, files_specs)
+    # STEP 4: Botão de Início
+    iniciar = render_start_section(api_key_final, file_boq, files_specs, contexto_projeto_raw)
 
-    if gerar_contextos:
+    if iniciar:
         if not api_key_final:
             st.error("🔑 API Key em falta. Adiciona-a na barra lateral.")
         elif not file_boq and not files_specs:
             st.warning("Carrega pelo menos um documento para prosseguir.")
+        elif not contexto_projeto_raw.strip():
+            st.error("⚠️ O Project Baseline JSON é obrigatório para guiar a auditoria.")
         else:
+            # Validação técnica do JSON de Contexto
+            try:
+                contexto_projeto = json.loads(contexto_projeto_raw)
+                if not isinstance(contexto_projeto, dict):
+                    raise ValueError("O conteúdo deve ser um objeto JSON { ... }.")
+            except (json.JSONDecodeError, ValueError) as exc:
+                st.error(f"⚠️ Erro no Project Baseline JSON: {exc}")
+                return
+
+            # Guardar contexto no estado da sessão
+            st.session_state.contexto_projeto = contexto_projeto
+
+            # Callback vazio para a pipeline (o orchestrator gere o estado interno)
             def pipeline_callback(state: list) -> None:
                 pass
 
-            processar_extracao_contextos(
-                grafo_extracao=grafo_extracao,
-                api_key_final=api_key_final,
-                file_boq=file_boq,
-                files_specs=files_specs,
-                guia_input=guia_input,
-                app_file=Path(__file__),
-                pipeline_callback=pipeline_callback,
-                debug_mode=debug_mode,
-            )
-            
-            # STEP 4: Auditoria automática em sequência após gerar contextos
-            if st.session_state.get("contextos_extraidos"):
-                st.markdown("---")
-                st.markdown("""
-                <div class="section-card">
-                    <span class="section-number">STEP 02 / 02</span>
-                    <div class="section-title">🔍 Auditoria & Validação</div>
-                </div>
-                """, unsafe_allow_html=True)
-                
-                st.info("Contextos gerados com sucesso. Iniciando auditoria automática...")
-
-                def pipeline_callback_auditoria(state: list) -> None:
-                    pass
-
-                processar_auditoria_com_contextos_editados(
+            # ---------------------------------------------------------
+            # EXECUÇÃO DO PIPELINE UNIFICADO (A "Jarrada")
+            # ---------------------------------------------------------
+            with st.spinner("A processar documentos e a realizar auditoria cruzada..."):
+                resultado_estado = executar_pipeline_completo(
+                    grafo_extracao=grafo_extracao,
                     grafo_auditoria=grafo_auditoria,
-                    api_key_final=api_key_final,
-                    specs_json_editado=st.session_state.edited_specs_json,
-                    boq_json_editado=st.session_state.edited_boq_json,
+                    api_key=api_key_final,
+                    file_boq=file_boq,
+                    files_specs=files_specs,
+                    contexto_projeto=contexto_projeto,
                     guia_input=guia_input,
                     app_file=Path(__file__),
-                    pipeline_callback=pipeline_callback_auditoria,
+                    pipeline_callback=pipeline_callback,
                     debug_mode=debug_mode,
                 )
+            
+            # APAGÁMOS o st.rerun() e colocámos um inspetor de erros!
+            erros_finais = resultado_estado.get("erros") or []
+            if erros_finais:
+                st.error(f"🛑 O pipeline parou devido aos seguintes erros: {'; '.join(erros_finais)}")
+            elif not st.session_state.get("processado"):
+                st.warning("⚠️ O processo terminou rapidamente mas não gerou o relatório. Verifica se os documentos têm texto legível.")
+            else:
+                st.success("✅ Auditoria concluída com sucesso!")
 
+    # Exibição dos resultados (Relatório, Erros, etc.)
     render_results()
 
 

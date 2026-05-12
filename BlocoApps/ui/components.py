@@ -3,6 +3,28 @@ import json
 import os
 
 
+DEFAULT_PROJECT_BASELINE_JSON = json.dumps(
+    {
+        "project_info": {
+            "name": "Project Name",
+            "type": "New Build - CSA Works",
+        },
+        "scope_definition": {
+            "phases": ["PH1", "PH2"],
+            "zones": ["FSA", "DCH"],
+            "included_trades": {
+                "structural_steel": True,
+                "steel_decking": True,
+                "fire_protection": True,
+            },
+        },
+        "critical_notes": "Add any project-wide exceptions here.",
+    },
+    ensure_ascii=False,
+    indent=2,
+)
+
+
 def setup_sidebar() -> str:
     """
     Configura sidebar com autenticação e info do sistema.
@@ -102,13 +124,14 @@ def ensure_session_defaults() -> None:
         ("api_key_env", ""),
         ("relatorio_final", ""),
 
+        # contexto do projeto
+        ("project_context_mode", "Colar JSON"),
+        ("project_context_json_text", DEFAULT_PROJECT_BASELINE_JSON),
+        ("contexto_projeto", {}),
+
         # outputs brutos dos agentes
         ("resumo_specs", ""),
         ("resumo_boq", ""),
-
-        # versões editáveis
-        ("edited_specs_json", ""),
-        ("edited_boq_json", ""),
 
         # JSONs pré-carregados (ANTES da extração)
         ("pre_loaded_specs_json", None),
@@ -129,10 +152,53 @@ def ensure_session_defaults() -> None:
             st.session_state[chave] = valor_default
 
 
+def render_project_context_section() -> str:
+    st.markdown(
+        """
+    <div class="section-card">
+        <div class="section-title">1. Project Baseline JSON</div>
+    </div>
+    """,
+        unsafe_allow_html=True,
+    )
+
+    modo = st.radio(
+        "Forma de introduzir o contexto do projeto",
+        options=["Carregar .json", "Colar JSON"],
+        horizontal=True,
+        key="project_context_mode",
+    )
+
+    contexto_raw = ""
+
+    if modo == "Carregar .json":
+        ficheiro = st.file_uploader(
+            "Project Baseline JSON",
+            type=["json"],
+            key="project_baseline_json_file",
+            label_visibility="collapsed",
+        )
+        if ficheiro is not None:
+            contexto_raw = ficheiro.getvalue().decode("utf-8-sig", errors="replace")
+            st.caption(f"Ficheiro carregado: {ficheiro.name}")
+        else:
+            st.info("Carrega um ficheiro .json com a baseline do projeto.")
+    else:
+        contexto_raw = st.text_area(
+            "Project Baseline JSON",
+            height=240,
+            help="Cole aqui um JSON válido com as chaves project_info, scope_definition e critical_notes.",
+            key="project_context_json_text",
+        )
+
+    st.markdown("<div style='height:0.4rem'></div>", unsafe_allow_html=True)
+    return contexto_raw
+
+
 def render_upload_section():
     st.markdown("""
     <div class="section-card">
-        <div class="section-title">📂 Documentos de Entrada</div>
+        <div class="section-title">2. Documentos de Entrada</div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -157,6 +223,11 @@ def render_upload_section():
     return file_boq, files_specs
 
 def render_focus_section() -> str:
+    st.markdown("""
+    <div class="section-card">
+        <div class="section-title">3. Instruções de Filtragem</div>
+    </div>
+    """, unsafe_allow_html=True)
 
     guia_padrao = (
         "Foco Exclusivo: Graus de Aço/Betão, Revestimentos, Espessuras, "
@@ -174,7 +245,7 @@ def render_focus_section() -> str:
    
 
 
-def render_start_section(api_key_final: str, file_boq, files_specs) -> bool:
+def render_start_section(api_key_final: str, file_boq, files_specs, contexto_projeto_raw: str) -> bool:
 
     col_btn, col_hint = st.columns([2, 5], gap="medium")
     with col_btn:
@@ -184,6 +255,12 @@ def render_start_section(api_key_final: str, file_boq, files_specs) -> bool:
             st.markdown(
                 '<div style="font-size:0.78rem;color:#7a3030;padding-top:0.65rem">'
                 '⚠ Configura a API Key na barra lateral antes de avançar.</div>',
+                unsafe_allow_html=True,
+            )
+        elif not contexto_projeto_raw.strip():
+            st.markdown(
+                '<div style="font-size:0.78rem;color:#4a6fa0;padding-top:0.65rem">'
+                'Fornece o Project Baseline JSON antes de iniciar a extração.</div>',
                 unsafe_allow_html=True,
             )
         elif not file_boq and not files_specs:
@@ -200,7 +277,7 @@ def render_start_section(api_key_final: str, file_boq, files_specs) -> bool:
                 docs_txt.append(f"<span style='color:#5a9aff'>{len(files_specs)}</span> Caderno(s)")
             st.markdown(
                 f'<div style="font-size:0.78rem;color:#2a6a30;padding-top:0.65rem">'
-                f'✓ Pronto — {" + ".join(docs_txt)}</div>',
+                f'✓ Pronto — Baseline + {" + ".join(docs_txt)}</div>',
                 unsafe_allow_html=True,
             )
     return iniciar
@@ -233,6 +310,8 @@ def render_results() -> None:
     )
 
     st.markdown('<div class="results-body">', unsafe_allow_html=True)
+    if st.session_state.paginas_aviso:
+        render_pdf_warning(st.session_state.paginas_aviso)
     st.markdown(
         f"""
         <div class="metric-row">
