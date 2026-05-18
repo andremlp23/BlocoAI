@@ -62,9 +62,9 @@ def main() -> None:
 
     apply_global_styles()
 
-    # Configuração da Barra Lateral e API Key
-    api_key_final = setup_sidebar()
-    render_header(api_key_final)
+    # Configuração da Barra Lateral e Modo de Execução
+    api_key_final, model_type, model_name, local_url = setup_sidebar()
+    render_header(api_key_final, model_type)
     debug_mode = render_debug_toggle()
 
     # Inicialização dos Grafos de LangGraph
@@ -88,8 +88,10 @@ def main() -> None:
     iniciar = render_start_section(api_key_final, file_boq, files_specs, contexto_projeto_raw)
 
     if iniciar:
-        if not api_key_final:
+        if model_type == "api" and not api_key_final:
             st.error("🔑 API Key em falta. Adiciona-a na barra lateral.")
+        elif model_type == "local" and not model_name.strip():
+            st.error("⚠️ Define o modelo local antes de avançar.")
         elif not file_boq and not files_specs:
             st.warning("Carrega pelo menos um documento para prosseguir.")
         elif not contexto_projeto_raw.strip():
@@ -119,6 +121,9 @@ def main() -> None:
                     grafo_extracao=grafo_extracao,
                     grafo_auditoria=grafo_auditoria,
                     api_key=api_key_final,
+                    model_type=model_type,
+                    model_name=model_name,
+                    local_url=local_url,
                     file_boq=file_boq,
                     files_specs=files_specs,
                     contexto_projeto=contexto_projeto,

@@ -22,6 +22,9 @@ def executar_pipeline_completo(
     grafo_extracao,
     grafo_auditoria,
     api_key,
+    model_type,
+    model_name,
+    local_url,
     file_boq,
     files_specs,
     contexto_projeto,
@@ -85,6 +88,9 @@ def executar_pipeline_completo(
             "paginas_sem_texto": paginas_sem_texto,
             
             "_api_key": api_key,
+            "_model_type": model_type,
+            "_model_name": model_name or ("llama2" if model_type == "local" else "gpt-5.1"),
+            "_local_url": local_url,
             "_prog_slot": None,
             "_status_slot": None
         }
