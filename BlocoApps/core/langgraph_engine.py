@@ -45,6 +45,9 @@ class AuditoriaState(TypedDict):
     paginas_sem_texto: list
 
     _api_key: str
+    _model_type: str
+    _model_name: str
+    _local_url: str
     _prog_slot: Any
     _status_slot: Any
 
@@ -83,16 +86,14 @@ def criar_llm(state: dict, *, temperature: float, model: str):
       - _local_url: str (se local)  -> endpoint compatível OpenAI
       - _model_name: str (nome do modelo)  (pode ser igual ao `model`)
     """
-    model_type = state.get("_model_type", "api")
+    model_type = (state.get("_model_type") or "api").strip().lower()
 
     if model_type == "local":
         base_url = (state.get("_local_url") or "").strip()
         if not base_url:
             raise ValueError("LOCAL selecionado mas _local_url está vazio.")
-        # Muitos servidores locais aceitam qualquer api_key (ex: 'local')
-        return ChatOpenAI(
+        return ChatOllama(
             base_url=base_url,
-            api_key="local",
             model=model,
             temperature=temperature,
         )
@@ -465,7 +466,10 @@ def no_router(state: AuditoriaState) -> dict:
 
 
 def no_extrator(state: AuditoriaState) -> dict:
-    model = (state.get("_model_name")).strip()
+    model_name = state.get("_model_name")
+    if not model_name:
+        model_name = "qwen3.5:9b" if state.get("_model_type") == "local" else "gpt-5.1"
+    model = model_name.strip()
     llm_specs = criar_llm(state, temperature=0.0, model=model)
     llm_boq = criar_llm(state, temperature=0.0, model=model)
 

@@ -51,12 +51,12 @@ def setup_sidebar() -> tuple[str, str, str, str]:
 
         modo_execucao = st.radio(
             "Modo de execução:",
-            options=["API Remota (OpenAI/OpenRouter)", "Modelo Local (Ollama)"],
+            options=["API Remota", "Modelo Local"],
             index=0,
             key="modo_execucao",
             label_visibility="collapsed",
         )
-        usar_local = modo_execucao == "Modelo Local (Ollama)"
+        usar_local = modo_execucao == "Modelo Local"
         model_type = "local" if usar_local else "api"
 
         st.markdown('<hr class="sidebar-divider">', unsafe_allow_html=True)
@@ -65,7 +65,7 @@ def setup_sidebar() -> tuple[str, str, str, str]:
         if usar_local:
             st.markdown('<span class="sidebar-label">URL Local</span>', unsafe_allow_html=True)
             local_url = st.text_input(
-                "URL do Ollama",
+                "URL Local",
                 value="http://localhost:11434",
                 placeholder="http://localhost:11434",
                 label_visibility="collapsed",
@@ -73,11 +73,11 @@ def setup_sidebar() -> tuple[str, str, str, str]:
             st.markdown('<span class="sidebar-label">Modelo Local</span>', unsafe_allow_html=True)
             local_model_name = st.text_input(
                 "Nome do modelo local",
-                value="llama2",
-                placeholder="e.g., llama2, mistral, neural-chat",
+                value="qwen3.5:9b",
+                placeholder="e.g., qwen3.5:9b, llama2, mistral, neural-chat",
                 label_visibility="collapsed",
             )
-            model_name = local_model_name.strip() or "llama2"
+            model_name = local_model_name.strip() or "qwen3.5:9b"
             api_key_final = ""
             st.markdown(
                 '<div style="margin-top:0.5rem"><span class="header-badge badge-ok">✓ Modelo Local Selecionado</span></div>',
@@ -95,7 +95,7 @@ def setup_sidebar() -> tuple[str, str, str, str]:
             )
             st.markdown('<span class="sidebar-label">API Key</span>', unsafe_allow_html=True)
             api_key_input = st.text_input(
-                "API Key (OpenAI/OpenRouter)",
+                "API Key",
                 value="",
                 type="password",
                 placeholder="sk-…  ou lr-…  (ou definida em .env)",
@@ -303,8 +303,7 @@ def render_start_section(api_key_final: str, file_boq, files_specs, contexto_pro
     with col_hint:
         if not api_key_final:
             st.markdown(
-                '<div style="font-size:0.78rem;color:#7a3030;padding-top:0.65rem">'
-                '⚠ Configura a API Key na barra lateral antes de avançar.</div>',
+                '<div style="font-size:0.78rem;color:#7a3030;padding-top:0.65rem"></div>',
                 unsafe_allow_html=True,
             )
         elif not contexto_projeto_raw.strip():
