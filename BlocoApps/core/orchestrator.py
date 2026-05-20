@@ -87,12 +87,13 @@ def executar_pipeline_completo(
             "n_ficheiros": (1 if file_boq else 0) + len(files_specs or []),
             "paginas_sem_texto": paginas_sem_texto,
             
-            "_api_key": api_key or "",
+
             "_model_type": model_type or "api",
             "_model_name": model_name or ("llama2" if (model_type or "api") == "local" else "gpt-5.1"),
             "_local_url": local_url or "",
             "_prog_slot": None,
-            "_status_slot": None
+            "_status_slot": None,
+            "_api_key": (api_key or "")
         }
 
         # 3. FASE 1: EXTRAÇÃO 
