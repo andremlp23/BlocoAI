@@ -45,6 +45,9 @@ class AuditoriaState(TypedDict):
     paginas_sem_texto: list
 
     _api_key: str
+    _model_type: str
+    _model_name: str
+    _local_url: str
     _prog_slot: Any
     _status_slot: Any
 
@@ -83,16 +86,14 @@ def criar_llm(state: dict, *, temperature: float, model: str):
       - _local_url: str (se local)  -> endpoint compatível OpenAI
       - _model_name: str (nome do modelo)  (pode ser igual ao `model`)
     """
-    model_type = state.get("_model_type", "api")
+    model_type = (state.get("_model_type") or "api").strip().lower()
 
     if model_type == "local":
         base_url = (state.get("_local_url") or "").strip()
         if not base_url:
             raise ValueError("LOCAL selecionado mas _local_url está vazio.")
-        # Muitos servidores locais aceitam qualquer api_key (ex: 'local')
-        return ChatOpenAI(
+        return ChatOllama(
             base_url=base_url,
-            api_key="local",
             model=model,
             temperature=temperature,
         )
@@ -460,138 +461,117 @@ OUTPUT FORMAT (STRICT):
 # NÓ: router + extrator
 # ======================================================================
 def no_router(state: AuditoriaState) -> dict:
-    modo = "CROSS" if (state.get("texto_boq") and state.get("texto_specs")) else "SINGLE"
+    texto_boq = (state.get("texto_boq") or "")
+    texto_specs = (state.get("texto_specs") or "")
+
+    if texto_boq.strip() and texto_specs.strip():
+        modo = "CROSS"
+    elif texto_boq.strip():
+        modo = "BOQ_ONLY"
+    elif texto_specs.strip():
+        modo = "SPECS_ONLY"
+    else:
+        modo = "EMPTY"
+
     return {"modo": modo}
 
 
 def no_extrator(state: AuditoriaState) -> dict:
-    model = (state.get("_model_name")).strip()
-    llm_specs = criar_llm(state, temperature=0.0, model=model)
-    llm_boq = criar_llm(state, temperature=0.0, model=model)
+    texto_boq = (state.get("texto_boq") or "")
+    texto_specs = (state.get("texto_specs") or "")
 
-    prog = state["_prog_slot"]
-    status = state["_status_slot"]
+    tem_boq = bool(texto_boq.strip())
+    tem_specs = bool(texto_specs.strip())
+
+    # cria LLMs
+    llm_specs = ChatOpenAI(model="gpt-5.1", api_key=state["_api_key"], temperature=0.0)
+    llm_boq   = ChatOpenAI(model="gpt-5.1", api_key=state["_api_key"], temperature=0.0)
+
+    prog = state.get("_prog_slot")
+    status = state.get("_status_slot")
 
     resumo_specs = ""
     resumo_boq = ""
 
-    if state.get("texto_specs"):
+    if tem_specs:
         resumo_specs = extrair_specs(
-            texto_specs=state["texto_specs"],
+            texto_specs=texto_specs,
             nome_ficheiro=f"SPECS: {', '.join(state.get('nomes_specs', []))}",
             llm=llm_specs,
             prog_placeholder=prog,
             status_placeholder=status
         )
 
-    if state.get("texto_boq"):
+    if tem_boq:
         resumo_boq = extrair_boq_com_contexto(
-            texto_boq=state["texto_boq"],
+            texto_boq=texto_boq,
             nome_ficheiro=f"BOQ: {state.get('nome_boq','')}",
-            contexto_specs=resumo_specs,
-            contexto_projeto=state.get("contexto_projeto", {}),
+            contexto_specs=resumo_specs,  # pode estar vazio e está ok
             llm=llm_boq,
             prog_placeholder=prog,
             status_placeholder=status
         )
 
     erros = list(state.get("erros", []))
-    if not resumo_boq and not resumo_specs:
-        erros.append("AGT-01/02: Nenhum conteúdo extraído dos documentos.")
+    if not resumo_boq.strip() and not resumo_specs.strip():
+        erros.append("AGT-01/02: Nenhum conteúdo extraído (faltam inputs ou texto vazio).")
 
-    return {"resumo_boq": resumo_boq, "resumo_specs": resumo_specs, "erros": erros}
-
+    return {
+        "resumo_boq": resumo_boq or "",
+        "resumo_specs": resumo_specs or "",
+        "erros": erros,
+    }
 
 # ======================================================================
 # AGT-02B: Auditor (cruza BOQ vs SPECS) -> auditoria_bruta
 # ======================================================================
 def no_auditor(state: AuditoriaState) -> dict:
-    model = (state.get("_model_name")).strip()
-    llm = criar_llm(state, temperature=0.1, model=model)
+    llm = ChatOpenAI(model="gpt-5.1", api_key=state["_api_key"], temperature=0.1)
+
+    modo = state.get("modo", "EMPTY")
     tentativas = state.get("tentativas", 0) + 1
 
-    dados = (
-        f"=== BOQ EXTRACTS ===\n{state.get('resumo_boq','')}\n\n"
-        f"=== SPECS BASELINE BULLETS ===\n{state.get('resumo_specs','')}"
-    )
+    resumo_boq = (state.get("resumo_boq") or "").strip()
+    resumo_specs = (state.get("resumo_specs") or "").strip()
 
-    ctx = state.get("contexto_projeto") or {}
-    
-    if ctx:
-        import json
-        info_projeto = f"PROJECT CONTEXT BASELINE:\n{json.dumps(ctx, indent=2)}"
+    if modo == "CROSS":
+        dados = f"=== BOQ EXTRACTS ===\n{resumo_boq}\n\n=== SPECS EXTRACTS ===\n{resumo_specs}"
+        titulo = "CROSS-DOCUMENT AUDIT"
+        tarefa = "Compare BOQ vs SPECS baseline, flag ALIGNED / CONFLICT / MISSING BASELINE."
+    elif modo == "BOQ_ONLY":
+        dados = f"=== BOQ EXTRACTS ===\n{resumo_boq}"
+        titulo = "SINGLE-DOCUMENT AUDIT (BOQ ONLY)"
+        tarefa = "Clean/deduplicate and structure by Phase/Zone/Subzone. No cross-doc checks."
+    elif modo == "SPECS_ONLY":
+        dados = f"=== SPECS EXTRACTS ===\n{resumo_specs}"
+        titulo = "SINGLE-DOCUMENT AUDIT (SPECS ONLY)"
+        tarefa = "Clean/deduplicate and structure by discipline. No BOQ mapping."
     else:
-        info_projeto = "PROJECT CONTEXT: No specific baseline provided. Use standard construction logic."
-    
-    sys_msg = SystemMessage(content=f"""You are a Lead Estimator performing a CROSS-DOCUMENT AUDIT.
+        return {"auditoria_bruta": "", "tentativas": tentativas, "erros": state.get("erros", []) + ["Sem dados para auditar."]}
 
-INPUT:
-- BOQ extracts (Phase/Zone/Subzone/Spec)
-- SPECS baseline bullets
+    sys_msg = SystemMessage(content=f"""You are a Lead Estimator performing: {titulo}
 
 ABSOLUTE RULES:
-- Do NOT omit TECHNICAL INFORMATION present in the inputs.
+- Do NOT omit information present in the inputs.
 - Do NOT invent information outside the inputs.
-- Ignore EVERYTHING related to CONCRETE (all concrete-related items are OUT OF SCOPE - NEVER INCLUDE THEM).
-- QUANTITIES ARE NOT IMPORTANT: Exclude all quantities, volumes, weights, and commercial data from the audit.
+- Ignore EVERYTHING related to CONCRETE (out of scope).
 - No recommendations, next steps, questions, or offers.
-- Focus ONLY on technical specifications, standards, and execution rules.
-- You are auditing based on the following Project Baseline:
-{info_projeto}
-
-If the Project Context says 'steel_decking': true, but you find no decking in the BOQ for a building zone, mark it as a CRITICAL MISSING ITEM.
-
-EMPTY ZONE RULE (CRITICAL FOR ANTI-HALLUCINATION):
-- If a Subzone has NO data related to Steel, Decking, Fire, Corrosion, or Metal Fabrications in the BOQ extract, DO NOT force the 5 categories.
-- Instead, simply write under the Subzone: "[OUT OF SCOPE: No relevant structural/metal items]" and move to the next.
-- If a specific category within a valid Subzone is completely empty (no BOQ items and no relevant Specs), DO NOT print that category.
 
 TASK:
-- Deduplicate within each Phase/Zone/Subzone.
-- Compare BOQ vs SPECS baseline and flag: ALIGNED / CONFLICT / MISSING BASELINE.
-- Keep Phase/Zone/Subzone strictly; never move specs across zones/phases.
+{tarefa}
 
-OUTPUT FORMAT (STRICT):
-Phase: Phase N
---> Zone: ZZZ
-    ---> Subzone: <name>
-        [OUT OF SCOPE: No relevant structural/metal items]  <-- USE THIS IF TOTALLY EMPTY
-        
-        (If NOT empty, use the categories below. Only print the ones that have data or are missing a baseline):
-        * Structural Steel:
-            - BOQ: ...
-            - SPECS: ...
-            - STATUS: ...
-        * Composite Decking:
-            - BOQ: ...
-            - SPECS: ...
-            - STATUS: ...
-        * Fire Protection:
-            - BOQ: ...
-            - SPECS: ...
-            - STATUS: ...
-        * Corrosion Protection:
-            - BOQ: ...
-            - SPECS: ...
-            - STATUS: ...
-        * Metal Fabrications (Stairs/Railings/Gratings):
-            - BOQ: ...
-            - SPECS: ...
-            - STATUS: ...
-
-GLOBAL INCONSISTENCIES:
-- <bullets only from findings above, no new info>
-END_OF_REPORT
+OUTPUT:
+- Clean, structured, deduplicated.
+- End with: END_OF_REPORT
 """)
 
     try:
-        auditoria = _invocar_llm(llm, [sys_msg, HumanMessage(content=f"Build the structured audit:\n\n{dados}")])
+        auditoria = _invocar_llm(llm, [sys_msg, HumanMessage(content=f"Build the audit:\n\n{dados}")])
         return {"auditoria_bruta": auditoria, "tentativas": tentativas}
     except Exception as e:
         erros = list(state.get("erros", []))
         erros.append(f"AGT-02B tentativa {tentativas} ({type(e).__name__}): {e}")
         return {"auditoria_bruta": "", "tentativas": tentativas, "erros": erros}
-
 
 # ======================================================================
 # AGT-03: Deduplicador cross-categoria (novo)
@@ -736,8 +716,12 @@ def no_erro(state: AuditoriaState) -> dict:
 # Condições / routing
 # ======================================================================
 def decidir_apos_extracao(state: AuditoriaState) -> str:
-    tem_dados = bool((state.get("resumo_boq") or "").strip() or (state.get("resumo_specs") or "").strip())
-    return "auditar" if tem_dados else "erro"
+    resumo_boq = (state.get("resumo_boq") or "").strip()
+    resumo_specs = (state.get("resumo_specs") or "").strip()
+
+    if resumo_boq or resumo_specs:
+        return "auditar"
+    return "erro"
 
 
 def decidir_apos_auditoria(state: AuditoriaState) -> str:

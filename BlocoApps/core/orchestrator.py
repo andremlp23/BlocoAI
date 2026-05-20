@@ -66,8 +66,8 @@ def executar_pipeline_completo(
 
         # 2. ESTADO INICIAL COMPLETO (Preenchemos TODAS as chaves para acalmar o LangGraph)
         estado = {
-            "texto_boq": texto_boq,
-            "texto_specs": texto_specs_total,
+            "texto_boq": texto_boq or "",
+            "texto_specs": texto_specs_total or "",
             "guia_filtragem": guia_input or "",
             "nome_boq": file_boq.name if file_boq else "",
             "nomes_specs": nomes_specs or ["Docs"],
@@ -87,7 +87,6 @@ def executar_pipeline_completo(
             "n_ficheiros": (1 if file_boq else 0) + len(files_specs or []),
             "paginas_sem_texto": paginas_sem_texto,
             
-
             "_model_type": model_type or "api",
             "_model_name": model_name or ("llama2" if (model_type or "api") == "local" else "gpt-5.1"),
             "_local_url": local_url or "",
