@@ -309,7 +309,7 @@ def render_start_section(api_key_final: str, file_boq, files_specs, contexto_pro
         elif not contexto_projeto_raw.strip():
             st.markdown(
                 '<div style="font-size:0.78rem;color:#4a6fa0;padding-top:0.65rem">'
-                'Fornece o Project Baseline JSON antes de iniciar a extração.</div>',
+                'Project Baseline JSON é opcional. Se não for fornecido, será usado um contexto genérico.</div>',
                 unsafe_allow_html=True,
             )
         elif not file_boq and not files_specs:

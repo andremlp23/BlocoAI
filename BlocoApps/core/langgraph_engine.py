@@ -84,6 +84,9 @@ def criar_llm(state: dict, *, temperature: float, model: str):
       - _model_name: str (nome do modelo)  (pode ser igual ao `model`)
     """
     model_type = state.get("_model_type", "api")
+    safe_model = (model or "").strip()
+    if not safe_model:
+        safe_model = "llama2" if model_type == "local" else "gpt-5.1"
 
     if model_type == "local":
         base_url = (state.get("_local_url") or "").strip()
@@ -93,7 +96,7 @@ def criar_llm(state: dict, *, temperature: float, model: str):
         return ChatOpenAI(
             base_url=base_url,
             api_key="local",
-            model=model,
+            model=safe_model,
             temperature=temperature,
         )
 
@@ -103,7 +106,7 @@ def criar_llm(state: dict, *, temperature: float, model: str):
         raise ValueError("API selecionada mas _api_key está vazio.")
     return ChatOpenAI(
         api_key=api_key,
-        model=model,
+        model=safe_model,
         temperature=temperature,
     )
 
@@ -465,7 +468,7 @@ def no_router(state: AuditoriaState) -> dict:
 
 
 def no_extrator(state: AuditoriaState) -> dict:
-    model = (state.get("_model_name")).strip()
+    model = (state.get("_model_name") or "").strip() or "gpt-5.1"
     llm_specs = criar_llm(state, temperature=0.0, model=model)
     llm_boq = criar_llm(state, temperature=0.0, model=model)
 
@@ -506,7 +509,7 @@ def no_extrator(state: AuditoriaState) -> dict:
 # AGT-02B: Auditor (cruza BOQ vs SPECS) -> auditoria_bruta
 # ======================================================================
 def no_auditor(state: AuditoriaState) -> dict:
-    model = (state.get("_model_name")).strip()
+    model = (state.get("_model_name") or "").strip() or "gpt-5.1"
     llm = criar_llm(state, temperature=0.1, model=model)
     tentativas = state.get("tentativas", 0) + 1
 
@@ -597,7 +600,7 @@ END_OF_REPORT
 # AGT-03: Deduplicador cross-categoria (novo)
 # ======================================================================
 def no_deduplicador(state: AuditoriaState) -> dict:
-    model = (state.get("_model_name")).strip()
+    model = (state.get("_model_name") or "").strip() or "gpt-5.1"
     llm = criar_llm(state, temperature=0.1, model=model)
 
     base = (state.get("auditoria_bruta") or "").strip()
@@ -663,7 +666,7 @@ OUTPUT:
 # AGT-04: Apresentador (formata)
 # ======================================================================
 def no_apresentador(state: AuditoriaState) -> dict:
-    model = (state.get("_model_name")).strip()
+    model = (state.get("_model_name") or "").strip() or "gpt-5.1"
     llm = criar_llm(state, temperature=0.1, model=model)
 
     base = (state.get("auditoria_normalizada") or state.get("auditoria_bruta") or "").strip()

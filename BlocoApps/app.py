@@ -94,17 +94,18 @@ def main() -> None:
             st.error("⚠️ Define o modelo local antes de avançar.")
         elif not file_boq and not files_specs:
             st.warning("Carrega pelo menos um documento para prosseguir.")
-        elif not contexto_projeto_raw.strip():
-            st.error("⚠️ O Project Baseline JSON é obrigatório para guiar a auditoria.")
         else:
-            # Validação técnica do JSON de Contexto
-            try:
-                contexto_projeto = json.loads(contexto_projeto_raw)
-                if not isinstance(contexto_projeto, dict):
-                    raise ValueError("O conteúdo deve ser um objeto JSON { ... }.")
-            except (json.JSONDecodeError, ValueError) as exc:
-                st.error(f"⚠️ Erro no Project Baseline JSON: {exc}")
-                return
+            if contexto_projeto_raw.strip():
+                # Validação técnica do JSON de Contexto
+                try:
+                    contexto_projeto = json.loads(contexto_projeto_raw)
+                    if not isinstance(contexto_projeto, dict):
+                        raise ValueError("O conteúdo deve ser um objeto JSON { ... }.")
+                except (json.JSONDecodeError, ValueError) as exc:
+                    st.error(f"⚠️ Erro no Project Baseline JSON: {exc}")
+                    return
+            else:
+                contexto_projeto = {}
 
             # Guardar contexto no estado da sessão
             st.session_state.contexto_projeto = contexto_projeto
