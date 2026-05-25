@@ -187,12 +187,8 @@ OUTPUT FORMAT (STRICT):
     except Exception as e:
         return f"[AGT-01 falhou: {type(e).__name__}: {e}]"
 
-
 # ======================================================================
-# AGT-02: BOQ extractor (sem betão) + Phase/Zone/Subzone
-# ======================================================================
-# ======================================================================
-# AGT-02: Extração estruturada de BOQ em JSON (para CSV)
+# AGT-02.1: Extração estruturada de BOQ em JSON (para CSV)
 # ======================================================================
 def extrair_boq_json_estruturado(texto_boq: str, nome_ficheiro: str, contexto_specs: str, contexto_projeto: dict, llm, prog_placeholder, status_placeholder) -> str:
     """Extrai BOQ CSV em JSON estruturado com Phase/Zone mapping completo."""
@@ -325,7 +321,7 @@ OUTPUT:
 
 
 # ======================================================================
-# AGT-02: Extração narrativa de BOQ (para PDF/DOCX)
+# AGT-02.2: Extração narrativa de BOQ (para PDF/DOCX)
 # ======================================================================
 def extrair_boq_com_contexto(texto_boq: str, nome_ficheiro: str, contexto_specs: str, contexto_projeto: dict, llm, prog_placeholder, status_placeholder) -> str:
     # Detectar se é CSV para usar prompt estruturado
@@ -467,7 +463,7 @@ def no_extrator(state: AuditoriaState) -> dict:
 
 
 # ======================================================================
-# AGT-02B: Auditor (cruza BOQ vs SPECS) -> auditoria_bruta
+# AGT-03: Auditor (cruza BOQ vs SPECS) -> auditoria_bruta
 # ======================================================================
 def no_auditor(state: AuditoriaState) -> dict:
     llm = ChatOpenAI(model="gpt-5.1", api_key=state["_api_key"], temperature=0.1)
@@ -557,7 +553,7 @@ END_OF_REPORT
 
 
 # ======================================================================
-# AGT-03: Deduplicador cross-categoria (novo)
+# AGT-04: Deduplicador cross-categoria
 # ======================================================================
 def no_deduplicador(state: AuditoriaState) -> dict:
     llm = ChatOpenAI(model="gpt-5.1", api_key=state["_api_key"], temperature=0.1)
@@ -622,7 +618,7 @@ OUTPUT:
 
 
 # ======================================================================
-# AGT-04: Apresentador (formata)
+# AGT-05: Apresentador (formata)
 # ======================================================================
 def no_apresentador(state: AuditoriaState) -> dict:
     # Usamos o gpt-4o para reestruturação complexa de dados (Data Pivot)
