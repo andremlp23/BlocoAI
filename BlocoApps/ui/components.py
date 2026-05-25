@@ -175,7 +175,7 @@ def ensure_session_defaults() -> None:
         ("relatorio_final", ""),
 
         # contexto do projeto
-        ("project_context_mode", "Colar JSON"),
+        ("project_context_mode", "Carregar .json"),
         ("project_context_json_text", DEFAULT_PROJECT_BASELINE_JSON),
         ("contexto_projeto", {}),
 
@@ -216,6 +216,7 @@ def render_project_context_section() -> str:
         "Forma de introduzir o contexto do projeto",
         options=["Carregar .json", "Colar JSON"],
         horizontal=True,
+        index=0,
         key="project_context_mode",
     )
 

@@ -1,0 +1,344 @@
+# Cross-Document Technical Audit:
+
+## 1. TRADE PACKAGE: STRUCTURAL STEEL
+
+**Baseline Scope:**
+- Structural steel generally grade S355/S355JR to EN/NBN EN 10025 and hollow sections to NBN EN 10210.
+- Design to Eurocodes including NBN EN 1990/1991/1993 (and EN 1993-1-10, EN 1993-1-8 where stated).
+- Execution to EN 1090-2, Execution Class EXC2; NSSSBC 5th Edition referenced for primary frames.
+- Connection design, erection tolerances and QA regime defined across primary frames, secondary steel, and interfaces.
+- Bolting: non-preloaded bolts to NBN EN 15048; high-strength preloaded assemblies to NBN EN 14399 where required.
+- Welding to EN 1011 and NBN EN ISO 9606-1 with associated structural detailing and inspection requirements.
+- Scope includes:
+  - Primary frames, beams, columns, baseplates and holding-down assemblies (H.D.A.).
+  - Secondary steel for cladding, parapet cappings, flashings, louvres, canopies, doors/windows, roof liners, roof penetrations, movement joints.
+  - Steel supports for Eurobond/Euroclad/Kingspan roof and wall systems and diaphragm action of roof decks.
+  - Generator and USS trench beams/frames and similar embedded steel.
+  - Cooling tower gantry frames (Shell A) across Phases 1–4 including integration between phases.
+  - Structural supports for RMUs, battery boxes, plant, AHUs, and tray/pipe support interfaces.
+  - External access steel (stairs, ladders, walkways, bumper rails) designed in conjunction with EN ISO 14122.
+  - Miscellaneous structural frames for roller shutters, doors, smoke extract louvres, AOVs, and openings.
+  - Steel interfaces (kickers, bolts, H.D.A.) cast into foundations, pad foundations, plinths and slabs across all phases.
+- Anchor bolts, confinement angles and grout requirements consistently defined for all interfaces to foundations and slabs, with survey/QA procedures for H.D.A. setting-out.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| CSA PHASE 1 | FSA - Structural Steel | S355JR primary structural framing including frames, baseplates, H.D.A., internal structural steel stairs and miscellaneous access steel coordinated with foundations. | Full primary structural frame with integrated access steel; detailed connection/erection and QA regime. |
+| CSA PHASE 1 | FSA - Envelope | Secondary/miscellaneous steel to EN 10025/10210 supporting wall panels, parapets, flashings, canopies, cat ladders, louvres; anchor bolts and confinement angles to EN 15048. | Dedicated envelope secondary steel scope with tight interface tolerances. |
+| CSA PHASE 1 | FSA - Roof | Roof-supporting structural steel per global structural spec. | No unique structural spec; relies on main structural steel standards. |
+| CSA PHASE 1 | DCH - Structural Steel PH1 | S355 frame for DCH PH1 including primary framing, H.D.A. and initial misc steel to EN 1090-2 EXC2. | Establishes DCH Phase 1 primary frame baseline. |
+| CSA PHASE 1 | DCH - Envelope PH1 | Secondary steel/metal fabrications for cladding, roof liner, parapet cappings, joints, flashings, louvres. | Explicit envelope secondary steel package within DCH. |
+| CSA PHASE 1 | DCH - Roof PH1 | Roof structural steel per main structural spec. | No additional criteria beyond global rules. |
+| CSA PHASE 1 | Generator Trench Structural Steel | Structural beams/frames for generator trench to EN 10025/10210; EN 1090-2 EXC2; anchor bolts to EN 15048. | Trench-specific structural steel package with defined connections. |
+| CSA PHASE 1 | USS Trench Structural Steel | Structural beams for USS trench; same materials, execution and anchor bolt standards as generator trench. | Parallel trench steel scope; duplicated listing confirms same regime. |
+| CSA PHASE 1 | Cooling Tower Gantry - Structural Steel PH1 | S355JR gantry frames with H.D.A.; main frames and integrated access steel (stairs, ladders, platforms). | Dedicated gantry frame package; non-fire-rated unless noted on drawings. |
+| CSA PHASE 1 | MYD - Densified - Water Cooled Structural Steel PH1 | Structural supports for RMUs/battery boxes; linked Shell A gantry steel; EXC2; anchor bolts to EN 15048 across trenches. | Combines plant supports with gantry steel interfaces. |
+| CSA PHASE 1 | EYD Foundations PH1 | Anchor bolts and confinement angles for future trestle/flue/steel stanchions; grout to baseplates; no above-ground frame. | Interface-only scope; steel frame by others/later. |
+| CSA PHASE 1 | Cooling Tower Gantry - Pad Foundations & Plinths PH1 | Anchor bolts, confinement angles, weld details, grout beneath baseplates for gantry and equipment steel. | Structural steel limited to H.D.A./interface elements. |
+| CSA PHASE 1 | Hold Down Bolt Assemblies Supply PH1 | Supply of H.D.A. sets; anchor bolts to EN 15048 and preloaded EN 14399 where applicable; templates and survey/QA prior to erection. | Centralized H.D.A. supply and QA package. |
+| CSA PHASE 1 | Site Development PH1 (Fencing and Bollards CSA PH1) | Pipe/section posts, bollards, gates to ISO 4200/EN 10025; anchors/fixings for barriers and posts. | External miscellaneous structural members under site development. |
+| CSA PHASE 1 | DCH & FSA Cladding Secondary Steel PH1 | Secondary framing to EN 10025/10210; anchors to EN 15048; weld/fabrication tolerances for Eurobond panel and penetration supports. | Shared secondary steel package for DCH & FSA cladding. |
+| CSA PHASE 1 | Steel Decking FSA PH1 | “See Structural Steel” for supporting steel. | Steel frame in this zone is defined in main FSA structural scope. |
+| CSA PHASE 1 | Steel Decking DCH PH1 | “See Structural Steel” for supporting steel. | Structural frame per DCH PH1 spec. |
+| CSA PHASE 1 | USS Trench Structural Steel (duplicate listing) | Confirms USS trench structural beams/anchors as per main USS trench spec. | Duplicate confirmation of scope/standards. |
+| CSA PHASE 1 | Steel Supports in EYD Slabs PH1 | H.D.A., kickers/bolts, trench steel interfaces to receive future steel supports; grout rules. | Interface steel only; no above-slab framing. |
+| CSA PHASE 1 | Cooling Tower Gantry – Steel Foundations Interface PH1 | Anchor bolts to EN 15048, grout and baseplate requirements for gantry-to-foundations interface. | H.D.A./interface-only structural scope. |
+| CSA PHASE 1 | FSA & DCH External Steelwork/Metalwork PH1 | Structural and secondary external access steel (stairs, ladders, railings, walkways, bumper rails) to EN 10025/10210; design to EN 1993. | External access steel integrated as structural scope. |
+| CSA PHASE 1 | DCH - Structural Steel PH1 (global zones list) | Reference back to main DCH PH1 structural steel specification. | No new scope; cross-reference only. |
+| CSA PHASE 1 | DCH - Envelope PH1 (global zones list) | Reference to DCH Envelope PH1 structural steel. | Cross-reference only. |
+| CSA PHASE 1 | DCH - Roof PH1 (global zones list) | Reference to DCH Roof PH1 structural steel. | Cross-reference only. |
+| CSA PHASE 1 | EYD Foundations PH1 (global zones list) | Reference to EYD Foundations PH1 structural interfaces. | Cross-reference only. |
+| CSA PHASE 1 | Site Development PH1 (global) | Reference to Fencing and Bollards CSA PH1 structural steel. | Cross-reference only. |
+| CSA PHASE 1 | Security Fence & RSA Steel Works PH1 – Security Fence | Fence post/handrail materials to ISO 4200/ISO 10799/EN 10025; anchors/fixings; posts as steel fabrications for 3 m chainlink. | Security fence structural posts defined as steel fabrications (no proprietary system spec). |
+| CSA-RSA PHASE 1 | RSA - Security Fence & Infrastructure | Metal fabrication and guard materials for fence posts and gates; anchor bolts for posts/gates; steel frames for 3 m chainlink fence. | Extends fence/ gate structural scope to RSA perimeter. |
+| CSA-SSA PHASE 1 | SSA - Load Bank Garage & Fuel Polishing Building Structural Steel | S355 EXC2 structural frame with H.D.A.; anchor bolt/grout requirements; shotblasted and hot-dip galvanized frame. | Standalone small structural frame with full galvanizing. |
+| CSA-SSA PHASE 1 | SSA - Load Bank Garage & Fuel Polishing Building Roof | References main structural steel for roof supports. | Structural scope driven by main SSA frame specification. |
+| CSA-SSA PHASE 1 | SSA - Load Bank Garage Envelope | Secondary steel/metal fabrications for cladding, parapet cappings, gutters, shutter frame; connection design to EN 1993. | Envelope secondary steel for SSA building. |
+| CSA-SSA PHASE 1 | SSA - Load Bank Garage & Fuel Polishing Building Foundations | H.D.A. and steel interfaces cast into SSA foundations/slabs for the frame. | Interface-only scope. |
+| CSA-SSA PHASE 1 | SSA Site Development (Cycle Route) | Miscellaneous metal fabrications (potential bollards/edge restraints) treated as misc steel. | Allow for minor structural members without detailed system spec. |
+| CSA-SSA PHASE 1 | SSA - FSA Additional AHU Foundation | H.D.A. interfaces in AHU foundation for mechanical plant steel supports. | Interface-only structural steel. |
+| CSA PHASE 2 | DCH - Structural Steel PH2 | S355 EXC2 extension frame for DCH Phase 2; connection design to NBN EN 1993; access steel to EN ISO 14122; integration with Phase 1 frame and external access steel. | Phase 2 expansion of DCH frame and access steel. |
+| CSA PHASE 2 | DCH - Envelope PH2 | Secondary steel/misc fabrications to EN 10025/10210 for cladding, parapets, louvres, penetrations. | New envelope secondary steel for Phase 2. |
+| CSA PHASE 2 | DCH - Roof PH2 | Roof structural steel per main structural spec. | No unique criteria beyond global rules. |
+| CSA PHASE 2 | MYD - Densified - Water Cooled Structural Steel PH2 | Structural supports over trenches and additional Shell A gantry steel with H.D.A.; same standards as earlier MYD/gantry works. | Extends MYD/gantry support steel into Phase 2. |
+| CSA PHASE 2 | Cooling Tower Gantry - Structural Steel PH2 | Additional S355 gantry steel frames with H.D.A.; same standards as Phase 1 gantry. | Phase 2 gantry frame extension. |
+| CSA PHASE 2 | Cooling Tower Gantry - Pad Foundations & Plinths PH2 | Anchor bolt/confinement/grout for gantry columns/trestles. | Interface-only structural steel. |
+| CSA PHASE 2 | USS/MCP/S25/USS Trestle Foundations – Hold Down Interfaces PH2 | H.D.A. and confinement steel rules for foundations; grout at steel interfaces. | Interface-only scope; no above-ground frames. |
+| CSA PHASE 2 | Hold Down Bolt Assemblies Supply PH2 | Anchor bolts to EN 15048; survey/QA; supply of H.D.A. for MCP/USS/S25 foundations. | Phase 2 H.D.A. supply and QA. |
+| CSA PHASE 2 | DCH External Steelwork/Metalwork PH2 | External steelwork (cat ladders, balustrades, bollards, parapet/roof stairs) to EN 10025/10210 and EN ISO 14122. | External access and protection steel for DCH Phase 2. |
+| CSA PHASE 2 | DCH Envelope Secondary Steel PH2 | Secondary steel for cladding/parapets/penetrations in DCH PH2. | Envelope secondary framework. |
+| CSA PHASE 2 | DCH External Windows & Doors PH2 | Misc steel frames/supports for roller shutters and doors (jambs/lintels). | Door/window interface steel. |
+| CSA PHASE 3 | DCH - Structural Steel PH3 | Additional S355 EXC2 DCH frames and misc steel; integration with existing structure; access steel rules as before. | Phase 3 DCH frame expansion. |
+| CSA PHASE 3 | DCH - Envelope PH3 | Secondary steel for cladding, parapets, joints, louvres, penetrations. | Phase 3 envelope secondary steel. |
+| CSA PHASE 3 | DCH - Roof PH3 | Roof structural steel per global rules. | No unique criteria beyond prior phases. |
+| CSA PHASE 3 | MYD - Densified - Water Cooled Structural Steel PH3 | Additional Shell A gantry steel and supports for RMUs/battery boxes across trenches; EXC2 and anchor bolt standards as earlier. | Continues MYD/gantry support steel into Phase 3. |
+| CSA PHASE 3 | Cooling Tower Gantry - Structural Steel PH3 | Shell A Phase 3 gantry frames integrated with previous phases; EN 10025/10210, EN 1090-2 EXC2, EN 15048. | Gantry frame completion for Phase 3. |
+| CSA PHASE 3 | Cooling Tower Gantry - Pad Foundations & Plinths PH3 | H.D.A. and dowels in pad foundations/plinths; anchor/grout specs as prior phases. | Interface-only scope. |
+| CSA PHASE 3 | USS/MCP/S25/USS Trestle Foundations – Hold Down Interfaces PH3 | H.D.A. interfaces for Phase 3 foundations; anchor/confinement for baseplates; no above-ground steel. | Foundations/anchor-only. |
+| CSA PHASE 3 | Hold Down Bolt Assemblies Supply PH3 | Anchor bolts to EN 15048; QA; H.D.A. supply for MCP/USS/S25; setting-out assistance. | Phase 3 H.D.A. supply. |
+| CSA PHASE 3 | Additional Steps and Ramps with Handrails PH3 | Structural references to main steel; access steel detailed under metal fabrications. | Structural support implicit; detailed in metalwork package. |
+| CSA PHASE 3 | Louvres for Smoke Extract PH3 | Misc steel support framing and anchors for smoke extract louvres in cladding/roofs. | Additional louvre support frame scope. |
+| CSA PHASE 3 | Roof AOV’s and penetrations PH3 | Structural framing in steel for AOVs and roof penetrations; opening framing treated as metal fabrications. | Misc roof opening framing. |
+| CSA PHASE 3 | CSA PHASE 3 Site Development | Bollards and crash protection steel around DCH perimeter/yards; pipe/plate materials; anchor bolt rules. | External protection steel as structural misc. |
+| CSA PHASE 3 | Fuel Oil Offloading Area - EYD PH3 (steel interface) | Steel H.D.A., kickers/bolts for fuel oil offloading structures; grout where required. | Interface-only scope. |
+| CSA PHASE 4 | DCH - Structural Steel PH4 | Final S355 EXC2 DCH frame segments including external access steel and gantry interfaces; integration with existing works. | Completes DCH frame and related access steel. |
+| CSA PHASE 4 | DCH - Envelope PH4 | Secondary steel to complete cladding, parapets, louvres, roof drainage support. | Final envelope secondary steel. |
+| CSA PHASE 4 | DCH - Roof PH4 | Roof structural steel per main spec. | No unique criteria. |
+| CSA PHASE 4 | Cooling Tower Gantry - Structural Steel PH4 | Remaining Shell A gantry steel frames with EXC2 and H.D.A.; integrated with plant/pipe supports. | Final gantry frame stage. |
+| CSA PHASE 4 | Cooling Tower Gantry - Pad Foundations & Plinths PH4 | H.D.A. and chamfered plinths for gantry/USS/MCP supports; anchor/grout/movement joints. | Interface-only structural scope. |
+| CSA PHASE 4 | USS/MCP/S25/USS Trestle Foundations – Hold Down Interfaces PH4 | H.D.A. interfaces and chamfered plinths; anchor/grout standards; no above-ground steel. | Foundations-only. |
+| CSA PHASE 4 | Hold Down Bolt Assemblies Supply PH4 | Final H.D.A. sets for MCP/USS/S25; anchor bolts to EN 15048; QA and coordination to baseplates. | Phase 4 H.D.A. supply. |
+| CSA PHASE 4 | Cooling Tower Gantry Access Steel PH4 | Structural references to main steel; access steel itself under metal fabrications. | Structural support implicit. |
+| CSA PHASE 4 | DCH External Windows & Doors PH4 | Misc structural frames for roller shutters and external doors; anchors/welds as per metalwork/structural standards. | Final door/window steel interfaces. |
+| CSA-RSA PHASE 1 | Security Fence | Metal fabrication and pipe material standards for 3 m chainlink fence posts/gates; anchors for posts/frames. | Additional security fence structural scope under CSA-RSA. |
+| CSA-RSA PHASE 1 | SSA - Load Bank Garage & Fuel Polishing Building Structural Steel (global) | Cross-reference to SSA structural steel spec. | No new scope. |
+| CSA-RSA PHASE 1 | SSA - Load Bank Garage & Fuel Polishing Building Roof (global) | Cross-reference to SSA roof structural steel. | No new scope. |
+| CSA-RSA PHASE 1 | SSA - Load Bank Garage & Fuel Polishing Building Envelope (global) | Cross-reference to SSA envelope structural steel. | No new scope. |
+
+
+## 2. TRADE PACKAGE: COMPOSITE DECKING
+
+**Baseline Scope:**
+- Steel deck sheets in galvanized S350 to NBN EN 10346 and NBN EN 10143, or equivalent recognized roof deck materials.
+- Design of deck to NBN EN 1993-1-3 and SCI/BCSA deck design guidance.
+- Installation requirements covering:
+  - Bearing lengths, end laps, side laps, and fixings/welds (including stud welding where applicable).
+  - Opening formation, local strengthening and limitations on additional cuts/openings (engineer approval where noted).
+  - Integration with roof systems (Euroclad, Kingspan RD 100/825 and similar) and coordination with penetrations and roof build-up.
+- Use of deck as roof decking and structural diaphragm, with diaphragm design guidance where stated.
+- Named profiles: TATA D60 for DCH/FSA roofs; Kingspan RD 100/825 for SSA roof; Euroclad roof systems over structural steel as indicated.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| CSA PHASE 1 | FSA - Structural Steel | Composite deck spec referenced as separate; no unique deck in this subzone. | Structural zone establishes coordination only. |
+| CSA PHASE 1 | FSA - Composite Decking | Galvanized S350 deck to EN 10346/10143; design to EN 1993-1-3; SCI/BCSA installation rules; deck used as roof decking coordinated with penetrations and roof system. | Core baseline for composite roof decking. |
+| CSA PHASE 1 | FSA - Envelope | Composite Decking marked “See Composite Decking”. | Cross-reference only. |
+| CSA PHASE 1 | FSA - Roof | Roof deck grade/geometry to recognized standards; SCI/BCSA codes; diaphragm design; coordination of roof panels, deck infills and penetrations. | Emphasizes diaphragm action and integration with roof panels. |
+| CSA PHASE 1 | DCH - Structural Steel PH1 | Decking referenced; detailed in Composite Decking section. | Cross-reference. |
+| CSA PHASE 1 | DCH - Structural Steel PH1 – Composite Decking | S350 deck to EN 10346/10143; SCI/BCSA practice; stud welding codes; TATA D60 profile as roof decking to primary steel. | Introduces TATA D60 profile and stud welding considerations. |
+| CSA PHASE 1 | DCH - Envelope PH1 | “See Composite Decking”. | Cross-reference. |
+| CSA PHASE 1 | DCH - Roof PH1 | Roof deck material/installation to SCI/BCSA deck practice; diaphragm design and fixing requirements supporting Euroclad roof and penetrations. | Ties deck directly to Euroclad system and diaphragm design. |
+| CSA PHASE 1 | Generator Trench Structural Steel | Composite Decking “See Composite Decking”. | No dedicated deck scope. |
+| CSA PHASE 1 | USS Trench Structural Steel | Composite Decking “See Composite Decking”. | No dedicated deck scope. |
+| CSA PHASE 1 | Cooling Tower Gantry - Structural Steel PH1 | Composite Decking “See Composite Decking”. | No separate gantry deck specified. |
+| CSA PHASE 1 | MYD - Densified - Water Cooled Structural Steel PH1 | Composite Decking “See Composite Decking”. | No additional deck. |
+| CSA PHASE 1 | EYD Foundations PH1 | Composite Decking “See Composite Decking”. | No deck at foundations. |
+| CSA PHASE 1 | Cooling Tower Gantry - Pad Foundations & Plinths PH1 | Composite Decking “See Composite Decking”. | N/A for pads. |
+| CSA PHASE 1 | Hold Down Bolt Assemblies Supply PH1 | Composite Decking “See Composite Decking”. | N/A. |
+| CSA PHASE 1 | Site Development PH1 (Fencing and Bollards CSA PH1) | Composite Decking “See Composite Decking”. | No deck. |
+| CSA PHASE 1 | DCH & FSA Cladding Secondary Steel PH1 | Composite Decking “See Composite Decking”. | No explicit decking. |
+| CSA PHASE 1 | Steel Decking FSA PH1 | S350 deck to EN 10346/10143; design to EN 1993-1-3; SCI/BCSA decks; full installation rules for TATA D60 deck forming FSA roof. | Location-specific confirmation of FSA roof deck profile and rules. |
+| CSA PHASE 1 | Steel Decking DCH PH1 | Same deck material/installation standards as FSA; diaphragm design and fixing for DCH roof deck. | Confirms shared standards with FSA but adds diaphragm design. |
+| CSA PHASE 1 | FSA/DCH Intumescent Protection PH1 | Composite Decking “See Composite Decking”. | No fire-rated deck beyond usual coatings. |
+| CSA PHASE 1 | USS Trench Structural Steel (duplicate) | Composite Decking “See Composite Decking”. | No change. |
+| CSA PHASE 1 | Steel Supports in EYD Slabs PH1 | Composite Decking “See Composite Decking”. | No deck. |
+| CSA PHASE 1 | Cooling Tower Gantry – Steel Foundations Interface PH1 | Composite Decking “See Composite Decking”. | N/A. |
+| CSA PHASE 1 | FSA & DCH External Steelwork/Metalwork PH1 | Composite Decking “See Composite Decking”. | No dedicated deck. |
+| CSA PHASE 1 | DCH - Structural Steel/Envelope/Roof PH1 (global) | Composite Decking “See Composite Decking”. | Cross-references only. |
+| CSA PHASE 1 | Security Fence & RSA Steel Works PH1 / CSA-RSA PHASE 1 Security Fence | Composite Decking “See Composite Decking”. | No decking. |
+| CSA-SSA PHASE 1 | SSA - Load Bank Garage & Fuel Polishing Building Roof | Kingspan RD 100/825 steel roof deck; installation to SCI/BCSA; welding/fastening and opening limits. | Introduces proprietary Kingspan RD 100/825 roof deck. |
+| CSA-SSA PHASE 1 | SSA - Structural Steel / Envelope / Foundations / Site Development / AHU Foundation | Composite Decking “See Composite Decking”. | No additional deck. |
+| CSA PHASE 2 | DCH - Structural Steel PH2 | Composite Decking “See Composite Decking”. | Deck defined elsewhere. |
+| CSA PHASE 2 | DCH - Envelope PH2 | Composite Decking “See Composite Decking”. | Cross-reference. |
+| CSA PHASE 2 | DCH - Roof PH2 | Steel deck for Phase 2 roof; installation and opening limitations requiring engineer approval; SCI/BCSA guidance for installation and diaphragm action. | Highlights restriction on extra openings. |
+| CSA PHASE 2 | MYD / Gantry / Pad Foundations / Interfaces / H.D.A. | Composite Decking “See Composite Decking”. | No dedicated deck. |
+| CSA PHASE 2 | DCH External Steelwork / Envelope Secondary / External Windows & Doors PH2 | Composite Decking “See Composite Decking”. | No deck scope. |
+| CSA PHASE 3 | DCH - Structural Steel PH3 | Composite Decking “See Composite Decking”. | Deck referenced separately. |
+| CSA PHASE 3 | DCH - Envelope PH3 | Composite Decking “See Composite Decking”. | No deck. |
+| CSA PHASE 3 | DCH - Roof PH3 | Euroclad roof panel systems over existing deck extended to Phase 3; roof deck and diaphragm design; restrictions for openings and welding quality. | Emphasizes continuity of existing deck and limits on modifications. |
+| CSA PHASE 3 | MYD/Gantry/Interfaces/Site Development/Other PH3 Zones | Composite Decking “See Composite Decking”. | No dedicated deck. |
+| CSA PHASE 4 | DCH - Structural Steel PH4 | Composite Decking “See Composite Decking”. | Deck defined under roof zones. |
+| CSA PHASE 4 | DCH - Envelope PH4 | Composite Decking “See Composite Decking”. | N/A. |
+| CSA PHASE 4 | DCH - Roof PH4 | Euroclad 280 mm top deck roof system supported on deck and structural steel; same standards as previous phases. | Moves to deeper roof build-up but same decking standards. |
+| CSA PHASE 4 | Cooling Tower Gantry / Pad Foundations / Interfaces / H.D.A. / External Windows & Doors PH4 | Composite Decking “See Composite Decking”. | No deck scopes. |
+| CSA-RSA PHASE 1 | Security Fence / SSA global zones / Site Development / AHU Foundation | Composite Decking “See Composite Decking”. | No composite decking. |
+
+
+## 3. TRADE PACKAGE: FIRE PROTECTION
+
+**Baseline Scope:**
+- Thin-film intumescent coatings to structural steel:
+  - FIRETEX FX2003 or FX6002 (or equivalent systems) with performance to EN 16623, EN 13381-4 and EN 13501.
+  - Fire resistance periods primarily 2 hours (R120) for major structural zones and 1 hour (R60) in later DCH phases and trenches where defined.
+  - Ability to adjust fire rating via dry film thickness (DFT) in line with EN 13381-4 test data.
+- Application and QA:
+  - Factory or on-site spray application permitted, with on-site touch-up.
+  - Blast-cleaned substrate (Sa 2.5 where specified) and compatible primer/topcoat systems.
+  - Detailed DFT determination, measurement and inspection regime.
+  - Coordination with corrosion protection regime and environment classification.
+- Scope covers primary and selected secondary structural steel; external gantries generally exempt unless drawings specifically require.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| CSA PHASE 1 | FSA - Structural Steel – Fire Protection | Thin-film intumescent (FX2003/FX6002) to 2-hour rating for structural steel; Sa 2.5 blast; full DFT inspection regime; factory application with site touch-up. | Establishes global 2-hour standard for internal structural steel. |
+| CSA PHASE 1 | FSA - Envelope – Fire Protection | “See Fire Protection”. | No zone-specific variation. |
+| CSA PHASE 1 | FSA - Roof – Fire Protection | Intumescent and DFT control applicable to roof-supporting steel; EN 13381-4 testing for required rating; relies on structural scope intumescent spec. | Extends FSA 2-hour regime to roof steel. |
+| CSA PHASE 1 | DCH - Structural Steel PH1 – Fire Protection | FX2003/FX6002 to 2-hour rating for Phase 1 DCH structural steel; factory or spray; DFT/QA regime; ratings from test data. | Confirms 2-hour rating for DCH Phase 1. |
+| CSA PHASE 1 | DCH - Envelope PH1 – Fire Protection | “See Fire Protection”. | No unique variation. |
+| CSA PHASE 1 | DCH - Roof PH1 – Fire Protection | Intumescent design/application for roof beams/purlins; rating per EN 13381-4; coordinated with DCH structural scope. | Roof members follow DCH fire rating. |
+| CSA PHASE 1 | Generator Trench Structural Steel – Fire Protection | Intumescent systems providing 60-minute (R60) rating; EN 13381-4; application and DFT rules for factory and touch-up. | Reduced rating for trench steel vs main frames. |
+| CSA PHASE 1 | USS Trench Structural Steel – Fire Protection | Intumescent systems suitable for 60-minute rating; detailed application and DFT criteria. | Aligns USS trench with generator trench R60. |
+| CSA PHASE 1 | Cooling Tower Gantry - Structural Steel PH1 – Fire Protection | Intumescent optional only where specifically required by drawings; otherwise gantries non-fire-rated. | Explicit exclusion unless noted; reduces fire scope on gantry steel. |
+| CSA PHASE 1 | MYD - Densified - Water Cooled Structural Steel PH1 – Fire Protection | “See Fire Protection”. | No specific rating stated; follows adjacent structural zones where required. |
+| CSA PHASE 1 | EYD Foundations PH1 / Gantry Pads / H.D.A. Supply / Fencing & Bollards / Cladding Secondary Steel / Steel Decking FSA & DCH PH1 | Fire Protection “See Fire Protection”. | H.D.A. and minor items typically unprotected unless otherwise specified. |
+| CSA PHASE 1 | FSA/DCH Intumescent Protection PH1 | Intumescent protection to structural steel in FSA and DCH Phase 1 providing 2-hour rating; FX2003/FX6002; DFT adjusted to rating; full application/curing/DFT rules; compatibility with primers; EN 13381-4 & EN 13501 classifications. | Consolidated fire protection package for main FSA/DCH frames. |
+| CSA PHASE 1 | USS Trench Structural Steel (duplicate) / Steel Supports in EYD Slabs / Gantry – Steel Foundations Interface / FSA & DCH External Steelwork / DCH global zone listings / RSA/SSA references | Fire Protection “See Fire Protection”. | No additional detail; assume as per main structural fire strategy, often none for external-only items. |
+| CSA-SSA PHASE 1 | SSA - Structural Steel / Roof / Envelope / Foundations / Site Dev / AHU Foundation | Fire Protection “See Fire Protection”. | Fire to be defined by project fire strategy; not explicitly quantified here. |
+| CSA PHASE 2 | DCH - Structural Steel PH2 – Fire Protection | Intumescent to provide 1-hour rating (R60) to Phase 2 DCH steel; systems allow varying ratings via DFT; controlled by EN 13381-4 test data. | Reduced rating for DCH Ph2 vs Phase 1 (2-hour). |
+| CSA PHASE 2 | DCH - Envelope PH2 / DCH - Roof PH2 / MYD / Gantry / Pad Foundations / Interfaces / H.D.A. / DCH External Steelwork / Envelope Secondary / External Windows & Doors PH2 | Fire Protection “See Fire Protection”. | No explicit variations; likely follow adjacent structural element rating or unprotected for external-only steel. |
+| CSA PHASE 3 | DCH - Structural Steel PH3 – Fire Protection | Intumescent adjustable for 1-hour rating to Phase 3 DCH frames; DFT from EN 13381-4. | Continues R60 regime for later DCH phases. |
+| CSA PHASE 3 | DCH - Envelope PH3 / DCH - Roof PH3 / MYD / Gantry / Pads / Interfaces / H.D.A. / Additional Steps & Ramps / Louvres / Roof AOVs / Site Development / Fuel Oil Offloading | Fire Protection “See Fire Protection”. | Again, no explicit ratings beyond main DCH frames. |
+| CSA PHASE 4 | DCH - Structural Steel PH4 – Fire Protection | 1-hour intumescent for Phase 4 DCH steel; DFT rules and EN 13381-4 test data. | Maintains R60 regime for final DCH phase. |
+| CSA PHASE 4 | DCH - Envelope PH4 / DCH - Roof PH4 / Gantry steel/phases / Pads / Interfaces / H.D.A. / Gantry Access Steel / External Windows & Doors PH4 | Fire Protection “See Fire Protection”. | External gantries again generally non-fire-rated unless drawings require. |
+| CSA-RSA PHASE 1 | Security Fence / SSA global zones / SSA foundations / SSA Site Development / AHU Foundation | Fire Protection “See Fire Protection”. | No explicit intumescent protection to fence or small SSA steel noted. |
+
+
+## 4. TRADE PACKAGE: CORROSION PROTECTION
+
+**Baseline Scope:**
+- Corrosion classification to NBN EN ISO 12944-2, typically:
+  - C2 for internal environments.
+  - C4 for external environments, including external access steel, gantries, fences, bollards, and envelope metalwork.
+- Blast cleaning and surface preparation:
+  - Sa 2.5 blast cleaning for intumescent-coated and painted structural steel where specified.
+  - Surface cleanliness and profile control to EN ISO 8501-1, EN ISO 8502-3, EN ISO 8503-2.
+- Coating systems:
+  - Paint systems with DFT checks to EN ISO 2808.
+  - Hot-dip galvanizing of external steel to EN ISO 1461 and EN ISO 14713-1, with venting and distortion control rules.
+  - Touch-up and repair of galvanizing to EN ISO 17463 and defined site repair regimes.
+  - Coordination between primers, intumescent and topcoats per environmental exposure.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| CSA PHASE 1 | FSA - Structural Steel – Corrosion Protection | C2 internal and C4 external regimes; blast cleaning to EN ISO 8501-1; DFT checks to EN ISO 2808; external steel incl. roof access steel and external stairs/rails hot-dip galvanized to EN ISO 1461/14713-1 with venting and repair rules. | Establishes global corrosion regime for structural and access steel. |
+| CSA PHASE 1 | FSA - Envelope – Corrosion Protection | Shop priming and galvanizing for envelope metal fabrications with C4 external requirements to EN ISO 12944-2 and EN ISO 1461; exclusions for surfaces against concrete and fireproofed areas; defined touch-up for secondary steel (internal painted, external galvanized). | Clarifies exclusions and dual internal/external treatments. |
+| CSA PHASE 1 | FSA - Roof – Corrosion Protection | Roof steel protection per EN ISO 12944; clean steel surfaces before deck installation; roof deck base steel protection per EN 10346; coordination with global paint/galvanizing regime. | Emphasizes cleanliness and deck base material protection. |
+| CSA PHASE 1 | DCH - Structural Steel PH1 – Corrosion Protection | C2 internal paint systems per EN ISO 12944; external misc steel galvanized to EN ISO 1461/14713-1; shop priming exclusions in fireproofed/encased areas; DFT checks. | Aligns DCH with global corrosion strategy. |
+| CSA PHASE 1 | DCH - Envelope PH1 – Corrosion Protection | Metal fabrication corrosion systems incl. priming and galvanizing for external C4; galvanized touch-up to EN ISO 17463; consistent with overall regime. | C4-focused treatment for envelope secondary steel. |
+| CSA PHASE 1 | DCH - Roof PH1 – Corrosion Protection | Corrosion systems for external roof steel/walkways/stairs to C4; deck base material protection per EN 10346; C2 paint or galvanizing for roof structural steel as applicable. | Clarifies internal vs external on roof members. |
+| CSA PHASE 1 | Generator Trench Structural Steel – Corrosion Protection | C2 internal paint systems per EN ISO 12944; blast cleaning and DFT measurement rules. | Internal trench environment; no galvanizing implied. |
+| CSA PHASE 1 | USS Trench Structural Steel – Corrosion Protection | Internal C2 paint systems per EN ISO 12944; surface prep and DFT control to EN ISO 2808. | Same as generator trench. |
+| CSA PHASE 1 | Cooling Tower Gantry - Structural Steel PH1 – Corrosion Protection | Full galvanizing to EN ISO 1461/14713-1 for all gantry steel; venting and distortion control; touch-up and repair to EN ISO 17463. | Dedicated fully galvanized external gantry system (C4). |
+| CSA PHASE 1 | MYD - Densified - Water Cooled Structural Steel PH1 – Corrosion Protection | Galvanized finish for RMU/battery supports and gantry steel with touch-up after erection; C4 requirements as for external metal fabrications. | Confirms C4 galvanizing for associated plant supports. |
+| CSA PHASE 1 | EYD Foundations PH1 / Gantry Pads / H.D.A. Supply | Corrosion Protection “See Corrosion Protection”. | Interfaces expected to follow adjacent structural steel regime. |
+| CSA PHASE 1 | Site Development PH1 (Fencing and Bollards CSA PH1) – Corrosion Protection | External metal fabrications (bollards, fences) to receive galvanizing and/or C4 paint systems per EN ISO 12944-2 and EN ISO 1461; touch-up and priming rules. | Defines C4 external protection for site barriers. |
+| CSA PHASE 1 | DCH & FSA Cladding Secondary Steel PH1 – Corrosion Protection | Shop priming and C4 galvanizing; internal/external environment classification to EN ISO 12944-2. | Confirms corrosion regime for secondary cladding steel. |
+| CSA PHASE 1 | Steel Decking FSA/DCH PH1 – Corrosion Protection | “See Corrosion Protection”. | Deck base galvanized per EN 10346; no extra detail here. |
+| CSA PHASE 1 | FSA/DCH Intumescent Protection PH1 – Corrosion Protection | “See Corrosion Protection”. | Coordination of intumescent and corrosion systems implied. |
+| CSA PHASE 1 | USS Trench Structural Steel (duplicate) – Corrosion Protection | “See Corrosion Protection”. | Confirms same trench regime. |
+| CSA PHASE 1 | Steel Supports in EYD Slabs / Gantry – Steel Foundations Interface | Corrosion Protection “See Corrosion Protection”. | Interfaces follow adjacent steel classification. |
+| CSA PHASE 1 | FSA & DCH External Steelwork/Metalwork PH1 – Corrosion Protection | Galvanizing procedures and C4 coatings for external stairs, ladders, railings and walkways; EN ISO 12944-2 and EN ISO 1461. | Reiterates C4 galvanized regime for external access steel. |
+| CSA PHASE 1 | DCH global zones | Corrosion Protection “See Corrosion Protection”. | Cross-references. |
+| CSA PHASE 1 | Security Fence & RSA Steel Works PH1 – Corrosion Protection | Galvanizing and/or C4 protective systems for RSA steel fence posts to EN ISO 12944-2 and EN ISO 1461. | Aligns RSA fence with C4 regime. |
+| CSA-RSA PHASE 1 | RSA - Security Fence & Infrastructure – Corrosion Protection | C4 external systems with galvanizing to EN ISO 1461 for security perimeter metal fabrications. | Confirms perimeter fence/ gate protection. |
+| CSA-SSA PHASE 1 | SSA - Structural Steel – Corrosion Protection | Full galvanizing of SSA frame to EN ISO 1461 with touch-up to EN ISO 17463; C4 environmental performance. | Entire SSA frame treated as galvanized C4 system. |
+| CSA-SSA PHASE 1 | SSA - Roof – Corrosion Protection | “See Corrosion Protection”. | Roof deck base galvanized by product; frame as above. |
+| CSA-SSA PHASE 1 | SSA - Envelope – Corrosion Protection | C4 corrosion systems and galvanizing for external components. | Matches global external regime. |
+| CSA-SSA PHASE 1 | SSA Foundations / SSA Site Development / AHU Foundation | Corrosion Protection “See Corrosion Protection”. | Minor steel follows project regime. |
+| CSA PHASE 2 | DCH - Structural Steel / Envelope / Roof PH2 – Corrosion Protection | Corrosion regime consistent with Phase 1: internal C2 paint, external galvanized steel for gantries/external access; paint/galv per EN ISO 12944 & EN ISO 1461. | Ensures continuity across phases. |
+| CSA PHASE 2 | MYD / Cooling Tower Gantry PH2 – Corrosion Protection | Galvanized finish for RMU/battery supports and gantry steel; hot-dip galvanizing to EN ISO 1461; C4 classification. | Extends full galvanizing to Phase 2 gantry and MYD supports. |
+| CSA PHASE 2 | Gantry Pads / Hold Down Interfaces / H.D.A. Supply | Corrosion Protection “See Corrosion Protection”. | Interfaces follow adjoining steel. |
+| CSA PHASE 2 | DCH External Steelwork/Metalwork PH2 – Corrosion Protection | Galvanizing and C4 finishes to EN ISO 12944-2 and EN ISO 1461 for external items. | External access steel kept under C4 regime. |
+| CSA PHASE 2 | DCH Envelope Secondary Steel / External Windows & Doors PH2 – Corrosion Protection | “See Corrosion Protection”. | Envelope secondary/door frames follow project coatings. |
+| CSA PHASE 3 | DCH - Envelope PH3 – Corrosion Protection | Coating systems for external secondary steel meeting C4; temporary protection and repair allowances. | Emphasizes repair/temporary protection for long programme phases. |
+| CSA PHASE 3 | MYD / Gantry PH3 – Corrosion Protection | Gantry/supports galvanized with touch-up; C4 classification. | Continues full galvanizing. |
+| CSA PHASE 3 | Gantry Pads / Interfaces / H.D.A. / Additional Steps & Ramps / Louvres / Roof AOVs / Site Dev / Fuel Oil Offloading | Corrosion Protection “See Corrosion Protection”. | Interfaces and misc items follow adjacent classification. |
+| CSA PHASE 4 | DCH - Envelope PH4 – Corrosion Protection | C4 external coating and/or galvanizing for envelope secondary steel. | Final envelope works explicitly under C4. |
+| CSA PHASE 4 | Cooling Tower Gantry - Structural Steel PH4 – Corrosion Protection | Galvanizing and touch-up to EN ISO 1461; C4 environment as earlier gantry phases. | Confirms full gantry galvanizing through Phase 4. |
+| CSA PHASE 4 | Cooling Tower Gantry - Pad Foundations & Plinths / Interfaces / H.D.A. | Corrosion Protection “See Corrosion Protection”. | Interface steel adopts neighbouring regime. |
+| CSA PHASE 4 | Cooling Tower Gantry Access Steel PH4 – Corrosion Protection | C4 coatings and galvanizing for access steel to EN ISO 12944-2 and EN ISO 1461. | Access steel explicitly C4 galvanized/coated. |
+| CSA PHASE 4 | DCH External Windows & Doors PH4 – Corrosion Protection | “See Corrosion Protection”. | Door frames follow façade steel regime. |
+| CSA-RSA PHASE 1 | Security Fence – Corrosion Protection | External security fence fabrications expected to be C4 protected with galvanizing/paint to EN ISO 12944-2 and EN ISO 1461. | Confirms RSA perimeter under C4 regime. |
+
+
+## 5. TRADE PACKAGE: METAL FABRICATIONS (STAIRS / RAILINGS / GRATINGS)
+
+**Baseline Scope:**
+- General access and safety steelwork:
+  - Stairs, ramps, ladders, walkways, handrails, guardrails and guards to EN ISO 14122 (access to machinery and industrial equipment).
+  - Roof access walkways and steps also to EN 516 where relevant.
+- Materials and components:
+  - Structural sections to EN 10025 and EN 10210; pipes/handrails/posts to ISO 4200, ISO 10799 as noted.
+  - Bar/open mesh gratings to NAAMM MBG 531/532; typical 30 mm open mesh grating for decks.
+- Functional scope:
+  - Internal and external stairs, mixed internal/external stairs, parapet stairs, small roof stairs, roof hop-over steps.
+  - Cat ladders, cooling tower stairs, bumper rails, roof walkways, smoke vent & AOV upstand guards, parapet guards.
+  - Miscellaneous supports for canopies, downpipe guards, Eurobond/Euroclad/Kingspan panel edges, louvre frames, drainage components, roller shutter frames.
+  - Bollards, crash protection steel, fence/gate frames and posts are treated as miscellaneous metal fabrications where not in proprietary systems.
+- Corrosion: internal painted or galvanized to C2; external typically C4 galvanized/paint per EN ISO 12944-2 and EN ISO 1461, with touch-up per EN ISO 17463.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| CSA PHASE 1 | FSA - Structural Steel – Metal Fabrications | Internal structural steel stair(s) and miscellaneous access steel coordinated with foundations. | Internal stair/access elements integrated with primary frame. |
+| CSA PHASE 1 | FSA - Metal Fabrications | Metal stairs, ramps, handrails, guards to EN ISO 14122; materials to EN 10025/EN 10210/ISO 4200; bar gratings to NAAMM MBG 531/532; includes misc external/roof steel such as stairs, cat ladders, hop-over steps, railings and gratings. | Core baseline for stairs/railings/gratings. |
+| CSA PHASE 1 | FSA - Envelope – Metal Fabrications | Metal ladders and access components to EN ISO 14122; misc envelope metalwork including canopy supports, downpipe guards, edge angles; galvanizing/fabrication tolerances coordinated with cladding. | Focus on cladding-related access/support metalwork. |
+| CSA PHASE 1 | FSA - Roof – Metal Fabrications | Roof access walkways and steps to EN 516 and EN ISO 14122; rules for gratings/handrails for roof walkways, smoke vent upstands, access and parapet guards, integrated with roof steel. | Specialist roof access and guarding metalwork. |
+| CSA PHASE 1 | DCH - Structural Steel PH1 – Metal Fabrications | Metal stairs/ramps, ladders, guardrails to EN ISO 14122; includes external stair(s), cat ladders, roof hop-over steps, bollards; external items galvanized and suitable for C4. | DCH-specific access steel and bollards. |
+| CSA PHASE 1 | DCH - Envelope PH1 – Metal Fabrications | Downpipe guards, misc supports, canopy supports, louvre support steel as miscellaneous fabrications; grating standards where open flooring appears. | Envelope fixtures categorized as metalwork. |
+| CSA PHASE 1 | DCH - Roof PH1 – Metal Fabrications | Roof access installations to EN 516/EN ISO 14122; gratings/handrails for roof walkways and hop-over steps linked to roof steel and deck. | DCH roof access system. |
+| CSA PHASE 1 | Generator Trench Structural Steel – Metal Fabrications | “See Metal Fabrications”. | Any associated ladders/guards treated under global metalwork. |
+| CSA PHASE 1 | USS Trench Structural Steel – Metal Fabrications | “See Metal Fabrications”. | No unique additions noted. |
+| CSA PHASE 1 | Cooling Tower Gantry - Structural Steel PH1 – Metal Fabrications | Stairs, ramps, handrails to EN ISO 14122; gratings to NAAMM MBG 531/532; external stairs, ladders, railings and 30 mm open mesh grating decks for gantry access designed/galvanized for C4. | Dedicated gantry access system. |
+| CSA PHASE 1 | MYD - Densified - Water Cooled Structural Steel PH1 – Metal Fabrications | Gantry stairs, cat ladders, railings and grating platforms for MYD densified plant; stairs/ladders to EN ISO 14122; bar grating to NAAMM MBG 531/532. | MYD-specific access structures. |
+| CSA PHASE 1 | EYD Foundations PH1 / Gantry Pads / H.D.A. Supply | Metal Fabrications “See Metal Fabrications”. | Only interfaces – no direct fabrications listed. |
+| CSA PHASE 1 | Site Development PH1 (Fencing and Bollards CSA PH1) – Metal Fabrications | “See Metal Fabrications”. | Bollards/gates treated under global metalwork rules. |
+| CSA PHASE 1 | DCH & FSA Cladding Secondary Steel PH1 – Metal Fabrications | “See Metal Fabrications”. | Cladding supports/louvres under misc metalwork where applicable. |
+| CSA PHASE 1 | Steel Decking FSA/DCH PH1 – Metal Fabrications | “See Metal Fabrications”. | Access steel on deck covered elsewhere. |
+| CSA PHASE 1 | FSA/DCH Intumescent Protection PH1 – Metal Fabrications | “See Metal Fabrications”. | No change. |
+| CSA PHASE 1 | USS Trench Structural Steel (duplicate) | “See Metal Fabrications”. | As above. |
+| CSA PHASE 1 | Steel Supports in EYD Slabs / Gantry – Steel Foundations Interface | “See Metal Fabrications”. | Ladders/guards not separately itemized. |
+| CSA PHASE 1 | FSA & DCH External Steelwork/Metalwork PH1 – Metal Fabrications | Detailed standards and fabrication for permanent external stairs, cat ladders, roof walkways, bumper railings and open mesh gratings, including mixed internal/external stairs, all to EN ISO 14122 and relevant grating standards. | Consolidated external access metalwork package for FSA & DCH. |
+| CSA PHASE 1 | DCH global zones / EYD global / Site Dev global | “See Metal Fabrications”. | Cross-references only. |
+| CSA PHASE 1 | Security Fence & RSA Steel Works PH1 – Metal Fabrications | “See Metal Fabrications”. | Fence rails/gates follow global metalwork rules. |
+| CSA-RSA PHASE 1 | RSA - Security Fence & Infrastructure – Metal Fabrications | “See Metal Fabrications”. | Miscellaneous fence/gate steel as metalwork. |
+| CSA-SSA PHASE 1 | SSA - Load Bank Garage & Fuel Polishing Building Roof – Metal Fabrications | Fixed ladders and guardrails for SSA roof access to EN ISO 14122; C4 coating requirements aligned with external fabrications. | Small dedicated SSA roof access package. |
+| CSA-SSA PHASE 1 | SSA - Structural Steel / Envelope / Foundations / Site Development / AHU Foundation – Metal Fabrications | “See Metal Fabrications”. | Bollards/guards and minor items assumed under global rules. |
+| CSA PHASE 2 | DCH - Structural Steel PH2 – Metal Fabrications | Metal stairs, ramps, ladders, handrails to EN ISO 14122; C4 finishes for external installations; includes external cat ladders, balustrades, bollards, parapet stairs, small roof stairs and additional steps/ramps in MCP/USS areas. | Expands access steel into MCP/USS areas. |
+| CSA PHASE 2 | DCH - Envelope PH2 – Metal Fabrications | Access ladders and rails to EN ISO 14122; misc frames/supports for louvres and drainage components. | Envelope-related access and support fabrications. |
+| CSA PHASE 2 | DCH - Roof PH2 – Metal Fabrications | Roof walkways and small stairs over parapets; roof access and grating requirements for Phase 2 roof areas. | Roof access expansion for Phase 2. |
+| CSA PHASE 2 | MYD - Structural Steel PH2 – Metal Fabrications | Additional railings, cat ladders, cooling tower stairs and grating decks on gantries; standards to EN ISO 14122 and NAAMM. | Additional gantry access steel. |
+| CSA PHASE 2 | Cooling Tower Gantry - Structural Steel PH2 – Metal Fabrications | Cat ladders, cooling tower stairs, railings and 30 mm grating decks as per Phase 1 gantry access steel. | Continuation of gantry access system. |
+| CSA PHASE 2 | Gantry Pads / Interfaces / H.D.A. | Metal Fabrications “See Metal Fabrications”. | No direct new items. |
+| CSA PHASE 2 | DCH External Steelwork/Metalwork PH2 – Metal Fabrications | Stairs, ladders, guardrails and bollards to EN ISO 14122 and project standards. | DCH Phase 2 external access/bollard package. |
+| CSA PHASE 2 | DCH Envelope Secondary / External Windows & Doors PH2 – Metal Fabrications | “See Metal Fabrications”. | Door frames, louvre supports covered by global rules. |
+| CSA PHASE 3 | DCH - Structural Steel PH3 – Metal Fabrications | External stairs from ground to roof and associated metalwork; detailing per EN ISO 14122 and stair/ramp metalwork section. | Significant external stair package for Phase 3. |
+| CSA PHASE 3 | DCH - Envelope PH3 – Metal Fabrications | Louvres supported by misc steel; applicable metal fabrication standards. | Louvres supports as metalwork. |
+| CSA PHASE 3 | DCH - Roof PH3 – Metal Fabrications | “See Metal Fabrications”. | Roof access follows established standards. |
+| CSA PHASE 3 | MYD - Structural Steel PH3 – Metal Fabrications | Cat ladders, gantry emergency stairs, cooling tower stairs, railings, open mesh grating and bumper railings for chillers to EN ISO 14122 and grating standards. | Extensive gantry/chiller access system. |
+| CSA PHASE 3 | Cooling Tower Gantry - Structural Steel PH3 – Metal Fabrications | Cat ladders, emergency and cooling tower stairs, railings, 30 mm grating decks, bumper railings consistent with prior gantries. | Continuation of gantry access system. |
+| CSA PHASE 3 | Gantry Pads / Interfaces / H.D.A. | Metal Fabrications “See Metal Fabrications”. | No direct additions. |
+| CSA PHASE 3 | Additional Steps and Ramps with Handrails PH3 – Metal Fabrications | Metal stairs and ramps with handrails for MCP/USS access; bridge-type roof access steel coordinated with waterproofing; EN ISO 14122; C4 finishes. | Dedicated MCP/USS access structures. |
+| CSA PHASE 3 | Louvres for Smoke Extract PH3 – Metal Fabrications | “See Metal Fabrications”. | Louvres supported by misc steel as per envelope section. |
+| CSA PHASE 3 | Roof AOV’s and penetrations PH3 – Metal Fabrications | “See Metal Fabrications”. | Access guards/frames as metalwork. |
+| CSA PHASE 3 | CSA PHASE 3 Site Development – Metal Fabrications | “See Metal Fabrications”. | Bollards/crash protection under metalwork standards. |
+| CSA PHASE 3 | Fuel Oil Offloading Area - EYD PH3 – Metal Fabrications | “See Metal Fabrications”. | Any platforms/guards follow global rules. |
+| CSA PHASE 4 | DCH - Structural Steel PH4 – Metal Fabrications | Remaining cat ladders, parapet stairs, small roof stairs and final bollards or external steel items; stairs/ramps, ladders and handrails to EN ISO 14122. | Completes DCH access and protection steel. |
+| CSA PHASE 4 | DCH - Envelope PH4 / Roof PH4 – Metal Fabrications | “See Metal Fabrications”. | Roof/envelope access/guards as per earlier phases. |
+| CSA PHASE 4 | Cooling Tower Gantry - Structural Steel PH4 – Metal Fabrications | Cat ladders, cooling tower stairs, railings and open mesh grating as per earlier gantry phases. | Final gantry access elements. |
+| CSA PHASE 4 | Gantry Pads / Interfaces / H.D.A. | Metal Fabrications “See Metal Fabrications”. | Interfaces only. |
+| CSA PHASE 4 | Cooling Tower Gantry Access Steel PH4 – Metal Fabrications | External stairs/ramps, ladders and handrails; grating for gantry access; EN ISO 14122 and NAAMM grating standards. | Explicit access steel package for Phase 4 gantries. |
+| CSA PHASE 4 | DCH External Windows & Doors PH4 – Metal Fabrications | “See Metal Fabrications”. | Metal door/shutter frames as misc fabrications. |
+| CSA-RSA PHASE 1 | Security Fence – Metal Fabrications | “See Metal Fabrications”. | Fence rails/handrails as metalwork. |
+| CSA-RSA PHASE 1 | SSA global zones / SSA Foundations / SSA Site Development / AHU Foundation – Metal Fabrications | “See Metal Fabrications”. | Minor steps/bollards/guards handled under global standards. |
+
+
+## GLOBAL INCONSISTENCIES (ESTIMATING RISK REGISTER)
+
+| ID | Trade Package | Issue | Risk | Estimating Action |
+|----|---------------|-------|------|-------------------|
+| 1  | Fire Protection | Different fire ratings by area: 2-hour for FSA/DCH PH1, 1-hour (R60) for later DCH phases and trenches; external gantries non-fire-rated except where drawings demand. | High | Separate quantities and rates by zone/rating; confirm with fire strategy which members (including secondary steel) require intumescent, and validate that gantry steel is indeed largely unprotected. |
+| 2  | Structural Steel | Numerous “interface-only” scopes (H.D.A., kickers, dowels, grout) vs full frames; some zones cross-referenced only (“See Structural Steel”) without explicit duplication. | Medium | Build a clear interface vs frame responsibility matrix per zone; ensure H.D.A. supply/installation is not double-counted or omitted between concrete and steel packages. |
+| 3  | Composite Decking | Decking referenced generically (“See Composite Decking”) across many zones; explicit profiles only for TATA D60 and Kingspan RD 100/825; roof panel systems (Euroclad/Euroclad 280 mm) overlay existing deck in later phases. | Medium | Quantify deck only where explicitly required; verify with design whether any infill or replacement deck is needed in phases that extend existing roofs; clarify if any composite floor decking is included or if scope is roof-only. |
+| 4  | Corrosion Protection | Mixed use of paint vs galvanizing with C2/C4 classifications; exclusions for surfaces against concrete and fireproofed areas; multiple references to “See Corrosion Protection” without local detail. | High | Produce a zone-by-zone corrosion schedule (C2 vs C4; galvanize vs paint vs intumescent compatible primers); check overlaps with fire protection and confirm treatment for minor items (H.D.A., small brackets, door frames). |
+| 5  | Metal Fabrications | Many access and miscellaneous items grouped under high-level “See Metal Fabrications”; some items (bollards, fence posts, crash protection) appear both under structural and metalwork narrative. | Medium | Develop a dedicated metalwork BOQ segregating: internal stairs, external access, gantry access, bollards/crash barriers, fencing/gates, cladding supports; align with structural package to avoid double counting. |
+| 6  | Structural Steel / Fencing | Security fence posts and gates described as miscellaneous steel; no proprietary chainlink system specification given; RSA and CSA-RSA scopes overlap. | Medium | Clarify with design whether fence mesh/hardware is by others; price posts/gates as fabricated steel only unless told otherwise; check whether CSA and CSA-RSA scopes are cumulative or alternative. |
+| 7  | Phase Integration (DCH & Gantry) | DCH structural frames and cooling tower gantries are extended across Phases 1–4 with repeated “same as earlier phases” wording; integration and interfaces may drive temporary works and phasing costs. | Medium | Allow for connection modifications, temporary stability and tying into existing steel; request framing/connection drawings per phase to confirm additional steel vs reuse; separate prelims for multi-phase erection. |
+| 8  | Roof Openings / Deck Modifications | Later roof phases (DCH PH2–PH4) emphasize restrictions on additional openings and welding quality in existing deck; AOVs/louvres/penetrations use misc steel framing. | High | Quantify opening frames separately; clarify who cuts deck and reinstates coatings; include contingency for engineering-reviewed strengthening around penetrations. |
+| 9  | SSA Building | SSA structural frame is fully galvanized and supports Kingspan RD 100/825 deck and envelope metalwork; fire protection is “See Fire Protection” with no explicit rating. | Medium | Confirm required fire rating (if any) for SSA frame; adjust system (intumescent vs galvanizing-only) accordingly; ensure deck fixings and penetrations are compatible with galvanizing. |
+
+END_OF_REPORT
