@@ -1,6 +1,6 @@
 import logging
 from typing import Any, TypedDict
-
+from langchain_ollama import ChatOllama
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
 from langgraph.graph import END, StateGraph
@@ -71,6 +71,44 @@ def _obter_documento_completo(texto: str) -> list:
 )
 def _invocar_llm(llm, mensagens: list) -> str:
     return llm.invoke(mensagens).content
+
+from langchain_openai import ChatOpenAI
+
+def criar_llm(state: dict, *, temperature: float, model: str):
+    """
+    Cria um LLM conforme configuração da UI.
+    Espera que o state traga:
+      - _model_type: "api" | "local"
+      - _api_key: str (se api)
+      - _local_url: str (se local)  -> endpoint compatível OpenAI
+      - _model_name: str (nome do modelo)  (pode ser igual ao `model`)
+    """
+    model_type = state.get("_model_type", "api")
+    safe_model = (model or "").strip()
+    if not safe_model:
+        safe_model = "llama2" if model_type == "local" else "gpt-5.1"
+
+    if model_type == "local":
+        base_url = (state.get("_local_url") or "").strip()
+        if not base_url:
+            raise ValueError("LOCAL selecionado mas _local_url está vazio.")
+        # Muitos servidores locais aceitam qualquer api_key (ex: 'local')
+        return ChatOpenAI(
+            base_url=base_url,
+            api_key="local",
+            model=safe_model,
+            temperature=temperature,
+        )
+
+    # default = API
+    api_key = (state.get("_api_key") or "").strip()
+    if not api_key:
+        raise ValueError("API selecionada mas _api_key está vazio.")
+    return ChatOpenAI(
+        api_key=api_key,
+        model=safe_model,
+        temperature=temperature,
+    )
 
 
 # ======================================================================
@@ -426,8 +464,9 @@ def no_router(state: AuditoriaState) -> dict:
 
 
 def no_extrator(state: AuditoriaState) -> dict:
-    llm_specs = ChatOpenAI(model="gpt-5.1", api_key=state["_api_key"], temperature=0.0)
-    llm_boq = ChatOpenAI(model="gpt-5.1", api_key=state["_api_key"], temperature=0.0)
+    model = (state.get("_model_name") or "").strip() or "gpt-5.1"
+    llm_specs = criar_llm(state, temperature=0.0, model=model)
+    llm_boq = criar_llm(state, temperature=0.0, model=model)
 
     prog = state["_prog_slot"]
     status = state["_status_slot"]
@@ -466,7 +505,8 @@ def no_extrator(state: AuditoriaState) -> dict:
 # AGT-03: Auditor (cruza BOQ vs SPECS) -> auditoria_bruta
 # ======================================================================
 def no_auditor(state: AuditoriaState) -> dict:
-    llm = ChatOpenAI(model="gpt-5.1", api_key=state["_api_key"], temperature=0.1)
+    model = (state.get("_model_name") or "").strip() or "gpt-5.1"
+    llm = criar_llm(state, temperature=0.1, model=model)
     tentativas = state.get("tentativas", 0) + 1
 
     dados = (
@@ -556,7 +596,8 @@ END_OF_REPORT
 # AGT-04: Deduplicador cross-categoria
 # ======================================================================
 def no_deduplicador(state: AuditoriaState) -> dict:
-    llm = ChatOpenAI(model="gpt-5.1", api_key=state["_api_key"], temperature=0.1)
+    model = (state.get("_model_name") or "").strip() or "gpt-5.1"
+    llm = criar_llm(state, temperature=0.1, model=model)
 
     base = (state.get("auditoria_bruta") or "").strip()
     if not base:
@@ -621,8 +662,8 @@ OUTPUT:
 # AGT-05: Apresentador (formata)
 # ======================================================================
 def no_apresentador(state: AuditoriaState) -> dict:
-    # Usamos o gpt-4o para reestruturação complexa de dados (Data Pivot)
-    llm = ChatOpenAI(model="gpt-4o", api_key=state["_api_key"], temperature=0.1)
+    model = (state.get("_model_name") or "").strip() or "gpt-5.1"
+    llm = criar_llm(state, temperature=0.1, model=model)
 
     base = (state.get("auditoria_normalizada") or state.get("auditoria_bruta") or "").strip()
     if not base:

@@ -25,10 +25,11 @@ DEFAULT_PROJECT_BASELINE_JSON = json.dumps(
 )
 
 
-def setup_sidebar() -> str:
+def setup_sidebar() -> tuple[str, str, str, str]:
     """
-    Configura sidebar com autenticação e info do sistema.
-    Retorna a API key final (input ou .env).
+    Configura sidebar com modo de execução, autenticação e info do sistema.
+    Retorna uma tupla com:
+    (api_key_final, model_type, model_name, local_url)
     """
     with st.sidebar:
         st.markdown(
@@ -46,34 +47,81 @@ def setup_sidebar() -> str:
         )
 
         st.markdown('<hr class="sidebar-divider">', unsafe_allow_html=True)
-        st.markdown('<span class="sidebar-label">🔑 Autenticação</span>', unsafe_allow_html=True)
+        st.markdown('<span class="sidebar-label">⚙️ Modo de Execução</span>', unsafe_allow_html=True)
 
-        # Tentar múltiplas variáveis de ambiente
-        api_key_env = (
-            os.getenv("CHATGPT_API_KEY")
-            or os.getenv("OPENAI_API_KEY")
-            or os.getenv("OPENROUTER_API_KEY")
-            or ""
-        )
-        api_key_input = st.text_input(
-            "API Key (OpenAI/OpenRouter)",
-            value="",
-            type="password",
-            placeholder="sk-…  ou lr-…  (ou definida em .env)",
+        modo_execucao = st.radio(
+            "Modo de execução:",
+            options=["API Remota", "Modelo Local"],
+            index=0,
+            key="modo_execucao",
             label_visibility="collapsed",
         )
-        api_key_final = api_key_input.strip() if api_key_input.strip() else api_key_env
+        usar_local = modo_execucao == "Modelo Local"
+        model_type = "local" if usar_local else "api"
 
-        if api_key_final:
+        st.markdown('<hr class="sidebar-divider">', unsafe_allow_html=True)
+        st.markdown('<span class="sidebar-label">🔑 Configuração</span>', unsafe_allow_html=True)
+
+        if usar_local:
+            st.markdown('<span class="sidebar-label">URL Local</span>', unsafe_allow_html=True)
+            local_url = st.text_input(
+                "URL Local",
+                value="http://localhost:11434",
+                placeholder="http://localhost:11434",
+                label_visibility="collapsed",
+            )
+            st.markdown('<span class="sidebar-label">Modelo Local</span>', unsafe_allow_html=True)
+            local_model_name = st.text_input(
+                "Nome do modelo local",
+                value="qwen3.5:9b",
+                placeholder="e.g., qwen3.5:9b, llama2, mistral, neural-chat",
+                label_visibility="collapsed",
+            )
+            model_name = local_model_name.strip() or "qwen3.5:9b"
+            api_key_final = ""
             st.markdown(
-                '<div style="margin-top:0.5rem"><span class="header-badge badge-ok">✓ Key Configurada</span></div>',
+                '<div style="margin-top:0.5rem"><span class="header-badge badge-ok">✓ Modelo Local Selecionado</span></div>',
                 unsafe_allow_html=True,
             )
         else:
-            st.markdown(
-                '<div style="margin-top:0.5rem"><span class="header-badge badge-fail">✗ Key em Falta</span></div>',
-                unsafe_allow_html=True,
+            local_url = ""
+
+            # Tentar múltiplas variáveis de ambiente
+            api_key_env = (
+                os.getenv("CHATGPT_API_KEY")
+                or os.getenv("OPENAI_API_KEY")
+                or os.getenv("OPENROUTER_API_KEY")
+                or ""
             )
+            st.markdown('<span class="sidebar-label">API Key</span>', unsafe_allow_html=True)
+            api_key_input = st.text_input(
+                "API Key",
+                value="",
+                type="password",
+                placeholder="sk-…  ou lr-…  (ou definida em .env)",
+                label_visibility="collapsed",
+            )
+            api_key_final = api_key_input.strip() if api_key_input.strip() else api_key_env
+
+            st.markdown('<span class="sidebar-label">Modelo API</span>', unsafe_allow_html=True)
+            api_model_name = st.text_input(
+                "Modelo API",
+                value="gpt-5.1",
+                placeholder="gpt-5.1, gpt-4o, gpt-4.5, ...",
+                label_visibility="collapsed",
+            )
+            model_name = api_model_name.strip() or "gpt-5.1"
+
+            if api_key_final:
+                st.markdown(
+                    '<div style="margin-top:0.5rem"><span class="header-badge badge-ok">✓ Key Configurada</span></div>',
+                    unsafe_allow_html=True,
+                )
+            else:
+                st.markdown(
+                    '<div style="margin-top:0.5rem"><span class="header-badge badge-fail">✗ Key em Falta</span></div>',
+                    unsafe_allow_html=True,
+                )
 
         st.markdown('<hr class="sidebar-divider">', unsafe_allow_html=True)
         st.markdown(
@@ -86,16 +134,18 @@ def setup_sidebar() -> str:
             unsafe_allow_html=True,
         )
 
-    return api_key_final
+    return api_key_final, model_type, model_name, local_url
 
 
-def render_header(api_key_final: str) -> None:
-    """Renderiza header band com título e status da API."""
-    badge_html = (
-        '<span class="header-badge badge-ok">● API ONLINE</span>'
-        if api_key_final
-        else '<span class="header-badge badge-fail">● API OFFLINE</span>'
-    )
+def render_header(api_key_final: str, model_type: str = "api") -> None:
+    """Renderiza header band com título e status do modo de execução."""
+    if model_type == "local":
+        badge_html = '<span class="header-badge badge-ok">● MODELO LOCAL</span>'
+    elif api_key_final:
+        badge_html = '<span class="header-badge badge-ok">● API REMOTA</span>'
+    else:
+        badge_html = '<span class="header-badge badge-fail">● OFFLINE</span>'
+
     st.markdown(
         f"""
         <div class="header-band">
@@ -253,14 +303,13 @@ def render_start_section(api_key_final: str, file_boq, files_specs, contexto_pro
     with col_hint:
         if not api_key_final:
             st.markdown(
-                '<div style="font-size:0.78rem;color:#7a3030;padding-top:0.65rem">'
-                '⚠ Configura a API Key na barra lateral antes de avançar.</div>',
+                '<div style="font-size:0.78rem;color:#7a3030;padding-top:0.65rem"></div>',
                 unsafe_allow_html=True,
             )
         elif not contexto_projeto_raw.strip():
             st.markdown(
                 '<div style="font-size:0.78rem;color:#4a6fa0;padding-top:0.65rem">'
-                'Fornece o Project Baseline JSON antes de iniciar a extração.</div>',
+                'Project Baseline JSON é opcional. Se não for fornecido, será usado um contexto genérico.</div>',
                 unsafe_allow_html=True,
             )
         elif not file_boq and not files_specs:
