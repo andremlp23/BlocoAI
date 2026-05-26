@@ -1,0 +1,273 @@
+# Cross-Document Technical Audit:
+
+## 1. TRADE PACKAGE: STRUCTURAL STEEL
+
+**Baseline Scope:**
+- Structural design and execution in accordance with NBN EN 1990, EN 1991, EN 1993 and NBN EN 1090/NBN EN 1090-2.
+- Material grades generally S355JR for rolled sections to NBN EN 10025 and hollow sections to NBN EN 10210.
+- Execution Class EXC2 for fabrication and erection, including tolerances, QA/QC, CE marking and mill certification.
+- Connection design and detailing including robustness; bolting to NBN EN 14399 (high-strength preloaded) and NBN EN 15048 (non-preloaded) with mechanical properties per EN ISO 898.
+- Welding materials, procedure qualification and welder qualification to EN 1011, NBN EN ISO 9606‑1 and NBN EN 1993‑1‑8.
+- Structural steel erection tolerances, procedures and pre‑erection surveys/checks for anchor positions per NBN EN 1090‑2.
+- Anchor bolts/hold-down assemblies and baseplate grout systems (non-shrink, non-metallic aggregate) including alignment and survey requirements.
+- Miscellaneous and secondary structural steel to EN 10025/EN 10210 (ledge/shelf angles, downspout guards, supports for openings, parapets, walkways, cladding support, gantry framing).
+- Cooling Tower Gantry and MYD gantry/structural supports to EN 10025/EN 10210, EXC2, with connection design to NBN EN 1993.
+- Roof steel supporting deck, parapets, walkways and lightning protection; roof openings and access structures coordinated with deck installation rules.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | CSA Site Development | Miscellaneous steel noted as “see Metal Fabrications” | Primary steel not directly scoped; structural elements treated as metal fabrications. |
+| PH1 | FSA | Primary structural frame S355JR, EXC2, bolting to EN 14399/15048, connection design and detailing | Full primary frame design/execution requirements explicitly stated. |
+| PH1 | FSA - Structural Steel | Structural members S355JR, EXC2, anchor bolts (non-preloaded), welding quals to EN 1011/ISO 9606‑1 | Clarifies anchors as non-preloaded assemblies. |
+| PH1 | FSA - Envelope | Miscellaneous/secondary steel to EN 10025/EN 10210/ISO 3574 incl. galvanized ledge/shelf angles supporting decking/cladding | Shelf/ledge angles explicitly structural but treated as secondary steel. |
+| PH1 | FSA - Roof | Miscellaneous framing for roof openings and supports; roof access structures to EN ISO 14122 and EN 516 | Roof framing largely treated as “metal fabrications” structurally. |
+| PH1 | DCH | Primary frame S355JR (EN 10025/EN 10210), EXC2, connection robustness, erection tolerances, full QA plan | Comprehensive structural steel scope including CE marking and mill certs. |
+| PH1 | DCH - Structural Steel | Sections S355JR (EN 10025) and hollow sections (EN 10210), EXC2, bolting to EN 14399/15048, welding quals | Emphasizes erection tolerances/procedures. |
+| PH1 | DCH - Envelope | Miscellaneous and secondary framing to EN 10025/EN 10210, downspout guards and angles | Explicit link to cladding coordination. |
+| PH1 | DCH - Roof | Roof steel supporting deck, parapets, walkways, lightning protection; framing for openings and access | Roof structural elements clearly within steel scope. |
+| PH1 | MYD - Densified - Water Cooled | Cooling Tower Gantry structural and misc. steel to EN 10025/EN 10210, EXC2, connection design to EN 1993 | Includes galvanizing design rules (see corrosion package). |
+| PH1 | Generator Trench Structural Steel | Structural sections S355JR (EN 10025/EN 10210), EXC2, bolting and welding rules | Trench-specific structural framing. |
+| PH1 | EYD | Anchor bolts and base plates per EN 15048/14399, grout and execution rules | No primary framing; foundations/anchorage only. |
+| PH1 | SSA - Load Bank Garage & Fuel Polishing Building | Structural steel S355JR, EXC2, galvanizing to EN ISO 1461, connection design rules | Combined primary steel and galvanizing. |
+| PH1 | SSA - FSA Additional AHU Foundation | Anchor bolts to EN 15048, non-shrink grout, EXC2 execution around bearing/anchor zones | Localized foundation steel scope. |
+| PH1 | SSA - Smoke Extract Louvres | Secondary steel framing for openings to EN 10025/EN 10210; shop drawing/coordination rules | Treated as miscellaneous structural steel. |
+| PH1 | SSA - Roof AOVs | Roof opening framing and misc. supports; compatibility with deck installation standards | Secondary steel only; relies on global steel standards. |
+| PH1 | CSA‑RSA Security Fence & Infrastructure | Miscellaneous steel for posts/gates/barriers; execution rules including galvanizing | Primary function as boundary/security steelwork. |
+| PH2 | DCH - Foundations/Floor Slabs | Anchor bolt execution to EN 15048/14399, grout, pre‑erection surveys to EN 1090‑2 | Foundations/anchorage only. |
+| PH2 | DCH - Structural Steel | Structural steel S355JR, EXC2, high-strength bolting (EN 14399 8.8), anchors EN 15048, welding to EN 1011/ISO 9606‑1 | Confirms grade and execution for PH2 frame. |
+| PH2 | DCH - Envelope | Misc./secondary steel to EN 10025/EN 10210, galvanizing of shelf/ledge angles and external supports | Secondary cladding steel emphasized. |
+| PH2 | DCH - Roof | “See Structural Steel” for roof framing | Roof steel implicitly as per main DCH structural spec. |
+| PH2 | MYD - Densified - Water Cooled | Gantry steel to EN 10025/EN 10210, EXC2, anchors/hold-downs to EN 15048/14399 | Clarifies gantry as structural frame. |
+| PH2 | Cooling Tower Gantry | PH2 gantry frames/bracing with galvanizing; EXC2, connection design to EN 1993 | Parallel to MYD gantry scope. |
+| PH2 | USS Foundation | Anchor bolts and grout per EN 15048; pre‑erection survey of anchor rods | Foundations only. |
+| PH2 | MCP Foundation | Anchor/grout as USS foundation | Same foundation execution repeated. |
+| PH2 | S25 Pad Foundations | Anchor bolts, grout and erection survey for hold‑down assemblies | As above. |
+| PH2 | USS Trestle Foundations | Execution and alignment rules for anchors and baseplates | Focused on anchorage. |
+| PH2 | SSA - Smoke Extract Louvres | Secondary steel and opening framing per metal fabrication/EN 10025/EN 10210 | Steelwork treated as miscellaneous. |
+| PH3 | DCH - Foundations/Floor Slabs | Anchor bolts, grout, pre‑erection survey consistent with EXC2 | Foundations only. |
+| PH3 | DCH - Structural Steel | S355JR, EXC2, bolting EN 14399/15048, welding EN 1011/ISO 9606‑1, design per EN 1993 | Core PH3 frame requirements. |
+| PH3 | DCH - Envelope | Misc. fabrications and secondary steel to EN 10025/EN 10210; galvanizing and painting as required | Envelope support framing. |
+| PH3 | DCH - Roof | “See Structural Steel” for roof frame | Roof steel as per DCH PH3 standards. |
+| PH3 | MYD - Densified - Water Cooled | MYD structural supports and Cooling Tower Gantry steel to EN 10025/EN 10210, EXC2 | Repeats gantry and support steelwork. |
+| PH3 | Cooling Tower Gantry | PH3 gantry frames/bracing, EXC2, galvanizing to EN ISO 1461 | Parallel to PH2 gantry but PH3. |
+| PH3 | EYD Foundations - Slabs | Anchor bolt systems and grout; anchor rod execution/survey | Foundations only. |
+| PH3 | USS/MCP/S25/USS Trestle Foundations | Anchor bolts, grout, survey and EXC2 erection prerequisites | Multiple foundation scopes all aligned. |
+| PH3 | SSA - Smoke Extract Louvres | Miscellaneous steel framing to EN 10025/EN 10210; shop drawings/connection rules | Secondary framing only. |
+| PH4 | DCH - Foundations/Floor Slabs | Anchor bolts, grout, pre‑erection survey, EXC2 tolerances for embedded HDAs | HDA-focused anchorage. |
+| PH4 | DCH - Structural Steel | S355JR to EN 10025, EXC2, bolting EN 14399/15048, welding EN 1011 | Main PH4 structural frame. |
+| PH4 | DCH - Envelope | Misc. secondary cladding steel with galvanizing/painting rules | Cladding support again. |
+| PH4 | DCH - Roof | “See Structural Steel” for roof frame | Roof steel implicitly covered. |
+| PH4 | MYD - Densified - Water Cooled | PH4 gantry and RMU/battery support steel to EN 10025/EN 10210, EXC2 | MYD support structures. |
+| PH4 | Cooling Tower Gantry | Anchor bolts/grout, EXC2 gantry steel, galvanizing | Combines gantry steel and foundations. |
+| PH4 | USS/MCP/S25/USS Trestle Foundations | Anchor bolts, grout, survey/erection tolerances, HD bolt QC | Repeated foundation execution language. |
+| PH4 | SSA - Smoke Extract Louvres | Secondary steel framing to EN 10025/EN 10210, shop drawing/connection design rules | Miscellaneous structural framing only. |
+
+---
+
+## 2. TRADE PACKAGE: COMPOSITE DECKING
+
+**Baseline Scope:**
+- Steel deck base material S350 to NBN EN 10346 and NBN EN 10143 with defined dimensional tolerances.
+- Design and performance to SCI/BCSA metal decking guidance, including composite action and diaphragm behaviour.
+- Metal deck installation rules: minimum bearing lengths, end and side laps, weld/fastener patterns, sidelap fasteners, closures, pour stops, edge strips, sump pans and other accessories.
+- Requirements for shop drawings and design calculations for decking where specified.
+- Shear stud connectors to EN ISO 13918 and associated welding rules where composite action is required.
+- Installation tolerances and inspection requirements for deck profiles, supports and openings.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Steel deck S350 (EN 10346/10143); SCI/BCSA guidance; installation rules; shop drawings and design calcs | Full design-responsible deck package. |
+| PH1 | FSA - Structural Steel | “See Composite Decking” | Deck scope referenced but not restated. |
+| PH1 | FSA - Envelope | “See Composite Decking” | Deck to support envelope interfaces. |
+| PH1 | FSA - Roof | Steel deck S350; SCI/BCSA manuals; accessories (pour stops, closures, sumps); tolerances; fastening; shear stud welding rules | Most detailed roof decking description. |
+| PH1 | DCH | Steel deck S350; SCI/BCSA design guidance; bearing/lap rules; weld/fastener patterns; closures; shear studs to EN ISO 13918 | Composite deck with explicit shear stud standard. |
+| PH1 | DCH - Structural Steel | “See Composite Decking” | Deck covered by main DCH deck spec. |
+| PH1 | DCH - Envelope | “See Composite Decking” | Deck in envelope zones implicitly as per main spec. |
+| PH1 | DCH - Roof | Steel deck S350; SCI/BCSA design; installation tolerances; puddle welds; sidelap fasteners; closures; shear studs to EN ISO 13918; accessories | Roof-specific fastening language. |
+| PH1 | MYD - Densified - Water Cooled | “See Composite Decking” | Any local deck is tied back to main spec. |
+| PH1 | Generator Trench Structural Steel | “See Composite Decking” | Deck only if present around trench. |
+| PH1 | EYD / SSA - FSA AHU / SSA - Smoke Extract Louvres / SSA - Roof AOVs / CSA‑RSA | “See Structural Steel” or not defined | No explicit deck scope beyond references. |
+| PH1 | SSA - Load Bank Garage & Fuel Polishing Building | Steel deck S350 (EN 10346/10143); installation standards (bearing, laps, fastening) and accessories | Deck limited to SSA building. |
+| PH2 | DCH - Foundations/Floor Slabs | “See Structural Steel” | No deck explicitly described. |
+| PH2 | DCH - Structural Steel | Steel deck materials and performance to EN 10346/10143; SCI/BCSA standards; installation tolerances; fastening patterns; closures | Core PH2 deck scope. |
+| PH2 | DCH - Envelope | “See Composite Decking” | Deck carried over into envelope. |
+| PH2 | DCH - Roof | Steel deck performance and installation standards; accessories, anchorage and opening details; shear stud welding | Roof deck emphasis including openings. |
+| PH2 | MYD - Densified - Water Cooled / Cooling Tower Gantry / USS/MCP/S25/USS Trestle Foundations | (See Composite Decking or Structural Steel) | Deck only by reference if used. |
+| PH2 | SSA - Smoke Extract Louvres | “See Structural Steel” | No explicit deck scope. |
+| PH3 | DCH - Foundations/Floor Slabs | “See Structural Steel” | No explicit deck. |
+| PH3 | DCH - Structural Steel | Steel deck material and installation standards, including diaphragm design guidance | Deck noted, less detail on accessories. |
+| PH3 | DCH - Envelope | “See Composite Decking” | Deck implicitly included. |
+| PH3 | DCH - Roof | Deck installation standards and accessories incl. shear studs and fastening | Roof deck scope similar to earlier phases. |
+| PH3 | MYD - Densified - Water Cooled / Cooling Tower Gantry / Foundations / SSA Louvres | (See Composite Decking/Structural Steel) | Deck only by cross-reference. |
+| PH4 | DCH - Foundations/Floor Slabs | “See Structural Steel” | No direct deck scope. |
+| PH4 | DCH - Structural Steel | Steel decking S350 (EN 10346/10143) with SCI/BCSA guidance; installation and fastening rules | Phase 4 primary deck scope. |
+| PH4 | DCH - Envelope | “See Composite Decking” | Deck referenced but not detailed again. |
+| PH4 | DCH - Roof | Steel deck standards and installation rules including accessories and fastening | Roof deck emphasis. |
+| PH4 | MYD - Densified - Water Cooled / Cooling Tower Gantry / Foundations / SSA Louvres | (See Composite Decking/Structural Steel) | Deck implied where needed. |
+
+---
+
+## 3. TRADE PACKAGE: FIRE PROTECTION
+
+**Baseline Scope:**
+- Intumescent fire protection systems for primary and relevant secondary structural steel designed using EN 13381‑4 fire tests to achieve specified fire resistance ratings (typically 60, 90, 120 minutes as described).
+- Fire classification and performance determined per EN 13501.
+- Systems predominantly based on proprietary Sherwin Williams FIRETEX products (e.g., FX2003, FX6002) or equivalent, with defined primer, basecoat and sealer thicknesses.
+- Design via DFT (dry film thickness) tables, including separate tables for different member sizes and fire durations; ability to adjust systems for varying ratings (1‑hour, 2‑hour, etc.).
+- Application requirements: surface preparation (typically Sa 2.5), compatible primers (including over galvanizing where required), environmental/application conditions, and curing times.
+- QA/QC regime including in-process and final DFT measurements, installer qualifications, independent verification where called for, and coordination with corrosion protection/priming.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | CSA Site Development | “See Structural Steel” | No explicit intumescent scope for site works. |
+| PH1 | FSA | Intumescent systems (Sherwin Williams FIRETEX FX2003/FX6002), EN 13381‑4 design, EN 13501 classification, DFT tables, QA, Sa 2.5 prep | Full bundled fireproofing specification for building steel. |
+| PH1 | FSA - Structural Steel | Intumescent per EN 16623, EN 13381‑4, EN 13501, ASFP Yellow Book, ASFP TGD 11; Sherwin systems with primer/sealer DFT and QA | More detailed reference to ASFP guidance and system build-up. |
+| PH1 | FSA - Envelope | “See Fire Protection” | Any rated envelope steel relies on FSA/FSA‑SS fire scope. |
+| PH1 | FSA - Roof | Intumescent for any roof-level primary/secondary steel requiring rating, with EN 13381‑4/EN 13501 QA regime | Applies selectively to roof elements needing rating. |
+| PH1 | DCH | Intumescent systems for 1‑hour and 2‑hour ratings using EN 13381‑4/EN 13501 DFT tables; independent DFT verification | Explicitly covers multiple rating periods. |
+| PH1 | DCH - Structural Steel | Intumescent coatings to required resistance using EN 13381‑4 tests; systems adjustable for different fire durations; QA and DFT tables | Reinforces adjustability by rating. |
+| PH1 | DCH - Envelope | “See Fire Protection” | Envelope steel fire rating by cross‑reference. |
+| PH1 | DCH - Roof | Intumescent applied to roof steel requiring rating, DFT via EN 13381‑4 | Roof members scoped by need for rating. |
+| PH1 | MYD - Densified - Water Cooled | Intumescent where fire rating required; compatibility with galvanizing addressed via primers | Explicit note on galvanized substrates. |
+| PH1 | Generator Trench Structural Steel | Intumescent tested to EN 13381‑4 with DFT tables incl. 60‑minute ratings; application and QA; compatibility with corrosion protection | Focus on trench steel requiring 60‑min rating. |
+| PH1 | EYD | “See Structural Steel” | No direct intumescent spec; assumed not rated unless elsewhere defined. |
+| PH1 | SSA - Load Bank Garage & Fuel Polishing Building | Intumescent generally required where ratings are called; absence of rating → no system under scope | Scope conditioned on presence of fire rating in design. |
+| PH1 | SSA - FSA AHU / SSA - Smoke Extract Louvres / SSA - Roof AOVs / CSA‑RSA | “See Structural Steel” | No explicit fire scope; only where design calls for rating. |
+| PH2 | DCH - Foundations/Floor Slabs | “See Structural Steel” | Foundations; no intumescent. |
+| PH2 | DCH - Structural Steel | Intumescent systems with DFT designed to specified rating using EN 13381‑4; QA/QC and field thickness checks; system adjustable to 1‑hour rating | Emphasis on 1‑hour but generally adjustable. |
+| PH2 | DCH - Envelope / DCH - Roof | “See Fire Protection” | Any rated secondary/roof steel uses main DCH PH2 spec. |
+| PH2 | MYD - Densified - Water Cooled / Cooling Tower Gantry | “See Fire Protection” | Only if rated; no details repeated. |
+| PH2 | Foundations / SSA Louvres | “See Structural Steel/Fire Protection” | No explicit system details. |
+| PH3 | DCH - Structural Steel | Intumescent design and QA to achieve required rating via EN 13381‑4 | Phase 3 main frame fire scope. |
+| PH3 | DCH - Envelope / Roof | “See Fire Protection” | Envelope/roof steel fire by reference. |
+| PH3 | MYD - Densified / Cooling Tower Gantry | “See Fire Protection” | Only if rating required. |
+| PH3 | Foundations / SSA Louvres | “See Structural Steel/Fire Protection” | No additional detail. |
+| PH4 | DCH - Structural Steel | Intumescent systems capable of 1‑hour ratings via EN 13381‑4; DFT tables and QA testing | PH4-specific emphasis on 60‑minute rating. |
+| PH4 | DCH - Envelope / Roof | “See Fire Protection” | Roof/envelope steel by reference. |
+| PH4 | MYD - Densified / Cooling Tower Gantry | “See Fire Protection” | No restated systems. |
+| PH4 | Foundations / SSA Louvres | “See Structural Steel/Fire Protection” | No explicit rating description. |
+
+---
+
+## 4. TRADE PACKAGE: CORROSION PROTECTION
+
+**Baseline Scope:**
+- Corrosion environment classification generally C2 for internal primary steel, C4 for external steel and external fabrications, to NBN EN ISO 12944‑2 and ISO 9223.
+- Coating systems (primer, intermediate, finish) designed to NBN EN ISO 12944 with specified durability ranges and total DFT, including DFT measurement to NBN EN ISO 2808.
+- Hot-dip galvanizing to EN ISO 1461 with design guidance to EN ISO 14713‑1 (venting, drainage, distortion, single-dip rules), including factory-applied C4 finishes where specified.
+- Surface preparation for painted systems to EN ISO 8501/8502/8503 as applicable.
+- Integration/compatibility between corrosion protection systems and intumescent fire protection, including compatible primers (especially on galvanized steel) and areas excluded from shop painting where intumescent will be applied.
+- Touch-up and repair of damaged galvanizing and coatings in accordance with EN ISO 17463.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | CSA Site Development | External steel bollards/fabrications with factory-applied C4 coatings to EN ISO 12944‑2/ISO 9223; galvanizing to EN ISO 1461; shop primers to NBN EN ISO 12944; DFT to NBN EN ISO 2808 | Site elements explicitly C4-rated. |
+| PH1 | CSA UG Water & Drainage | [OUT OF SCOPE] | Ignored. |
+| PH1 | FSA | Internal primary steel C2; coating systems per NBN EN ISO 12944; DFT verification; exclusions where intumescent applied; compatible alkyd primers | Clear internal/external split and intumescent coordination. |
+| PH1 | FSA - Structural Steel | Corrosion protection for internal C2 coordinated with intumescent systems; shop primer and compatible fire protection primers; DFT checks | Reinforces integration with intumescent. |
+| PH1 | FSA - Envelope | “See Corrosion Protection” | Secondary steel uses main FSA corrosion spec. |
+| PH1 | FSA - Roof | External roof steel (walkways, stepovers) C4 pre-finished per EN ISO 12944‑2/ISO 9223; galvanizing/paint rules | Explicit C4 for roof access steel. |
+| PH1 | DCH | Internal C2, external C4 per NBN EN ISO 12944‑2/ISO 9223; paint systems defined with DFT, durability ranges and DFT measurement; galvanizing to EN ISO 1461/14713‑1; integration with intumescent | Comprehensive primary-steel corrosion scheme. |
+| PH1 | DCH - Structural Steel | Internal C2, external C4; higher-category coatings for external portions coordinated with intumescent primers | Emphasizes differential systems internal vs external. |
+| PH1 | DCH - Envelope | “See Corrosion Protection” | Envelope steel uses DCH corrosion spec. |
+| PH1 | DCH - Roof | External roof steel to C4; paint/galvanizing systems to NBN EN ISO 12944‑2 and EN ISO 1461; C4 factory finish for external fabrications/stairs | Roof-access steel corrosion clearly defined. |
+| PH1 | MYD - Densified - Water Cooled | Galvanizing to EN ISO 1461/14713‑1; external steel C4 performance to EN ISO 12944‑2/ISO 9223; touch-up per EN ISO 17463; factory C4 finish for external fabrications/stairs | Heavy C4 emphasis due to cooling tower environment. |
+| PH1 | Generator Trench Structural Steel | C2 internal protection per NBN EN ISO 12944; surface prep to EN ISO 8501/8502/8503; DFT checks to NBN EN ISO 2808 | Trench steel treated as internal C2. |
+| PH1 | EYD | Shop priming limits at concrete interfaces (typically omitted where in contact with concrete); otherwise C2/C4 systems for exposed steel | Partial coating at concrete interfaces. |
+| PH1 | SSA - Load Bank Garage & Fuel Polishing Building | Galvanizing to EN ISO 1461/14713‑1; paint systems per EN ISO 12944; C4 factory finishes for external elements | Combined galvanizing + paint as required. |
+| PH1 | SSA - FSA AHU Foundation | “See Corrosion Protection” | Limited to anchors/baseplates if protected. |
+| PH1 | SSA - Smoke Extract Louvres | “See Corrosion Protection” | Secondary frames adopt main corrosion rules. |
+| PH1 | SSA - Roof AOVs | “See Corrosion Protection” | As above. |
+| PH1 | CSA‑RSA Security Fence & Infrastructure | External steel C4; galvanizing to EN ISO 1461; C4-compatible coatings and DFT per EN ISO 12944‑2 | Fence, posts, gates explicitly C4. |
+| PH2 | DCH - Foundations/Floor Slabs | “See Corrosion Protection” | Mainly anchors/embedded steel. |
+| PH2 | DCH - Structural Steel | C2 internal class; coatings to NBN EN ISO 12944; shop priming and compatibility with intumescent primers | PH2 internal frame; external treatment implied elsewhere. |
+| PH2 | DCH - Envelope / Roof | “See Corrosion Protection” | Uses main DCH PH2 spec. |
+| PH2 | MYD - Densified - Water Cooled | Galvanizing and corrosion protection to EN ISO 1461, 14713‑1, 12944‑2 and ISO 9223 with C4 performance | Strong C4 requirement for MYD gantries. |
+| PH2 | Cooling Tower Gantry | Galvanizing/corrosion protection to EN ISO 1461, 14713‑1 and 17463 | Emphasis on galvanizing and repair. |
+| PH2 | USS/MCP/S25/USS Trestle Foundations | “See Corrosion Protection” | Local anchorage only. |
+| PH2 | SSA - Smoke Extract Louvres | “See Corrosion Protection” | Secondary steel. |
+| PH3 | DCH - Structural Steel | “See Corrosion Protection” | Implied same as earlier phases. |
+| PH3 | DCH - Envelope / Roof | “See Corrosion Protection” | Envelope/roof steel per DCH corrosion standards. |
+| PH3 | MYD - Densified - Water Cooled | Galvanizing and C4 standards to EN ISO 1461/14713‑1; touch-up rules per EN ISO 17463 | Phase 3 MYD environment. |
+| PH3 | Cooling Tower Gantry | EN ISO 1461 and 14713‑1 for hot-dip galvanizing; C4 performance | Gantry explicitly C4-rated. |
+| PH3 | EYD/USS/MCP/S25/USS Trestle Foundations | “See Corrosion Protection” | Local detailing only. |
+| PH3 | SSA - Smoke Extract Louvres | “See Corrosion Protection” | Secondary steel. |
+| PH4 | DCH - Foundations/Floor Slabs | “See Corrosion Protection” | Anchors/embedded steel. |
+| PH4 | DCH - Structural Steel | Internal C2; external C4; paint/galvanizing to NBN EN ISO 12944 and EN ISO 1461/14713‑1 | Most explicit phase-4 restatement. |
+| PH4 | DCH - Envelope / Roof | “See Corrosion Protection” | Secondary and roof steel to same criteria. |
+| PH4 | MYD - Densified - Water Cooled | Galvanizing to EN ISO 1461; corrosion protection to EN ISO 14713‑1 and 12944‑2 for C4 | PH4 MYD gantry and supports. |
+| PH4 | Cooling Tower Gantry | Galvanizing EN ISO 1461; corrosion design to EN ISO 14713‑1 for C4 | Gantry same C4 criteria. |
+| PH4 | USS/MCP/S25/USS Trestle Foundations | “See Corrosion Protection” | Focus on anchorage interfaces. |
+| PH4 | SSA - Smoke Extract Louvres | “See Corrosion Protection” | Secondary frames. |
+
+---
+
+## 5. TRADE PACKAGE: METAL FABRICATIONS (STAIRS / RAILINGS / GRATINGS)
+
+**Baseline Scope:**
+- Miscellaneous steel fabrications, barrier rails, ladders, walkways, roof access structures, and downspout guards in carbon steel to EN 10025/EN 10210/ISO 3574/ISO 4200.
+- Fabrication tolerances and execution rules for metal fabrications, including welding quality and anchorage/fixings.
+- Handrails and guards: geometry, post spacing, loading criteria, fixings and anchorage details.
+- Stairs and ramps: execution rules including design loads, detailing, welds, tolerances and surface quality.
+- Ladders and fixed access systems to EN ISO 14122 series (‑1/‑2/‑3/‑4) including ladder geometry, support spacing, safety cages and landings.
+- Roof access walkways and stepovers to EN 516 and EN ISO 14122.
+- Gratings and treads to NAAMM MBG 531/532 (or NAAMM MBG) including grated treads and landings.
+- External components generally to receive galvanized and/or factory-applied C4 finish coordinated with corrosion protection standards.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | CSA Site Development | Miscellaneous steel fabrications and barrier rails in carbon steel to EN 10025/EN 10210/ISO 3574/ISO 4200 incl. barrier rails and downspout guards; fabrication tolerances; handrail/guard requirements | Forms baseline for external misc. steel. |
+| PH1 | FSA | Metal stairs/ramps/railings execution incl. loads, fabrication quality, tolerances; welding to EN 1011; gratings/treads to NAAMM MBG 531/532; ladders/access to EN ISO 14122; handrail/guard configuration; C4 factory finish for external items | Very complete internal/external stair & access spec. |
+| PH1 | FSA - Structural Steel | “See Metal Fabrications (Stairs/Railings/Gratings)” | Structural doc defers to this trade for stairs/railings. |
+| PH1 | FSA - Envelope | Fixed ladders and walkways to EN ISO 14122; galvanized finish to EN ISO 1461; roof access walkways to EN 516 | Envelope-specific access systems. |
+| PH1 | FSA - Roof | Roof walkways and stepovers to EN 516 and EN ISO 14122; gratings/treads to NAAMM MBG 531/532; handrails/guards incl. fixings, finishes and slip-resistance per EN 13036‑4 | Adds slip‑resistance performance requirement. |
+| PH1 | DCH | Metal stairs and guards incl. load criteria, detailing, welds, tolerances, finishes; handrail and guard geometry; gratings/treads to NAAMM MBG; ladders/access to EN ISO 14122; external components with C4 coating systems | Core building access and guarding set. |
+| PH1 | DCH - Structural Steel | Stairs, handrail and guard fabrication/installation rules; grated treads and landings to NAAMM MBG; C4 finish for external stairs | Restates key details for structural steel package. |
+| PH1 | DCH - Envelope | Ladders and fixed access to EN ISO 14122; handrails/guards to defined dimensions and spacing; misc. steel supports (barrier rails, downspout guards) galvanized/factory finished | Envelope-specific fabrications and supports. |
+| PH1 | DCH - Roof | Roof walkways and stepovers to EN 516/EN ISO 14122; gratings to NAAMM MBG 531/532; handrails/guards to specified geometry and finishes | Roof access suite mirrored from FSA. |
+| PH1 | MYD - Densified - Water Cooled | Ladders/access to EN ISO 14122‑1/2/3/4; handrails/guards with defined dimensions, spacing and loading; gratings/treads to NAAMM MBG 531/532; external stairs/railings with C4 factory finish; stairs/ramps execution rules | MYD-specific high-corrosion environment access systems. |
+| PH1 | Generator Trench Structural Steel | Metal fabrications and gratings standards available where used with trenches | Gratings over trenches implied but not fully detailed. |
+| PH1 | EYD | “See Structural Steel” for metal items | No dedicated fabrications spec. |
+| PH1 | SSA - Load Bank Garage & Fuel Polishing Building | Ladders/railings to EN ISO 14122; handrail/guard geometry and load capacity; galvanized finish and C4 coating; fabrication/installation tolerances | Building-specific stair/ladder package. |
+| PH1 | SSA - FSA AHU / SSA - Smoke Extract Louvres / SSA - Roof AOVs | “See Structural Steel” or “See Metal Fabrications” | Misc. framing and any small access work by reference. |
+| PH1 | CSA‑RSA Security Fence & Infrastructure | Metal fabrications rules (materials EN 10025/EN 10210/ISO 4200, tolerances, welding, anchorage); external components with C4 finish | Fence posts, rails, gates treated as fabrications. |
+| PH2 | DCH - Foundations/Floor Slabs | “See Structural Steel” | No explicit stair/railing scope. |
+| PH2 | DCH - Structural Steel | “See Metal Fabrications (Stairs/Railings/Gratings)” | Access/guards handled under fabrications package. |
+| PH2 | DCH - Envelope | “See Metal Fabrications (Stairs/Railings/Gratings)” | Secondary access elements by reference. |
+| PH2 | DCH - Roof | Roof access walkways and steps to EN 516/EN ISO 14122; grating and handrail requirements | Roof-level fabrications for PH2. |
+| PH2 | MYD - Densified - Water Cooled | Ladders and access to EN ISO 14122; gratings NAAMM MBG 531/532; handrails/guards with C4 finish | MYD PH2 access suite. |
+| PH2 | Cooling Tower Gantry | Stairs, handrails, ladders and walkways as for MYD gantries (EN ISO 14122, NAAMM MBG) | Mirrors MYD spec. |
+| PH2 | USS/MCP/S25/USS Trestle Foundations | “See Structural Steel” | No explicit metal fabrications. |
+| PH2 | SSA - Smoke Extract Louvres | “See Structural Steel” | No explicit stair/walkway. |
+| PH3 | DCH - Structural Steel | “See Metal Fabrications (Stairs/Railings/Gratings)” | Reuse of earlier DCH fabrications spec. |
+| PH3 | DCH - Envelope | Ladders and access to EN ISO 14122; metal fabrications execution rules | Envelope-specific ladders/access. |
+| PH3 | DCH - Roof | Walkways, gratings, handrails and guards to EN 516, EN ISO 14122 and NAAMM MBG | Roof access scope for PH3. |
+| PH3 | MYD - Densified - Water Cooled | Ladders/access to EN ISO 14122; grating/tread to NAAMM MBG; handrails/guards with external C4 finish | PH3 MYD access. |
+| PH3 | Cooling Tower Gantry | “See Metal Fabrications (Stairs/Railings/Gratings)” | Gantry access as per MYD spec. |
+| PH3 | Foundations / SSA Louvres | “See Structural Steel/Metal Fabrications” | No specific details. |
+| PH4 | DCH - Structural Steel | “See Metal Fabrications (Stairs/Railings/Gratings)” | Fabrications package governs. |
+| PH4 | DCH - Envelope | “See Metal Fabrications (Stairs/Railings/Gratings)” | Secondary steel access. |
+| PH4 | DCH - Roof | Walkways and handrails per EN 516/EN ISO 14122; gratings per NAAMM MBG | Roof-level fabrications PH4. |
+| PH4 | MYD - Densified - Water Cooled | Access systems and gratings/handrails to EN ISO 14122 and NAAMM MBG with external C4 finish | PH4 MYD access. |
+| PH4 | Cooling Tower Gantry | “See Metal Fabrications (Stairs/Railings/Gratings)” | Gantry access as per MYD. |
+| PH4 | Foundations / SSA Louvres | “See Structural Steel/Metal Fabrications” | No additional detail. |
+
+---
+
+## GLOBAL INCONSISTENCIES (ESTIMATING RISK REGISTER)
+
+| ID | Trade Package | Issue | Risk | Estimating Action |
+|----|---------------|-------|------|-------------------|
+| 1 | Corrosion Protection | Corrosion systems for primary steel (C2 internal / C4 external, paint/galvanizing to NBN EN ISO 12944 and EN ISO 1461/14713‑1) are not explicitly restated in all zones where structural steel is present. | High | Carry a project-wide standard corrosion allowance for all primary and secondary steel; clarify with designer which zones deviate or require enhanced systems; flag any zone with only “See Corrosion Protection” as potentially under-scoped. |
+| 2 | Corrosion Protection / Metal Fabrications | External site elements (bollards, fence posts, gates, miscellaneous guards) depend on generic C4/galvanizing language; not always clearly assigned to structural vs. metal fabrications vs. security packages. | Medium | Define which package owns each external item (bollards, fence steel, guards); include C4 + galvanizing allowance in the responsible trade and avoid duplication; seek schedule of external elements if absent. |
+| 3 | Structural Steel / Misc. Steel | Secondary/miscellaneous steel (e.g., louvre framing, envelope interfaces, roof penetrations) often references “See Structural Steel” or “See Metal Fabrications” without repeating material grades (EN 10025/EN 10210) and tolerances. | Medium | Assume same material grade and execution as main structural/misc steel for pricing; treat all such references as fully compliant with EN 10025/EN 10210 and EXC2 unless clarified otherwise; confirm any exclusions with design team. |
+| 4 | Fire Protection | Several zones refer generically to “See Structural Steel/Fire Protection” without specifying whether steel in those zones is actually fire rated (e.g., louvre framing, some foundations, external gantries). | High | Do not assume intumescent on all steel; base fireproofing quantities only on members explicitly requiring a rating or clearly in rated compartments; request fire strategy drawings/schedules to confirm which elements are to be treated. |
+| 5 | Composite Decking | Some phases/zones reference “See Composite Decking” or “See Structural Steel” with no explicit deck details, especially at foundations and small SSA/CSA scopes. | Medium | Assume no decking where not clearly indicated on structural drawings; for ambiguous zones carry a minimal contingency or seek confirmation; align with framing plans to avoid missing local deck infills. |
+| 6 | Metal Fabrications | Many structural notes say “See Metal Fabrications (Stairs/Railings/Gratings)” without quantifying extents; roof access systems and gantry stairs differ by phase but use similar wording. | Medium | Prepare a consolidated schedule of all stairs, ladders, walkways, rails and gratings by zone/phase from drawings; price to full standard (EN 14122/EN 516/NAAMM MBG, C4 external) unless documents explicitly reduce requirements. |
+
+END_OF_REPORT

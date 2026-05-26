@@ -103,6 +103,7 @@ def main() -> None:
                         raise ValueError("O conteúdo deve ser um objeto JSON { ... }.")
                 except (json.JSONDecodeError, ValueError) as exc:
                     st.error(f"⚠️ Erro no Project Baseline JSON: {exc}")
+                    st.stop()  # Pára tudo se o JSON for inválido
                     return
             else:
                 contexto_projeto = {}
@@ -110,9 +111,55 @@ def main() -> None:
             # Guardar contexto no estado da sessão
             st.session_state.contexto_projeto = contexto_projeto
 
-            # Callback vazio para a pipeline (o orchestrator gere o estado interno)
+            # ---------------------------------------------------------
+            # VISUALIZAÇÃO DO PROGRESSO
+            # ---------------------------------------------------------
+            progress_container = st.container(border=True)
+            with progress_container:
+                col1, col2, col3 = st.columns(3, gap="small")
+                
+                with col1:
+                    st.markdown("**Extração de Documentos**")
+                    prog_extracao = st.progress(0)
+                    status_extracao = st.empty()
+                
+                with col2:
+                    st.markdown("**Auditoria Cruzada**")
+                    prog_auditoria = st.progress(0)
+                    status_auditoria = st.empty()
+                
+                with col3:
+                    st.markdown("**Formatação**")
+                    prog_formato = st.progress(0)
+                    status_formato = st.empty()
+
+            # Callback para atualizar o progresso
             def pipeline_callback(state: list) -> None:
-                pass
+                # state = ["done"/"active"/"idle"/"error", ...]
+                estados_fases = {
+                    0: (prog_extracao, status_extracao),
+                    1: (prog_auditoria, status_auditoria),
+                    2: (prog_formato, status_formato),
+                }
+                
+                estado_visual = {
+                    "done": ("✓", 1.0),
+                    "active": ("⟳", 0.5),
+                    "idle": ("—", 0.0),
+                    "error": ("✗", 0.0),
+                }
+                
+                for i, (prog_slot, status_slot) in estados_fases.items():
+                    if i < len(state):
+                        estado = state[i]
+                        simbolo, valor = estado_visual.get(estado, ("?", 0.3))
+                        cor = "#d4edda" if estado == "done" else "#fff3cd" if estado == "active" else "#f8d7da" if estado == "error" else "#e9ecef"
+                        
+                        prog_slot.progress(valor, text=simbolo)
+                        status_slot.markdown(
+                            f"<div style='color:{cor}; font-size:0.75rem; text-align:center'>{simbolo} {estado.upper()}</div>",
+                            unsafe_allow_html=True
+                        )
 
             # ---------------------------------------------------------
             # EXECUÇÃO DO PIPELINE UNIFICADO (A "Jarrada")

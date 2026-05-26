@@ -62,15 +62,28 @@ def _obter_documento_completo(texto: str) -> list:
 # ─────────────────────────────────────────────────────────────
 # Invocação LLM com retry
 # ─────────────────────────────────────────────────────────────
-@retry(
-    retry=retry_if_exception_type((RateLimitError, APIConnectionError, APITimeoutError)),
-    stop=stop_after_attempt(4),
-    wait=wait_exponential(multiplier=1, min=2, max=30),
-    before_sleep=before_sleep_log(_log, logging.WARNING),
-    reraise=True,
-)
+# @retry(
+#     retry=retry_if_exception_type((RateLimitError, APIConnectionError, APITimeoutError)),
+#     stop=stop_after_attempt(4),
+#     wait=wait_exponential(multiplier=1, min=2, max=30),
+#     before_sleep=before_sleep_log(_log, logging.WARNING),
+#     reraise=True,
+# )
 def _invocar_llm(llm, mensagens: list) -> str:
-    return llm.invoke(mensagens).content
+    print(f"[_invocar_llm] Invocando LLM com {len(mensagens)} mensagens... (MODO STREAMING)")
+    try:
+        conteudo_total = ""
+        # Em vez de esperar pelo fim, pedimos à IA para cuspir os tokens à medida que pensa
+        for chunk in llm.stream(mensagens):
+            conteudo_total += chunk.content
+            # Imprime cada bocado no terminal na mesma linha (flush=True força a saída imediata)
+            print(chunk.content, end="", flush=True) 
+        
+        print(f"\n\n[_invocar_llm] Geração concluída! {len(conteudo_total)} caracteres recebidos.")
+        return conteudo_total
+    except Exception as e:
+        print(f"\n[_invocar_llm] ERRO durante invocação: {type(e).__name__}: {e}")
+        raise
 
 from langchain_openai import ChatOpenAI
 
@@ -83,6 +96,8 @@ def criar_llm(state: dict, *, temperature: float, model: str):
       - _local_url: str (se local)  -> endpoint compatível OpenAI
       - _model_name: str (nome do modelo)  (pode ser igual ao `model`)
     """
+    print(f"[criar_llm] model_type={state.get('_model_type')}, model={model}, temperature={temperature}")
+    
     model_type = state.get("_model_type", "api")
     safe_model = (model or "").strip()
     if not safe_model:
@@ -90,35 +105,50 @@ def criar_llm(state: dict, *, temperature: float, model: str):
 
     if model_type == "local":
         base_url = (state.get("_local_url") or "").strip()
+        print(f"[criar_llm] Modo LOCAL: base_url={base_url}, model={safe_model}")
         if not base_url:
             raise ValueError("LOCAL selecionado mas _local_url está vazio.")
         # Muitos servidores locais aceitam qualquer api_key (ex: 'local')
-        return ChatOpenAI(
+        llm = ChatOpenAI(
             base_url=base_url,
             api_key="local",
             model=safe_model,
             temperature=temperature,
         )
+        print(f"[criar_llm] LLM LOCAL criado com sucesso")
+        return llm
 
     # default = API
+    print(f"[criar_llm] Modo API: model={safe_model}")
     api_key = (state.get("_api_key") or "").strip()
     if not api_key:
         raise ValueError("API selecionada mas _api_key está vazio.")
-    return ChatOpenAI(
+    llm = ChatOpenAI(
         api_key=api_key,
         model=safe_model,
         temperature=temperature,
     )
+    print(f"[criar_llm] LLM API criado com sucesso")
+    return llm
 
 
 # ======================================================================
 # AGT-01: SPECS baseline (sem betão)
 # ======================================================================
 def extrair_specs(texto_specs: str, nome_ficheiro: str, llm, prog_placeholder, status_placeholder) -> str:
+    print(f"\n[AGT-01 SPECS] Iniciando...")
+    print(f"[AGT-01 SPECS] Texto recebido: {len(texto_specs)} caracteres")
+    print(f"[AGT-01 SPECS] Placeholder prog: {type(prog_placeholder)}")
+    print(f"[AGT-01 SPECS] Placeholder status: {type(status_placeholder)}")
+    
     chunks = _obter_documento_completo(texto_specs)
+    print(f"[AGT-01 SPECS] Chunks: {len(chunks)}")
+    
     if not chunks:
+        print(f"[AGT-01 SPECS] Nenhum chunk obtido!")
         return ""
 
+    print(f"[AGT-01 SPECS] Criando system message...")
     sys_msg = SystemMessage(content=f"""You are a Senior Construction Specifications Analyst and Technical Data Structuralist.
 
 Goal: Extract PROJECT-WIDE ENGINEERING BASELINES from technical specification documents and structure into JSON format.
@@ -193,7 +223,10 @@ OUTPUT FORMAT (STRICT):
 """)
 
     try:
+        print(f"[AGT-01 SPECS] Dentro do try block...")
+        
         if status_placeholder:
+            print(f"[AGT-01 SPECS] Atualizando status placeholder...")
             status_placeholder.markdown(
                 f"<div style=\"font-family:'Space Mono',monospace;font-size:0.72rem;color:#3a6aaa\">"
                 f"<span style=\"color:#5a9aff\">AGT-01 (Specs Structurer)</span>"
@@ -201,8 +234,10 @@ OUTPUT FORMAT (STRICT):
                 unsafe_allow_html=True
             )
         if prog_placeholder:
+            print(f"[AGT-01 SPECS] Atualizando progresso...")
             prog_placeholder.progress(0.5)
 
+        print(f"[AGT-01 SPECS] Invocando LLM...")
         resumo = _invocar_llm(llm, [
             sys_msg,
             HumanMessage(content=(
@@ -217,12 +252,17 @@ OUTPUT FORMAT (STRICT):
                 f'DOCUMENT:\n{chunks[0]}'
             ))
         ])
+        print(f"[AGT-01 SPECS] LLM respondeu com {len(resumo)} caracteres")
 
         if prog_placeholder:
             prog_placeholder.progress(1.0)
         
+        print(f"[AGT-01 SPECS] Extração concluída com sucesso!")
         return resumo
     except Exception as e:
+        import traceback
+        print(f"[AGT-01 SPECS] ERRO: {type(e).__name__}: {e}")
+        print(traceback.format_exc())
         return f"[AGT-01 falhou: {type(e).__name__}: {e}]"
 
 # ======================================================================
@@ -234,20 +274,27 @@ def extrair_boq_json_estruturado(texto_boq: str, nome_ficheiro: str, contexto_sp
     if not chunks:
         return ""
 
-    sys_msg = SystemMessage(content=f"""You are an Expert BOQ Analyst and Data Structuralist.
+    ctx = contexto_projeto or {}
+    print(f"[AGT-02.1 CSV] DEBUG: Tipo do ctx: {type(ctx)} | Bool(ctx): {bool(ctx)} | Valor: {ctx}")
+    
+    ctx = contexto_projeto or {}
+    
+    if ctx:
+        import json
+        # ==========================================================
+        # MODO NOVO: COM BASELINE (Filtra pelo JSON)
+        # ==========================================================
+        sys_content = f"""You are an Expert BOQ Analyst and Data Structuralist.
 
-Goal: Extract COMPLETE Project Structure from BOQ document into JSON format with full Phase→Zone mapping.
+Goal: Extract COMPLETE Project Structure from BOQ document into JSON format.
 
 ABSOLUTE RULES:
 - Do NOT omit STRUCTURAL INFORMATION from the BOQ.
 - Do NOT invent information outside what is written.
-- Ignore EVERYTHING related to CONCRETE (grades, slabs, reinforcement, waterproofing, membranes for concrete). Concrete is OUT OF SCOPE - NEVER INCLUDE IT.
+- Ignore EVERYTHING related to CONCRETE (grades, slabs, reinforcement, waterproofing, membranes for concrete). Concrete is OUT OF SCOPE.
 - NEVER include ANY concrete information whatsoever.
-- QUANTITIES ARE NOT IMPORTANT: Exclude volumes, weights, unit prices, delivery dates. Extract ONLY technical/structural content.
-- Discard all commercial line items (purchasing info, supplier data, costs, quantities).
-
-PROJECT SCOPE CONTEXT (Use this as the source of truth for Project Structure):
-{contexto_projeto}
+- QUANTITIES ARE NOT IMPORTANT: Exclude volumes, weights, unit prices, delivery dates.
+- Discard all commercial line items.
 
 Use these extraction rules:
 {REGRAS_EXTRACAO}
@@ -255,8 +302,104 @@ Use these extraction rules:
 SPECS CONTEXT (for Phase/Zone reference only):
 {contexto_specs}
 
-EXTRACTION STRATEGY (7-STEP):
+PROJECT SCOPE BASELINE (Source of Truth):
+{json.dumps(ctx, indent=2)}
 
+CRITICAL INSTRUCTION: You MUST use the Project Scope Baseline above to filter your extraction. Focus heavily on these specific Phases, Zones, and Trades.
+
+EXTRACTION STRATEGY (7-STEP):
+1) FULL EXTRACTION (Mandatory Structure)
+   Extract Phases and Zones from document. Output ONLY valid JSON with this schema:
+   {{
+     "phases": [
+       {{
+         "name": "Phase 1",
+         "description": "...",
+         "zones": ["ZoneA", "ZoneB"],
+         "activities": ["Steel erection", "..."],
+         "dependencies": ["Phase 0 complete"],
+         "constraints": ["Access via north door"],
+         "source": "Section 2.1, Line X-Y"
+       }}
+     ],
+     "zones": [
+       {{
+         "name": "ZoneA",
+         "description": "...",
+         "phases": ["Phase 1", "Phase 2"],
+         "activities": ["Structural prep", "..."],
+         "logistics": "Crane access from main gate",
+         "source": "Section 3.2"
+       }}
+     ]
+   }}
+
+2) AGGRESSIVE KEYWORD SWEEP
+   Scan for: "phase", "stage", "zone", "area", "sector", "work package"
+   Extract FULL surrounding context.
+
+3) PHASE → ZONE MAPPING (no gaps)
+   Build complete mapping Phase→Zones. If phase has no zone, mark UNDEFINED.
+   If zone has no phase, flag it.
+
+4) SEQUENCING AND DEPENDENCIES
+   Reconstruct execution order: ordered phases, parallel phases, dependencies.
+
+5) CONTEXT ENFORCEMENT (For EACH Phase and Zone)
+   Extract:
+   * Work being executed
+   * Teams/roles (if present)
+   * Constraints (access, safety, sequencing)
+   * Risks
+   Use "NOT FOUND" if missing.
+
+6) CONSISTENCY CHECK
+   Validate: duplicate names, conflicting descriptions, missing links.
+   Flag issues with references.
+
+7) FINAL COMPRESSED OUTPUT
+   Include in JSON response:
+   {{
+     ...phases/zones above...,
+     "metadata": {{
+       "total_phases": N,
+       "total_zones": N,
+       "key_execution_logic": ["...", "...", "..."],
+       "critical_gaps": ["...", "..."]
+     }}
+   }}
+
+OUTPUT:
+- ONLY valid JSON (no markdown, no comments, no extra text).
+- All text fields must be populated (no empty strings).
+- Include page/section references in "source" fields.
+- Deterministic, fully traceable to source.
+"""
+    else:
+        # ==========================================================
+        # MODO CLÁSSICO: SEM BASELINE (Extrai absolutamente tudo)
+        # ==========================================================
+        sys_content = f"""You are an Expert BOQ Analyst and Data Structuralist.
+
+Goal: Extract COMPLETE Project Structure from BOQ document into JSON format.
+
+ABSOLUTE RULES:
+- Do NOT omit STRUCTURAL INFORMATION from the BOQ.
+- Do NOT invent information outside what is written.
+- Ignore EVERYTHING related to CONCRETE (grades, slabs, reinforcement, waterproofing, membranes for concrete). Concrete is OUT OF SCOPE.
+- NEVER include ANY concrete information whatsoever.
+- QUANTITIES ARE NOT IMPORTANT: Exclude volumes, weights, unit prices, delivery dates.
+- Discard all commercial line items.
+
+Use these extraction rules:
+{REGRAS_EXTRACAO}
+
+SPECS CONTEXT (for Phase/Zone reference only):
+{contexto_specs}
+
+CRITICAL INSTRUCTION: There is NO specific baseline provided. You MUST extract ALL phases, zones, and subzones natively found in the ENTIRE BOQ document. DO NOT omit any locations. Be exhaustive.
+
+EXTRACTION STRATEGY (7-STEP):
 1) FULL EXTRACTION (Mandatory Structure)
    Extract ALL Phases and Zones from document. Output ONLY valid JSON with this schema:
    {{
@@ -323,7 +466,9 @@ OUTPUT:
 - All text fields must be populated (no empty strings).
 - Include page/section references in "source" fields.
 - Deterministic, fully traceable to source.
-""")
+"""
+
+    sys_msg = SystemMessage(content=sys_content)
 
     try:
         if status_placeholder:
@@ -357,11 +502,12 @@ OUTPUT:
     except Exception as e:
         return f"[AGT-02 (JSON) falhou: {type(e).__name__}: {e}]"
 
-
 # ======================================================================
 # AGT-02.2: Extração narrativa de BOQ (para PDF/DOCX)
 # ======================================================================
 def extrair_boq_com_contexto(texto_boq: str, nome_ficheiro: str, contexto_specs: str, contexto_projeto: dict, llm, prog_placeholder, status_placeholder) -> str:
+    import json
+    
     # Detectar se é CSV para usar prompt estruturado
     eh_csv = ".csv" in nome_ficheiro.lower()
     
@@ -372,7 +518,73 @@ def extrair_boq_com_contexto(texto_boq: str, nome_ficheiro: str, contexto_specs:
     if not chunks:
         return ""
 
-    sys_msg = SystemMessage(content=f"""You are an Expert Estimator and Technical Data Hunter.
+    ctx = contexto_projeto or {}
+    print(f"[AGT-02 Hunter] DEBUG: Tipo do ctx: {type(ctx)} | Bool(ctx): {bool(ctx)} | Valor: {ctx}")
+
+    if ctx:
+        # ==========================================================
+        # MODO NOVO: COM BASELINE (Filtra pelo contexto do utilizador)
+        # ==========================================================
+        sys_content = f"""You are an Expert Estimator and Technical Data Hunter.
+
+PROJECT CONTEXT BASELINE (Source of Truth for Scope):
+{json.dumps(ctx, indent=2)}
+
+Goal: Extract technical specifications and execution requirements from BOQ text.
+CRITICAL: Use the PROJECT CONTEXT BASELINE to understand which Phases, Zones, and Trades are strictly relevant to this project. Focus your extraction primarily on these baseline elements.
+
+You may USE the SPECS context ONLY to:
+- recognize what is technical/important,
+- and enable later cross-document comparison.
+You MUST NOT treat it as truth that overrides BOQ text.
+
+ABSOLUTE RULES:
+- Do NOT omit TECHNICAL INFORMATION that belongs to the Phases and Zones defined in the Baseline.
+- Do NOT invent information outside what is written.
+- Ignore EVERYTHING related to CONCRETE (grades, mixes, reinforcement, slabs, blinding, membranes for concrete works, waterproofing for concrete, etc.). Concrete is OUT OF SCOPE - NEVER INCLUDE IT.
+- NEVER include ANY concrete-related information in the output, no exceptions.
+- QUANTITIES ARE NOT IMPORTANT: Exclude all quantities, volumes, weights, unit prices, commercial totals, and purchasing data.
+- Extract ONLY technical specifications, standards, execution requirements, and structural details.
+
+Use these extraction rules exactly as provided (do not rewrite them):
+{REGRAS_EXTRACAO}
+
+SPECS CONTEXT (for awareness / later comparison; do NOT overwrite BOQ facts):
+{contexto_specs}
+
+PHASE RULE:
+- Phase comes from nearby headers or explicit tokens in the line (PH1/PH2/PH3/PH4 or "Phase 1/2/3/4").
+- Normalize PH1→Phase 1 (same for PH2..).
+- If you cannot find it, output Phase: UNKNOWN.
+
+ZONE/SUBZONE CONTEXT RULES (MANDATORY, DO NOT GUESS):
+- Valid ZONE is a 3-letter building code.
+- Maintain CURRENT_ZONE and CURRENT_SUBZONE while reading the ENTIRE DOCUMENT TOP-TO-BOTTOM.
+
+Update CURRENT_ZONE / CURRENT_SUBZONE only using these patterns:
+1) Line is EXACTLY one 3-letter token (e.g., "DCH") → CURRENT_ZONE=<token>, CURRENT_SUBZONE=GENERAL
+2) Line matches "<ZONE> - <anything>" → CURRENT_ZONE=<ZONE>, CURRENT_SUBZONE=<anything after dash>
+3) Line matches "<ZONE>-<anything>" → CURRENT_ZONE=<ZONE>, CURRENT_SUBZONE=<anything after dash>
+4) Internal headings like "MEMBRANES", "FLOOR SLABS", "STEEL DECKING" are NOT zones/subzones; they inherit CURRENT_ZONE and CURRENT_SUBZONE.
+
+If you cannot establish CURRENT_ZONE from any header at the beginning, set Zone=UNKNOWN and Subzone=GENERAL.
+
+WHAT TO EXTRACT:
+- Only primary technical drivers for: steel/metal/decking/corrosion/fire protection.
+- Capture grades, EXC class, standards, galvanizing/paint systems, intumescent rating/DFT, thicknesses like D60x1.2mm.
+- Ignore commercial totals and minor sundries unless they carry a technical requirement.
+
+OUTPUT FORMAT (STRICT):
+- Plain text only (no JSON, no markdown).
+- Structured NARRATIVE (NOT one-line templates).
+- Group by Phase → Zone → Subzone, then by category (Structural Steel / Decking / Fire / Corrosion / Metal Fabrics).
+- No recommendations, next steps, questions, or offers.
+"""
+    else:
+        # ==========================================================
+        # MODO CLÁSSICO: SEM BASELINE (Extrai tudo o que vê no documento)
+        # ==========================================================
+        sys_content = f"""You are an Expert Estimator and Technical Data Hunter.
 
 Goal: Extract technical specifications and execution requirements from BOQ text.
 You may USE the SPECS context ONLY to:
@@ -421,7 +633,9 @@ OUTPUT FORMAT (STRICT):
 - Structured NARRATIVE (NOT one-line templates).
 - Group by Phase → Zone → Subzone, then by category (Structural Steel / Decking / Fire / Corrosion / Metal Fabrics).
 - No recommendations, next steps, questions, or offers.
-""")
+"""
+
+    sys_msg = SystemMessage(content=sys_content)
 
     try:
         if status_placeholder:
@@ -454,7 +668,6 @@ OUTPUT FORMAT (STRICT):
     except Exception as e:
         return f"[AGT-02 falhou: {type(e).__name__}: {e}]"
 
-
 # ======================================================================
 # NÓ: router + extrator
 # ======================================================================
@@ -464,41 +677,68 @@ def no_router(state: AuditoriaState) -> dict:
 
 
 def no_extrator(state: AuditoriaState) -> dict:
-    model = (state.get("_model_name") or "").strip() or "gpt-5.1"
-    llm_specs = criar_llm(state, temperature=0.0, model=model)
-    llm_boq = criar_llm(state, temperature=0.0, model=model)
+    try:
+        print(f"\n[DEBUG no_extrator] Iniciando extração...")
+        print(f"[DEBUG no_extrator] State keys: {list(state.keys())}")
+        print(f"[DEBUG no_extrator] texto_specs presente: {bool(state.get('texto_specs'))}")
+        print(f"[DEBUG no_extrator] texto_boq presente: {bool(state.get('texto_boq'))}")
+        print(f"[DEBUG no_extrator] contexto_projeto tipo: {type(state.get('contexto_projeto'))} | valor: {state.get('contexto_projeto')}")
+        
+        model = (state.get("_model_name") or "").strip() or "gpt-5.1"
+        print(f"[DEBUG no_extrator] Model selecionado: {model}")
+        
+        llm_specs = criar_llm(state, temperature=0.0, model=model)
+        llm_boq = criar_llm(state, temperature=0.0, model=model)
+        print(f"[DEBUG no_extrator] LLMs criados com sucesso")
 
-    prog = state["_prog_slot"]
-    status = state["_status_slot"]
+        prog = state["_prog_slot"]
+        status = state["_status_slot"]
+        print(f"[DEBUG no_extrator] Placeholders: prog={prog}, status={status}")
 
-    resumo_specs = ""
-    resumo_boq = ""
+        resumo_specs = ""
+        resumo_boq = ""
 
-    if state.get("texto_specs"):
-        resumo_specs = extrair_specs(
-            texto_specs=state["texto_specs"],
-            nome_ficheiro=f"SPECS: {', '.join(state.get('nomes_specs', []))}",
-            llm=llm_specs,
-            prog_placeholder=prog,
-            status_placeholder=status
-        )
+        if state.get("texto_specs"):
+            print(f"[DEBUG no_extrator] Iniciando extração de SPECS...")
+            resumo_specs = extrair_specs(
+                texto_specs=state["texto_specs"],
+                nome_ficheiro=f"SPECS: {', '.join(state.get('nomes_specs', []))}",
+                llm=llm_specs,
+                prog_placeholder=prog,
+                status_placeholder=status
+            )
+            print(f"[DEBUG no_extrator] SPECS extraído: {len(resumo_specs)} caracteres")
 
-    if state.get("texto_boq"):
-        resumo_boq = extrair_boq_com_contexto(
-            texto_boq=state["texto_boq"],
-            nome_ficheiro=f"BOQ: {state.get('nome_boq','')}",
-            contexto_specs=resumo_specs,
-            contexto_projeto=state.get("contexto_projeto", {}),
-            llm=llm_boq,
-            prog_placeholder=prog,
-            status_placeholder=status
-        )
+        if state.get("texto_boq"):
+            print(f"[DEBUG no_extrator] Iniciando extração de BOQ...")
+            resumo_boq = extrair_boq_com_contexto(
+                texto_boq=state["texto_boq"],
+                nome_ficheiro=f"BOQ: {state.get('nome_boq','')}",
+                contexto_specs=resumo_specs,
+                contexto_projeto=state.get("contexto_projeto", {}),
+                llm=llm_boq,
+                prog_placeholder=prog,
+                status_placeholder=status
+            )
+            print(f"[DEBUG no_extrator] BOQ extraído: {len(resumo_boq)} caracteres")
 
-    erros = list(state.get("erros", []))
-    if not resumo_boq and not resumo_specs:
-        erros.append("AGT-01/02: Nenhum conteúdo extraído dos documentos.")
+        erros = list(state.get("erros", []))
+        if not resumo_boq and not resumo_specs:
+            erros.append("AGT-01/02: Nenhum conteúdo extraído dos documentos.")
+            print(f"[DEBUG no_extrator] AVISO: Nenhum conteúdo extraído!")
 
-    return {"resumo_boq": resumo_boq, "resumo_specs": resumo_specs, "erros": erros}
+        print(f"[DEBUG no_extrator] Extração concluída com sucesso")
+        return {"resumo_boq": resumo_boq, "resumo_specs": resumo_specs, "erros": erros}
+    
+    except Exception as e:
+        import traceback
+        print(f"\n[ERROR no_extrator] Erro durante extração: {type(e).__name__}: {e}")
+        print(traceback.format_exc())
+        return {
+            "resumo_boq": "", 
+            "resumo_specs": "", 
+            "erros": [f"[EXTRATOR FALHOU] {type(e).__name__}: {e}"]
+        }
 
 
 # ======================================================================
@@ -515,6 +755,7 @@ def no_auditor(state: AuditoriaState) -> dict:
     )
 
     ctx = state.get("contexto_projeto") or {}
+    print(f"[AGT-03 Auditor] DEBUG: Tipo do ctx: {type(ctx)} | Bool(ctx): {bool(ctx)} | Valor: {ctx}")
     
     if ctx:
         import json

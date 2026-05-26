@@ -65,6 +65,15 @@ def executar_pipeline_completo(
         texto_specs_total = "\n\n".join(textos_specs)
 
         # 2. ESTADO INICIAL COMPLETO (Preenchemos TODAS as chaves para acalmar o LangGraph)
+        # BLINDAGEM: Garantir que contexto_projeto é sempre um dict válido
+        contexto_seguro = contexto_projeto if isinstance(contexto_projeto, dict) else {}
+        print(f"\n[DEBUG orchestrator] Contexto recebido tipo: {type(contexto_projeto)} | Contexto seguro tipo: {type(contexto_seguro)}")
+        print(f"[DEBUG orchestrator] Contexto: {contexto_seguro}")
+        
+        # Criar placeholders para o progresso (necessário para as funções de extração)
+        prog_placeholder = st.empty()
+        status_placeholder = st.empty()
+        
         estado = {
             "texto_boq": texto_boq,
             "texto_specs": texto_specs_total,
@@ -74,7 +83,7 @@ def executar_pipeline_completo(
             
             "resumo_boq": "",
             "resumo_specs": "",
-            "contexto_projeto": contexto_projeto or {},
+            "contexto_projeto": contexto_seguro,
             
             "auditoria_bruta": "",
             "auditoria_normalizada": "",
@@ -91,26 +100,40 @@ def executar_pipeline_completo(
             "_model_type": model_type or "api",
             "_model_name": model_name or ("llama2" if (model_type or "api") == "local" else "gpt-5.1"),
             "_local_url": local_url or "",
-            "_prog_slot": None,
-            "_status_slot": None,
+            "_prog_slot": prog_placeholder,
+            "_status_slot": status_placeholder,
             "_api_key": (api_key or "")
         }
+        
+        print(f"[DEBUG orchestrator] Estado criado. Keys: {list(estado.keys())}")
+        print(f"[DEBUG orchestrator] Iniciando FASE 1 (EXTRAÇÃO)...")
 
         # 3. FASE 1: EXTRAÇÃO 
         for output in grafo_extracao.stream(estado, stream_mode="updates"):
             for node_name, node_state in output.items():
+                print(f"[DEBUG orchestrator] Node '{node_name}' retornou: {list(node_state.keys()) if node_state else 'None'}")
                 if node_state and isinstance(node_state, dict):
                     estado.update(node_state)
                 if pipeline_callback:
                     pipeline_callback(_pipeline_state_from_node(node_name))
 
+        print(f"[DEBUG orchestrator] FASE 1 concluída!")
+        print(f"[DEBUG orchestrator] Estado após extração - resumo_boq length: {len(estado.get('resumo_boq', ''))}")
+        print(f"[DEBUG orchestrator] Estado após extração - resumo_specs length: {len(estado.get('resumo_specs', ''))}")
+        print(f"[DEBUG orchestrator] Erros na extração: {estado.get('erros', [])}")
+
         # 4. FASE 2: AUDITORIA 
+        print(f"[DEBUG orchestrator] Iniciando FASE 2 (AUDITORIA)...")
         for output in grafo_auditoria.stream(estado, stream_mode="updates"):
             for node_name, node_state in output.items():
+                print(f"[DEBUG orchestrator] Node auditoria '{node_name}' retornou: {list(node_state.keys()) if node_state else 'None'}")
                 if node_state and isinstance(node_state, dict):
                     estado.update(node_state)
                 if pipeline_callback:
                     pipeline_callback(_pipeline_state_from_node(node_name))
+        
+        print(f"[DEBUG orchestrator] FASE 2 concluída!")
+        print(f"[DEBUG orchestrator] Relatório final length: {len(estado.get('relatorio_final', ''))}")
 
         # 5. FINALIZAÇÃO E PERSISTÊNCIA NA UI
         relatorio = estado.get("relatorio_final", "")
