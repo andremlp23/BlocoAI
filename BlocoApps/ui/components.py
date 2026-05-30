@@ -88,12 +88,14 @@ def render_header(api_key_final: str) -> None:
     )
 
 
-def render_debug_toggle() -> bool:
-    """Renderiza checkbox de debug na barra principal."""
-    col1, col2, col3 = st.columns([1, 8, 1])
+def render_debug_toggle() -> tuple[bool, bool]:
+    """Renderiza checkboxes de debug e pensamento na barra principal."""
+    col1, col2, col3, col4 = st.columns([1, 6.5, 1, 1])
     with col3:
+        stream_enabled = st.checkbox("🧠", help="Mostrar Pensamento do Modelo", value=True, key="stream_toggle")
+    with col4:
         debug_mode = st.checkbox("🐞", help="Ativar Modo Debug", value=False)
-    return debug_mode
+    return debug_mode, stream_enabled
 
 
 
@@ -222,54 +224,30 @@ def render_results() -> None:
     if not (st.session_state.processado and st.session_state.relatorio_final):
         return
 
-    st.markdown(
-        f"""
-        <div class="results-header">
-            <div class="results-title">📋 Relatório Completo</div>
-            <div class="results-meta">Auditoria concluída · {st.session_state.n_ficheiros} ficheiro(s)</div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    st.markdown('<div class="results-body">', unsafe_allow_html=True)
-    st.markdown(
-        f"""
-        <div class="metric-row">
-            <div class="metric-pill">
-                <span class="metric-val">{st.session_state.n_ficheiros}</span>
-                <span class="metric-label">Ficheiros</span>
-            </div>
-            <div class="metric-pill">
-                <span class="metric-val">{st.session_state.n_fases_hint}</span>
-                <span class="metric-label">Fases Detectadas</span>
-            </div>
-            <div class="metric-pill">
-                <span class="metric-val" style="color:#40ee88">✓</span>
-                <span class="metric-label">Auditoria OK</span>
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    st.markdown('<div class="report-md">', unsafe_allow_html=True)
+    # Título simples do relatório
+    st.markdown("## 📋 Relatório Completo")
+    
+    # Métricas
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.metric("Ficheiros", st.session_state.n_ficheiros)
+    with col2:
+        st.metric("Fases Detectadas", st.session_state.n_fases_hint)
+    with col3:
+        st.metric("Status", "✓ OK")
+    
+    st.divider()
+    
+    # Relatório em markdown
     st.markdown(st.session_state.relatorio_final)
-    st.markdown("</div>", unsafe_allow_html=True)
-    st.markdown("</div>", unsafe_allow_html=True)
-
- 
-    st.markdown("<div style='height:1rem'></div>", unsafe_allow_html=True)
-    st.markdown('<div class="dl-btn">', unsafe_allow_html=True)
-    col_dl1, _ = st.columns([2, 5])
-    with col_dl1:
-        st.download_button(
-            "📥 Descarregar Relatório (.txt)",
-            data=st.session_state.relatorio_final,
-            file_name="BlocoAI_Relatorio.txt",
-            use_container_width=True,
-        )
-    st.markdown("</div>", unsafe_allow_html=True)
+    
+    st.divider()
+    st.download_button(
+        "📥 Descarregar Relatório (.txt)",
+        data=st.session_state.relatorio_final,
+        file_name="BlocoAI_Relatorio.txt",
+        use_container_width=True,
+    )
 
 
 

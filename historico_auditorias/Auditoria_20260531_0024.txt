@@ -1,0 +1,93 @@
+# Cross-Document Technical Audit:
+
+## 1. TRADE PACKAGE: Structural Steel
+**Baseline Scope:**
+- Primary structural steel frame to Execution Class 2 (EXC2) with S355 grade in accordance with NSSSBC 5th Edition, EN 1090 and NBN EN 1090‑2 EXC2.
+- Structural steel members to NBN EN 10025 / EN 10210 Grade S355JR with subgrade selection per NBN EN 1993‑1‑10.
+- Design to NBN EN 1990/1991/1993.
+- High‑strength and standard bolts to NBN EN 14399, NBN EN 15048 and EN ISO 898.
+- Anchor bolts to NBN EN 15048.
+- Welding materials and procedures to NBN EN 1090, NBN EN 1993‑1‑8 Group 5 and EN 1011.
+- Fabrication and erection rules for EXC2 steel including bolting, welding, connection design, tolerances and quality plans.
+- Structural interfaces at plant trestles and AHU foundations including steel hold‑down assemblies and baseplate grouting.
+- Galvanized finish and touch‑up for specific structural elements.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Primary structural steel frame to EXC2 S355 with galvanized finish and touch‑up | None |
+| PH1 | DCH | Structural steel frame to EXC2 S355; integration of roof structure with future phases | None |
+| PH2 | MYD | Trench‑crossing structural steel supports for RMUs and battery boxes with galvanizing | None |
+| PH3 | EYD | Foundation slabs with steel column kickers/anchor bolts for PH3 superstructure frames | None |
+| PH4 | DCH | Primary structural steel frame to EXC2 S355; secondary steel for final cladding/envelope | None |
+
+## 2. TRADE PACKAGE: Composite Decking
+**Baseline Scope:**
+- Steel decking specified as TATA D60 with Euroclad top deck.
+- Steel deck sheets from galvanized S350 steel to NBN EN 10346 and NBN EN 10143.
+- SCI/BCSA decking and stud‑welding codes referenced.
+- Minimum 50 mm bearing and 50 mm end laps to roof deck.
+- Detailed installation requirements including puddle welds or proprietary fasteners, sidelap connectors and treatment of openings.
+- Shear studs to EN ISO 13918 with associated welding rules and temperature limits.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | FSA roof steel decking specified as TATA D60 to primary steel with Euroclad top deck | None |
+| PH1 | DCH | Roof steel decking to primary frame forming part of staged build‑out | None |
+| PH4 | DCH | Phase 4 steel decking and Euroclad top deck with parapet upstands | None |
+
+## 3. TRADE PACKAGE: Fire Protection
+**Baseline Scope:**
+- Intumescent fire protection systems Sherwin Williams FIRETEX FX2003 and FX6002 with primer C69 and topcoat M71V2.
+- Systems designed and tested to EN 16623, EN 13381‑4, EN 13381, EN 13501 and ASFP Yellow Book/TGD 11.
+- Application requirements including substrate preparation, dry film thickness (DFT) control, environmental conditions, curing and QA/QC procedures.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | 2 h intumescent fire protection to FSA structural steel | None |
+| PH1 | DCH | 2 h intumescent fire protection to structural steel | None |
+| PH2 | MYD | Intumescent coating to generator and USS trench structural steel for 60 min protection | None |
+| PH4 | DCH | 1 h intumescent fire protection for DCH Phase 4 structural steel | None |
+
+## 4. TRADE PACKAGE: Corrosion Protection
+**Baseline Scope:**
+- External steelwork galvanized with detailing to ensure drainage and venting to EN ISO 1461.
+- Corrosion protection systems for structural steel in C2 internal and C4 external environments.
+- Corrosion protection to NBN EN ISO 12944‑1/‑2/‑5 with C2/C4 classification.
+- Shop priming systems including inorganic zinc‑rich primer for external exposed steel.
+- Surface preparation to Sa 2½ per EN ISO 8501‑1 and profile control to EN ISO 8503.
+- Durability ranges and C4 finishing requirements for external metal fabrications.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | External FSA steelwork galvanized with detailing to ensure drainage and venting | None |
+| PH2 | MYD | Phase 2 gantry and trench‑crossing steels fully galvanized with surface touch‑up | None |
+| PH3 | MYD | Fully galvanized gantry/trench steel with touch‑up; external exposure requiring C4 performance | None |
+| PH4 | DCH | External DCH Phase 4 roof and parapet steel requiring galvanizing/C4 | None |
+
+## 5. TRADE PACKAGE: Metal Fabrications
+**Baseline Scope:**
+- Metal stairs, ramps, handrails, guard rails, fixed ladders, barrier rails and miscellaneous fabrications to EN 14122 and EN ISO 14122‑1/‑2/‑3/‑4.
+- Materials to EN 10025 / EN 10210 / ISO 10799 / ISO 4200.
+- Gratings to NAAMM MBG 531/532.
+- Fabrication and installation tolerances and load/performance requirements for stairs, ramps, railings and ladders.
+- Finishes including galvanizing to EN ISO 1461 and C4 paint systems to EN ISO 12944‑2 / ISO 9223.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Internal structural steel stair within FSA; external loading dock metalwork | None |
+| PH1 | MYD | Cooling Tower Gantry access steelwork including cat ladders, emergency stairs, railings | None |
+| PH2 | MYD | Metal stair, cat ladder, railings and open mesh grating for cooling tower gantries | None |
+| PH4 | DCH | Final external metalwork (cat ladders, bollards, small roof stairs) and roof walkways | None |
+
+## GLOBAL INCONSISTENCIES (ESTIMATING RISK REGISTER)
+| ID | Trade Package | Issue | Risk | Estimating Action |
+|----|---------------|-------|------|-------------------|
+| 1 | Composite Decking | SSA roof deck specified as Kingspan RD 100/825 in BOQ has no explicit proprietary deck profile reference or system‑specific requirements in the baseline specs | Medium | Clarify with design team for specific system requirements |
+| 2 | Metal Fabrications | RSA chainlink security fence on metal posts is defined in BOQ, but the baseline specs do not include a dedicated standard or technical specification for chainlink fencing systems or metal fence posts | Medium | Confirm specification requirements with client or design team |
+
+END_OF_REPORT

@@ -278,7 +278,7 @@ div[data-testid="stButton"] > button:hover {
 .metric-label { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted2); display: block; }
 
 /* Markdown report */
-.report-md { color: var(--text) !important; line-height: 1.75; }
+.report-md { color: var(--text) !important; line-height: 1.75; background: var(--panel) !important; border: 1px solid var(--border) !important; border-top: none !important; border-radius: 0 0 12px 12px !important; padding: 1.6rem !important; margin-top: -1px !important; }
 .report-md h3 {
   color: var(--text) !important;
   font-family: 'Space Mono', monospace;

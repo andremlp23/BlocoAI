@@ -1,0 +1,123 @@
+# Cross-Document Technical Audit:
+
+## 1. TRADE PACKAGE: Structural Steel
+**Baseline Scope:**
+- Structural steel S355JR to NBN EN 10025; hollow sections to NBN EN 10210.
+- Execution to EXC2 per NBN EN 1090‑2.
+- Design per NBN EN 1990/1991/1993.
+- High‑strength bolts to NBN EN 1090, NBN EN 14399, and NBN EN 15048.
+- Welding to EN 1011 and NBN EN ISO 9606‑1 with electrodes per NBN EN 1993‑1‑8.
+- Fabrication and erection tolerances and connection rules per NBN EN 1090.
+- Anchor bolts to NBN EN 15048; bolts, nuts, and washers to NBN EN 1090, EN 14399, and EN ISO 898.
+- Grout under base plates non‑shrink, non‑metallic.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Primary structural steel frame to EXC2, S355; holding down bolt assemblies free‑issued for casting; secondary steelwork to support external cladding and parapet cappings; interfaces for AHU foundations and smoke extract louvres anchored to envelope steel. | ALIGNED |
+| PH1 | DCH | PH1 primary structural steel frame including holding down assemblies and chemical anchors; secondary steel for cladding, parapets, vertical flashings and movement joints; louvre/roof drainage support steel; EXC2 and S355 noted at phase level; external stairs from ground to roof, stairs over roof parapets, cat ladders and balustrades to penthouse roofs, steel bollards as part of miscellaneous steelwork. | ALIGNED |
+| PH2 | DCH | DCH PH2 primary structural steel frame (S03‑A2000); holding down bolt assemblies; secondary steelwork for cladding and envelope (S04‑A2100 PH2); miscellaneous external steelwork/metalwork including cat ladders, parapet stairs, bollards and small roof stairs. | ALIGNED |
+| PH3 | DCH | DCH PH3 primary structural steel frame (S03‑A2000 PH3) with H.D.A.; secondary steel for envelope cladding (S04‑A2100 PH3); external stair from ground to roof level and miscellaneous steel items; interfaces with existing PH1/PH2 structures. | ALIGNED |
+| PH4 | DCH | DCH PH4 primary structural steel frame (S03‑A2000 PH4) including H.D.A.; secondary steel for envelope cladding and penetrations and louvre framing; miscellaneous external steelwork (cat ladders, bollards, parapet stairs, small roof stairs). | ALIGNED |
+| PH1 | MYD | Structural steel supports for RMUs and battery boxes across trench (Shell A) with H.D.A. and galvanizing; cooling tower gantry structural steel (Shell A) including H.D.A., stairs, cat ladders, railings and open mesh grating; generator trench and USS trench structural steel with holding down bolts. | ALIGNED |
+| PH2 | MYD | Structural steel supports for RMUs and battery boxes across trench with galvanizing and H.D.A.; cooling tower gantry structural steel (Shell A) with H.D.A., stairs, cat ladders, railings and open mesh grating; interfaces to MCP, USS, S25, USS trestles foundations via H.D.A. | ALIGNED |
+| PH3 | MYD | Structural steel supports for RMUs and battery box across trench, galvanized with H.D.A.; cooling tower gantry structural steel (Shell A) with H.D.A., stairs, cat ladders, railings, bumper railings and open mesh grating; H.D.A. supply for MCP, USS, S25 foundations. | ALIGNED |
+| PH4 | MYD | Structural steel supports for RMUs and battery boxes across trench with galvanizing and H.D.A.; cooling tower gantry structural steel (Shell A) including galvanizing, H.D.A., stairs, cat ladders, railings and grating; H.D.A. to MCP, USS, S25 and USS trestles. | ALIGNED |
+| PH1/PH3 | EYD | Steel column kickers/bolts in PH1 and PH3 EYD foundation slabs and 150 mm plinths, providing interfaces for future superstructure steel; H.D.A. and dowel anchors for steel items such as bollards and pipe supports; coordination of slab and movement joints with column alignments and tolerances; interface with generator and USS trench structural steel from adjacent MYD. | ALIGNED |
+| PH1 | SSA | Structural steel frame (Shell A) fabricated and erected to EXC2, S355; H.D.A. supply and casting into dedicated foundations; additional AHU platform steel connections; louvre and rolling shutter interfaces; some cycle route steel tied to SSA structure. | ALIGNED |
+| Sitewide | CSA | Sitewide holding down bolt assemblies for MCP, ASB, CTB, USS, S24, S25 and similar foundations across PH1–PH4; sitewide grouting of steel bases at building foundations and plinths; utility trench steel interfaces (support plates, cover frame steel) in S02‑A7100/S02‑A7200; cycle‑route steel frames where present. | ALIGNED |
+
+## 2. TRADE PACKAGE: Composite Decking
+**Baseline Scope:**
+- Steel deck units from galvanized sheet to NBN EN 10346 and NBN EN 10143, steel grade S350.
+- Roof deck wide‑rib units without stiffening ribs on top surface.
+- Installation bearing and end‑lap requirements.
+- Mechanical fasteners and side‑lap connectors per approved diaphragm calculations.
+- SCI/BCSA guidance for composite and roof decks and diaphragm design.
+- Shear studs to EN ISO 13918 where applicable.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Steel roof decking identified as TATA D60x1.2 mm with composite Euroclad top deck roof panel build‑up. | ALIGNED |
+| PH1 | DCH | PH1 DCH steel roof decking forming part of main hall roof build‑up. | ALIGNED |
+| PH2 | DCH | Steel roof decking for DCH PH2. | ALIGNED |
+| PH3 | DCH | Steel roof decking for DCH PH3. | ALIGNED |
+| PH4 | DCH | Steel roof decking for DCH PH4. | ALIGNED |
+| PH1 | SSA | Roof steelwork includes single‑spanning Kingspan 1.5 mm RD 100/825 roof deck over the SSA frame. | ALIGNED |
+
+## 3. TRADE PACKAGE: Fire Protection
+**Baseline Scope:**
+- Intumescent systems based on Sherwin Williams FIRETEX FX2003 or FX6002 with C69 primer and M71V2 topcoat.
+- DFT determined to achieve required fire resistance per EN 13381‑4 and EN 13501.
+- Surface preparation to Sa 2.5 (EN ISO 8501‑1) with profile to EN ISO 8503‑2.
+- Application and curing conditions and DFT control per EN ISO 12944‑5 and ASFP guidance.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Intumescent fire protection to FSA structural steel with 2‑hour rating. | ALIGNED |
+| PH1 | DCH | Intumescent fire protection for PH1 DCH structural frame (rating given at phase level as 1–2 hours across FSA and DCH). | ALIGNED |
+| PH2 | DCH | 1‑hour intumescent fire protection to DCH PH2 steel frame. | ALIGNED |
+| PH3 | DCH | 1‑hour intumescent fire protection to DCH PH3 frame. | ALIGNED |
+| PH4 | DCH | 1‑hour intumescent fire protection to DCH PH4 frame. | ALIGNED |
+| PH1 | MYD | Generator trench and USS trench structural steel with 60‑minute intumescent coating in addition to corrosion protection. | ALIGNED |
+
+## 4. TRADE PACKAGE: Corrosion Protection
+**Baseline Scope:**
+- Internal primary steel normally C2, external metal fabrications C4.
+- Shop primer and zinc‑rich primers per EN ISO 12944‑1/‑2/‑5 and EN ISO 2808.
+- External handrails, stairs, ramps and exposed metal fabrications pre‑finished or galvanized to EN ISO 1461 for C4 environments.
+- Blast cleaning to Sa 2.5 with surface profile and dust control to EN ISO 8501‑1/8502‑3/8503‑1/‑2.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | No explicit internal/external class stated for FSA but roof walkways, external metalwork, loading dock handrails and crash protection implied; no conflicting corrosion class or system specified. | MISSING BASELINE |
+| PH1 | DCH | No explicit PH1 internal/external corrosion system; trench and yard corrosion classes referenced only in MYD/EYD; no PH1 DCH‑specific paint/galv description. | MISSING BASELINE |
+| PH2 | DCH | No explicit corrosion class/system for PH2 DCH steel. | MISSING BASELINE |
+| PH3 | DCH | No phase‑specific corrosion system for DCH PH3 steel stated. | MISSING BASELINE |
+| PH4 | DCH | No explicit corrosion class/system for DCH PH4 members. | MISSING BASELINE |
+| PH1 | MYD | Generator and USS trench steel: corrosion protection for internal trench environment at least C2; cooling tower gantry, RMU and battery supports: galvanizing to EN ISO 1461 with shot‑blast preparation; corrosion protection class C4 for external gantries and platforms; touch‑up after erection. | ALIGNED |
+| PH2 | MYD | All MYD PH2 gantry and support steel to be galvanized; external yard gantries and platforms to meet at least C4 environment; no separate paint system identified. | ALIGNED |
+| PH3 | MYD | Cooling tower gantry and support steel to be shot‑blasted and galvanized to EN ISO 1461, with touch‑up mandated; external yard use implying C4 environment. | ALIGNED |
+| PH4 | MYD | Cooling tower gantry and associated platforms and supports fully galvanized to EN ISO 1461 with surface touch‑up post erection; external environment consistent with C4. | ALIGNED |
+| PH1/PH3 | EYD | No explicit corrosion system for exposed steel interfaces in EYD; interfaces described only as anchors and kickers. | MISSING BASELINE |
+| PH1 | SSA | SSA structural steel to be shot‑blasted and galvanized to EN ISO 1461 with surface touch‑up after erection; envelope cladding on secondary steel. | ALIGNED |
+| Sitewide | CSA | No specific CSA‑wide corrosion scheme other than references under MYD, SSA and perimeter fence; general statements on trench steel corrosion protection in MYD scope. | MISSING BASELINE |
+| PH1 | RSA | No explicit corrosion system defined for fence posts and gates; located externally along site perimeter. | MISSING BASELINE |
+
+## 5. TRADE PACKAGE: Metal Fabrications
+**Baseline Scope:**
+- Metal fabrications sections to EN 10025 and EN 10210; plates and sheets to ISO 3574, ISO 4995, ISO 4997 and ISO 6317.
+- Bar gratings to NAAMM MBG 531/532.
+- Fabrication tolerances and finish quality for exposed work.
+- Stairs, ramps, handrails and guardrails design per EN ISO 14122 and local codes.
+- Stair stringers/channels, grating treads, checker plate or pan treads, railing pipe sizes and picket spacing.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Internal structural steel stair(s); external loading dock fencing and handrails; crash‑protection bollards; cat ladders to penthouse roof; bollards and hop‑over roof steps; roof walkways and associated metal supports; AHU platform and louvre interface steelwork tied into FSA envelope. | ALIGNED |
+| PH1 | DCH | External access stair(s) from ground to roof; roof parapet stairs; cat ladders and balustrades; steel bollards; small external metalwork to support louvres and drainage interfaces. | ALIGNED |
+| PH2 | DCH | External steelwork/metalwork including cat ladders, parapet stairs over roof, bollards, small stairs over roof. | ALIGNED |
+| PH3 | DCH | External stair from ground to roof; miscellaneous steel items associated with access; likely guardrails and handrails at roof interfaces. | ALIGNED |
+| PH4 | DCH | Cat ladders, bollards, roof parapet stairs and small roof stairs; steel‑supported louvre framing and penetrations. | ALIGNED |
+| PH1 | MYD | Cooling tower gantry emergency stairs, cat ladders, railings and open mesh grating; walkways and access steel for RMU and battery box supports; railings present. | ALIGNED |
+| PH2 | MYD | Cooling tower gantry access stairs, cat ladders, railings and open mesh grating; access steel for RMU and battery box platforms; steps and ramps with handrails at MCP and USS platforms (Phase 2 access provisions). | ALIGNED |
+| PH3 | MYD | Stairs, cat ladders, railings, bumper railings and open mesh grating on cooling tower gantries; steps and ramps with handrails at MCP and USS platforms. | ALIGNED |
+| PH4 | MYD | Cooling tower gantry stairs, cat ladders, railings and open mesh grating; steps and ramps with handrails at MCP and USS platforms. | ALIGNED |
+| PH1/PH3 | EYD | Steel items implied for bollards and pipe support bases but not described technically beyond presence of H.D.A. and dowels. | MISSING BASELINE |
+| PH1 | SSA | Roof railings and cat ladder associated with SSA roof steelwork; AHU platform connections and any cycle‑route‑related bollards or guardrails supported by structure. | ALIGNED |
+| PH1 | RSA | 3 m high chainlink security fence on metal posts; associated steel gates and posts fixed to local pads or steel stubs; structural role limited to posts and framing. | ALIGNED |
+| Sitewide | CSA | Sitewide metal bollards, crash barriers and loading dock handrails (S01‑A0201); metal steps and small external access stairs at doors; steel elements at cycle routes and bike shelters; trench steel covers and walkways along service routes. | ALIGNED |
+
+## GLOBAL INCONSISTENCIES (ESTIMATING RISK REGISTER)
+| ID | Trade Package | Issue | Risk | Estimating Action |
+|----|---------------|-------|------|-------------------|
+| 1 | Corrosion Protection | Corrosion protection for internal and external structural steel and metal fabrications in several zones (FSA, DCH all phases, EYD, RSA, CSA) is not explicitly defined in BOQ, while the baseline specifies C2 (internal) and C4 (external) systems with detailed paint and galvanizing requirements. | High | Ensure all zones have defined corrosion protection systems in line with baseline requirements. |
+| 2 | Fire Protection | Intumescent fire protection is clearly defined for FSA and DCH (and for PH1 MYD trenches) but not explicitly mentioned for SSA and MYD PH2–PH4, although baseline systems are available; the absence of BOQ fire requirements in these areas contrasts with the comprehensive baseline. | Medium | Verify fire protection requirements for SSA and MYD PH2–PH4 and align with baseline systems. |
+| 3 | Structural Steel | EYD interfaces describe steel column kickers/bolts and anchors but lack BOQ detail on material grades or corrosion/finish, whereas the baseline requires EN 10025/EN 10210 steel and defined corrosion categories and finishes for exposed steel. | Medium | Clarify material grades and corrosion protection for EYD interfaces to align with baseline. |
+| 4 | Metal Fabrications | RSA perimeter fence posts and gates are described only generically in BOQ without explicit galvanizing or C4 external corrosion protection, which is mandated for external metal fabrications in the baseline. | Medium | Ensure RSA perimeter fence posts and gates have specified galvanizing and C4 protection. |
+
+END_OF_REPORT
