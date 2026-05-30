@@ -41,6 +41,7 @@ class AuditoriaState(TypedDict):
     _prog_slot: Any
     _status_slot: Any
     _model_name: str  # <- ADICIONADO PARA O MODELO DINÂMICO
+    _stream_callback: Any  # <- ADICIONADO PARA CAPTURAR STREAM
 
 
 # ─────────────────────────────────────────────────────────────
@@ -56,13 +57,20 @@ def _obter_documento_completo(texto: str) -> list:
 # ─────────────────────────────────────────────────────────────
 # Invocação LLM com STREAMING (Fim dos Timeouts)
 # ─────────────────────────────────────────────────────────────
-def _invocar_llm(llm, mensagens: list) -> str:
+def _invocar_llm(llm, mensagens: list, stream_callback=None) -> str:
     print(f"[_invocar_llm] Invocando LLM com {len(mensagens)} mensagens... (MODO STREAMING)")
     try:
         conteudo_total = ""
         for chunk in llm.stream(mensagens):
-            conteudo_total += chunk.content
-            print(chunk.content, end="", flush=True) 
+            content = chunk.content
+            conteudo_total += content
+            print(content, end="", flush=True)
+            # Chamar callback se fornecido
+            if stream_callback and callable(stream_callback):
+                try:
+                    stream_callback(content)
+                except Exception as e:
+                    print(f"[_invocar_llm] Erro no callback: {e}")
         
         print(f"\n\n[_invocar_llm] Geração concluída! {len(conteudo_total)} caracteres.")
         return conteudo_total
@@ -74,7 +82,7 @@ def _invocar_llm(llm, mensagens: list) -> str:
 # ======================================================================
 # AGT-01: SPECS baseline (sem betão)
 # ======================================================================
-def extrair_specs(texto_specs: str, nome_ficheiro: str, llm, prog_placeholder, status_placeholder) -> str:
+def extrair_specs(texto_specs: str, nome_ficheiro: str, llm, prog_placeholder, status_placeholder, stream_callback=None) -> str:
     chunks = _obter_documento_completo(texto_specs)
     if not chunks:
         return ""
@@ -176,7 +184,7 @@ OUTPUT FORMAT (STRICT):
                 f'FILE: {nome_ficheiro}\n'
                 f'DOCUMENT:\n{chunks[0]}'
             ))
-        ])
+        ], stream_callback=stream_callback)
 
         if prog_placeholder:
             prog_placeholder.progress(1.0)
@@ -189,7 +197,7 @@ OUTPUT FORMAT (STRICT):
 # ======================================================================
 # AGT-02: Extração estruturada de BOQ em JSON (para CSV)
 # ======================================================================
-def extrair_boq_json_estruturado(texto_boq: str, nome_ficheiro: str, contexto_specs: str, contexto_projeto: dict, llm, prog_placeholder, status_placeholder) -> str:
+def extrair_boq_json_estruturado(texto_boq: str, nome_ficheiro: str, contexto_specs: str, contexto_projeto: dict, llm, prog_placeholder, status_placeholder, stream_callback=None) -> str:
     chunks = _obter_documento_completo(texto_boq)
     if not chunks:
         return ""
@@ -368,7 +376,7 @@ OUTPUT:
                 f"FILE: {nome_ficheiro}\n"
                 f"DOCUMENT:\n{chunks[0]}"
             ))
-        ])
+        ], stream_callback=stream_callback)
 
         if prog_placeholder:
             prog_placeholder.progress(1.0)
@@ -381,11 +389,11 @@ OUTPUT:
 # ======================================================================
 # AGT-02: Extração narrativa de BOQ (para PDF/DOCX)
 # ======================================================================
-def extrair_boq_com_contexto(texto_boq: str, nome_ficheiro: str, contexto_specs: str, contexto_projeto: dict, llm, prog_placeholder, status_placeholder) -> str:
+def extrair_boq_com_contexto(texto_boq: str, nome_ficheiro: str, contexto_specs: str, contexto_projeto: dict, llm, prog_placeholder, status_placeholder, stream_callback=None) -> str:
     eh_csv = ".csv" in nome_ficheiro.lower()
     
     if eh_csv:
-        return extrair_boq_json_estruturado(texto_boq, nome_ficheiro, contexto_specs, contexto_projeto, llm, prog_placeholder, status_placeholder)
+        return extrair_boq_json_estruturado(texto_boq, nome_ficheiro, contexto_specs, contexto_projeto, llm, prog_placeholder, status_placeholder, stream_callback)
     
     chunks = _obter_documento_completo(texto_boq)
     if not chunks:
@@ -538,7 +546,8 @@ def no_extrator(state: AuditoriaState) -> dict:
             nome_ficheiro=f"SPECS: {', '.join(state.get('nomes_specs', []))}",
             llm=llm_specs,
             prog_placeholder=prog,
-            status_placeholder=status
+            status_placeholder=status,
+            stream_callback=state.get("_stream_callback")
         )
 
     if state.get("texto_boq"):
@@ -549,7 +558,8 @@ def no_extrator(state: AuditoriaState) -> dict:
             contexto_projeto=state.get("contexto_projeto", {}), # <- JSON passado aqui
             llm=llm_boq,
             prog_placeholder=prog,
-            status_placeholder=status
+            status_placeholder=status,
+            stream_callback=state.get("_stream_callback")
         )
 
     erros = list(state.get("erros", []))
@@ -671,7 +681,7 @@ END_OF_REPORT
     sys_msg = SystemMessage(content=sys_content)
     
     try:
-        auditoria = _invocar_llm(llm, [sys_msg, HumanMessage(content=f"Build the structured audit:\n\n{dados}")])
+        auditoria = _invocar_llm(llm, [sys_msg, HumanMessage(content=f"Build the structured audit:\n\n{dados}")], stream_callback=state.get("_stream_callback"))
         return {"auditoria_bruta": auditoria, "tentativas": tentativas}
     except Exception as e:
         erros = list(state.get("erros", []))
@@ -737,7 +747,7 @@ OUTPUT:
         normalizado = _invocar_llm(llm, [
             sys_msg,
             HumanMessage(content="Normalize and deduplicate this audit:\n\n" + base)
-        ])
+        ], stream_callback=state.get("_stream_callback"))
         return {"auditoria_normalizada": normalizado}
     except Exception as e:
         erros = list(state.get("erros", []))
@@ -794,7 +804,7 @@ END_OF_REPORT
         relatorio = _invocar_llm(llm, [
             sys_msg, 
             HumanMessage(content=f"Pivot and format this location-based audit into the requested Trade Package Estimating Summary:\n\n{base}")
-        ])
+        ], stream_callback=state.get("_stream_callback"))
         return {"relatorio_final": relatorio}
     except Exception as e:
         erros = list(state.get("erros", []))

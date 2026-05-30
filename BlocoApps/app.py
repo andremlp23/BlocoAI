@@ -64,7 +64,7 @@ def main() -> None:
 
     api_key_final = setup_sidebar()
     render_header(api_key_final)
-    debug_mode = render_debug_toggle()
+    debug_mode, stream_enabled = render_debug_toggle()
 
     grafo_extracao = construir_grafo_extracao()
     grafo_auditoria = construir_grafo_auditoria()
@@ -95,12 +95,12 @@ def main() -> None:
 
     st.markdown("""
     <div class="section-card">
-        <div class="section-title">⚙️ (Opcional) Project Baseline JSON</div>
+        <div class="section-title">🏗️ Contexto da Obra</div>
     </div>
     """, unsafe_allow_html=True)
 
     contexto_raw = ""
-    tab_upload, tab_cola = st.tabs(["📤 Upload Ficheiro", "📋 Colar JSON"])
+    tab_upload, tab_cola = st.tabs(["📤 Carregar Ficheiro", "📋 Colar JSON"])
 
     with tab_upload:
         file_json = st.file_uploader(
@@ -123,7 +123,7 @@ def main() -> None:
             "JSON",
             value=exemplo_json_str,
             height=250,
-            help="Cola aqui o teu JSON de contexto do projeto.",
+            help="Cola aqui o teu JSON de contexto da obra.",
             label_visibility="collapsed",
         )
 
@@ -150,6 +150,38 @@ def main() -> None:
                     st.error("❌ JSON inválido fornecido. Verifica a sintaxe e tenta novamente.")
                     st.stop()
 
+            # Inicializar estado do stream se necessário
+            if "stream_expanding" not in st.session_state:
+                st.session_state.stream_expanding = True
+
+            # Container para stream (escondido após processamento ou se desativado)
+            if not st.session_state.get("processado", False) and stream_enabled:
+                stream_container = st.container()
+                with stream_container:
+                    st.markdown("### 🧠 Pensamento do Modelo:")
+                    stream_box = st.container(border=True)
+                    stream_text = stream_box.empty()
+                
+                stream_log = []
+
+                def stream_callback(chunk: str) -> None:
+                    """Callback que captura chunks do stream da LLM."""
+                    if chunk and stream_text is not None:
+                        stream_log.append(chunk)
+                        # Mostrar os últimos 50 chunks
+                        display_text = "".join(stream_log[-50:])
+                        stream_text.markdown(
+                            f'<div style="font-family:\'Space Mono\',monospace;font-size:0.9rem;'
+                            f'color:#5a9aff;background:#0a0a0a;padding:0.8rem;'
+                            f'border-left:3px solid #5a9aff;height:250px;overflow-y:auto;'
+                            f'white-space:pre-wrap;word-break:break-word">{display_text}</div>',
+                            unsafe_allow_html=True,
+                        )
+            else:
+                # Se processamento está completo ou stream desativado, não mostra o stream
+                def stream_callback(chunk: str) -> None:
+                    pass
+
             def pipeline_callback(state: list) -> None:
                 pass
 
@@ -163,6 +195,7 @@ def main() -> None:
                 pipeline_callback=pipeline_callback,
                 debug_mode=debug_mode,
                 contexto_projeto=contexto_projeto,
+                stream_callback=stream_callback,
             )
             
             # STEP 4: Auditoria automática em sequência após gerar contextos
@@ -189,6 +222,7 @@ def main() -> None:
                     app_file=Path(__file__),
                     pipeline_callback=pipeline_callback_auditoria,
                     debug_mode=debug_mode,
+                    stream_callback=stream_callback,
                 )
 
     render_results()

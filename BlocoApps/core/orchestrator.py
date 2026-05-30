@@ -104,6 +104,7 @@ def processar_extracao_contextos(
     pre_loaded_specs_json: str = None,
     pre_loaded_boq_json: str = None,
     contexto_projeto: dict = None,
+    stream_callback: Callable[[str], None] = None,
 ) -> None:
     """
     Passo 1:
@@ -206,6 +207,7 @@ def processar_extracao_contextos(
             "_api_key": api_key_final,
             "_prog_slot": prog_slot,
             "_status_slot": status_slot,
+            "_stream_callback": stream_callback,
         }
 
         estado_final = dict(estado_inicial)
@@ -252,12 +254,6 @@ def processar_extracao_contextos(
         st.session_state.n_ficheiros = n_ficheiros
         st.session_state.paginas_aviso = todas_paginas_sem_texto
 
-        st.success(
-            f"Contextos extraídos e guardados:\n\n"
-            f"- {specs_path.name}\n"
-            f"- {boq_path.name}"
-        )
-
     except Exception as e:
         prog_slot.empty()
         status_slot.empty()
@@ -274,6 +270,7 @@ def processar_auditoria_com_contextos_editados(
     app_file: Path,
     pipeline_callback: Callable[[list], None] = None,
     debug_mode: bool = False,
+    stream_callback: Callable[[str], None] = None,
 ) -> None:
     """
     Passo 2:
@@ -317,10 +314,12 @@ def processar_auditoria_com_contextos_editados(
 
             "n_ficheiros": st.session_state.get("n_ficheiros", 0),
             "paginas_sem_texto": st.session_state.get("paginas_aviso", []),
+            "contexto_projeto": {},
 
             "_api_key": api_key_final,
             "_prog_slot": prog_slot,
             "_status_slot": status_slot,
+            "_stream_callback": stream_callback,
         }
 
         estado_final = dict(estado_inicial)
