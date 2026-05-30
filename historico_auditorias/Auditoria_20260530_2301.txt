@@ -1,0 +1,107 @@
+# Cross-Document Technical Audit:
+
+## 1. TRADE PACKAGE: STRUCTURAL STEEL
+**Baseline Scope:**
+- Structural steel members to S355JR per NBN EN 10025 / NBN EN 10210.
+- Execution class EXC2 per NBN EN 1090-2.
+- Design per NBN EN 1990/1991/1993, including toughness requirements per NBN EN 1993-1-10.
+- Bolting per NBN EN 14399/15048.
+- Welding per NBN EN 1090, EN 1011, EN ISO 9606-1.
+- Fabrication and erection tolerances, connection design, and detailing governed by specific clauses.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA - Structural Steel PH1 | Structural steel members | As per baseline |
+| PH1 | DCH - Structural Steel PH1 | Structural steel rules as for FSA | As per baseline |
+| PH1 | Generator Trench Structural Steel PH1 | Generator trench structural steel | As per baseline |
+| PH1 | USS Trench Structural Steel PH1 | USS trench steel | As per baseline |
+| PH1 | MYD - Densified - Water Cooled PH1 | Structural members for RMU/battery supports | As per baseline |
+| PH1 | Cooling Tower Gantry - Pad Foundations | Anchor bolts for gantry bases | As per baseline |
+| PH1 | EYD - Foundation Slabs PH1 | Anchor bolts and grout requirements | As per baseline |
+| PH2 | DCH - Structural Steel PH2 | DCH PH2 structural frames | As per baseline |
+| PH3 | DCH - Structural Steel PH3 | DCH PH3 structural frames | As per baseline |
+| PH4 | DCH - Structural Steel PH4 | Remaining DCH structural steel | As per baseline |
+
+## 2. TRADE PACKAGE: COMPOSITE DECKING
+**Baseline Scope:**
+- Steel deck sheets S350 galvanized per NBN EN 10346 / NBN EN 10143.
+- Design per NBN EN 1993-1-3.
+- Shear studs to EN ISO 13918.
+- Detailed deck installation rules including bearing lengths, laps, weld patterns, openings, closures, mechanical fasteners, side-lap rules, end laps, and bearing requirements.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA - Structural Steel PH1 | Steel deck sheets | As per baseline |
+| PH1 | DCH - Structural Steel PH1 | Deck sheets S350 galvanized | As per baseline |
+| PH1 | Roof PH1 | Roof deck wide rib S350 galvanized | As per baseline |
+| PH2 | DCH - Structural Steel PH2 | S350 galvanized deck sheets | As per baseline |
+| PH3 | DCH - Structural Steel PH3 | TATA-type roof decking | As per baseline |
+| PH4 | DCH - Structural Steel PH4 | TATA-type roof decking | As per baseline |
+
+## 3. TRADE PACKAGE: FIRE PROTECTION
+**Baseline Scope:**
+- Intumescent fire protection systems to EN 16623, EN 13381, and EN 13501.
+- Application requirements and dry film thickness (DFT) control per specific clauses.
+- Inspection and QA procedures.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA - Structural Steel PH1 | Intumescent fire protection systems | As per baseline |
+| PH1 | DCH - Structural Steel PH1 | Intumescent fire protection systems for 2-hour resistance | As per baseline |
+| PH1 | Generator Trench Structural Steel PH1 | 60-minute intumescent fire protection | As per baseline |
+| PH2 | DCH - Structural Steel PH2 | 1-hour intumescent systems | As per baseline |
+| PH3 | DCH - Structural Steel PH3 | 1-hour intumescent systems | As per baseline |
+| PH4 | DCH - Structural Steel PH4 | 1-hour intumescent fire protection systems | As per baseline |
+
+## 4. TRADE PACKAGE: CORROSION PROTECTION
+**Baseline Scope:**
+- Internal structural steel default C2 paint system per EN ISO 12944.
+- External and exposed items to C4 where applicable.
+- Surface preparation Sa 2.5 per EN ISO 8501-1.
+- Galvanizing per EN ISO 1461 and EN ISO 14713-1.
+- Shop painting rules and DFT control per NBN EN ISO 2808.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA - Structural Steel PH1 | Internal C2, external C4 | As per baseline |
+| PH1 | Roof PH1 | External roof steel to C4 | As per baseline |
+| PH1 | DCH - Structural Steel PH1 | Internal C2, external C4 | As per baseline |
+| PH1 | Generator Trench Structural Steel PH1 | C2 internal paint system | As per baseline |
+| PH2 | DCH - Structural Steel PH2 | Internal C2, external C4 | As per baseline |
+| PH3 | DCH - Structural Steel PH3 | C4 external steel | As per baseline |
+| PH4 | DCH - Structural Steel PH4 | C4 external steel | As per baseline |
+
+## 5. TRADE PACKAGE: METAL FABRICATIONS (STAIRS / RAILINGS / GRATINGS)
+**Baseline Scope:**
+- Metal fabrications material standards including EN 10025, EN 10210, ISO 4200, and ISO 10799.
+- Bar gratings to NAAMM MBG 531/532.
+- Handrails, guards, and pipe rails to defined geometry and loading criteria.
+- Stair stringers, treads, and landings designed and detailed per specific clauses.
+- Ladders in accordance with EN ISO 14122-based ladder rules.
+- Corrosion protection for external stairs, rails, and associated metalwork to C4 with galvanizing per EN ISO 1461 and paint/coating systems per EN ISO 12944-2.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA - Structural Steel PH1 | Metal fabrications | As per baseline |
+| PH1 | DCH - Structural Steel PH1 | External stair, cat ladder, bollard | As per baseline |
+| PH1 | MYD - Densified - Water Cooled PH1 | Cooling tower emergency stairs | As per baseline |
+| PH2 | Cooling Tower Gantry - Railings and Grating PH2 | Cat ladders, cooling tower stairs | As per baseline |
+| PH3 | Cooling Tower Gantry - Railings, Bumper Railings and Grating PH3 | Cat ladders, gantry emergency stairs | As per baseline |
+| PH4 | Cooling Tower Gantry - Railings and Grating PH4 | Cat ladders and cooling tower stairs | As per baseline |
+
+## GLOBAL INCONSISTENCIES (ESTIMATING RISK REGISTER)
+| ID | Trade Package | Issue | Risk | Estimating Action |
+|----|---------------|-------|------|-------------------|
+| 1  | Structural Steel | BOQ references NSSSBC 5th Edition and generic S355, while baseline requires specific standards | High | Align BOQ with baseline standards |
+| 2  | Composite Decking | BOQ specifies proprietary deck products without alignment to baseline requirements | Medium | Ensure BOQ compliance with baseline specs |
+| 3  | Fire Protection | BOQ omits explicit reference to intumescent system standards | Medium | Include standards and QA procedures in BOQ |
+| 4  | Corrosion Protection | BOQ inconsistently references C2/C4 and EN ISO 1461 | Medium | Standardize BOQ to match baseline corrosion protection |
+| 5  | Metal Fabrications | BOQ describes functional roles without detailed material standards | Medium | Integrate detailed standards into BOQ |
+| 6  | Anchor Bolts/H.D.A. | BOQ lacks consistent citation of baseline standards for anchor bolts and QA/QC | High | Ensure BOQ includes all baseline standards and QA/QC requirements |
+
+END_OF_REPORT

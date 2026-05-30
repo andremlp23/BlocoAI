@@ -1,0 +1,693 @@
+{
+  "spec_document": {
+    "section_code": "MULTIPLE",
+    "title": "Structural Steel and Related Works (EMEA)"
+  },
+  "reference_standards": [
+    {
+      "code": "NBN EN 1990",
+      "description": "Basis of structural design"
+    },
+    {
+      "code": "NBN EN 1991",
+      "description": "Actions on structures"
+    },
+    {
+      "code": "NBN EN 1993",
+      "description": "Design of steel structures"
+    },
+    {
+      "code": "NBN EN 1993-1-3",
+      "description": "Design of cold-formed steel structural members"
+    },
+    {
+      "code": "NBN EN 1993-1-8",
+      "description": "Design of joints in steel structures (connection design and welding electrode grouping)"
+    },
+    {
+      "code": "NBN EN 1090",
+      "description": "Execution of steel and aluminium structures"
+    },
+    {
+      "code": "NBN EN 1090-2",
+      "description": "Technical requirements for the execution of steel structures, including execution classes and erection tolerances"
+    },
+    {
+      "code": "NBN EN 10025",
+      "description": "Hot rolled products of structural steels"
+    },
+    {
+      "code": "NBN EN 10210",
+      "description": "Hot finished steel structural hollow sections"
+    },
+    {
+      "code": "NBN EN 10346",
+      "description": "Continuously hot-dip coated steel flat products for cold forming"
+    },
+    {
+      "code": "NBN EN 10143",
+      "description": "Continuously hot-dip coated steel sheet and strip – Tolerances on dimensions and shape"
+    },
+    {
+      "code": "NBN EN 15048",
+      "description": "Non-preloaded structural bolting assemblies"
+    },
+    {
+      "code": "NBN EN 14399",
+      "description": "High-strength structural bolting assemblies for preloading"
+    },
+    {
+      "code": "NBN EN ISO 9606-1",
+      "description": "Qualification testing of welders – Fusion welding – Steels"
+    },
+    {
+      "code": "NBN EN ISO 14732",
+      "description": "Qualification testing of welding operators and weld setters for mechanized and automatic welding of metallic materials"
+    },
+    {
+      "code": "NBN EN 10225",
+      "description": "Weldable structural steels for fixed offshore structures"
+    },
+    {
+      "code": "EN ISO 1461",
+      "description": "Hot dip galvanized coatings on fabricated iron and steel articles"
+    },
+    {
+      "code": "NBN EN ISO 12944",
+      "description": "Corrosion protection of steel structures by protective paint systems"
+    },
+    {
+      "code": "NBN EN ISO 12944-1",
+      "description": "Corrosion protection of steel structures by protective paint systems – General introduction"
+    },
+    {
+      "code": "NBN EN ISO 12944-2",
+      "description": "Corrosion protection of steel structures by protective paint systems – Classification of environments"
+    },
+    {
+      "code": "EN ISO 12944-5",
+      "description": "Protective paint systems for corrosion protection of steel structures"
+    },
+    {
+      "code": "ISO 9223",
+      "description": "Corrosion of metals and alloys – Corrosivity of atmospheres – Classification, determination and estimation"
+    },
+    {
+      "code": "ISO 8501-1",
+      "description": "Preparation of steel substrates before application of paints and related products – Visual assessment of surface cleanliness"
+    },
+    {
+      "code": "EN ISO 8501-1",
+      "description": "Preparation of steel substrates before application of paints and related products – Visual assessment of surface cleanliness"
+    },
+    {
+      "code": "EN ISO 8503-1",
+      "description": "Preparation of steel substrates before application of paints and related products – Surface roughness characteristics of blast-cleaned steel substrates – ISO surface profile comparators"
+    },
+    {
+      "code": "EN ISO 8503-2",
+      "description": "Preparation of steel substrates before application of paints and related products – Surface roughness characteristics of blast-cleaned steel substrates – Method for the grading of surface profile"
+    },
+    {
+      "code": "EN ISO 8502-3",
+      "description": "Preparation of steel substrates before application of paints and related products – Assessment of dust on steel surfaces prepared for painting – Pressure-sensitive tape method"
+    },
+    {
+      "code": "NBN EN ISO 2808",
+      "description": "Paints and varnishes – Determination of film thickness"
+    },
+    {
+      "code": "EN 1011",
+      "description": "Welding – Recommendations for welding of metallic materials"
+    },
+    {
+      "code": "EN 1011-3",
+      "description": "Welding – Recommendations for welding of stainless steels"
+    },
+    {
+      "code": "EN 516",
+      "description": "Prefabricated accessories for roofing – Installations for roof access – Walkways, treads and steps"
+    },
+    {
+      "code": "EN ISO 898",
+      "description": "Mechanical properties of fasteners made of carbon steel and alloy steel"
+    },
+    {
+      "code": "EN 10088",
+      "description": "Stainless steels (includes Grade 1.4436)"
+    },
+    {
+      "code": "ISO 3574",
+      "description": "Cold reduced steel sheet of commercial and drawing qualities"
+    },
+    {
+      "code": "ISO 6317",
+      "description": "Steel plates for pressure purposes (referenced for plate material)"
+    },
+    {
+      "code": "ISO 4200",
+      "description": "Plain end steel tubes, welded and seamless"
+    },
+    {
+      "code": "ISO 10799",
+      "description": "Cold-formed welded structural hollow sections of non-alloy and fine grain steels"
+    },
+    {
+      "code": "ISO 4995",
+      "description": "Hot-rolled steel sheet of structural quality"
+    },
+    {
+      "code": "ISO 4997",
+      "description": "Cold-reduced carbon steel sheet of structural quality"
+    },
+    {
+      "code": "NAAMM MBG 531",
+      "description": "Bar grating manual – metal bar grating"
+    },
+    {
+      "code": "NAAMM MBG 532",
+      "description": "Bar grating manual – heavy duty metal bar grating"
+    },
+    {
+      "code": "ISO 2553",
+      "description": "Welding and allied processes – Symbolic representation on drawings – Welded joints"
+    },
+    {
+      "code": "EN ISO 2553",
+      "description": "Welding and allied processes – Symbolic representation on drawings – Welded joints"
+    },
+    {
+      "code": "EN ISO 14122",
+      "description": "Safety of machinery – Permanent means of access to machinery"
+    },
+    {
+      "code": "EN ISO 14122-1",
+      "description": "Safety of machinery – Permanent means of access to machinery – General requirements"
+    },
+    {
+      "code": "EN ISO 14122-2",
+      "description": "Safety of machinery – Permanent means of access to machinery – Working platforms and walkways"
+    },
+    {
+      "code": "EN ISO 14122-3",
+      "description": "Safety of machinery – Permanent means of access to machinery – Stairs, stepladders and guardrails"
+    },
+    {
+      "code": "EN ISO 14122-4",
+      "description": "Safety of machinery – Permanent means of access to machinery – Fixed ladders"
+    },
+    {
+      "code": "EN ISO 14713-1",
+      "description": "Zinc coatings – Guidelines and recommendations for the protection against corrosion of iron and steel in structures – General principles"
+    },
+    {
+      "code": "EN ISO 17463",
+      "description": "Paints and varnishes – Guidelines for the determination of anticorrosive properties of organic coatings by accelerated cyclic electrochemical technique"
+    },
+    {
+      "code": "EN 13036-4",
+      "description": "Method for measurement of slip/skid resistance of a surface – Pendulum test"
+    },
+    {
+      "code": "EN 16623",
+      "description": "Reactive coatings for fire protection of metallic substrates – Definitions, requirements, characteristics and marking"
+    },
+    {
+      "code": "EN 13381",
+      "description": "Test methods for determining the contribution to the fire resistance of structural members – Applied reactive protection to steel members"
+    },
+    {
+      "code": "EN 13501",
+      "description": "Fire classification of construction products and building elements"
+    },
+    {
+      "code": "ASFP Yellow Book",
+      "description": "Fire protection for structural steel in buildings (guidance for intumescent design)"
+    },
+    {
+      "code": "ASFP TGD 11",
+      "description": "Code of practice for the specification and on-site installation of intumescent coatings for fire protection of structural steelwork"
+    }
+  ],
+  "materials": [
+    {
+      "category": "Structural Steel Shapes and Plates",
+      "grade_or_type": "S355JR (EN 10025), S350 (deck sheets), other grades per Structural General Notes",
+      "specific_rules": [
+        "Structural steel shall conform to the requirements listed on the Structural General Notes.",
+        "Steel angles and plates: NBN EN 10025 Grade S355JR unless otherwise noted.",
+        "Channels: NBN EN 10025 Grade S355JR unless otherwise noted.",
+        "Steel W shapes (I sections) and tees: NBN EN 10025 Grade S355JR unless otherwise noted.",
+        "Hollow structural sections: NBN EN 10210 Grade S355JR unless otherwise noted.",
+        "Steel sections for miscellaneous fabrications: EN 10025.",
+        "Steel hollow sections for miscellaneous fabrications: EN 10210.",
+        "Plates for miscellaneous fabrications: ISO 3574 and ISO 6317.",
+        "Ungalvanized steel sheet for stairs/rails: Hot- or cold-rolled; use cold-rolled where finished work will be exposed to view.",
+        "Hot-rolled steel sheet for stairs/rails: ISO 4995 (commercial steel).",
+        "Cold-rolled steel sheet for stairs/rails: ISO 4997 (commercial steel).",
+        "For each individual structure/component, steel subgrade must be documented by the steel subcontractor; subgrade selection for connection fittings and subcontractor-designed items must comply with NBN EN 1993-1-10 and Belgian National Annex.",
+        "Subcontractor must liaise with SER if their detail types are not compatible with indicative subgrade information given by SER."
+      ]
+    },
+    {
+      "category": "Steel Deck Sheets",
+      "grade_or_type": "Galvanized steel sheet S350 per NBN EN 10346 and NBN EN 10143",
+      "specific_rules": [
+        "Deck units and sheet accessories shall be produced from galvanized steel sheet conforming to NBN EN 10346 and NBN EN 10143, Grade of Steel S350 unless indicated or agreed otherwise.",
+        "Deck units shall be free of dirt, rust, rolling oils and other materials detrimental to bond of finishes to be field applied.",
+        "Roof deck shall be wide rib units and shall have no stiffening ribs in top surface."
+      ]
+    },
+    {
+      "category": "Shear Stud Connectors",
+      "grade_or_type": "To EN ISO 13918 / BS EN ISO 13918, proprietary type",
+      "specific_rules": [
+        "Shear stud connectors shall be proprietary type with minimum yield strength of 350 N/mm2, minimum ultimate tensile strength of 450 N/mm2, and minimum elongation 15%.",
+        "Shear studs for structural steel framing: to BS EN ISO 13918.",
+        "Stud shear connectors for steel decking: to EN ISO 13918.",
+        "Size and spacing of studs for decking are to be inserted by Engineer of Record.",
+        "Shear connectors shall be shop welded using automatic end welding of headed studs in accordance with manufacturer’s printed instructions.",
+        "Steel surface for shear connectors to be prepared as recommended by manufacturer.",
+        "Weld studs through to primary steel members below; do not weld studs when ambient temperature is below 0 °C.",
+        "Top surface of beam must be free from mill scale, rust, grease, oil, paint and other substances detrimental to welding; ensure flange is cleaned prior to laying decking."
+      ]
+    },
+    {
+      "category": "High-Strength Bolts, Nuts and Washers",
+      "grade_or_type": "Grade 8.8 per EN ISO 898 / NBN EN 1090; EN 14399 and EN 15048 assemblies",
+      "specific_rules": [
+        "Bolts, nuts and washers for primary connections: to NBN EN 1090, Grade 8.8 unless noted otherwise.",
+        "High strength bolts shall conform to NBN EN 1993 and NBN EN 14399.",
+        "All bolts shall be new and not re-used.",
+        "Anchor bolts: NBN EN 15048, grade as specified in design documents, non-headed type unless otherwise indicated.",
+        "Direct tension indicators shall meet requirements of NBN EN 14399.",
+        "Washers shall conform to NBN EN 1993.",
+        "Washers in contact with high-strength bolt heads and nuts shall conform to NBN EN 14399.",
+        "Bevelled washers shall be square, smooth and sloped so that contact surfaces of the bolt head and nut are parallel.",
+        "High-strength bolted construction shall be installed in accordance with NBN EN 14399 and NBN EN 15048, with hardened washers under the turned element to facilitate verification inspection.",
+        "Except for moment connections and bracing, provide bolted bearing-type connections using high-strength bolted assemblies, designed assuming threads included in the shear plane.",
+        "For moment connections and bracing, bolted connections shall be slip-critical and detailed/erected using direct tension indicator washers or tension control bolts per manufacturer’s instructions."
+      ]
+    },
+    {
+      "category": "Miscellaneous Fasteners and Anchors",
+      "grade_or_type": "Mechanical fasteners, sidelap connectors, post-installed anchors",
+      "specific_rules": [
+        "Post-installed anchors shall be in accordance with Structural General Notes.",
+        "Mechanical fasteners for decking: Hilti or other approved alternative fastening systems, based on submitted and approved diaphragm calculations.",
+        "Sidelap connectors for decking: Hilti or other approved alternative.",
+        "Alternative mechanical anchoring of metal deck must be justified by diaphragm design calculations.",
+        "Provide anchorages, plates, angles, hangers and struts required for connecting metal fabrications and stairs/rails to structure.",
+        "Provide inserts and anchorage devices for connecting handrails and railing systems to concrete or masonry (steel parts of inserts within metal scope)."
+      ]
+    },
+    {
+      "category": "Welding Consumables and Processes",
+      "grade_or_type": "Electrodes and filler materials per EN 1011, NBN EN 1090 and NBN EN 1993-1-8 Group 5",
+      "specific_rules": [
+        "Welding materials for structural steel: refer to NBN EN 1090 and other listed codes; type to suit materials being welded.",
+        "Welding electrodes shall conform to relevant standards listed in Reference Standards, Group 5 of NBN EN 1993-1-8.",
+        "Qualify welding processes and operators in accordance with EN 1011.",
+        "Welders for steel decking shear studs must be certified by a recognised authority in the project location.",
+        "Welders certificates for structural steel shall verify qualification in line with NBN EN ISO 9606-1 within previous 12 months.",
+        "Welder’s qualifications for decking shall be maintained and available; qualification testing per European Welding Association standard procedures and relevant standards.",
+        "Do not use gas cutting torches in the field for correcting fabrication errors unless acceptable to Engineer of Record; finish gas-cut sections equal to a sheared appearance when permitted.",
+        "Weld corners and seams of metal fabrications continuously to comply with EN 1011 recommendations."
+      ]
+    },
+    {
+      "category": "Grout (Steel Interfaces Only)",
+      "grade_or_type": "Non-shrink, non-metallic",
+      "specific_rules": [
+        "Grout for structural steel baseplates shall be non-shrink, non-metallic aggregate type capable of developing minimum compressive strength of 35 MPa at 28 days.",
+        "Grout under column plates shall be installed solidly between column plates and bearing surfaces, in accordance with manufacturer’s instructions for non-shrink grout, with trowelled smooth surface splayed neatly to 45 degrees.",
+        "Grout references in accessories shall follow Structural General Notes and Structural Drawings."
+      ]
+    },
+    {
+      "category": "Primers and Shop Paints",
+      "grade_or_type": "Grey rust-inhibitive primer; alkyd primer compatible with intumescent; inorganic zinc-rich primer for exterior",
+      "specific_rules": [
+        "Shop and touch-up primer for structural steel framing: fabricator’s standard grey rust-inhibitive primer complying with VOC limitations of authorities having jurisdiction.",
+        "Touch-up primer for galvanised surfaces for structural steel: fabricator’s standard complying with VOC limitations.",
+        "Shop and touch-up primer for metal fabrications: to EN ISO 8503-1 (surface preparation linked) and EN ISO 17463 (anti-corrosion performance).",
+        "Prime painting for misc steel: one coat grey metal primer or approved equal, minimum dry film thickness 50 microns.",
+        "Shop painting schedule for structural steel: paint all structural steel with a shop coat except members encased in concrete, external members outside controlled environment (use inorganic zinc-rich primer with 60% minimum volume solids and producing minimum 85% metallic zinc in film), contact surfaces of welded connections and areas within 50 mm of field welds, contact surfaces of slip-critical bolted connections, surfaces receiving sprayed-on or intumescent fireproofing, and surfaces receiving field welded steel studs.",
+        "Where intumescent paint is used, shop paint with heavy duty alkyd primer compatible with intumescent fireproofing paint.",
+        "During application, check thickness of each coat with wheel or comb gauge in accordance with NBN EN ISO 2808."
+      ]
+    },
+    {
+      "category": "Galvanizing Systems",
+      "grade_or_type": "Hot-dip galvanizing per EN ISO 1461",
+      "specific_rules": [
+        "All galvanizing of structural and miscellaneous steel members shall comply with EN ISO 1461.",
+        "All cutting, welding and drilling of galvanized items shall be completed before galvanizing.",
+        "Provide necessary vent and drain holes in approved locations; seal to approval after galvanizing.",
+        "If fabrication is to be galvanized, design work to avoid risk of distortion; consider single dipping of large articles where distortion is a concern, or splicing structures if single dipping is not possible.",
+        "Use hot-rolled sections rather than cold-rolled or cold-formed sections where possible to limit internal stresses before galvanizing.",
+        "Fabrication prior to welding should not be jigged excessively; weld heat input and weld size should be minimized and welding conducted in a balanced procedure; maintain as uniform a steel section thickness as practicable.",
+        "Ensure good design for galvanizing including proper provision of vent holes of correct size.",
+        "Galvanizing of structural steel members for fabrications: galvanized after fabrication to EN ISO 1461.",
+        "External handrail, stair and ramp installations and associated components are to be galvanized and pre-finished to suit C4 environment (with paint system as applicable)."
+      ]
+    },
+    {
+      "category": "Metal Fabrications – Ladders, Railings, Misc. Steel",
+      "grade_or_type": "Carbon steel and stainless steel to EN 10025 / EN 10088 / ISO 10799",
+      "specific_rules": [
+        "Steel sections: EN 10025.",
+        "Steel hollow sections: EN 10210.",
+        "Pipe for barrier rails and rails: ISO 4200.",
+        "Stainless steel where specified: EN 10088, Grade 1.4436.",
+        "Gratings: bar gratings complying with NAAMM MBG 531 or NAAMM MBG 532, selected based on bar sizes.",
+        "Ladders in 05 50 00 are steel and must be galvanized after fabrication; side rails/stiles are manufacturer’s standard flat bars with eased edges, rungs 20–50 mm rectangular steel with specified spacing and clearance, support brackets of welded/bolted steel designed for adequate support and anchorage.",
+        "Barrier rails: schedule 40 mm diameter steel pipe and steel channel sections with galvanized finish.",
+        "Roof opening framing, concrete edge confinement angles, downpipe guards, cantilevered canopy supports: fabricated steel, galvanized or primed as specified.",
+        "Concrete edge confinement angles: steel angles, galvanized finish, with integral anchor bolts welded by 2.5 mm full perimeter fillet welds, drilled and tapped for 6 mm machine screws to forms, mitre-cut for corners."
+      ]
+    },
+    {
+      "category": "Metal Stairs, Ramps, Handrails and Guards",
+      "grade_or_type": "Carbon steel and aluminium components; bar grating; galvanized finishes",
+      "specific_rules": [
+        "Structural steel stair framing and supports shall comply with EN 10025 (sections) and ISO 4200/ISO 10799 for tubes/pipes as applicable.",
+        "Fixed ladders, stairs and guards must comply with EN ISO 14122-1 to -4 for geometry, guarding and safety (including guardrail heights, rung spacing, landing requirements, etc.).",
+        "Slip resistance performance of walking surfaces shall comply with EN 13036-4 (pendulum test) where applicable.",
+        "Metal stair treads can be metal pans with site-installed concrete fill or galvanized/aluminium checker plate; tread pan thickness at least 2 mm, depth at least 50 mm; checker plate treads at least 3 mm thick (subject to structural engineer calculations).",
+        "Risers for metal stairs with pans shall be same material and thickness as treads; closed risers; nosing profile sloped with rounded nosing, depth overhang not more than 25 mm, nosing return flush with top of tread and not more than 12.5 mm wide.",
+        "Stringers are rolled steel channels, depth 300 mm; flange width 75 mm for ramps; end closures are sheet steel of same thickness as risers welded across ends.",
+        "Landings: same construction as treads or ramps, supported and reinforced to achieve design load capacity.",
+        "Stair railings: for public access stairs, steel tubular pipe railings with smooth continuous handrail, welded seams/concealed couplings; for access-only stairs, steel tubular pipe railing with tube clamp system; finish galvanized in factory post-fabrication.",
+        "Stairs and ramps with open grating shall use steel bar grating treads and ramps with open grid meeting local code minimum openings; bearing bar depth at least 37.5 mm; nosing non-slip and contrasting, minimum width 30 mm.",
+        "Electrical platform stairs and landings must be fabricated with bolted connections that can be removed and replaced to facilitate equipment maintenance.",
+        "Stepovers (bridge-style roof stairs) must be bigfoot-mounted and designed for height and wind loads to comply with EN 14122.",
+        "Fixed ladder systems shall have rails of manufacturer’s standard steel flats, guardrails 1100 mm high to EN 14122, rungs 20–50 mm rectangular steel with maximum width 600 mm, vertical spacing 225–300 mm with maximum 6 m between landings, landings in open grid or expanded metal with self-closing trap doors, and circular flat steel plate safety cage hoops up to maximum 3 m above finished floor level.",
+        "Handrails shall be round pipe rails, nominal diameter 32 mm; top rails of guards to be continuous round pipe or tube, nominal diameter 50 mm, sloped parallel to stair pitch, height to meet local code requirements (minimum 1100 mm at landings).",
+        "Infill at picket railings: vertical solid steel square bar pickets, 12.5 mm square, horizontal spacing maximum 100 mm, welded to top and bottom rails.",
+        "Infill at pipe railings: horizontal pipe or tube rails, nominal diameter 50 mm, sloped parallel to stair pitch, welded with smooth joints.",
+        "End and intermediate posts: same material and size as top rails; post spacing as indicated or maximum 1.5 m where not indicated; posts welded to top surface of stringer.",
+        "Handrails and railings shall be fabricated with butt-welded joints or internal connectors; tees and crosses formed by mitred and fully welded joints; site-welding alternative is concealed couplings with rivets subject to A/E review where welding is restricted.",
+        "Changes in direction for handrails/rails shall be formed by prefabricated elbow fittings, radius bends or flush radius bends; curves formed by bending in jigs without buckling or deforming pipe.",
+        "Handrails must extend beyond first/last stair nosing line as required by local code; ends are to return to wall or be closed with welded steel plates or fittings.",
+        "Drain or vent holes in handrail/guard pipes shall be located inconspicuously and plugged prior to delivery.",
+        "All external stair, ramp and handrail installations and components are to be pre-finished in factory to a C4 environment suitability (EN ISO 12944-2, ISO 9223) with compatible coating system."
+      ]
+    }
+  ],
+  "finishes_and_protection": [
+    {
+      "system_type": "Blast Cleaning and Surface Preparation",
+      "environment_class": "NOT SPECIFIED",
+      "products_or_standards": "Sa 2.5 to ISO 8501-1; EN ISO 8503-1; EN ISO 8503-2; EN ISO 8502-3",
+      "preparation_rules": "Structural steel surfaces shall be blast cleaned to Sa 2.5 (ISO 8501-1) with initial rust grade A or B using suitable, uncontaminated abrasives; remove all abrasive residues and surface defects detrimental to protective paint systems; blast only when relative humidity is below 85% and steel surface temperature is at least 3 °C above dew point; remove all blast residue and dust; avoid contamination and require workers to wear clean gloves when handling blast-cleaned steel; surface roughness and dust shall comply with EN ISO 8503-1/-2 and EN ISO 8502-3 as applicable to intumescent and paint systems."
+    },
+    {
+      "system_type": "General Corrosion Protection – Painting",
+      "environment_class": "C2 (internal steelwork), C4 (external steelwork)",
+      "products_or_standards": "NBN EN ISO 12944 (parts 1, 2, 5); EN ISO 17463",
+      "preparation_rules": "Apply corrosion protection to all primary steelwork unless noted otherwise in accordance with NBN EN ISO 12944; internal steelwork is classified as C2 and external steelwork as C4 unless otherwise stated in project documentation; ensure compatibility between steelwork corrosion protection and intumescent paint system; submit proposals including durability ranges (L to VH) as defined in NBN EN ISO 12944-1 clause 5.5; use coating materials only if recommended by manufacturers for specific surface and exposure conditions and mutually compatible; finishes must be uniform in texture, colour and appearance within agreed sample limits and free from defects such as slumping, cracking, flaking, blistering, chalking, fading, or loss of gloss over specified service life; measure dry film thickness during application per EN ISO 2808; all external and exposed metal fabrications and stairs/rails are to be factory pre-finished to a C4 environment suitable system (EN ISO 12944-2:2017 and ISO 9223:2012)."
+    },
+    {
+      "system_type": "Shop Painting – Structural Steel",
+      "environment_class": "C2 / C4 (by location)",
+      "products_or_standards": "Grey rust-inhibitive primer; inorganic zinc-rich primer with ≥60% volume solids, ≥85% metallic zinc in film",
+      "preparation_rules": "Apply specified shop coat within four hours after cleaning and before rust bloom occurs, only when relative humidity is below 85% and surface temperature is at least 3 °C above dew point; paint all structural steel with a shop coat except members encased in concrete, external members outside controlled building environment (which shall receive an inorganic zinc-rich primer with at least 60% volume solids and at least 85% metallic zinc in the dry film), contact surfaces of welded connections and areas within 50 mm of field welds, contact surfaces of slip-critical high-strength bolted connections, surfaces receiving sprayed-on or intumescent fireproofing, and surfaces receiving field-welded steel studs; where intumescent coatings are used, apply a heavy-duty alkyd primer compatible with the intumescent system; after erection, clean and touch-up unpainted and damaged areas to same standard and with identical primer."
+    },
+    {
+      "system_type": "Galvanizing",
+      "environment_class": "C3–C4 typical (design basis per EN ISO 12944-2, ISO 9223)",
+      "products_or_standards": "EN ISO 1461; EN ISO 14713-1",
+      "preparation_rules": "Hot-dip galvanize structural steel members, ladders, barrier rails, ledge/shelf angles, downspout guards, canopy supports, concrete edge confinement angles and other specified items after fabrication in accordance with EN ISO 1461 and design principles of EN ISO 14713-1; complete all cutting, welding and drilling prior to galvanizing; design fabrications to avoid distortion during galvanizing, including consideration of section choice (prefer hot-rolled over cold-formed), minimized and balanced weld size and amount, limited jigging and uniform section thickness; provide proper vent and drain holes of correct size; for large articles where distortion is a concern, consider single-dipping or splicing to enable single dip; touch up abraded galvanized areas after fabrication using specified touch-up primer suitable for galvanized surfaces."
+    },
+    {
+      "system_type": "Intumescent Paint System 1 – FIRETEX FX2003",
+      "environment_class": "C1 internal steelwork (off-site application) – other classes by A/E adjustment",
+      "products_or_standards": "EN 16623; EN 13381-4; EN 13501; EN 12944-5; EN ISO 8501-1; EN ISO 12944; Sherwin Williams FIRETEX FX2003, C69, M71V2",
+      "preparation_rules": "System 1 consists of Sherwin Williams FIRETEX C69 Fast Track Blast Primer (solvent-based, DFT nominal 25 microns as defined by EN ISO 12944-5) applied to properly blast-cleaned steel, followed by Sherwin Williams FIRETEX FX2003 intumescent coating, applied to a dry film thickness sufficient to achieve specified fire resistance ratings based on EN 13381-4 test data and assessments, and finished with Sherwin Williams FIRETEX M71V2 sheen finish top sealer coat at nominal DFT 50 microns as per EN ISO 12944-5; under certain conditions, FIRETEX FX2003 may be applied directly to steel blast cleaned to at least Sa 2½ (EN ISO 8501-1) with surface profile 50–100 microns, subject to manufacturer technical approval; A/E of Record must adjust total system DFT to suit alternative environmental corrosion classes (C2, C3, C4 etc.); all coats must be applied in accordance with manufacturer technical data, with substrate properly primed and fully cured, environmental conditions (temperature, humidity, dew point) maintained within published limits, and each coat allowed to fully cure before subsequent applications."
+    },
+    {
+      "system_type": "Intumescent Paint System 2 – FIRETEX FX6002",
+      "environment_class": "C1 internal steelwork (off-site application) – other classes by A/E adjustment",
+      "products_or_standards": "EN 16623; EN 13381-4; EN 13501; EN 12944-5; EN ISO 8501-1; EN ISO 12944; Sherwin Williams FIRETEX FX6002, C69, M71V2",
+      "preparation_rules": "System 2 consists of Sherwin Williams FIRETEX C69 Fast Track Blast Primer (solvent-based, DFT nominal 25 microns as defined by EN ISO 12944-5), followed by Sherwin Williams FIRETEX FX6002 ultra-fast drying intumescent coating applied to a DFT sufficient to achieve the specified fire resistance rating per EN 13381-4 test data and assessments, and completed with Sherwin Williams FIRETEX M71V2 sheen finish top sealer coat at DFT 50 microns nominal; under certain conditions, FIRETEX FX2003 may be applied directly to steel blast-cleaned to Sa 2½ (EN ISO 8501-1) with 50–100 micron profile, subject to manufacturer’s technical approval; A/E of Record shall adjust DFT makeup for alternative environmental corrosion classifications; all coats shall follow manufacturer’s mixing, application, curing and overcoating time requirements and maintain specified environmental conditions, with DFT checked by wet and dry film measurements."
+    },
+    {
+      "system_type": "General Intumescent Coating Application",
+      "environment_class": "C1–C4 depending on design",
+      "products_or_standards": "EN 16623; EN 13381; EN 13501; ASFP Yellow Book; ASFP TGD 11",
+      "preparation_rules": "Intumescent coatings shall be factory-mixed, thin-film reactive systems for spray application to primary and secondary structural steel to achieve required fire resistance; systems must have EN 13381-4 test evidence and assessments produced in line with Passive Fire Protection Federation guidance; coatings must be compatible with underlying primers and any topcoat finishes; substrates must be cleaned of oil, grease, mill scale, incompatible primers and contaminants, then primed with approved compatible primers and fully cured before intumescent application; application shall be carried out in compliance with manufacturer’s technical datasheets and ASFP TGD 11, with enclosures provided as needed to control overspray, environment and ventilation; coatings must be protected from rain, direct sun, high humidity and contaminated wind during application, drying and curing unless otherwise justified by tests; do not apply additional coats until prior coats are fully cured; final finishes must be uniform and match approved mock-ups."
+    },
+    {
+      "system_type": "Reflective Finish Requirement for External Steel",
+      "environment_class": "External (C4)",
+      "products_or_standards": "NBN EN 1991-1-5",
+      "preparation_rules": "The finish on external steel structures must satisfy a ‘bright, light surface’ requirement for relative absorptivity in accordance with NBN EN 1991-1-5, implying light-coloured, reflective coatings to control temperature effects on structural actions."
+    },
+    {
+      "system_type": "Shop Finishing – Metal Stairs, Ramps, Handrails",
+      "environment_class": "C4 (external), internal as per project",
+      "products_or_standards": "EN ISO 1461; EN ISO 12944-2; ISO 9223",
+      "preparation_rules": "Clean steel surfaces of rust, scale, grease and foreign matter prior to finishing; do not prime surfaces in direct contact with concrete or where site welding is required; apply one coat grey metal primer or approved equal at minimum 50 microns DFT to non-galvanized items; hot-dip galvanize external and embedded items to EN ISO 1461; touch up abraded galvanized areas with specified primer; all external handrails, stairs, ramps and components must be factory pre-finished to a corrosion protection level appropriate to a C4 environment per EN ISO 12944-2:2017 and ISO 9223:2012, using coating systems compatible with galvanizing and providing required durability."
+    }
+  ],
+  "execution_and_tolerances": [
+    {
+      "element": "Structural Steel – Design, Connections and Execution Class",
+      "execution_class": "EXC2",
+      "tolerances_and_rules": [
+        "All structural steel fabrication shall comply with NBN EN 1090, including national annexes and complementary standards, and national best practice documents for steel buildings and bridges.",
+        "Steel used on the project is Execution Class 2 (EXC2) per NBN EN 1090-2 unless otherwise noted on A/E drawings; erection must meet EXC2 requirements.",
+        "Connections not detailed on drawings shall be designed under the direct supervision of a Professional Structural Engineer to Chartered/Professional Engineer level, in accordance with NBN EN 1993 and NBN EN 1991 for robustness.",
+        "Beam-to-column connections shall minimise eccentric loading on columns; unrestrained simple beam end connections must be detailed and fabricated to minimise or eliminate end restraint; connection components (welds, bolts, plates) must consider eccentricity.",
+        "Beams shall be designed for end shear reactions shown in design documents; bracing connections shall be designed for forces shown; all member connections shall be designed for relevant actions from project documents.",
+        "Except for moment connections and bracing, use high-strength bearing-type bolted connections, designed with threads included in the shear plane; for moment connections and bracing, use slip-critical bolted connections installed using direct tension indicators or tension control assemblies.",
+        "Members forming bracing systems or lattice girders shall, unless otherwise detailed or instructed, be positioned so their lines of action intersect at a point.",
+        "All connection and detail drawings shall be prepared under supervision of the Contractor’s Engineer in accordance with NBN EN 1993.",
+        "Contractor shall design and provide stiffener plates, doubler plates, reinforcing plates, and their connections as required to develop and transfer forces per Contract Documents.",
+        "All forces shown on the drawings shall be considered reversible unless noted otherwise and checked in both directions; where no forces are shown, assume the most critical combinations of member forces and directions for connection design.",
+        "For high restraint welds, use double bevels instead of single bevels where practical; detail joints to allow for weld shrinkage; for multi-plane plates, show welding sequence on drawings, starting welding at most restrained parts and progressing to least restrained.",
+        "Connection design calculation submittals must be logically numbered, with resubmissions marked with an 'R' suffix and clouded changes; provide dimensioned sketches for each calculation; provide spreadsheet/program summaries for repetitive connections plus a standard worked example; provide drawings keyed to each connection calculation; calculations must be typed or in spreadsheets/programs showing all inputs, steps and assumptions; provide calculation checks for all forces per NBN EN 1993, with no 'OK by inspection' allowed."
+      ]
+    },
+    {
+      "element": "Structural Steel – Fabrication and Shop Assembly",
+      "execution_class": "EXC2",
+      "tolerances_and_rules": [
+        "Shop-fabricate structural steel to the greatest extent possible to minimize field work.",
+        "Identify and record materials and components; submit details of proposed marking and tracking methods.",
+        "Locate marks where visible for checking after erection but not on exposed faces, subject to Architect approval.",
+        "Fabricate to a delivery sequence that expedites installation and minimizes field handling.",
+        "Where finishing is required, complete assembly, including welding, before starting finishing operations; provide finished surfaces of exposed members free of markings, burrs and defects.",
+        "Shop connections shall be welded or bolted as indicated; field connections are generally bolted unless otherwise indicated.",
+        "Provide high-strength threaded fasteners for principal bolted connections; use unfinished fasteners only for secondary framing members taking nominal stresses (purlins, girts, temporary bracing).",
+        "Assemble and weld built-up sections by methods that produce true alignment of axes without warp.",
+        "Provide all required holes for securing other work and for service penetrations as shown on final approved shop drawings; cut, drill or punch perpendicular to surfaces; do not flame-cut or enlarge by burning; drill holes in bearing plates and remove burrs.",
+        "Header units shall be provided to support tail joists at openings in floor or roof systems unless otherwise indicated.",
+        "Develop required camber for members as indicated; where no camber is indicated, fabricate beams such that natural camber is upward after erection.",
+        "Misc metal fabrications shall be formed from materials of size, thickness and shapes indicated, not less than required for performance; exposed work shall be true to line and level with accurate angles, straight sharp edges, and eased exposed edges (~1 mm radius) unless noted otherwise; shear and punch cleanly, removing burrs.",
+        "Bent-metal corners shall be formed to the smallest radius possible without causing grain separation or impairing work; remove sharp or rough areas on traffic surfaces.",
+        "Weld corners and seams of metal fabrications continuously, in line with EN 1011.",
+        "Form exposed connections with hairline, flush joints using concealed fasteners where possible; exposed fasteners to be Phillips flat-head or similar where not otherwise indicated; locate joints least conspicuously.",
+        "Provide anchorage of types indicated; coordinate anchor fabrication and spacing with supporting structure to provide adequate support.",
+        "Clearly mark any shop-assembled and disassembled units for correct reassembly and coordinated installation.",
+        "Cut, reinforce, drill and tap miscellaneous metal work as required to receive hardware and attachments.",
+        "Fabricate joints exposed to weather to exclude water, or provide weep holes where water may accumulate."
+      ]
+    },
+    {
+      "element": "Structural Steel – Erection and Temporary Stability",
+      "execution_class": "EXC2",
+      "tolerances_and_rules": [
+        "The structural steel frame is designed to resist design loads only when all elements are installed and fully connected; Contractor is responsible for analysis of components and assemblies for stresses and displacements due to fabrication, shipping, handling, erection, temporary conditions and construction loads; analysis must be performed by Contractor’s Engineer.",
+        "At least 20 working days prior to structural steel erection, Contractor shall survey and verify location, alignment and elevation of anchor rods; discrepancies between Contract Documents and as-built conditions must be reported, and steel erection shall not start until corrective measures are taken.",
+        "Prior to erection, accurately confirm anchor bolt alignment, elevations, projections and size; report inaccuracies immediately.",
+        "Install high-strength bolted assemblies for connections in accordance with NBN EN 1090, NBN EN 14399 and NBN EN 15048; bolts shall be installed with hardened washers under the turned element to facilitate verification.",
+        "Erect structural steel in compliance with local best practice guidance; set structural frames accurately to indicated lines and elevations; align and adjust members forming part of complete frames before final fastening.",
+        "Clean bearing and contact surfaces before assembly; adjust for discrepancies in elevation and alignment.",
+        "Provide sufficient temporary bracing to maintain the structure safe, plumb and true until permanent bracing is installed and erection completed.",
+        "Align, level, adjust and plumb individual members within EN 1090 tolerances; setting-out and construction tolerances are absolute, not additive.",
+        "Splice members only at indicated locations accepted on shop drawings or as subsequently agreed.",
+        "Do not enlarge holes in members by burning or drift pins; holes requiring enlargement shall be reamed.",
+        "Gas cutting for correcting fabrication errors in structural framing in the field is prohibited unless explicitly accepted by the Engineer of Record; gas-cut surfaces, where allowed, must be finished to sheared appearance.",
+        "Do not field cut or alter structural members without Engineer of Record approval.",
+        "Steel erection must be carried out so that the assumed minimum unrestrained construction temperature T0 = 10 °C is met; erection methods shall ensure this assumption is valid.",
+        "After erection, prime welds, abrasions and unprimed surfaces, except those in contact with concrete; grout must be placed solidly between column plates and bearing surfaces, finished smoothly and splayed.",
+        "Contractor is solely responsible for errors in detailing, fabrication and erection of structural steel and steel deck.",
+        "An independent testing agency will perform field quality control tests per Section 01 40 00, including testing/verifying field-bolted high-strength connections and visual inspection of all field welds; re-inspection of failed tests is required at no cost or delay to Owner."
+      ]
+    },
+    {
+      "element": "Fabrication Tolerances – Miscellaneous Metal Fabrications",
+      "execution_class": "NOT SPECIFIED",
+      "tolerances_and_rules": [
+        "Maximum squareness deviation: 3 mm difference between diagonal measurements.",
+        "Maximum offset between faces: 2 mm.",
+        "Maximum misalignment of adjacent members: 2 mm.",
+        "Maximum bow: 3 mm in 1200 mm length.",
+        "Maximum deviation from plane: 2 mm in 1200 mm length."
+      ]
+    },
+    {
+      "element": "Erection Tolerances – Structural Steel Frames",
+      "execution_class": "EXC2",
+      "tolerances_and_rules": [
+        "Level and plumb individual members of the structural frame within EN 1090 tolerances.",
+        "Tolerances for setting out and construction are to be treated as absolute and not cumulative/additive."
+      ]
+    },
+    {
+      "element": "Steel Decking – Installation and Fixing",
+      "execution_class": "NOT SPECIFIED",
+      "tolerances_and_rules": [
+        "Install steel deck in accordance with manufacturer’s written recommendations, approved submittals and specification requirements.",
+        "Position deck units on supporting steel with units resting tightly on top flanges and accurately aligned to final position.",
+        "Provide minimum bearing of 50 mm on steel supporting members and minimum roof deck end laps of 50 mm.",
+        "Cut deck neatly using metal saws, drills or cutting torch; notch around columns and similar; cut holes and openings as indicated on structural drawings and approved submittals.",
+        "Provide metal closures (minimum 1.5–1.58 mm wide) at openings, including cover plates at panel edges and changes of direction, column closures between deck and columns, sheet metal collars around cuts for pipes/ducts, and closures/ridge/valley plates to provide acceptable substrate for roofing.",
+        "No openings shall be cut in metal decking unless shown on approved submittals or specifically approved in writing by Engineer of Record; any additional openings require modified shop drawings and calculations; burning or weakening of decking around welds is cause for rejection and must be repaired or removed.",
+        "Anchor composite metal deck to supporting steel with 20 mm diameter puddle welds at each end and intermediate supports, maximum effective average spacing 300 mm across deck width; puddle welds not required where headed studs are welded through deck.",
+        "Fasten longitudinal edges and side laps supported by steel with 20 mm puddle welds at maximum spacing 300 mm along panel length.",
+        "Longitudinal side laps of adjacent panels without steel support shall be welded or fastened with self-tapping screws (minimum specified size) between supports at maximum spacing 150 mm on centre.",
+        "Longitudinal edge closures shall be fastened by tack welds at maximum spacing 600 mm for composite deck and 150 mm for non-composite; sheet metal screws shall not be used.",
+        "Closures and accessories must be adequately connected to framing steel and adjacent deck units.",
+        "For non-composite metal deck, puddle weld spacing across width at intermediate supports shall not exceed 200 mm; side-lap welding/screwing rules mirror those for composite deck with more stringent edge closure weld spacing (150 mm).",
+        "Alternative mechanical anchoring systems (such as Hilti) may be used when supported by submitted and approved diaphragm design calculations.",
+        "Shear studs shall be welded through deck to primary steel below, with beams cleaned of mill scale, rust, oil, paint and contaminants; studs shall not be welded when ambient temperature is below 0 °C."
+      ]
+    },
+    {
+      "element": "Metal Fabrications – Installation and Field Work",
+      "execution_class": "NOT SPECIFIED",
+      "tolerances_and_rules": [
+        "Verify that field conditions are acceptable and ready to receive metal fabrication work before installation.",
+        "Where site welding is required, clean and strip primed steel items back to bare metal.",
+        "Supply setting templates to appropriate parties for steel items required to be cast into or embedded in concrete or masonry (steel elements of embedded items).",
+        "Install metal fabrication items plumb and level, accurately fitted and free from distortion or defects.",
+        "Provide for erection loads and sufficient temporary bracing to maintain true alignment until permanent attachments are completed.",
+        "Field-weld components as indicated on drawings and in accordance with EN 1011.",
+        "Obtain approval before site cutting or adjustments not scheduled on documents.",
+        "After erection, prime welds, abrasions and unprimed or ungalvanized surfaces (except those in direct contact with concrete).",
+        "For barrier rails, temporarily support posts plumb in each direction and cast integrally with monolithic footings (concrete works by others)."
+      ]
+    },
+    {
+      "element": "Metal Stairs, Ramps, Handrails – Design and Installation",
+      "execution_class": "NOT SPECIFIED",
+      "tolerances_and_rules": [
+        "Design stair clear widths, riser and going dimensions and pitch angles to meet applicable local building codes.",
+        "Design and fabricate stair assemblies to support a uniform live load of 500 kg/m² and a concentrated load of 150 kg on an area of 2580 mm², with stringer or landing framing deflection not exceeding span/360.",
+        "Handrails and railing systems shall be engineered to withstand top rail loads of 1.0 kN/m uniform plus 0.5 kN point load in any direction at any point (not acting concurrently), and infill loads of 1.0 kN/m² horizontal uniform plus 0.5 kN point load (not concurrent with top rail loads), in accordance with local codes.",
+        "Provide stair towers at exit stairwells designed for stacking as self-supporting structures to building height.",
+        "Metal jointing finish quality level for exposed stairs/rails is 'Commercial': joints as inconspicuous as possible; underside of stair without soffit is considered exposed.",
+        "Welds exposed to view shall be ground smooth and flush; intermittent welds on hidden faces may be filled and sanded to achieve smooth appearance; mechanical joints must be butted tight, flush and hairline; exposed bolts shall be countersunk flat or oval heads with no visible nuts; exposed edges and corners shall be eased to a small uniform radius.",
+        "Metal surfaces to be painted or galvanized shall be sanded/ground smooth to suit satin or matte finishes; preparation shall follow coating manufacturer’s requirements.",
+        "Install stairs, ramps and railing components plumb and level, accurately fitted and free from distortion/defects; provide anchors, plates, angles, hangers and struts required for connecting stairs to the structure.",
+        "Provide sufficient temporary bracing for stairs and rails to maintain true alignment during erection until permanent attachments are complete.",
+        "Site welding for stairs/rails shall comply with EN 1011; where not indicated as welded, joints may be welded or bolted provided joint quality level requirements are met; welds shall be ground smooth and flush where exposed.",
+        "Obtain approval prior to site cutting or unscheduled adjustments.",
+        "After erection, prime welds, abrasions and surfaces not shop-primed or galvanized, except surfaces in contact with concrete.",
+        "Adjust handrails and railing systems prior to anchorage to ensure matching alignment at abutting joints; plumb posts in both directions, spacing them as required by design or as shown.",
+        "Anchor posts to steel framing by welding directly to supporting members.",
+        "Anchor handrail ends into concrete/masonry with steel round flanges welded to rail ends and drilled-in expansion anchors.",
+        "Secure handrails to walls via brackets providing at least 50 mm clearance from inner face of handrail to finished wall; brackets shall be fixed with concealed threaded hanger bolts and appropriate anchors for concrete, masonry or steel framing.",
+        "Maximum variation from plumb for installed stair/rail elements: 6 mm; maximum offset from true alignment: 6 mm.",
+        "Interior and exterior stairs and railings are scheduled to have galvanized finishes."
+      ]
+    },
+    {
+      "element": "Intumescent Fireproofing – Application and Thickness Control",
+      "execution_class": "NOT SPECIFIED",
+      "tolerances_and_rules": [
+        "Install intumescent coatings only after verifying steel preparation, primer compatibility and curing; installation shall follow manufacturer’s written recommendations and ASFP guidance.",
+        "Provide enclosures as required to contain spray, protect the environment and maintain ambient conditions (temperature, humidity, air quality, ventilation) within manufacturer limits during application and curing.",
+        "Protect intumescent coatings from rain, direct sunlight, high humidity and abrasive wind during application, drying and curing unless otherwise allowed by test evidence.",
+        "Apply primer to DFT as recommended and as defined in EN ISO 12944-5; apply intumescent basecoat to a DFT sufficient to achieve the specified fire resistance rating for each member; apply top sealer coat to DFT per manufacturer and EN ISO 12944-5.",
+        "Do not apply additional coats until the previously applied layer has fully cured.",
+        "Provide a uniform finish consistent with specified material type and matching approved field mock-ups/samples.",
+        "Measurement of DFT shall include primer average DFT determination for later deduction when checking intumescent thickness.",
+        "DFT survey for I, H, Tee and channel sections: take two readings per meter length on each web face and on outer faces of each flange, and one reading per meter on inner flange faces.",
+        "For square/rectangular hollow sections and angles: take two readings per meter length on each face.",
+        "For circular hollow sections: take eight readings per meter length evenly distributed around the perimeter.",
+        "Where members are shorter than 2 m, take three sets of readings (at each end and at mid-length) with the same per-face counts.",
+        "Acceptance criteria: average DFT on each element shall be at least the specified nominal value; average DFT on any face shall not be less than 80% of nominal; isolated readings below 80% are acceptable if not more than 10% of readings on that member fall below 80%; whenever a reading is below 80% of nominal, take 2–3 additional readings within 150–300 mm; if all additional readings are above 80%, the low reading may be considered isolated; if additional readings are below 80%, extend measurements to define the under-thickness area and apply additional coating to reach required thickness before proceeding.",
+        "All individual DFT readings must be at least 50% of the nominal value.",
+        "Average measured DFT of any face shall not exceed the manufacturer’s recommended maximum thickness for the specific member shape and orientation."
+      ]
+    }
+  ],
+  "qa_qc_and_submittals": [
+    {
+      "requirement_type": "Shop Drawings – Structural Steel Framing",
+      "description": "Submit shop drawings for individual structural steel shipping pieces to be fabricated in the shop, prepared and checked before issue by a suitably qualified Professional Structural Engineer; also submit erection drawings and method statements showing field installation/member placement, locations and connections of shipping pieces; submit temporary works drawings and method statements showing erection sequence, bracing locations, temporary supports and descriptions of bolting, welding and lifting. Shop drawings must reflect all connection designs and be supported by calculations submitted before preparation."
+    },
+    {
+      "requirement_type": "Connection Design Calculations",
+      "description": "Submit full design calculations for all steel connections prior to preparation of shop drawings; calculations shall comply with NBN EN 1993, consider loads per NBN EN 1991, and follow detailed submittal rules: logical numbering without renumbering after submission, resubmittals noted with 'R' suffix and clouded changes; include sketches with all pertinent dimensions (pitch, gauge, edge distance, unbraced lengths, Whitmore lengths etc.) accurately to scale; for repetitive connections, provide summary tables and a standard calculation; provide drawings keyed to each calculation; use typed/spreadsheet/computer methods with full step-by-step results and explicit assumptions; perform checks for all forces shown on drawings with calculations for each; 'OK by inspection' is not permitted."
+    },
+    {
+      "requirement_type": "Quality Plan – EN 1090 Execution",
+      "description": "Submit a Quality Plan for execution of structural steel works in accordance with NBN EN 1090 recommendations at the earliest possible time after appointment; undertake all structural steel work in accordance with the approved Quality Plan; plan shall integrate inspection, testing, traceability, welding procedure qualifications, bolt installation verification, coating control and documentation."
+    },
+    {
+      "requirement_type": "Mill Certificates and Material Certificates",
+      "description": "Submit manufacturer’s mill certificates for structural steel products, certifying that materials meet or exceed specified requirements (grades such as S355JR and S350 and relevant EN/ISO product standards)."
+    },
+    {
+      "requirement_type": "Welder Qualifications and Certificates",
+      "description": "Submit certificates for welders employed on structural steel and deck work, verifying qualification in accordance with NBN EN ISO 9606-1 within the previous 12 months; maintain welder qualification records available for examination; for decking works, qualify welders by tests as prescribed in standard qualification procedures of the European Welding Association and relevant EN standards; for shear stud welding, welders must be certified by a recognized authority in the project location and tested/approved by the Inspection and Testing Agency before working on the structure."
+    },
+    {
+      "requirement_type": "Membership and CE Marking Accreditation",
+      "description": "Provide confirmation of membership in the national Constructional Steelwork Association or other relevant organization for fabricators; provide confirmation of CE Marking accreditation for the execution class applicable to the project (EXC2), covering fabrication and erection activities per EN 1090."
+    },
+    {
+      "requirement_type": "Sustainability – Recycled Steel Content Declaration",
+      "description": "Contractor must verify and declare in writing in the submittal that structural steel contains 70% recycled content (pre-consumer plus post-consumer); copies of this submittal shall be sent concurrently to EXE and DC Sustainability for tracking; if compliance is not possible due to availability, schedule or cost, Contractor must submit a written request for exception to Engineer of Record at submittal time, with copies to EXE and DC Sustainability."
+    },
+    {
+      "requirement_type": "Temporary Works and Erection Method Statements",
+      "description": "Submit temporary works drawings and method statements prepared by the erector, illustrating sequence of erection, bracing locations, temporary supports, and requirements for lifting, bolting and welding; documents must explicitly list sequence of work, bracing layout, temporary support details and notes for connection installation and lifting operations."
+    },
+    {
+      "requirement_type": "Pre-Construction Conference – Structural Steel",
+      "description": "At least 14 days prior to starting structural steel erection, the Contractor shall organise and conduct a pre-construction conference to review quality control and construction requirements, submittal status, coordination, material availability, work schedule and inspection/testing/certification procedures; attendees must include Construction Manager, Contractor’s Site Engineer, Special Inspection and Testing Agency, steel detailer, steel fabricator, steel erector, Engineer of Record and Architect (if required); Contractor must distribute typed minutes to Owner’s Representative, Architect and Engineer of Record within 5 days; Contractor must notify external parties at least 7 days in advance; conference cannot substitute for formal submittals/approvals nor be used to obtain approvals, and comments by A/E of Record are non-binding relative to formal reviews."
+    },
+    {
+      "requirement_type": "Pre-Erection Conference – Structural Steel",
+      "description": "At least 20 working days before steel erection, Contractor must hold a structural steel pre-erection conference to review detailed erection requirements; attendees include General Contractor/Construction Manager, steel erector/fabricator, erector’s surveyor, roof deck contractor, all testing and inspection agencies, design professionals, Owner and precast/cladding contractor as appropriate; Contractor shall record and distribute minutes within 5 working days to all listed parties; minutes must outline erection procedures, milestones for surveys and sign-offs for erection stages, as well as surveying program and submission schedule; Contractor bears full responsibility to organize this conference and comply with requirements; conference is not a substitute for submittals or approvals and cannot be used to obtain approvals; A/E comments are non-binding; SER is explicitly not responsible for site safety programs or precautions."
+    },
+    {
+      "requirement_type": "Connection Design and Detailing Workshop",
+      "description": "At least 20 working days before starting connection design and detailing, the Fabricator shall hold a workshop to verify all connection design assumptions and procedures and shop drawing preparation/submittal processes; Contractor must prepare an agenda and require participation by General Contractor, fabricator, detailer, connection engineer, Engineer of Record and erector; Fabricator must distribute minutes within 5 working days; Contractor is responsible for organizing this workshop within the required timeframe; workshop documentation does not substitute for submittals or approvals and shall not be used to obtain approvals; comments by A/E of Record are non-binding with respect to later formal reviews."
+    },
+    {
+      "requirement_type": "Steel Deck – Shop Drawings and Calculations",
+      "description": "For steel decking, submit shop drawings including type, identification mark, gauge, finish, locations, openings, dimensions, placement sequence, anchorage details, lap details, accessories, welding data, power requirements and electrode types; welding symbols shall follow relevant European Welding Association standards; drawings must show locations of unframed openings (including those to be cut after concrete placement) and details of deck closures and reinforcement, and type/locations of inserts; provide product data for deck profile characteristics, dimensions, structural properties and finishes; submit design calculations prepared under the direct supervision of a Professional Engineer specializing in structural engineering, including section properties for each deck type/gauge, and calculations for slab edge and closure strips; shop drawings will not be reviewed without calculations, and review does not relieve the originator or supervising engineer of design responsibility."
+    },
+    {
+      "requirement_type": "Steel Deck – Welder Qualification and Site Quality Control",
+      "description": "Maintain welder qualification records for deck welding; qualify welders through tests per European Welding Association standard procedures and relevant EN standards; where stricter standards/regulations do not apply, each welder shall prepare two specimens of each required weld type for inspection, testing and approval by the Inspection and Testing Agency prior to welding on the structure; an independent testing agency must perform site quality control tests for deck installation and visually inspect all field welds in decking."
+    },
+    {
+      "requirement_type": "Metal Fabrications – Shop Drawings and QA",
+      "description": "Submit shop drawings for 05 50 00 metal fabrications indicating profiles, sizes, connection attachments, reinforcing, anchorage, fastener sizes/types and accessories, including erection drawings, elevations and details where applicable; indicate welded connections using ISO 2553 symbols and net weld lengths; provide welder’s certificates verifying qualifications within previous 12 months; design of metal fabrications must be under direct supervision of a Professional Engineer experienced in such work; fabricator must be qualified with experience producing similar fabrications and sufficient capacity; welding processes and operators must be qualified per EN 1011."
+    },
+    {
+      "requirement_type": "Metal Stairs and Ramps – Shop Drawings and QA",
+      "description": "For metal stairs and ramps, submit shop drawings showing profiles, sizes, connection attachments, reinforcing, anchorage, fastener size/type and accessories; include welded connections with standard welding symbols and net weld lengths, and include the design engineer’s signature on each sheet; fabricator must have proven experience with similar steel stairs; structural designer must be a Professional Engineer licensed in the project state; verify welder qualifications within the previous 12 months."
+    },
+    {
+      "requirement_type": "Intumescent Fireproofing – Submittals and Qualifications",
+      "description": "Submit in accordance with Section 01 33 00: product data/specification sheets for each intumescent system; for each system, provide EN 13381-4 test results from independent lab and assessment of test results used to derive required DFTs across section sizes, issued by an organization complying with the Passive Fire Protection Federation 'Guide to Undertaking Assessments in Lieu of Fire Tests'; provide manufacturer certificates documenting intumescent compatibility with adhesives, primers and other surface coatings on target substrates; provide tables/printouts of steel section versus DFT to demonstrate compliance with required fire ratings as shown on drawings; submit samples (200 mm square) for each exposed product/colour/texture; submit installer qualification data demonstrating experience on comparable projects (project location, scope, contract value, completion date, architect and owner contacts). Manufacturer must have local direct technical employees and provide on-site technical support at start of installation and as requested; installer must be certified or otherwise approved by the intumescent manufacturer and trained by manufacturer’s direct employees."
+    },
+    {
+      "requirement_type": "Intumescent Fireproofing – Pre-Construction Conference",
+      "description": "At least 14 days before beginning fireproofing application, Contractor shall hold a meeting to review quality control, construction requirements, coordination, submittals, material availability, schedule and inspection/testing/certification/reporting procedures; required attendees include Construction Manager, Contractor’s Site Engineer, Special Inspection and Testing Agency, Fireproofing Applicator, Engineer of Record and Architect (if required); Contractor shall record, type and distribute minutes within 5 days to Owner’s Representative, Architect and A/E of Record; Contractor shall notify external parties at least 7 days before the conference."
+    },
+    {
+      "requirement_type": "Field Quality Control – Structural Steel and Intumescent Coatings",
+      "description": "An independent testing agency shall carry out field quality control tests per Section 01 40 00 for structural steel and intumescent coatings; for structural steel, testing includes verification of high-strength bolted connections and visual inspection of all field welds, with mandatory re-inspection for all failed tests at no cost or delay to Owner; for intumescent coatings, inspections include verification of surface preparation standards (e.g. EN ISO 8501-1, EN ISO 8503-2, EN ISO 8502-3), environmental conditions (air/substrate temperatures, relative humidity, dew point) during application, recording of product batch numbers, application dates/times and over-coating intervals, wet film thickness checks and staged DFT surveys (primer, basecoat and final system) with acceptance criteria for average and minimum DFT per element/face, and visual appearance checks against specification and samples."
+    }
+  ]
+}
