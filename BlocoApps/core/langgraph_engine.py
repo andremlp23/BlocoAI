@@ -1,17 +1,10 @@
 import logging
 from typing import Any, TypedDict
+import json  # <- ADICIONADO PARA O CONTEXTO
 
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
 from langgraph.graph import END, StateGraph
-from openai import APIConnectionError, APITimeoutError, RateLimitError
-from tenacity import (
-    before_sleep_log,
-    retry,
-    retry_if_exception_type,
-    stop_after_attempt,
-    wait_exponential,
-)
 
 # Importação do Leitor de JSON (regras)
 from core.document_reader import carregar_regras_json
@@ -33,8 +26,9 @@ class AuditoriaState(TypedDict):
     resumo_specs: str
 
     auditoria_bruta: str
-    auditoria_normalizada: str  # <- NOVO (AGT-03)
+    auditoria_normalizada: str
     relatorio_final: str
+    contexto_projeto: dict  # <- ADICIONADO PARA RECEBER O JSON
 
     modo: str
     tentativas: int
@@ -46,6 +40,7 @@ class AuditoriaState(TypedDict):
     _api_key: str
     _prog_slot: Any
     _status_slot: Any
+    _model_name: str  # <- ADICIONADO PARA O MODELO DINÂMICO
 
 
 # ─────────────────────────────────────────────────────────────
@@ -59,17 +54,21 @@ def _obter_documento_completo(texto: str) -> list:
 
 
 # ─────────────────────────────────────────────────────────────
-# Invocação LLM com retry
+# Invocação LLM com STREAMING (Fim dos Timeouts)
 # ─────────────────────────────────────────────────────────────
-@retry(
-    retry=retry_if_exception_type((RateLimitError, APIConnectionError, APITimeoutError)),
-    stop=stop_after_attempt(4),
-    wait=wait_exponential(multiplier=1, min=2, max=30),
-    before_sleep=before_sleep_log(_log, logging.WARNING),
-    reraise=True,
-)
 def _invocar_llm(llm, mensagens: list) -> str:
-    return llm.invoke(mensagens).content
+    print(f"[_invocar_llm] Invocando LLM com {len(mensagens)} mensagens... (MODO STREAMING)")
+    try:
+        conteudo_total = ""
+        for chunk in llm.stream(mensagens):
+            conteudo_total += chunk.content
+            print(chunk.content, end="", flush=True) 
+        
+        print(f"\n\n[_invocar_llm] Geração concluída! {len(conteudo_total)} caracteres.")
+        return conteudo_total
+    except Exception as e:
+        print(f"\n[_invocar_llm] ERRO: {type(e).__name__}: {e}")
+        raise
 
 
 # ======================================================================
@@ -188,18 +187,75 @@ OUTPUT FORMAT (STRICT):
 
 
 # ======================================================================
-# AGT-02: BOQ extractor (sem betão) + Phase/Zone/Subzone
-# ======================================================================
-# ======================================================================
 # AGT-02: Extração estruturada de BOQ em JSON (para CSV)
 # ======================================================================
-def extrair_boq_json_estruturado(texto_boq: str, nome_ficheiro: str, contexto_specs: str, llm, prog_placeholder, status_placeholder) -> str:
-    """Extrai BOQ CSV em JSON estruturado com Phase/Zone mapping completo."""
+def extrair_boq_json_estruturado(texto_boq: str, nome_ficheiro: str, contexto_specs: str, contexto_projeto: dict, llm, prog_placeholder, status_placeholder) -> str:
     chunks = _obter_documento_completo(texto_boq)
     if not chunks:
         return ""
 
-    sys_msg = SystemMessage(content=f"""You are an Expert BOQ Analyst and Data Structuralist.
+    ctx = contexto_projeto or {}
+    
+    if ctx:
+        sys_content = f"""You are an Expert BOQ Analyst and Data Structuralist.
+
+Goal: Extract COMPLETE Project Structure from BOQ document into JSON format.
+
+PROJECT SCOPE BASELINE (Context & Guide):
+{json.dumps(ctx, indent=2)}
+
+CRITICAL INSTRUCTION: The Baseline above outlines the known phases, zones, and expected disciplines for this project. Use it as a mental map to resolve acronyms, understand the project scale, and ensure you do not miss these key elements. 
+However, this is NOT a strict filter! If you find other relevant structural phases, zones, or technical details in the text that are NOT in the Baseline, YOU MUST STILL EXTRACT THEM. Your primary duty is to the source text.
+
+ABSOLUTE RULES:
+- Do NOT omit STRUCTURAL INFORMATION from the BOQ.
+- Do NOT invent information outside what is written.
+- Ignore EVERYTHING related to CONCRETE. Concrete is OUT OF SCOPE.
+- QUANTITIES ARE NOT IMPORTANT: Exclude volumes, weights, unit prices.
+
+Use these extraction rules:
+{REGRAS_EXTRACAO}
+
+SPECS CONTEXT (for Phase/Zone reference only):
+{contexto_specs}
+
+EXTRACTION STRATEGY (7-STEP):
+1) FULL EXTRACTION (Mandatory Structure)
+   Extract Phases and Zones from document. Output ONLY valid JSON with this schema:
+   {{
+     "phases": [
+       {{
+         "name": "Phase 1",
+         "description": "...",
+         "zones": ["ZoneA", "ZoneB"],
+         "activities": ["Steel erection", "..."],
+         "dependencies": ["Phase 0 complete"],
+         "constraints": ["Access via north door"],
+         "source": "Section 2.1, Line X-Y"
+       }}
+     ],
+     "zones": [
+       {{
+         "name": "ZoneA",
+         "description": "...",
+         "phases": ["Phase 1", "Phase 2"],
+         "activities": ["Structural prep", "..."],
+         "logistics": "Crane access from main gate",
+         "source": "Section 3.2"
+       }}
+     ]
+   }}
+2) AGGRESSIVE KEYWORD SWEEP
+   Scan for: "phase", "stage", "zone", "area", "sector", "work package"
+3) PHASE → ZONE MAPPING (no gaps)
+4) SEQUENCING AND DEPENDENCIES
+5) CONTEXT ENFORCEMENT
+6) CONSISTENCY CHECK
+7) FINAL COMPRESSED OUTPUT
+   Include metadata in JSON response.
+"""
+    else:
+        sys_content = f"""You are an Expert BOQ Analyst and Data Structuralist.
 
 Goal: Extract COMPLETE Project Structure from BOQ document into JSON format with full Phase→Zone mapping.
 
@@ -285,8 +341,10 @@ OUTPUT:
 - All text fields must be populated (no empty strings).
 - Include page/section references in "source" fields.
 - Deterministic, fully traceable to source.
-""")
+"""
 
+    sys_msg = SystemMessage(content=sys_content)
+    
     try:
         if status_placeholder:
             status_placeholder.markdown(
@@ -323,18 +381,54 @@ OUTPUT:
 # ======================================================================
 # AGT-02: Extração narrativa de BOQ (para PDF/DOCX)
 # ======================================================================
-def extrair_boq_com_contexto(texto_boq: str, nome_ficheiro: str, contexto_specs: str, llm, prog_placeholder, status_placeholder) -> str:
-    # Detectar se é CSV para usar prompt estruturado
+def extrair_boq_com_contexto(texto_boq: str, nome_ficheiro: str, contexto_specs: str, contexto_projeto: dict, llm, prog_placeholder, status_placeholder) -> str:
     eh_csv = ".csv" in nome_ficheiro.lower()
     
     if eh_csv:
-        return extrair_boq_json_estruturado(texto_boq, nome_ficheiro, contexto_specs, llm, prog_placeholder, status_placeholder)
+        return extrair_boq_json_estruturado(texto_boq, nome_ficheiro, contexto_specs, contexto_projeto, llm, prog_placeholder, status_placeholder)
     
     chunks = _obter_documento_completo(texto_boq)
     if not chunks:
         return ""
 
-    sys_msg = SystemMessage(content=f"""You are an Expert Estimator and Technical Data Hunter.
+    ctx = contexto_projeto or {}
+    
+    if ctx:
+        sys_content = f"""You are an Expert Estimator and Technical Data Hunter.
+
+PROJECT SCOPE BASELINE (Context & Guide):
+{json.dumps(ctx, indent=2)}
+
+Goal: Extract technical specifications and execution requirements from BOQ text.
+
+CRITICAL INSTRUCTION: Use the Baseline above to understand the project's expected phases, zones, and key trades. Use this knowledge to focus your attention and structure your narrative accurately. However, DO NOT use it as a strict filter. If you find important technical structural data for zones, phases or trades not listed in the Baseline, you MUST extract them anyway. Be thorough.
+
+ABSOLUTE RULES:
+- Do NOT omit TECHNICAL INFORMATION that is present in the BOQ.
+- Ignore EVERYTHING related to CONCRETE.
+- QUANTITIES ARE NOT IMPORTANT: Exclude all quantities, volumes, weights.
+
+Use these extraction rules exactly as provided:
+{REGRAS_EXTRACAO}
+
+SPECS CONTEXT (for awareness / later comparison):
+{contexto_specs}
+
+PHASE RULE: Normalize PH1→Phase 1.
+ZONE/SUBZONE RULES:
+- Valid ZONE is a 3-letter building code.
+- Maintain CURRENT_ZONE and CURRENT_SUBZONE while reading.
+
+WHAT TO EXTRACT:
+- Only primary technical drivers for: steel/metal/decking/corrosion/fire protection.
+
+OUTPUT FORMAT (STRICT):
+- Plain text only (no JSON, no markdown).
+- Structured NARRATIVE.
+- Group by Phase → Zone → Subzone → Category.
+"""
+    else:
+        sys_content = f"""You are an Expert Estimator and Technical Data Hunter.
 
 Goal: Extract technical specifications and execution requirements from BOQ text.
 You may USE the SPECS context ONLY to:
@@ -383,8 +477,10 @@ OUTPUT FORMAT (STRICT):
 - Structured NARRATIVE (NOT one-line templates).
 - Group by Phase → Zone → Subzone, then by category (Structural Steel / Decking / Fire / Corrosion / Metal Fabrics).
 - No recommendations, next steps, questions, or offers.
-""")
+"""
 
+    sys_msg = SystemMessage(content=sys_content)
+    
     try:
         if status_placeholder:
             status_placeholder.markdown(
@@ -426,8 +522,9 @@ def no_router(state: AuditoriaState) -> dict:
 
 
 def no_extrator(state: AuditoriaState) -> dict:
-    llm_specs = ChatOpenAI(model="gpt-5.1", api_key=state["_api_key"], temperature=0.0)
-    llm_boq = ChatOpenAI(model="gpt-5.1", api_key=state["_api_key"], temperature=0.0)
+    model_name = state.get("_model_name", "gpt-5.1")
+    llm_specs = ChatOpenAI(model=model_name, api_key=state["_api_key"], temperature=0.0)
+    llm_boq = ChatOpenAI(model=model_name, api_key=state["_api_key"], temperature=0.0)
 
     prog = state["_prog_slot"]
     status = state["_status_slot"]
@@ -449,6 +546,7 @@ def no_extrator(state: AuditoriaState) -> dict:
             texto_boq=state["texto_boq"],
             nome_ficheiro=f"BOQ: {state.get('nome_boq','')}",
             contexto_specs=resumo_specs,
+            contexto_projeto=state.get("contexto_projeto", {}), # <- JSON passado aqui
             llm=llm_boq,
             prog_placeholder=prog,
             status_placeholder=status
@@ -465,7 +563,8 @@ def no_extrator(state: AuditoriaState) -> dict:
 # AGT-02B: Auditor (cruza BOQ vs SPECS) -> auditoria_bruta
 # ======================================================================
 def no_auditor(state: AuditoriaState) -> dict:
-    llm = ChatOpenAI(model="gpt-5.1", api_key=state["_api_key"], temperature=0.1)
+    model_name = state.get("_model_name", "gpt-5.1")
+    llm = ChatOpenAI(model=model_name, api_key=state["_api_key"], temperature=0.1)
     tentativas = state.get("tentativas", 0) + 1
 
     dados = (
@@ -473,7 +572,46 @@ def no_auditor(state: AuditoriaState) -> dict:
         f"=== SPECS BASELINE BULLETS ===\n{state.get('resumo_specs','')}"
     )
 
-    sys_msg = SystemMessage(content="""You are a Lead Estimator performing a CROSS-DOCUMENT AUDIT.
+    ctx = state.get("contexto_projeto") or {}
+    
+    if ctx:
+        sys_content = f"""You are a Lead Estimator performing a CROSS-DOCUMENT AUDIT.
+        
+PROJECT CONTEXT BASELINE (For Guidance):
+{json.dumps(ctx, indent=2)}
+
+INPUT:
+- BOQ extracts (Phase/Zone/Subzone/Spec)
+- SPECS baseline bullets
+
+CRITICAL INSTRUCTION: The Baseline above tells you what the project management expects to see. Use it to verify if expected trades are missing or to understand zone naming conventions. 
+However, DO NOT ignore data in the inputs just because it isn't in the Baseline. You must audit all provided input data.
+
+ABSOLUTE RULES:
+- Do NOT omit TECHNICAL INFORMATION present in the inputs.
+- Do NOT invent information outside the inputs.
+- Ignore EVERYTHING related to CONCRETE.
+
+TASK:
+- Compare BOQ vs SPECS baseline and flag: ALIGNED / CONFLICT / MISSING BASELINE.
+- Keep Phase/Zone/Subzone strictly.
+
+OUTPUT FORMAT (STRICT):
+Phase: Phase N
+--> Zone: ZZZ
+    ---> Subzone: <name>
+        * Structural Steel: ...
+        * Composite Decking: ...
+        * Fire Protection: ...
+        * Corrosion Protection: ...
+        * Metal Fabrications: ...
+
+GLOBAL INCONSISTENCIES:
+- <bullets>
+END_OF_REPORT
+"""
+    else:
+        sys_content = """You are a Lead Estimator performing a CROSS-DOCUMENT AUDIT.
 
 INPUT:
 - BOQ extracts (Phase/Zone/Subzone/Spec)
@@ -528,8 +666,10 @@ Phase: Phase N
 GLOBAL INCONSISTENCIES:
 - <bullets only from findings above, no new info>
 END_OF_REPORT
-""")
+"""
 
+    sys_msg = SystemMessage(content=sys_content)
+    
     try:
         auditoria = _invocar_llm(llm, [sys_msg, HumanMessage(content=f"Build the structured audit:\n\n{dados}")])
         return {"auditoria_bruta": auditoria, "tentativas": tentativas}
@@ -543,7 +683,8 @@ END_OF_REPORT
 # AGT-03: Deduplicador cross-categoria (novo)
 # ======================================================================
 def no_deduplicador(state: AuditoriaState) -> dict:
-    llm = ChatOpenAI(model="gpt-5.1", api_key=state["_api_key"], temperature=0.1)
+    model_name = state.get("_model_name", "gpt-5.1")
+    llm = ChatOpenAI(model=model_name, api_key=state["_api_key"], temperature=0.1)
 
     base = (state.get("auditoria_bruta") or "").strip()
     if not base:
@@ -609,51 +750,42 @@ OUTPUT:
 # ======================================================================
 def no_apresentador(state: AuditoriaState) -> dict:
     # Usamos o gpt-4o para reestruturação complexa de dados (Data Pivot)
-    llm = ChatOpenAI(model="gpt-4o", api_key=state["_api_key"], temperature=0.1)
+    model_name = state.get("_model_name", "gpt-4o")
+    llm = ChatOpenAI(model=model_name, api_key=state["_api_key"], temperature=0.1)
 
     base = (state.get("auditoria_normalizada") or state.get("auditoria_bruta") or "").strip()
     if not base:
         return {"relatorio_final": ""}
 
-    sys_msg = SystemMessage(content="""You are a Lead Estimator and Executive Technical Writer.
+    sys_msg = SystemMessage(content="""You are a Lead Estimator and Technical Data Structuralist.
 Your task is to PIVOT a location-based technical audit into a TRADE PACKAGE-based Estimating Summary.
 
 ABSOLUTE RULES:
-1. PIVOT THE DATA: The input is grouped by Phase -> Zone -> Subzone. You must completely restructure the output to be grouped by TRADE PACKAGE (e.g., Structural Steel, Composite Decking, Fire Protection, etc.).
-2. DO NOT INVENT DATA: Base everything ONLY on the provided audit. 
-3. BASELINE EXTRACTION: For each Trade Package, read all the "SPECS" entries in the input and synthesize them into a single "Baseline Scope" bulleted list (avoiding repetition).
-4. VARIATIONS TABLE: For each Trade Package, map the "BOQ" and "STATUS" entries into the "Scope Variations / Inclusions" table.
-5. DELETE NOISE: Ignore any zones marked as [OUT OF SCOPE] or completely missing.
+1. PIVOT THE DATA: Pivot input grouped by Phase -> Zone -> Subzone into TRADE PACKAGE groups.
+2. PRESERVE TECHNICAL DETAIL: DO NOT summarize technical specs into generic bullets. You MUST extract and preserve all specific technical data, grades, standards, DFTs, bolt types, and execution rules from the input.
+3. BASELINE SCOPE: For each Trade Package, provide a comprehensive list of technical requirements (the 'Source of Truth').
+4. VARIATIONS TABLE: For each Trade Package, map the BOQ entries into the table. The "Scope Description" column MUST contain the specific BOQ technical data, not just generic names.
+5. NO GENERIC TEXT: If the input specifies "TATA D60x1.2mm", do not write "Steel Decking". Write exactly what is in the input.
 
 REQUIRED OUTPUT FORMAT (Markdown STRICT):
 
 # Cross-Document Technical Audit:
 
-## 1. TRADE PACKAGE: STRUCTURAL STEEL
+## 1. TRADE PACKAGE: [NAME]
 **Baseline Scope:**
-- [Bullet points summarizing the core SPECS requirements for this trade (e.g., Grades, Execution class, Standards)]
+- [List every technical requirement, standard, grade, and execution rule found in the audit for this trade - NO SUMMARIZATION]
 
 **Scope Variations / Inclusions:**
 | Phase | Zone | Scope Description | Deviation / Note |
 |-------|------|-------------------|------------------|
-| [Phase] | [Zone] | [Brief BOQ description] | [Status or deviation from SPECS] |
+| [Phase] | [Zone] | [Full technical BOQ description] | [Status or deviation from SPECS] |
 
-## 2. TRADE PACKAGE: COMPOSITE DECKING
-[Repeat structure...]
-
-## 3. TRADE PACKAGE: FIRE PROTECTION
-[Repeat structure...]
-
-## 4. TRADE PACKAGE: CORROSION PROTECTION
-[Repeat structure...]
-
-## 5. TRADE PACKAGE: METAL FABRICATIONS (STAIRS / RAILINGS / GRATINGS)
-[Repeat structure...]
+(Repeat for all trades: Structural Steel, Composite Decking, Fire Protection, Corrosion Protection, Metal Fabrications)
 
 ## GLOBAL INCONSISTENCIES (ESTIMATING RISK REGISTER)
 | ID | Trade Package | Issue | Risk | Estimating Action |
 |----|---------------|-------|------|-------------------|
-| 1  | [Trade]       | [Issue from input] | [High/Medium/Low] | [Recommended action for estimator] |
+| [N] | [Trade] | [Issue from input] | [High/Medium/Low] | [Specific action] |
 
 END_OF_REPORT
 """)

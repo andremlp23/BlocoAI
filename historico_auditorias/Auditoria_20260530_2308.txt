@@ -1,0 +1,87 @@
+# Cross-Document Technical Audit:
+
+## 1. TRADE PACKAGE: STRUCTURAL STEEL
+**Baseline Scope:**
+- Primary structural steel frame in S355 to Execution Class 2.
+- Compliance with NSSSBC 5th Edition and NBN EN standards for design and execution.
+- High-strength bolts and welding standards per NBN EN 1090 and EN ISO 898.
+- Fabrication, erection, and tolerances per EN 1090-2.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Primary and secondary steel for cladding and parapet cappings | As per SPECS |
+| PH1 | DCH | Structural interfaces at holding down assemblies | As per SPECS |
+| PH1 | EYD | Generator trench structural steel | As per SPECS |
+| PH1 | MYD | Structural steel supports for RMUs and battery boxes | As per SPECS |
+| PH1 | SSA | Structural steel frame for Load Bank Garage | As per SPECS |
+| PH1 | USS/MCP/CTG | Cooling Tower Gantry primary steel structures | As per SPECS |
+| PH1 | Sitewide | Steel posts for security chainlink fence | As per SPECS |
+
+## 2. TRADE PACKAGE: COMPOSITE DECKING
+**Baseline Scope:**
+- Steel roof decking specified as TATA D60.
+- Galvanized S350 deck sheets to NBN EN 10346 and NBN EN 10143.
+- Installation and fastening patterns for composite/non-composite deck.
+- Shear studs to EN/BS EN ISO 13918.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Roof steel decking | As per SPECS |
+| PH1 | DCH | Steel roof decking TATA D60 | As per SPECS |
+| PH1 | SSA | SSA roof deck specified as KINGSPAN RD 100/825 | As per SPECS |
+
+## 3. TRADE PACKAGE: FIRE PROTECTION
+**Baseline Scope:**
+- Intumescent fire protection systems (Sherwin Williams FIRETEX or equivalent).
+- Systems tested to EN 13381-4 with classification per EN 13501.
+- Surface preparation to Sa 2.5 with environmental controls.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Intumescent fire protection to structural steel | As per SPECS |
+| PH1 | DCH | Intumescent fire protection for specified fire resistance | As per SPECS |
+| PH1 | EYD | Trench structural steel with factory-applied intumescent paint | As per SPECS |
+| PH1 | USS/MCP/CTG | Fire protection for Cooling Tower Gantry primary steel | As per SPECS |
+
+## 4. TRADE PACKAGE: CORROSION PROTECTION
+**Baseline Scope:**
+- Corrosion protection by painting to NBN EN ISO 12944 for C2/C4 environments.
+- Galvanizing to EN ISO 1461 with design rules per EN ISO 14713-1.
+- Surface preparation and coating application parameters.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Corrosion protection for primary steel | As per SPECS |
+| PH1 | DCH | Protective painting and galvanizing for external fabrications | As per SPECS |
+| PH1 | EYD | Corrosion protection for trench structural steel | As per SPECS |
+| PH1 | MYD | Gantry and MYD structural steel finished by shotblasting and hot-dip galvanizing | As per SPECS |
+| PH1 | SSA | Galvanized finish for SSA structural steel | As per SPECS |
+| PH1 | Sitewide | Sitewide steel bollards and security fence metal posts | As per SPECS |
+
+## 5. TRADE PACKAGE: METAL FABRICATIONS (STAIRS / RAILINGS / GRATINGS)
+**Baseline Scope:**
+- Internal and external stairs, railings, and gratings per EN ISO 14122.
+- Metal fabrication materials per EN 10025, EN 10210, and ISO standards.
+- Galvanizing and C4 finishing per EN ISO 1461 and EN ISO 12944-2.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Internal steel stair and external loading dock fencing | As per SPECS |
+| PH1 | DCH | External stairs and cat ladders to penthouse roof | As per SPECS |
+| PH1 | MYD | Cooling tower access steelwork including cat ladders and stairs | As per SPECS |
+| PH1 | SSA | Roof-edge railings and cat ladder to SSA roof | As per SPECS |
+| PH1 | USS/MCP/CTG | Steps and ramps with steel handrails for access routes | As per SPECS |
+| PH1 | Sitewide | Sitewide steel bollards and external stairs | As per SPECS |
+
+## GLOBAL INCONSISTENCIES (ESTIMATING RISK REGISTER)
+| ID | Trade Package | Issue | Risk | Estimating Action |
+|----|---------------|-------|------|-------------------|
+| 1  | Structural Steel | Potential discrepancies in bolt and welding standards across zones | Medium | Verify compliance with NBN EN standards across all zones |
+| 2  | Corrosion Protection | Variability in environmental classification (C2/C4) application | Medium | Confirm environmental classifications and adjust specifications accordingly |
+
+END_OF_REPORT

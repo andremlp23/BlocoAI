@@ -1,0 +1,111 @@
+# Cross-Document Technical Audit:
+
+## 1. TRADE PACKAGE: Structural Steel
+**Baseline Scope:**
+- Structural steel to EN 10025 Grade S355JR and EN 10210 for hollow sections.
+- Execution Class EXC2 per NBN EN 1090-2.
+- Design per NBN EN 1990/1991/1993.
+- Connections designed per NBN EN 1993-1-8 with high-strength bolted assemblies Grade 8.8 to EN 14399/EN 15048 and EN ISO 898.
+- Welders qualified to EN ISO 9606-1.
+- Execution tolerances and erection rules per EN 1090-2.
+- Shop fabrication, connection design, shop/erection drawings, QA plan, and CE marking requirements defined.
+- Holding down assemblies (H.D.A.) coordinated to structural steel baseplate requirements.
+- Embedded steel plates, angles, and inserts for fixing handrails, louvres, and AOV frames.
+- Earthing mats and pigtails, radon measures, and bitumen coatings at steel interfaces.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Structural steel frame in S355 to EXC2, including primary and secondary beams, columns, bracing, holding down assemblies. | ALIGNED |
+| PH1 | FSA–SSA Interfaces | AHU and plant foundations with holding down assemblies for future steel superstructures and flues. | ALIGNED |
+| PH1 | DCH | Primary structural steel frame in S355 to EXC2, including columns, beams, bracing. | ALIGNED |
+| PH1 | EYD | Generator trench structural steel: small structural frame with holding down bolts. | ALIGNED |
+| PH1 | MYD | Cooling Tower Gantry structural steel and densified water-cooled support steel. | ALIGNED |
+| PH1 | SSA | SSA Load Bank Garage & Fuel Polishing Building structural steel frame in S355 to EXC2. | ALIGNED |
+| PH2 | DCH | Structural steel frame fabrication and erection for Phase 2 portion of DCH. | ALIGNED |
+| PH2 | MYD | Structural steel frames supporting RMUs and battery boxes across trench. | ALIGNED |
+| PH3 | DCH | Structural steel frame extensions; foundations with holding down assemblies. | ALIGNED |
+| PH3 | EYD | EYD foundations and plinths with steel column kickers/bolts and H.D.A. for trestle structures. | ALIGNED |
+| PH3 | MYD | Densified water-cooled area structural steel supports; cooling tower gantry. | ALIGNED |
+| PH4 | DCH | Structural steel frame in S355 to EXC2; foundations/slabs with holding down assemblies. | ALIGNED |
+| PH4 | MYD | Cooling tower gantry structural steel and structural steel supports for RMUs. | ALIGNED |
+
+## 2. TRADE PACKAGE: Composite Decking
+**Baseline Scope:**
+- Deck sheets galvanized steel S350 per NBN EN 10346 and NBN EN 10143.
+- Wide rib roof deck with no stiffening ribs on top surface.
+- Installation with specified bearing, laps, closures, and puddle weld or mechanical fastening spacings.
+- Headed shear studs to EN ISO 13918 welded through deck to primary steel.
+- Prohibition on unapproved openings and burning.
+- Alternative mechanical fasteners allowed with diaphragm design calculations.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Steel roof decking over primary steel, forming substrate for composite roof build-up. | ALIGNED |
+| PH1 | DCH | Steel roof decking over DCH primary steel frames; roof system comprising composite roof panel. | ALIGNED |
+| PH2 | DCH | Steel roof decking serving as substrate for Phase 2 roof expansions. | ALIGNED |
+| PH3 | DCH | Steel decking for PH3 with composite roof system and supporting roof walkways. | ALIGNED |
+| PH4 | DCH | Steel roof decking supporting composite roof panel, parapet upstands, walkways. | ALIGNED |
+
+## 3. TRADE PACKAGE: Fire Protection
+**Baseline Scope:**
+- Reactive intumescent systems to EN 16623, EN 13381-4, and EN 13501.
+- Design to required fire resistance by section size and DFT tables.
+- Application to blast-cleaned steel (Sa 2½) with compatible primers/topcoats.
+- Detailed DFT measurement, curing, and QA rules.
+- ASFP Yellow Book and TGD 11 installation practice.
+- Separate execution and inspection rules for intumescent fireproofing.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Intumescent fire protection to all FSA structural steel with 2-hour fire rating. | ALIGNED |
+| PH1 | DCH | Intumescent fire protection to DCH Phase 1 structural steel with 2-hour rating. | ALIGNED |
+| PH2 | DCH | Intumescent fire protection to DCH PH2 structural steel with 1-hour rating. | ALIGNED |
+| PH3 | DCH | Intumescent fire protection with 1-hour rating to structural steel. | ALIGNED |
+| PH4 | DCH | Intumescent fire protection with 1-hour rating to PH4 structural steel. | ALIGNED |
+
+## 4. TRADE PACKAGE: Corrosion Protection
+**Baseline Scope:**
+- Corrosion protection per NBN EN ISO 12944 (C2 internal, C4 external) and ISO 9223.
+- Shop grey rust-inhibitive primers and inorganic zinc-rich primers for external members.
+- Blast cleaning to Sa 2½ with roughness and dust control.
+- DFT control per EN ISO 2808.
+- Reflective light-coloured finish for external steel to NBN EN 1991-1-5.
+- Detailed rules for shop painting, touch-up after erection, and compatibility with intumescent coatings.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Internal primary frame generally C2; external steel interfaces and roof/access items subject to atmospheric exposure. | ALIGNED |
+| PH1 | DCH | External stairs, bollards, roof parapet walkways, and roof access steel exposed to weather. | ALIGNED |
+| PH1 | MYD | Gantry structural steel with galvanizing and surface touch-up after erection. | ALIGNED |
+| PH2 | DCH | External secondary steel and roof access steel subject to weather. | ALIGNED |
+| PH3 | DCH | External steel elements (stairs, secondary steel, louvre supports) exposed to weather. | ALIGNED |
+| PH4 | DCH | External secondary steel and miscellaneous steel (stairs, ladders, parapet stairs, bollards) exposed to weather. | ALIGNED |
+
+## 5. TRADE PACKAGE: Metal Fabrications
+**Baseline Scope:**
+- Miscellaneous metal fabrications per EN 10025/EN 10210/ISO 4200/EN 10088/ISO 10799.
+- Bar gratings to NAAMM MBG 531/532.
+- Ladders, stairs, handrails, and guards detailed to EN ISO 14122-1 to -4 with geometric and load requirements.
+- Detailed fabrication tolerances, welding quality, slip resistance, and installation tolerances.
+- Stair/rail load and deflection criteria specified.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Internal stair; loading dock fencing and handrails; crash protection to services. | ALIGNED |
+| PH1 | DCH | External stair from ground to roof, cat ladders and balustrades between DCH and FSA roofs. | ALIGNED |
+| PH2 | DCH | Cat ladders, balustrades, bollards, parapet stairs, and small roof stairs. | ALIGNED |
+| PH3 | DCH | External stairs, bollards, parapet over-stairs, and small stairs over roof. | ALIGNED |
+| PH4 | DCH | Cat ladder and balustrade to penthouse roof; bollards; stairs over roof parapets and small roof stairs. | ALIGNED |
+
+## GLOBAL INCONSISTENCIES (ESTIMATING RISK REGISTER)
+| ID | Trade Package | Issue | Risk | Estimating Action |
+|----|---------------|-------|------|-------------------|
+| 1 | Structural Steel | RSA fence posts and gates are present in the BOQ but have no explicit dedicated baseline in the provided specs for fencing systems. | Medium | Review and define specific material and execution standards for RSA fence posts and gates. |
+| 2 | Metal Fabrications | Several EYD and CSA-wide subzone items reference only embedded steel, holding down assemblies, and future steel interfaces without matching detailed metal fabrication categories. | Medium | Ensure detailed metal fabrication specifications are aligned with BOQ items for comprehensive coverage. |
+
+END_OF_REPORT

@@ -1,0 +1,161 @@
+# Cross-Document Technical Audit:
+
+## 1. TRADE PACKAGE: STRUCTURAL STEEL
+**Baseline Scope:**
+- Structural steel to Execution Class 2 (EXC2) per NBN EN 1090-2.
+- Steel sections generally S355JR to NBN EN 10025; hollow sections to NBN EN 10210.
+- Connection design per NBN EN 1993 and NBN EN 1991 robustness.
+- High-strength bolts grade 8.8 per EN ISO 898 and NBN EN 14399/15048.
+- Welding per EN 1011, NBN EN ISO 9606-1, NBN EN ISO 14732, and NBN EN 1993-1-8 Group 5.
+- Execution tolerances per EN 1090; detailing and execution rules for connections, erection, temporary works, and tolerances.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Primary structural steel frame including beams, columns, bracing, and internal stair | ALIGNED |
+| PH1 | DCH | Multi-phase structural steel frames with bracing and connections | ALIGNED |
+| PH1 | MYD | Cooling Tower Gantry structural steel and supports for RMUs and Battery Boxes | ALIGNED |
+| PH1 | S02-A1200 | AHU foundations and isolated footings/ground beams | ALIGNED |
+| PH1 | S02-A7100 | Structural steel for generator trench and USS trench | ALIGNED |
+| PH1 | S02-A7200 | Structural steel supports for RMUs and Battery Boxes | ALIGNED |
+| PH1 | S03-A2000 | Primary structural steel for FSA and DCH buildings | ALIGNED |
+| PH1 | S04-A2100 | Secondary steel to support wall panels and roof liners | ALIGNED |
+| PH1 | S04-A2200 | Safety fabrications supports for assembled stairs | ALIGNED |
+| PH2 | DCH | DCH Phase 2 structural steel frame | ALIGNED |
+| PH2 | MYD | MYD Cooling Tower Gantry structural steel | ALIGNED |
+| PH2 | S02-A7200 | Continuation of RMU/Battery Box supports and Cooling Tower Gantry | ALIGNED |
+| PH2 | S03-A2000 | DCH Phase 2 primary structural steel | ALIGNED |
+| PH2 | S04-A2100 | Secondary steel supporting DCH Phase 2 cladding | ALIGNED |
+| PH3 | DCH | DCH Phase 3 structural steel frame | ALIGNED |
+| PH3 | MYD | Cooling Tower Gantry Phase 3 structural steel | ALIGNED |
+| PH3 | EYD | Installation of steel column kickers and bolts | ALIGNED |
+| PH3 | S02-A7200 | Cooling Tower Gantry Phase 3 structural steel | ALIGNED |
+| PH3 | S03-A2000 | DCH Phase 3 primary structural steel | ALIGNED |
+| PH3 | S04-A2100 | Secondary steel to support Phase 3 cladding | ALIGNED |
+| PH4 | DCH | DCH Phase 4 structural steel frame | ALIGNED |
+| PH4 | MYD | Cooling Tower Gantry Phase 4 structural steel | ALIGNED |
+| PH4 | S02-A7200 | Cooling Tower Gantry Phase 4 structural steel | ALIGNED |
+| PH4 | S03-A2000 | DCH Phase 4 primary structural steel | ALIGNED |
+| PH4 | S04-A2100 | Secondary steel supporting Phase 4 cladding | ALIGNED |
+
+## 2. TRADE PACKAGE: COMPOSITE DECKING
+**Baseline Scope:**
+- Cold-formed deck steel grade S350 to NBN EN 10346 / NBN EN 10143.
+- Deck to be wide rib units without stiffening ribs in top surface.
+- Detailed rules for steel deck installation, bearing, laps, cutting, openings, closures, weld and mechanical fixing patterns.
+- Composite vs non-composite anchorage, shear stud welding through deck per SCI/BCSA guidance and EN ISO 13918.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Steel roof decking using TATA D60 profiles | ALIGNED |
+| PH1 | DCH | TATA D60 steel roof decking for each phase | ALIGNED |
+| PH1 | SSA | Roof deck over SSA structures | ALIGNED |
+| PH1 | S05-A2000 | TATA D60 structural roof decking | ALIGNED |
+| PH2 | DCH | TATA D60 steel roof decking for Phase 2 | ALIGNED |
+| PH2 | S05-A2000 | Roof decking and composite roof build-up for DCH Phase 2 | ALIGNED |
+| PH3 | DCH | TATA D60 steel roof decking for Phase 3 | ALIGNED |
+| PH3 | S05-A2000 | Roof decking and composite roof systems for DCH Phase 3 | ALIGNED |
+| PH4 | DCH | TATA D60 steel roof decking for Phase 4 | ALIGNED |
+| PH4 | S05-A2000 | Roof decking and roof completions to DCH Phase 4 | ALIGNED |
+
+## 3. TRADE PACKAGE: FIRE PROTECTION
+**Baseline Scope:**
+- Intumescent systems (Sherwin Williams FIRETEX FX2003/FX6002 with C69 primer and M71V2 sealer) to EN 16623, EN 13381-4, EN 13501 and ASFP Yellow Book/TGD 11.
+- Compatibility with primers per EN ISO 12944-5.
+- Defined DFT regimes and QC including wet film and dry film thickness checks, acceptance criteria, environmental and curing controls.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | 2-hour intumescent paint to structural steel | ALIGNED |
+| PH1 | DCH | Intumescent paint to structural steel: 1-hour for PH2–PH4 | ALIGNED |
+| PH1 | MYD | Reference to “galvanizing and intumescent where specified” | MISSING BASELINE |
+| PH1 | S02-A7100 | Factory-applied intumescent paint providing 60 minutes | ALIGNED |
+| PH1 | S03-A2000 | Intumescent paint to FSA (2h) and DCH (1h) | ALIGNED |
+| PH1 | S04-A2100 | Cladding and wall systems interfacing with fire-protected frames | ALIGNED |
+| PH1 | SSA | No explicit intumescent protection listed | MISSING BASELINE |
+| PH2 | DCH | 1-hour intumescent paint to Phase 2 structural steel | ALIGNED |
+| PH2 | S03-A2000 | Intumescent paint to DCH Phase 2 | ALIGNED |
+| PH3 | DCH | 1-hour intumescent paint to Phase 3 structural steel | ALIGNED |
+| PH3 | S03-A2000 | 1-hour intumescent paint to DCH Phase 3 | ALIGNED |
+| PH4 | DCH | 1-hour intumescent paint to Phase 4 structural steel | ALIGNED |
+| PH4 | S03-A2000 | 1-hour intumescent paint for DCH Phase 4 | ALIGNED |
+
+## 4. TRADE PACKAGE: CORROSION PROTECTION
+**Baseline Scope:**
+- General corrosion protection painting for structural steel to NBN EN ISO 12944 (C2/C4) with Sa 2.5 preparation per EN ISO 8501-1 and surface profile per EN ISO 8503.
+- External members to receive inorganic zinc-rich primer for C4.
+- Metal fabrications painting and corrosion system for C4 external per EN ISO 12944-2/ISO 9223.
+- Galvanizing to EN ISO 1461/14713 where required.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Roof railings and external metalwork exposed externally | ALIGNED |
+| PH1 | DCH | External access and safety steel exposed to weather | ALIGNED |
+| PH1 | MYD | Gantry and RMU/Battery Box support steel shotblasted and hot-dip galvanized | ALIGNED |
+| PH1 | S02-A7100 | Corrosion protection paint suitable for C2 environment | ALIGNED |
+| PH1 | S02-A7200 | Shotblast and galvanizing of all gantry and RMU/Battery Box support steel | ALIGNED |
+| PH1 | S03-A2000 | External steel elements including crash barriers, bollards | MISSING BASELINE |
+| PH1 | S04-A2100 | External secondary steel for walls, canopies, cat ladders | ALIGNED |
+| PH1 | SSA | Galvanizing of SSA structural steel elements | ALIGNED |
+| PH2 | DCH | External steelwork and metalwork exposed to weather | ALIGNED |
+| PH2 | MYD | Gantry and support steel galvanized | ALIGNED |
+| PH2 | S02-A7200 | Shotblast and galvanizing to EN ISO 1461 | ALIGNED |
+| PH3 | DCH | External stair and bollards exposed to weather | ALIGNED |
+| PH3 | MYD | Steel to be galvanized per EN ISO 1461 | ALIGNED |
+| PH3 | S02-A7200 | Galvanized gantry and support steel | ALIGNED |
+| PH4 | DCH | External access steel and bollards exposed to weather | ALIGNED |
+| PH4 | MYD | Gantry Phase 4 steel fully galvanized | ALIGNED |
+| PH4 | S02-A7200 | Fully galvanized gantry steel | ALIGNED |
+
+## 5. TRADE PACKAGE: METAL FABRICATIONS (STAIRS / RAILINGS / GRATINGS)
+**Baseline Scope:**
+- Metal fabrications and stair/handrail steel to EN 10025, EN 10210, ISO 4200, ISO 10799, ISO 4995, and ISO 4997.
+- Fabrication and installation rules for metal stairs, ramps, handrails, guards, and fixed ladders.
+- EN ISO 14122 for permanent access systems.
+- Gratings to NAAMM MBG 531/532; detailed ladder geometry and support rules.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Internal structural steel stair; external metalwork at loading dock | ALIGNED |
+| PH1 | DCH | External structural stair from ground to roof and roof access stairs | ALIGNED |
+| PH1 | MYD | Gantry emergency stairs, cooling tower stairs, cat ladders | ALIGNED |
+| PH1 | S01-A0201 | Installation of steel bollards at fencing and site development boundaries | ALIGNED |
+| PH1 | S02-A1200 | Steps and ramps including handrails for modular structures | ALIGNED |
+| PH1 | S02-A7200 | Cat ladders, gantry emergency stairs, cooling tower stairs | ALIGNED |
+| PH1 | S03-A2000 | Internal and external stairs, cat ladders, balustrades | ALIGNED |
+| PH1 | S04-A2100 | Cat ladders and associated steel penetrations through cladding | ALIGNED |
+| PH1 | S04-A2200 | Safety supports associated with structural steel stairs | ALIGNED |
+| PH1 | S05-A2000 | Roof walkways and associated flashings and upstands | ALIGNED |
+| PH1 | SSA | Railings at SSA roof; roof deck access cat ladders | ALIGNED |
+| PH2 | DCH | External steelwork including cat ladders, small roof stairs | ALIGNED |
+| PH2 | MYD | Ancillary access steel including cat ladders, stairs, railings | ALIGNED |
+| PH2 | S02-A1200 | Steps and ramps including handrails for modular structures | ALIGNED |
+| PH2 | S02-A7200 | Access steel items including stairs, ladders, railings | ALIGNED |
+| PH2 | S03-A2000 | Miscellaneous metalwork including stairs and cat ladders | ALIGNED |
+| PH2 | S04-A2200 | Safety fabrications supports for assembled stairs | ALIGNED |
+| PH3 | DCH | External stair from ground to roof and additional external metalwork | ALIGNED |
+| PH3 | MYD | Access stairs, cat ladders, bumpers, gratings | ALIGNED |
+| PH3 | S01-A0201 | Continuation and extension of steel bollards | ALIGNED |
+| PH3 | S02-A1200 | Steps and ramps with handrails for modular structures | ALIGNED |
+| PH3 | S02-A7200 | Steps and ramps with handrails for MCP and USS platforms | ALIGNED |
+| PH3 | S03-A2000 | External stair and other miscellaneous steel items | ALIGNED |
+| PH3 | S04-A2100 | Cat ladders and associated penetrations through cladding | ALIGNED |
+| PH3 | S04-A2200 | Safety fabrications supports for assembled stairs | ALIGNED |
+| PH4 | DCH | Cat ladders, roof parapet stairs and small roof stairs | ALIGNED |
+| PH4 | MYD | Gantry access stairs, cat ladders, railings | ALIGNED |
+| PH4 | S02-A1200 | Steps and ramps including handrails for modular structures | ALIGNED |
+| PH4 | S02-A7200 | Steps and ramps including handrails for MCP and USS structures | ALIGNED |
+| PH4 | S04-A2200 | Safety fabrications supports for assembled stairs | ALIGNED |
+
+## GLOBAL INCONSISTENCIES (ESTIMATING RISK REGISTER)
+| ID | Trade Package | Issue | Risk | Estimating Action |
+|----|---------------|-------|------|-------------------|
+| 1  | Fire Protection | MYD gantry and associated steel indicate “galvanizing and intumescent where specified” but no explicit fire design or rating is given in BOQ | High | Clarify fire protection requirements for MYD gantry steel |
+| 2  | Corrosion Protection | S03-A2000 BOQ includes wide-ranging external miscellaneous steel without explicit corrosion-class or coating system definitions | Medium | Define corrosion protection systems for S03-A2000 external steel |
+| 3  | Fire Protection | SSA BOQ specifies galvanizing for SSA structural steel but gives no explicit statement on intumescent fire protection | Medium | Confirm intumescent fire protection requirements for SSA structural steel |
+
+END_OF_REPORT

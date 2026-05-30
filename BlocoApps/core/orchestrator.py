@@ -103,6 +103,7 @@ def processar_extracao_contextos(
     debug_mode: bool = False,
     pre_loaded_specs_json: str = None,
     pre_loaded_boq_json: str = None,
+    contexto_projeto: dict = None,
 ) -> None:
     """
     Passo 1:
@@ -200,6 +201,7 @@ def processar_extracao_contextos(
 
             "n_ficheiros": n_ficheiros,
             "paginas_sem_texto": todas_paginas_sem_texto,
+            "contexto_projeto": contexto_projeto if isinstance(contexto_projeto, dict) else {},
 
             "_api_key": api_key_final,
             "_prog_slot": prog_slot,

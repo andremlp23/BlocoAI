@@ -1,5 +1,6 @@
 import os
 import sys
+import json
 from pathlib import Path
 
 # 1. Encontrar a pasta raiz do projeto (BlocoApps), onde vivem as pastas "core" e "ui"
@@ -68,13 +69,71 @@ def main() -> None:
     grafo_extracao = construir_grafo_extracao()
     grafo_auditoria = construir_grafo_auditoria()
 
-    # STEP 1: Upload de documentos
+    # STEP 1: JSON Baseline opcional (acima dos documentos)
+    exemplo_json = {
+        "project_name": "Nome do Teu Projeto Aqui (ex: Data Center X)",
+        "project_scope_rules": {
+            "valid_phases": ["Phase 1", "Phase 2"],
+            "valid_zones": ["ZON", "ABC", "XYZ"],
+            "expected_trade_packages": {
+                "structural_steel": True,
+                "composite_decking": True,
+                "fire_protection": True,
+                "corrosion_protection": True,
+                "metal_fabrications": False,
+            },
+            "strict_exclusions": [
+                "concrete",
+                "rebar",
+                "waterproofing for concrete",
+                "civil works",
+                "architectural finishes",
+            ],
+        },
+    }
+    exemplo_json_str = json.dumps(exemplo_json, ensure_ascii=False, indent=2)
+
+    st.markdown("""
+    <div class="section-card">
+        <div class="section-title">⚙️ (Opcional) Project Baseline JSON</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    contexto_raw = ""
+    tab_upload, tab_cola = st.tabs(["📤 Upload Ficheiro", "📋 Colar JSON"])
+
+    with tab_upload:
+        file_json = st.file_uploader(
+            "Seleciona um ficheiro JSON",
+            type=["json"],
+            key="json_baseline",
+            label_visibility="collapsed",
+        )
+        if file_json:
+            try:
+                contexto_raw = file_json.read().decode("utf-8")
+                json.loads(contexto_raw)  # validar que é JSON válido
+                st.success("✓ Ficheiro JSON carregado com sucesso!")
+            except Exception as e:
+                st.error(f"Erro ao ler ficheiro JSON: {e}")
+                contexto_raw = ""
+
+    with tab_cola:
+        contexto_raw = st.text_area(
+            "JSON",
+            value=exemplo_json_str,
+            height=250,
+            help="Cola aqui o teu JSON de contexto do projeto.",
+            label_visibility="collapsed",
+        )
+
+    # STEP 2: Upload de documentos
     file_boq, files_specs = render_upload_section()
     
-    # STEP 2: Instruções de filtragem
+    # STEP 3: Instruções de filtragem
     guia_input = render_focus_section()
 
-    # STEP 3: Gerar contextos
+    # STEP 4: Gerar contextos
     gerar_contextos = render_start_section(api_key_final, file_boq, files_specs)
 
     if gerar_contextos:
@@ -83,6 +142,14 @@ def main() -> None:
         elif not file_boq and not files_specs:
             st.warning("Carrega pelo menos um documento para prosseguir.")
         else:
+            contexto_projeto = {}
+            if contexto_raw.strip():
+                try:
+                    contexto_projeto = json.loads(contexto_raw)
+                except json.JSONDecodeError:
+                    st.error("❌ JSON inválido fornecido. Verifica a sintaxe e tenta novamente.")
+                    st.stop()
+
             def pipeline_callback(state: list) -> None:
                 pass
 
@@ -95,6 +162,7 @@ def main() -> None:
                 app_file=Path(__file__),
                 pipeline_callback=pipeline_callback,
                 debug_mode=debug_mode,
+                contexto_projeto=contexto_projeto,
             )
             
             # STEP 4: Auditoria automática em sequência após gerar contextos

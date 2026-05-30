@@ -1,0 +1,60 @@
+# Cross-Document Technical Audit:
+
+## 1. TRADE PACKAGE: STRUCTURAL STEEL
+**Baseline Scope:**
+- Execution classes as per project specifications.
+- Welding and bolting standards to be adhered to.
+- Compliance with structural steel grades and standards.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone  | Scope Description | Deviation / Note |
+|-------|-------|-------------------|------------------|
+| Phase 1 | AGT-02 | Structural steel specifications | STATUS: MISSING BASELINE |
+
+## 2. TRADE PACKAGE: COMPOSITE DECKING
+**Baseline Scope:**
+- Decking specifications as per project requirements.
+- Compliance with technical requirements for composite decking.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone  | Scope Description | Deviation / Note |
+|-------|-------|-------------------|------------------|
+| Phase 1 | AGT-02 | Composite decking specifications | STATUS: MISSING BASELINE |
+
+## 3. TRADE PACKAGE: FIRE PROTECTION
+**Baseline Scope:**
+- Intumescent systems as specified.
+- Fire ratings compliance.
+- Adherence to related fire protection standards.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone  | Scope Description | Deviation / Note |
+|-------|-------|-------------------|------------------|
+| Phase 1 | AGT-02 | Fire protection specifications | STATUS: MISSING BASELINE |
+
+## 4. TRADE PACKAGE: CORROSION PROTECTION
+**Baseline Scope:**
+- Corrosion protection systems as per ISO 12944 series.
+- Compliance with specified corrosion protection standards.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone  | Scope Description | Deviation / Note |
+|-------|-------|-------------------|------------------|
+| Phase 1 | AGT-02 | Corrosion protection specifications | STATUS: MISSING BASELINE |
+
+## 5. TRADE PACKAGE: METAL FABRICATIONS (STAIRS / RAILINGS / GRATINGS)
+**Baseline Scope:**
+- Specifications for stairs, railings, and gratings.
+- Compliance with miscellaneous metalwork requirements.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone  | Scope Description | Deviation / Note |
+|-------|-------|-------------------|------------------|
+| Phase 1 | AGT-02 | Metal fabrications specifications | STATUS: MISSING BASELINE |
+
+## GLOBAL INCONSISTENCIES (ESTIMATING RISK REGISTER)
+| ID | Trade Package | Issue | Risk | Estimating Action |
+|----|---------------|-------|------|-------------------|
+| 1  | All Trades    | BOQ data unavailable for Phase 1 / Zone AGT-02 | High | Investigate and resolve JSON failure to retrieve BOQ data. |
+
+END_OF_REPORT
