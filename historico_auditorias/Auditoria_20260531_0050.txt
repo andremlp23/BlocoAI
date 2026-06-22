@@ -1,0 +1,88 @@
+# Cross-Document Technical Audit:
+
+## 1. TRADE PACKAGE: Structural Steel
+**Baseline Scope:**
+- Structural steel hot rolled sections to NBN EN 10025 Grade S355JR; hollow sections to NBN EN 10210 Grade S355JR.
+- Execution to NBN EN 1090 / EN 1090‑2 Execution Class 2 (EXC2).
+- Structural design to NBN EN 1990 / NBN EN 1991 / NBN EN 1993.
+- Connections, fabrication and erection rules, including bolting to EN 15048 / EN 14399 and welding to EN 1011 and EN ISO 9606‑1.
+- Secondary steel for cladding and roof interfaces.
+- Anchor bolts and post-installed anchors to EN 15048.
+- QA/QC and submittals including shop drawings, connection calculations, quality plans, mill certificates and accreditation for EXC2.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Structural steel hot rolled sections to NBN EN 10025 Grade S355JR; hollow sections to NBN EN 10210 Grade S355JR. | None |
+| PH1 | DCH | Structural framing per NBN EN 1990 / 1991 / 1993 and EN 1090‑2 EXC2. | None |
+| PH1 | EYD | Structural steel for generator trench and USS trench. | None |
+| PH1 | MYD | Cooling Tower Gantry structural steel Shell A with associated supports. | None |
+| PH1 | SSA | SSA Load Bank Garage and Fuel Polishing Building structural steel frame (Shell A) to EXC2 S355. | None |
+| PH1 | RSA | Metal posts to support 3 m high chainlink security fence and gates. | None |
+
+## 2. TRADE PACKAGE: Composite Decking
+**Baseline Scope:**
+- Cold‑formed steel deck sheets from galvanized steel to NBN EN 10346 and EN 10143, Grade S350.
+- Wide‑rib roof deck without stiffening ribs.
+- Detailed deck installation and fastening requirements (bearing lengths, laps, puddle welds/screws, openings).
+- Shear stud welding rules for studs through deck where composite.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Cold‑formed steel deck sheets from galvanized steel to NBN EN 10346 and EN 10143, Grade S350. | None |
+| PH1 | DCH | Cold‑formed steel deck sheets to EN 10346 / EN 10143 Grade S350. | None |
+| PH1 | SSA | SSA roof deck specified as a single‑span wide‑rib profile (e.g. Kingspan RD 100/825). | None |
+
+## 3. TRADE PACKAGE: Fire Protection
+**Baseline Scope:**
+- Intumescent fire protection systems (Sherwin Williams FIRETEX FX2003 / FX6002) with defined primers, basecoats and topcoats.
+- Application and QA per EN 16623, EN 13381‑4, EN 13501 and ASFP Yellow Book / TGD11.
+- Dry film thickness (DFT) tables correlated to 1‑hour and 2‑hour fire resistance.
+- Internal baseline C1 environment with allowance for higher classes by adjustment.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Intumescent fire protection systems (Sherwin Williams FIRETEX FX2003 / FX6002). | None |
+| PH1 | DCH | Intumescent systems (FIRETEX FX2003 / FX6002) with defined build‑up, DFT control and QA. | None |
+| PH1 | EYD | 60‑minute intumescent coating to generator and USS trench steels. | None |
+
+## 4. TRADE PACKAGE: Corrosion Protection
+**Baseline Scope:**
+- Corrosion protection based on EN ISO 12944 with internal C2 and external C4 classes.
+- Primers and paints including inorganic zinc‑rich primers for external steel; shop painting schedule.
+- Galvanizing to EN ISO 1461 and EN ISO 14713‑1 where required.
+- External handrails, stairs and ramps pre‑finished to C4 per EN ISO 12944‑2 and ISO 9223.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Corrosion protection based on EN ISO 12944 with internal C2 and external C4 classes. | None |
+| PH1 | DCH | Internal C2 and external C4 protection strategy to EN ISO 12944. | None |
+| PH1 | MYD | Galvanizing of structural steel and fabrications per EN ISO 1461 and EN ISO 14713‑1. | None |
+
+## 5. TRADE PACKAGE: Metal Fabrications
+**Baseline Scope:**
+- Miscellaneous internal stair; external cat ladder and balustrade to penthouse; loading dock fencing and handrails; crash protection and bollards; hop‑over steps; roof walkways and lightning protection interfaces.
+- Detailed requirements for metal fabrications, ladders, barrier rails, roof opening framing and guards (material standards, fabrication, galvanizing).
+- Metal stairs and ramps with closed risers, checker plate or grating treads, stringers, landings and bolted/removable assemblies.
+- Stair and ladder guards and handrails with dimensional and loading criteria; galvanizing for external units.
+- Gratings for platforms and stairs to NAAMM MBG 531 / 532 with minimum bearing bar depths.
+- Permanent access systems to EN ISO 14122 series.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Miscellaneous internal stair; external cat ladder and balustrade to penthouse. | None |
+| PH1 | DCH | External stair; cat ladders including FSA‑to‑DCH roof and ground‑to‑roof ladders. | None |
+| PH1 | MYD | Emergency stairs and cat ladders on cooling tower gantries. | None |
+
+## GLOBAL INCONSISTENCIES (ESTIMATING RISK REGISTER)
+| ID | Trade Package | Issue | Risk | Estimating Action |
+|----|---------------|-------|------|-------------------|
+| 1 | Metal Fabrications | RSA PH1 fence posts lack explicit baseline cross-reference to global metal fabrications scope. | Medium | Clarify scope alignment with global metal fabrications. |
+| 2 | Corrosion Protection | Several zones lack explicit corrosion protection descriptions in BOQ text for all external steel. | High | Ensure all external steel is covered by EN ISO 12944 C4-class systems and/or galvanizing. |
+| 3 | Fire Protection | Fire protection not mentioned for MYD gantry steels and SSA primary frame. | High | Confirm fire protection requirements for these areas to avoid unprotected steel. |
+
+END_OF_REPORT

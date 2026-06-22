@@ -1,0 +1,73 @@
+# Cross-Document Technical Audit:
+
+## 1. TRADE PACKAGE: STRUCTURAL STEEL
+**Baseline Scope:**
+- Design and materials governed by NBN EN 1990, NBN EN 1991, NBN EN 1993, NBN EN 1090, and NBN EN 1090-2 (Execution Class EXC2).
+- Structural steel members generally S355JR; connections per NBN EN 1993.
+- Shear stud connectors per EN ISO 13918; bolted fasteners per NBN EN 1090 and EN ISO 898.
+- Welding governed by NBN EN 1090 and EN 1011; welders qualified per NBN EN ISO 9606-1.
+- Fabrication under EXC2; shop fabrication maximized; field connections normally bolted.
+- Erection tolerances per EN 1090; no gas cutting for corrections without approval.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| Phase 1 | AGT-02 | No valid BOQ data available | MISSING BASELINE |
+
+## 2. TRADE PACKAGE: COMPOSITE DECKING
+**Baseline Scope:**
+- Deck material: S350 galvanized steel sheet per NBN EN 10346.
+- Shear studs for composite action per EN ISO 13918.
+- Installation per manufacturer recommendations; minimum bearing on supports 50 mm.
+- Fastening: deck anchored with puddle welds; alternative mechanical fastening systems permitted.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| Phase 1 | AGT-02 | No valid BOQ data available | MISSING BASELINE |
+
+## 3. TRADE PACKAGE: FIRE PROTECTION
+**Baseline Scope:**
+- Reference standards: EN 16623, EN 13381, EN 13501, ASFP Yellow Book.
+- Intumescent systems: Sherwin Williams FIRETEX FX2003 and FX6002.
+- Surface preparation: blast cleaning to Sa 2½; priming with compatible primer.
+- Application: factory-mixed, spray-applied; maintain suitable ambient conditions.
+- Performance: systems to achieve specified fire resistance ratings.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| Phase 1 | AGT-02 | No valid BOQ data available | MISSING BASELINE |
+
+## 4. TRADE PACKAGE: CORROSION PROTECTION
+**Baseline Scope:**
+- General references: EN ISO 12944, EN ISO 2808, EN ISO 1461.
+- Surface preparation: blast cleaning to Sa 2½; painting to structural steel per NBN EN ISO 12944.
+- Shop painting: apply shop coat within four hours after cleaning.
+- Hot-dip galvanizing: to EN ISO 1461; design to minimize distortion.
+- Finishes for metal fabrications: prime paint all items except where galvanizing indicated.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| Phase 1 | AGT-02 | No valid BOQ data available | MISSING BASELINE |
+
+## 5. TRADE PACKAGE: METAL FABRICATIONS (STAIRS / RAILINGS / GRATINGS)
+**Baseline Scope:**
+- Reference standards: EN ISO 14122, EN 516, EN ISO 898, EN ISO 1461.
+- Materials: steel sections per EN 10025; hollow sections per EN 10210.
+- Stairs, ramps, handrails, and guards: structural members to EN 10025; gratings to NAAMM MBG 531/532.
+- Fabrication quality: "Commercial" jointing; exposed welds ground smooth.
+- Installation: assemblies installed plumb, level, and free of distortion.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| Phase 1 | AGT-02 | No valid BOQ data available | MISSING BASELINE |
+
+## GLOBAL INCONSISTENCIES (ESTIMATING RISK REGISTER)
+| ID | Trade Package | Issue | Risk | Estimating Action |
+|----|---------------|-------|------|-------------------|
+| 1  | All Trades    | BOQ technical content is entirely missing/invalid | High | Verify BOQ data and ensure alignment with baseline specifications |
+
+END_OF_REPORT

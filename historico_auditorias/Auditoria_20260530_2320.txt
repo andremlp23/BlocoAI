@@ -1,0 +1,111 @@
+# Cross-Document Technical Audit:
+
+## 1. TRADE PACKAGE: STRUCTURAL STEEL
+**Baseline Scope:**
+- Structural steel members to S355JR to NBN EN 10025 / EN 10210.
+- Execution to NBN EN 1090 / 1090-2, EXC2.
+- Anchor bolts and post-installed anchors to NBN EN 15048.
+- High-strength bolts Grade 8.8 to EN ISO 898 with bolt assemblies to NBN EN 14399 / 15048.
+- Full connection design and detailing rules to NBN EN 1993.
+- Erection rules including survey and verification of anchor bolts, erection tolerances, and prohibition of flame-enlarged holes.
+- Galvanizing design and execution to EN ISO 1461 / 14713.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Structural steel members | None |
+| PH1 | DCH | Comprehensive rules for connection design and temporary works | None |
+| PH1 | MYD | Sequencing, storage, and handling requirements for large steel fabrications | None |
+| PH1 | EYD | Erection requirements for verifying and correcting anchor rod positions | None |
+| PH1 | SSA | Erection and tolerance rules for small structural steel buildings | None |
+| PH1 | CSA-RSA | General fabrication tolerances and anchorage device requirements | None |
+| PH1 | CSA-SSA | Project-wide erection, tolerance, connection, and QA requirements | None |
+| PH2 | DCH | Baseplate grout specified as non-shrink, non-metallic | None |
+| PH2 | MYD | Erection and connection rules applicable to gantry and trench support frames | None |
+| PH3 | DCH | Comprehensive connection design and erection/temporary works provisions | None |
+| PH3 | MYD | Erection and connection provisions applicable to gantries and trench frames | None |
+| PH3 | EYD | Erection rules for verifying correct position, alignment, and elevation | None |
+| PH4 | DCH | Full connection, erection, and temporary works requirements | None |
+| PH4 | MYD | Erection and connection rules applying to final gantry bays | None |
+
+## 2. TRADE PACKAGE: COMPOSITE DECKING
+**Baseline Scope:**
+- Steel deck sheets in galvanized S350 to NBN EN 10346 / EN 10143.
+- Installation and fixing rules for composite and non-composite deck including bearing lengths, end laps, openings, closures, and fixing patterns.
+- Shear studs to EN ISO 13918 welded through deck where composite.
+- SCI/BCSA decking practice and powder-actuated fastening safety provisions.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Installation and fixing rules for composite and non-composite deck | None |
+| PH1 | DCH | Full installation and fixing rules for composite and non-composite decks | None |
+| PH1 | SSA | Use of mechanical or welded fixing systems subject to structural confirmation | None |
+| PH2 | DCH | Composite deck fastening and side-lap rules | None |
+| PH3 | DCH | Composite fastening and shear stud welding | None |
+| PH4 | DCH | Fastening schedules, permitted openings, and closures | None |
+
+## 3. TRADE PACKAGE: FIRE PROTECTION
+**Baseline Scope:**
+- Intumescent systems Sherwin Williams FIRETEX FX2003 / FX6002 with C69 primer and M71V2 topcoat.
+- Testing and classification to EN 13381-4, EN 16623, EN 13501, and ASFP Yellow Book / TGD 11.
+- Detailed dry film thickness (DFT) requirements with measurement protocols.
+- Application, DFT control, and acceptance rules with QA/QC and installer qualification requirements.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Intumescent systems with detailed DFT requirements | None |
+| PH1 | DCH | Detailed system build-up with DFT determination versus section factor | None |
+| PH1 | MYD | Project-wide intumescent systems defined but not mandated for galvanized MYD gantries | None |
+| PH1 | EYD | Application, DFT control, and acceptance rules | None |
+| PH2 | DCH | Strict DFT measurement, acceptance criteria, and QA requirements | None |
+| PH3 | DCH | Intumescent systems providing 1-hour ratings | None |
+| PH4 | DCH | 1-hour and higher ratings, supported by DFT tables and acceptance rules | None |
+
+## 4. TRADE PACKAGE: CORROSION PROTECTION
+**Baseline Scope:**
+- Corrosion protection by painting to NBN EN ISO 12944 for C2 internal and C4 external environments.
+- Blast cleaning to Sa 2.5 to EN ISO 8501-1 and surface profile requirements to EN ISO 8503.
+- Galvanizing to EN ISO 1461 / 14713 where applicable.
+- Shop painting rules for C2/C4 systems including zinc-rich primers for external steel.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Corrosion protection by painting for C2/C4 environments | None |
+| PH1 | DCH | Shop painting regimes including zinc-rich primers for external members | None |
+| PH1 | MYD | Galvanizing design rules including venting and distortion control | None |
+| PH1 | EYD | C2 corrosion protection painting including environmental control | None |
+| PH1 | SSA | External stairs, handrails, and fabrications finished for C4 environments | None |
+| PH1 | CSA-RSA | External and exposed metal fabrications to be galvanized and/or painted for C4 environments | None |
+| PH1 | CSA-SSA | C4 finishing for external metal fabrications and stair/handrail elements | None |
+| PH2 | DCH | C4 external finishing for stairs, rails, and fabrications | None |
+| PH3 | DCH | C4 external corrosion protection systems | None |
+| PH4 | DCH | Corrosion protection for C2 and C4 environments | None |
+
+## 5. TRADE PACKAGE: METAL FABRICATIONS (STAIRS / RAILINGS / GRATINGS)
+**Baseline Scope:**
+- Metal fabrications, stairs, ladders, handrails, and guards to EN 10025 / EN 10210 / ISO 10799 / ISO 4200.
+- Grating to NAAMM MBG 531 / 532.
+- Access systems to EN ISO 14122 series with detailed fabrication and load criteria.
+- External items finished for C4 environment with galvanizing and/or painting in accordance with EN ISO 1461, EN ISO 12944-2, and ISO 9223.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Metal fabrications, stairs, ladders, handrails, and guards | None |
+| PH1 | DCH | Fabrication standards for sections, hollow sections, gratings, ladders, handrails, and guards | None |
+| PH1 | MYD | Grating thickness and bearing bar depth requirements | None |
+| PH1 | SSA | Ladder requirements including geometry, fixings, and galvanizing | None |
+| PH2 | DCH | Metal stairs, ramps, and guards with defined performance, geometry, and fabrication requirements | None |
+| PH3 | DCH | Metal stairs, ramps, rails, and ladders with defined fabrication and load requirements | None |
+| PH4 | DCH | Metal stairs, ramps, handrails, guards, and ladders with defined load criteria | None |
+
+## GLOBAL INCONSISTENCIES (ESTIMATING RISK REGISTER)
+| ID | Trade Package | Issue | Risk | Estimating Action |
+|----|---------------|-------|------|-------------------|
+| 1  | Fire Protection | MYD cooling tower gantries and trench supports specified only as galvanized without explicit intumescent requirements | Medium | Review and confirm if intumescent protection is required for MYD scope |
+| 2  | Corrosion Protection | CSA-RSA PH1 BOQ description omits explicit corrosion protection to external steel fence posts and gates | High | Ensure BOQ includes galvanizing and/or C4-rated external coating systems for exposed metal fabrications |
+
+END_OF_REPORT

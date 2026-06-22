@@ -1,0 +1,115 @@
+# Cross-Document Technical Audit:
+
+## 1. TRADE PACKAGE: STRUCTURAL STEEL
+**Baseline Scope:**
+- Structural steel in Grade S355JR to NBN EN 10025 and NBN EN 10210.
+- Execution Class EXC2 to NBN EN 1090-2.
+- Design to NBN EN 1990/1991/1993.
+- Fasteners to NBN EN 14399 and NBN EN 15048.
+- Fabrication, connections, tolerances, and erection to NBN EN 1090.
+- Welding materials and qualifications to NBN EN 1090 and EN ISO 9606-1.
+- Erection in accordance with NSSSBC 5th Edition.
+- Secondary steel for cladding, parapets, and envelope interfaces.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Primary and secondary structural steel | None |
+| PH1 | DCH | Structural steel framing | None |
+| PH1 | EYD | Anchor bolts and structural steel sections | None |
+| PH1 | MYD | Structural gantry steel | None |
+| PH1 | SSA | Structural steel frame | None |
+| PH2 | DCH | Structural steel framing | None |
+| PH2 | MYD | MYD gantry structural steel | None |
+| PH3 | DCH | Structural steel for roof access structures | None |
+| PH3 | MYD | External structural steel for gantries | None |
+| PH3 | EYD | Anchor bolts for embedded column kickers | None |
+| PH3 | SSA | Secondary structural steel for louvre support | None |
+| PH4 | DCH | Structural steel framing | None |
+| PH4 | MYD | MYD gantry structural steel | None |
+
+## 2. TRADE PACKAGE: COMPOSITE DECKING
+**Baseline Scope:**
+- Galvanized steel roof deck units to NBN EN 10346 and NBN EN 10143, Grade S350.
+- Wide-rib deck profile without stiffening ribs.
+- Accessories including edge strips, pour stops, closures, and sump pans.
+- Installation tolerances and fixing requirements including puddle welds and sidelap fasteners.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Galvanized steel roof deck units | None |
+| PH1 | DCH | Galvanized steel roof deck | None |
+| PH1 | SSA | Galvanized steel roof decking | None |
+| PH2 | DCH | Galvanized steel roof decking | None |
+| PH3 | DCH | Galvanized wide-rib steel roof decking | None |
+| PH4 | DCH | Galvanized steel roof decking | None |
+
+## 3. TRADE PACKAGE: FIRE PROTECTION
+**Baseline Scope:**
+- Intumescent fire protection systems (Sherwin Williams FIRETEX FX2003 or FX6002).
+- Providing 1-hour and 2-hour fire resistance ratings.
+- Reactive coatings to EN 16623, tested to EN 13381, classified to EN 13501.
+- Surface preparation including blast cleaning to Sa 2½.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Intumescent fire protection systems | None |
+| PH1 | DCH | Intumescent coating systems | None |
+| PH1 | EYD | Intumescent systems for trench steel | None |
+| PH2 | DCH | Intumescent fire protection | None |
+| PH3 | DCH | Intumescent system(s) for 1-hour rating | None |
+| PH4 | DCH | Intumescent systems providing a 1-hour rating | None |
+
+## 4. TRADE PACKAGE: CORROSION PROTECTION
+**Baseline Scope:**
+- Corrosion protection by paint systems to NBN EN ISO 12944.
+- Hot-dip galvanizing to EN ISO 1461.
+- C2 internal and C4 external environment classifications.
+- Shop painting systems including inorganic zinc-rich primers.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Corrosion protection of steel structures | None |
+| PH1 | DCH | Corrosion protection painting systems | None |
+| PH1 | EYD | Corrosion protection painting systems | None |
+| PH1 | MYD | Galvanizing system for gantry structural steel | None |
+| PH1 | SSA | Galvanizing for SSA steel frame | None |
+| PH2 | DCH | C2/C4 corrosion protection regimes | None |
+| PH2 | MYD | External gantries hot-dip galvanized | None |
+| PH3 | DCH | Corrosion protection painting for C2/C4 conditions | None |
+| PH3 | MYD | Hot-dip galvanizing system for gantry structural steel | None |
+| PH4 | DCH | Corrosion protection painting guidance | None |
+| PH4 | MYD | Hot-dip galvanizing for external gantry steel | None |
+
+## 5. TRADE PACKAGE: METAL FABRICATIONS (STAIRS / RAILINGS / GRATINGS)
+**Baseline Scope:**
+- Metal fabrication elements including ladders, barrier rails, ledge/shelf angles, canopy supports, roof opening framing, and gratings to NAAMM MBG 531/532.
+- Metal stairs and ramps including stringers, treads, landings, and loading criteria.
+- Handrails and guards with pipe rails, post spacing, picket spacing, and joint detailing.
+- Fixed ladders to EN ISO 14122.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Metal fabrication elements | None |
+| PH1 | DCH | Metal fabrication elements | None |
+| PH1 | MYD | Metal fabrication elements associated with gantries | None |
+| PH1 | SSA | Metal fabrications including roof railings | None |
+| PH2 | DCH | Metal stairs and ramps execution and design | None |
+| PH2 | MYD | Metal fabrication elements including barrier rails | None |
+| PH3 | DCH | External stairs, parapet stairs, bollards | None |
+| PH3 | MYD | Emergency stairs, cat ladders, open mesh gratings | None |
+| PH4 | DCH | External PH4 metalwork including cat ladders | None |
+| PH4 | MYD | Gantry cat ladders, stairs, railings, and gratings | None |
+
+## GLOBAL INCONSISTENCIES (ESTIMATING RISK REGISTER)
+| ID | Trade Package | Issue | Risk | Estimating Action |
+|----|---------------|-------|------|-------------------|
+| 1  | Fire Protection | Intumescent systems not explicitly allocated to MYD gantry steel | Medium | Review and confirm fire protection requirements for MYD gantries |
+| 2  | Fire Protection | No explicit requirement for SSA Load Bank Garage & Fuel Polishing Building | Medium | Verify fire protection needs for SSA structures |
+| 3  | Metal Fabrications | RSA perimeter steelwork lacks dedicated fence system specification | Low | Clarify and specify requirements for RSA perimeter steelwork |
+
+END_OF_REPORT
