@@ -4,10 +4,7 @@ import os
 
 
 def setup_sidebar() -> str:
-    """
-    Configura sidebar com autenticação e info do sistema.
-    Retorna a API key final (input ou .env).
-    """
+    """Configura sidebar com autenticação e info do sistema."""
     with st.sidebar:
         st.markdown(
             """
@@ -103,24 +100,15 @@ def ensure_session_defaults() -> None:
     for chave, valor_default in [
         ("api_key_env", ""),
         ("relatorio_final", ""),
-
-        # outputs brutos dos agentes
         ("resumo_specs", ""),
         ("resumo_boq", ""),
-
-        # versões editáveis
         ("edited_specs_json", ""),
         ("edited_boq_json", ""),
-
-        # JSONs pré-carregados (ANTES da extração)
         ("pre_loaded_specs_json", None),
         ("pre_loaded_boq_json", None),
-
-        # controlo de fluxo
         ("contextos_extraidos", False),
         ("contextos_validados", False),
         ("processado", False),
-
         ("pipeline_state", ["idle", "idle", "idle"]),
         ("n_ficheiros", 0),
         ("n_fases_hint", "—"),
@@ -224,10 +212,8 @@ def render_results() -> None:
     if not (st.session_state.processado and st.session_state.relatorio_final):
         return
 
-    # Título simples do relatório
     st.markdown("## 📋 Relatório Completo")
     
-    # Métricas
     col1, col2, col3 = st.columns(3)
     with col1:
         st.metric("Ficheiros", st.session_state.n_ficheiros)
@@ -238,7 +224,6 @@ def render_results() -> None:
     
     st.divider()
     
-    # Relatório em markdown
     st.markdown(st.session_state.relatorio_final)
     
     st.divider()

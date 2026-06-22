@@ -3,7 +3,6 @@ import sys
 import json
 from pathlib import Path
 
-# 1. Encontrar a pasta raiz do projeto (BlocoApps), onde vivem as pastas "core" e "ui"
 root_dir = Path(__file__).resolve().parent
 
 
@@ -69,7 +68,6 @@ def main() -> None:
     grafo_extracao = construir_grafo_extracao()
     grafo_auditoria = construir_grafo_auditoria()
 
-    # STEP 1: JSON Baseline opcional (acima dos documentos)
     exemplo_json = {
         "project_name": "Nome do Teu Projeto Aqui (ex: Data Center X)",
         "project_scope_rules": {
@@ -127,13 +125,8 @@ def main() -> None:
             label_visibility="collapsed",
         )
 
-    # STEP 2: Upload de documentos
     file_boq, files_specs = render_upload_section()
-    
-    # STEP 3: Instruções de filtragem
     guia_input = render_focus_section()
-
-    # STEP 4: Gerar contextos
     gerar_contextos = render_start_section(api_key_final, file_boq, files_specs)
 
     if gerar_contextos:
@@ -198,7 +191,6 @@ def main() -> None:
                 stream_callback=stream_callback,
             )
             
-            # STEP 4: Auditoria automática em sequência após gerar contextos
             if st.session_state.get("contextos_extraidos"):
                 st.markdown("---")
                 st.markdown("""

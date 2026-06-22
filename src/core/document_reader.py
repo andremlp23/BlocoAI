@@ -29,7 +29,6 @@ RUIDO = {
 
 def _detectar_separador_csv(conteudo: str) -> str:
     """Auto-detecta o separador do CSV (,, ;, \\t, |)."""
-    # Tomar primeiras linhas para análise
     linhas = conteudo.split('\n')[:5]
     
     separadores = {',': 0, ';': 0, '\t': 0, '|': 0}
@@ -40,7 +39,6 @@ def _detectar_separador_csv(conteudo: str) -> str:
         for sep in separadores:
             separadores[sep] += linha.count(sep)
     
-    # Retornar o separador mais comum (deve ter contagem > 0)
     mais_comum = max(separadores.items(), key=lambda x: x[1])
     return mais_comum[0] if mais_comum[1] > 0 else ','
 
@@ -60,20 +58,17 @@ def read_document(file) -> tuple[str, list]:
                     paginas_sem_texto.append(i + 1)
         return "\n".join(partes), paginas_sem_texto
     if file.name.lower().endswith(('.docx')):
-        # Lógica para ler documentos .docx  
         partes = []
         try:
             doc = Document(io.BytesIO(file.read()))
             
-            # Extrair parágrafos
             para_num = 0
             for para in doc.paragraphs:
                 texto = para.text.strip()
-                if texto:  # Ignorar parágrafos vazios
+                if texto:
                     para_num += 1
                     partes.append(f"[Parágrafo: {para_num}] {texto}")
             
-            # Extrair tabelas
             if doc.tables:
                 partes.append("\n[TABELAS DO DOCUMENTO]\n")
                 for table_idx, table in enumerate(doc.tables, 1):
@@ -94,6 +89,8 @@ def read_document(file) -> tuple[str, list]:
         # Lógica para ler ficheiros CSV com auto-detect de separador
         lines = []
         conteudo_bytes = file.read()
+        lines = []
+        conteudo_bytes = file.read()
         
         for encoding in ['utf-8', 'latin-1', 'cp1252', 'iso-8859-1']:
             try:
@@ -104,8 +101,8 @@ def read_document(file) -> tuple[str, list]:
                     io.BytesIO(conteudo_bytes), 
                     encoding=encoding,
                     sep=separador,
-                    on_bad_lines='skip',  # Ignorar linhas mal formatadas
-                    dtype=str,  # Ler tudo como string inicialmente
+                    on_bad_lines='skip',
+                    dtype=str,
                 )
                 
                 for idx, row in df.iterrows():
@@ -118,24 +115,21 @@ def read_document(file) -> tuple[str, list]:
                             continue
                         if cell_text.lower() not in RUIDO and len(cell_text) > 1:
                             vals.append(cell_text)
-                    if vals:  # Se tem pelo menos 1 valor
+                    if vals:
                         lines.append(f"[Linha: {idx+2}] {' | '.join(vals)}")
                 
-                # Se conseguiu ler, retorna
                 return "\n".join(lines) if lines else "[CSV vazio ou sem dados válidos]", []
                 
             except UnicodeDecodeError:
                 continue
             except pd.errors.ParserError as e:
-                # Tentar com mais separadores ou skip de linhas problemáticas
                 continue
             except Exception as e:
                 continue
         
-        # Se chegou aqui, todos os encodings falharam
-        return f"[Erro: Não foi possível ler o ficheiro CSV com encoding UTF-8, Latin-1, CP1252 ou ISO-8859-1]", []
-    else:
-        # Lógica para ler ficheiros Excel
+        return f"[Erro: Não foi possível ler o ficheiro CSV
+        lines = []
+        for sheet in xls.sheet_names:
         xls = pd.ExcelFile(file)
         lines = []
         for sheet in xls.sheet_names:
@@ -154,11 +148,7 @@ def read_document(file) -> tuple[str, list]:
                     lines.append(f"[Linha: {idx+2}] {' | '.join(vals)}")
         return "\n".join(lines), []
 
-# Carregar o JSON do disco (ajusta o caminho se o ficheiro estiver noutra pasta)
-def carregar_regras_json():
-    caminho_json = os.path.join(os.path.dirname(os.path.dirname(__file__)), "RegrasMekkin.json")
-    
-    fallback = {
+
         "regra_final": "Assumir que toda a informacao e IRRELEVANTE ate demonstrar impacto na estrutura.",
         "ignorar_estritamente": ["Arquitetura", "Cores", "AVAC sem carga", "Betão sem interface"]
     }

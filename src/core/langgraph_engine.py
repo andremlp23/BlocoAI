@@ -1,18 +1,17 @@
 import logging
 from typing import Any, TypedDict
-import json  # <- ADICIONADO PARA O CONTEXTO
+import json
 
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
 from langgraph.graph import END, StateGraph
 
-# Importação do Leitor de JSON (regras)
 from core.document_reader import carregar_regras_json
 
 _log = logging.getLogger("blocoai.retry")
 logging.basicConfig(level=logging.WARNING)
 
-REGRAS_EXTRACAO = carregar_regras_json()  # idealmente string; se vier dict, converte no loader
+REGRAS_EXTRACAO = carregar_regras_json()
 
 
 class AuditoriaState(TypedDict):
@@ -28,7 +27,7 @@ class AuditoriaState(TypedDict):
     auditoria_bruta: str
     auditoria_normalizada: str
     relatorio_final: str
-    contexto_projeto: dict  # <- ADICIONADO PARA RECEBER O JSON
+    contexto_projeto: dict
 
     modo: str
     tentativas: int
@@ -40,32 +39,31 @@ class AuditoriaState(TypedDict):
     _api_key: str
     _prog_slot: Any
     _status_slot: Any
-    _model_name: str  # <- ADICIONADO PARA O MODELO DINÂMICO
-    _stream_callback: Any  # <- ADICIONADO PARA CAPTURAR STREAM
+    _model_name: str
+    _stream_callback: Any
 
 
 # ─────────────────────────────────────────────────────────────
-# Leitura de Documento Completo
+# Leitura de Documento
 # ─────────────────────────────────────────────────────────────
 def _obter_documento_completo(texto: str) -> list:
-    """Retorna o texto completo num único chunk (sem divisão)."""
+    """Retorna o texto completo num único chunk."""
     if not texto:
         return []
     return [texto]
 
 
 # ─────────────────────────────────────────────────────────────
-# Invocação LLM com STREAMING (Fim dos Timeouts)
+# Invocação LLM com STREAMING
 # ─────────────────────────────────────────────────────────────
 def _invocar_llm(llm, mensagens: list, stream_callback=None) -> str:
-    print(f"[_invocar_llm] Invocando LLM com {len(mensagens)} mensagens... (MODO STREAMING)")
+    print(f"[_invocar_llm] Invocando LLM com {len(mensagens)} mensagens...")
     try:
         conteudo_total = ""
         for chunk in llm.stream(mensagens):
             content = chunk.content
             conteudo_total += content
             print(content, end="", flush=True)
-            # Chamar callback se fornecido
             if stream_callback and callable(stream_callback):
                 try:
                     stream_callback(content)
@@ -80,7 +78,7 @@ def _invocar_llm(llm, mensagens: list, stream_callback=None) -> str:
 
 
 # ======================================================================
-# AGT-01: SPECS baseline (sem betão)
+# AGT-01: Extração de Especificações
 # ======================================================================
 def extrair_specs(texto_specs: str, nome_ficheiro: str, llm, prog_placeholder, status_placeholder, stream_callback=None) -> str:
     chunks = _obter_documento_completo(texto_specs)

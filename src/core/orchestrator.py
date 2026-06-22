@@ -49,10 +49,7 @@ def _persistir_relatorio(relatorio: str, app_file: Path) -> None:
         pass
 
 def _normalizar_json_ou_raw(texto: str, nome: str) -> str:
-    """
-    Tenta normalizar JSON. Se o agente falhou e devolveu texto não JSON,
-    guarda mesmo assim dentro de um wrapper para não perder informação.
-    """
+    """Tenta normalizar JSON, envolve texto não-JSON em estrutura JSON."""
     if not texto or not texto.strip():
         return json.dumps(
             {
@@ -81,9 +78,7 @@ def _normalizar_json_ou_raw(texto: str, nome: str) -> str:
 
 
 def _persistir_contexto_json(nome: str, conteudo: str, app_file: Path) -> Path:
-    """
-    Guarda os outputs editáveis dos agentes 1 e 2 em ficheiro.
-    """
+    """Guarda os outputs editáveis dos agentes em ficheiro."""
     pasta = app_file.resolve().parent.parent / "contextos_editaveis"
     pasta.mkdir(exist_ok=True)
 
