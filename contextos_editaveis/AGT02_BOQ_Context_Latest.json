@@ -2,194 +2,234 @@
   "phases": [
     {
       "name": "PH1",
-      "description": "Phase 1 works across CSA trade, including structural steel, steel decking, intumescent protection, secondary steel and associated metalwork in FSA, DCH, EYD, MYD and SSA zones, plus steel-related interfaces with cladding and roofs.",
+      "description": "CSA Phase 1 structural and steel-related works including FSA, DCH, EYD, MYD, RSA, SSA and site infrastructure.",
       "zones": [
         "FSA",
         "DCH",
         "EYD",
         "MYD",
-        "SSA",
-        "CSA (general site / non‑zoned)",
-        "RSA"
+        "MCP",
+        "USS",
+        "CTB",
+        "ASB",
+        "MWT",
+        "S24",
+        "S25",
+        "Cooling Tower Gantry",
+        "Generator Trench",
+        "USS Trench",
+        "Load Bank Garage & Fuel Polishing Building",
+        "SSA FSA Additional AHU",
+        "RSA Security Fence",
+        "RSA Attenuation Pond",
+        "Cycle Route"
       ],
       "activities": [
-        "Primary structural steel frame supply and erection to EXC2, S355 (FSA, DCH)",
-        "Steel roof decking supply and installation (FSA, DCH, SSA)",
-        "Intumescent fire protection to primary steel (FSA, DCH, EYD trenches, MYD gantries)",
-        "Secondary steel for cladding support (FSA, DCH)",
-        "Holding down bolt assemblies (supply and/or casting‑in interfaces with foundations)",
-        "Structural steel for generator trench (EYD)",
-        "USS trench and utility structural steel (EYD)",
-        "Cooling tower gantry structural steelwork and associated stairs, ladders, railings, gratings (MYD)",
-        "Miscellaneous structural / secondary steel items: internal and external stairs, cat ladders, hop‑over steps, crash protection, bollards, railings, grating, loading dock handrails",
-        "Steel safety fabrications for assembled roof stairs",
-        "Metal roof walkways and roof railings where specified as steel",
-        "Louvres and cladding details where secondary steel or steel penetration framing is included",
-        "Steel columns kickers/bolts interfaces to EYD slabs",
-        "Supply of hold down bolt assemblies for multiple equipment foundations (MCP, ASB, CTB, USS, MUP, S24, S25 etc.)",
-        "SSA Load Bank Garage & Fuel Polishing Building structural steel frame, roof deck, railings and cat ladder",
-        "SSA cladding and roof elements where directly supported by the SSA steel frame"
+        "Structural steel supply, fabrication and erection to EXC2, steel grade S355 (FSA, DCH, SSA, Cooling Tower Gantries, RMU/Battery supports, Generator/Cooling trenches).",
+        "Steel decking supply and installation (FSA, DCH).",
+        "Intumescent fire protection to structural steel (FSA 2 hr, DCH 2 hr).",
+        "Corrosion protection paint to C2 environment for Generator Trench and USS Trench steel.",
+        "Shotblast and hot-dip galvanizing to EN ISO 1461 for external steel (Cooling Tower Gantries, RMU/Battery supports, SSA structural steel) including surface touch-up after erection.",
+        "Design, supply and installation of holding down bolt assemblies / H.D.A. for primary steel frames (FSA, DCH, Cooling Tower Gantries, Generator/Cooling trenches, MCP, USS, S24, S25 and other equipment foundations).",
+        "Grouting steel bases (earthing/steel bases around FSA and DCH slabs; structural baseplates).",
+        "Miscellaneous primary steel items: internal and external stairs, gantry emergency stairs, cooling tower stairs, steps and ramps including handrails, railings and bumper railings.",
+        "Secondary steel for cladding support to FSA and DCH envelopes.",
+        "Metalwork and access steel: cat ladders and balustrades to penthouse roofs and between roofs; cat ladders for Cooling Tower Gantries; roof hop-over steps; roof railings and crash protection to rising services.",
+        "Steel bollards (perimeter, DCH/FSA yards, parking, loading docks).",
+        "Open mesh steel gratings for gantry walkways and platforms.",
+        "Roof metal decking to SSA (KINGSPAN RD100/825) and associated roof railings and cat ladder.",
+        "Safety fabrications supports for assembled stairs at roof level.",
+        "Supply-only of holding down bolt assemblies for modular plants (MCP, USS) and various pad/tower foundations.",
+        "Steel columns kickers/bolts for EYD foundations.",
+        "Security fencing on metal posts and steel fencing/handrails at loading docks.",
+        "Coordination of cladding/roof steel penetrations (steelwork penetrations, roofing penetrations, cladding penetrations) where they interface with steel frames.",
+        "Louvres requiring secondary/penetration steel supports, including smoke extract louvres added to roof.",
+        "Lightening protection 5x5m grids on roofs fixed to steel-supported roof systems.",
+        "Cycle route and site development elements where steel bollards or metal posts are included."
       ],
       "dependencies": [
-        "Foundations, slabs and plinths complete with holding down assemblies cast in by others before steel erection (multiple references, e.g. S02-A1500 line 394-395; S02-A1600 line 587-588; EYD foundations Dornan 005 line 731; SSA foundation S02-A1000 line 2029-2030).",
-        "Waterproofing, blinding and earthing mat generally preceding steel erection but not part of steel scope.",
-        "Cladding and roof composite systems to follow completion of primary and secondary steel frames and roof decking (FSA and DCH envelopes and roofs).",
-        "Steel stairs, ladders and railings on cooling tower gantries dependent on gantry primary steel completion (S02-A7200 lines 781-794, 1207-1219, 1599-1613, 1882-1894).",
-        "SSA steelworks depend on SSA foundations (S02-A1000 lines 2022-2036)."
+        "Foundations, concrete slabs, and earthing mats completed and surveyed including H.D.A. and anchor bolt locations before steel erection.",
+        "Waterproofing and membranes to substructure in place where they interact with steel baseplates and penetrations.",
+        "Structural steel erection sequence coordinated with roof and wall cladding installation (secondary steel, penetrations, cat ladders, canopies).",
+        "Completion of Generator/Cooling trenches and utility trenches before installation of associated trench structural steel and supports.",
+        "FSA and DCH primary structural steel frames erected before installation of steel decking and intumescent fire protection.",
+        "Cooling Tower Gantry foundations in EYD/MYD completed before gantry steel erection.",
+        "Coordination with mechanical/electrical packages for locations of RMU/Battery Box supports, cooling towers, generators, steps/ramps and bumper railings."
       ],
       "constraints": [
-        "Execution Class 2 (EXC2) for structural steel to NBN EN 1090-2, all steel grade S355 (e.g. S03-A2000 lines 452-453, 643-644, 775, 782, 1201, 1600, 175, 773, 1593, 1600, 1876, 1883, 2005).",
-        "Intumescent paint fire protection durations defined per zone: 2 h for FSA (line 462), 2 h for DCH PH1 (line 653); 1 h for DCH PH2/PH3/PH4 (lines 1138, 1495, 1814); 60‑min fire protection for EYD generator/USS trench steel (lines 763, 770).",
-        "Corrosion protection system C2 environment category for certain trench steels (lines 762, 769).",
-        "Galvanizing to EN ISO 1461 for certain external steelwork (cooling tower gantries, SSA steel, MYD supports and gantries; e.g. lines 780, 787, 786, 1212-1213, 1598, 1604-1605, 1880-1881, 1887-1888, 2010).",
-        "Interfaces with cladding and roofing requiring coordinated penetrations and secondary steel (FSA/DCH/Shell A cladding and roof sections, e.g. lines 476, 666, 149, 115, 1506, 1825).",
-        "Holding down assemblies are free‑issue from structural steel subcontractor but cast in and grouted by civils; grout to be allowed for under concrete sections (e.g. S02-A1500 line 395, S02-A1600 line 588, S02-A1000 Dornan 005 line 731, S02-A7200 supply-only packages lines 1037-1044, 1311-1314, 1710-1712, 1987-1989)."
+        "Steel fabricated to Execution Class 2 (EXC2); all main structural steel grade S355; erection in accordance with NSSSBC 5th Edition.",
+        "External gantries and exposed plant steelwork to be galvanized to EN ISO 1461; intumescent paint systems to provide specified fire ratings (typically 60 minutes for trench/gantry steels, 2 hours for FSA, 2 hours for DCH).",
+        "Corrosion protection paint systems suitable for C2 environment for specific trench steels; galvanized systems for gantries and certain external structures.",
+        "Holding down assemblies from structural steel subcontractor are free-issue to civil contractor for casting into concrete; grouting in place is within CSA scope but must be coordinated with steel contractor.",
+        "Access steel (cat ladders, stairs, railings, hop-over steps) must comply with EN 14122 and project safety requirements.",
+        "Secondary steel for cladding/roofing must be compatible with specified Eurobond/Kingspan panel systems and roof build-ups.",
+        "Roof penetrations and cladding penetrations require close coordination to avoid clashes with steel members and to maintain watertightness and fire performance.",
+        "Security and RSA-related fencing on metal posts to be compatible with existing or new boundary conditions and foundations."
       ],
-      "source": "Multiple lines, key steel scope anchors at [451-471], [642-661], [759-772], [773-795], [781-794], [1200-1219], [1591-1613], [1874-1894], [2003-2015]"
+      "source": "Top-level: [Linha: 2] CSA PHASE 1; structural steel and accessories throughout lines 451–471, 642–660, 759–795, 773–795, 781–795, 789–795, 1037–1044, 2004–2015, 2062–2071, plus related steel supports, secondary steel and bollards in earlier CSA PH1 sections."
     },
     {
       "name": "PH2",
-      "description": "Phase 2 expansion works focusing on DCH building and MYD cooling infrastructure, including additional structural steel, decking, intumescent coatings, secondary steel, and steel support to envelopes and roofs.",
+      "description": "CSA Phase 2 works, primarily DCH building and MYD/EYD external areas, including additional structural steel, deck, gantries and associated holding down assemblies.",
       "zones": [
         "DCH",
-        "FSA",
         "MYD",
-        "CSA (general site)"
+        "MCP",
+        "USS",
+        "Cooling Tower Gantry",
+        "USS Foundation",
+        "MCP Foundation",
+        "S25",
+        "USS Trestle Foundations"
       ],
       "activities": [
-        "DCH Phase 2 primary structural steel frame EXC2 S355 with steel decking and intumescent fire protection (1 h) (lines 1127-1138).",
-        "Additional DCH external steelwork/metalwork: cat ladders, stairs over roof parapets, bollards, small roof stairs (lines 1139-1143).",
-        "Secondary steel to support cladding for DCH PH2 envelope, including base details, penetrations and cat ladders (lines 1145-1157, 1166-1172).",
-        "Phase 2 roof systems over DCH with composite Euroclad top deck, parapet steel interfaces, walkways and lightning protection (lines 1183-1198).",
-        "MYD PH2 densified cooling area: structural steel gantries, supports for RMUs and battery boxes, with galvanizing and H.D.A. assemblies, plus cat ladders, cooling tower stairs, railings and grating (lines 1199-1219).",
-        "Supply‑only hold down bolt assemblies and steel steps/ramps with handrails for modular cooling plant and USS foundations (lines 1311-1318).",
-        "Safety fabrications at roof level (supports for assembled stair) under External Windows & Doors PH2 (line 1315-1317 indirectly referencing roof stair supports)."
+        "DCH Structural Steel frame to EXC2, S355 including beams, columns and primary members.",
+        "Steel decking to DCH roof (TATA D60x1.2mm).",
+        "Intumescent fire protection to DCH structural steel (1 hr rating).",
+        "Holding down bolt assemblies and grouting to DCH steel frames.",
+        "Secondary steel for DCH cladding support (wall and parapet secondary steel).",
+        "Additional external site steelwork: cat ladders to penthouse roofs, bollards, stairs over roof parapets, small roof stairs.",
+        "Cooling Tower Gantry structural steel (Shell A) in MYD densified area including H.D.A., shotblast, galvanizing and surface touch-up.",
+        "Structural steel supports for RMUs and Battery Boxes across trenches, with galvanizing to EN ISO 1461.",
+        "Gantry access steel: cat ladders, cooling tower stairs, railings, 30mm open mesh grating for gantry platforms.",
+        "Supply-only holding down bolt assemblies for MCP, USS and S25 foundations.",
+        "Steps and ramps including handrails for Modular Cooling Plant and Universal Sub-Station access.",
+        "Grouting of steel bases associated with DCH PH2 slab and foundations.",
+        "Roof systems (Euroclad top deck) over steel deck structures, including lightning protection grids (load and fixing on steel deck)."
       ],
       "dependencies": [
-        "Completion of DCH PH2 foundations and slabs including H.D.A. casting and earthing mat (lines 1045-1126) prior to Phase 2 steelwork.",
-        "Cooling tower gantry PH2 foundations/plinths (S02-A1100 lines 1220-1236) to precede gantry structural steel (S02-A7200 lines 1207-1214).",
-        "MCP and USS foundations PH2 to be complete with H.D.A. in place and coordinated with supply of hold down bolt assemblies from S02-A7200 (lines 1256-1274, 1237-1255, 1311-1318).",
-        "Roof envelope and lightning protection PH2 follow completion of steel deck and primary roof steel framing (lines 1183-1198, 1185-1186)."
+        "Completion of DCH PH2 substructure (foundations, slabs, earthing mat, formwork, membranes) prior to steel erection.",
+        "Casting-in of H.D.A. and RSA galvanized inserts coordinated with steel contractor before slab concreting.",
+        "Cooling Tower Gantry PH2 foundations in EYD/MYD completed before erection of gantry structural steel and access systems.",
+        "MCP and USS foundations completed including H.D.A. prior to installation of modular plant steel and access steel.",
+        "DCH PH2 roof decks installed before installation of Euroclad roof build-ups and lightning protection systems."
       ],
       "constraints": [
-        "Structural steel to EXC2 and S355 with erection per NSSSBC 5th Edition (lines 1128-1129, 1201, 1208).",
-        "Intumescent coating 1 h to all DCH PH2 primary steel (line 1138).",
-        "Galvanized finish for PH2 cooling tower gantry steel to EN ISO 1461 (lines 1212-1213).",
-        "Steel deck profile TATA D60x1.2mm as standard for DCH PH2 (line 1132).",
-        "Coordination of holding down bolt assemblies supply (S02-A7200) with civil contractor’s casting program.",
-        "Roof and envelope interfaces requiring continuity of fire and weather seals at steel penetrations and cat ladders (lines 1158-1165, 1187-1191)."
+        "All structural steel to be fabricated to EXC2, grade S355; erection per NSSSBC 5th Edition.",
+        "Gantry and external supporting steelwork to be hot-dip galvanized to EN ISO 1461 and detailed for galvanizing (vents, drainage).",
+        "Intumescent systems for DCH PH2 must achieve 1 hour rating for indicated members and be compatible with shop primers.",
+        "Holding down assemblies free-issued by steel subcontractor; all coordinates and levels to be checked before casting.",
+        "Secondary steel for cladding must integrate with Eurobond panel and Kingspan roof liner geometry and joints.",
+        "Access stairs, ladders, railings and gratings must comply with EN 14122 and project safety requirements.",
+        "Lightning protection 5x5m roof grid to be fixed and coordinated with roof steel deck layout."
       ],
-      "source": "Key Phase 2 steel content at [1045-1127], [1127-1143], [1145-1173], [1183-1198], [1199-1219], [1220-1236], [1311-1318]"
+      "source": "Phase header: [Linha: 1045] S02-A1600 | CSA PHASE 2; core steel scope in lines 1127–1143, 1199–1219, 1311–1318 and related CSA PH2 foundation sections where H.D.A., RSA and grouting steel bases are specified."
     },
     {
       "name": "PH3",
-      "description": "Phase 3 works extending CSA/DCH/MYD/EYD structures, including additional DCH primary and secondary steel, MYD/EYD cooling steelwork, and associated roof and envelope steel elements.",
+      "description": "CSA Phase 3 works including DCH expansion, MYD/EYD extensions, additional Cooling Tower Gantries and associated steelwork and access steel.",
       "zones": [
         "DCH",
         "MYD",
         "EYD",
-        "CSA (general site)"
+        "Cooling Tower Gantry",
+        "MCP",
+        "USS",
+        "S25",
+        "USS Trestle Foundations"
       ],
       "activities": [
-        "DCH Phase 3 structural steel frame EXC2 S355 with steel decking and intumescent fire protection (1 h) (lines 1484-1495).",
-        "DCH Phase 3 miscellaneous steel items: external stair (ground to roof) and bollards (lines 1496-1500).",
-        "DCH Phase 3 secondary steel to envelope cladding including base details, cover flashings, cat ladders, downpipes accessories and fire barriers (lines 1501-1523).",
-        "DCH Phase 3 roof systems over DCH with composite Euroclad top deck, parapet upstands, roof walkways, lightning protection, and roof penetrations (lines 1540-1555).",
-        "MYD Phase 3 densified water‑cooled areas: cooling tower gantry structural steel plus supports for RMUs & battery boxes, with galvanizing, cat ladders, emergency stairs, railings, bumpers and open mesh grating (lines 1591-1613, 1599-1613, 1601-1605, 1613).",
-        "Cooling tower gantry PH3 pad foundations and hold down assemblies coordinated with steel (lines 1614-1633).",
-        "EYD Phase 3: structural steel interfaces via “steel columns kickers/bolts” to foundations and USS plinths for later steel columns (S02-A1000 lines 1562-1573).",
-        "Supply of hold down bolt assemblies and steel steps/ramps with handrails for modular cooling plant and USS at PH3 (lines 1709-1716).",
-        "Safety fabrications supports for assembled stair at roof level (PH3) under External Windows & Doors (line 1537-1539)."
+        "DCH Phase 3 Structural Steel frame to EXC2 S355 including primary framing.",
+        "Steel decking to DCH PH3 roof (TATA D60x1.2mm).",
+        "Intumescent fire protection to DCH PH3 structural steel (1 hr rating).",
+        "Holding down bolt assemblies and grouting for PH3 DCH structural steel bases.",
+        "Additional miscellaneous steel items: external stair (Ground to Roof level) for DCH, bollards.",
+        "Secondary steel to DCH envelope (wall secondary steel, parapet supports) for PH3.",
+        "Cooling Tower Gantry PH3 structural steel including Shell A gantry, with H.D.A., shotblast and galvanizing; surface touch-up after erection.",
+        "Structural steel supports for RMUs and Battery Boxes across trenches for MYD densified area including galvanizing.",
+        "Gantry access and safety steel: cat ladders, gantry emergency stairs, cooling tower stairs, railings, bumper railings, open mesh grating.",
+        "EYD foundation slabs steel items: steel columns kickers/bolts for column bases.",
+        "Supply-only holding down bolt assemblies for MCP, USS and S25 foundations.",
+        "Steps and ramps incl. handrails for Modular Cooling Plant and USS access.",
+        "Steel louvres and smoke extract louvres associated with DCH envelope and SSA scope."
       ],
       "dependencies": [
-        "Completion of DCH PH3 foundations/slabs including H.D.A. cast‑ins (S02-A1600 lines 1399-1452) before DCH PH3 steel frames and decking (lines 1484-1490).",
-        "Cooling tower gantry PH3 foundations (S02-A1100 lines 1614-1633) and USS/MCP/S25/USS Trestle foundations (lines 1634-1689) required before corresponding gantry and support steel (S02-A7200 lines 1591-1613 and 1601-1606).",
-        "EYD PH3 slabs and plinths including steel column kickers/bolts (lines 1556-1574) must be in place prior to erection of associated superstructure steel supplied in other packages.",
-        "Roof envelopes and lightning protection follow completion of steel deck and primary framing (lines 1540-1555)."
+        "Completion of DCH PH3 foundations and slabs including casting-in of H.D.A., RSA and earthing mats before steel erection.",
+        "Cooling Tower Gantry PH3 pad foundations and plinths completed in EYD/MYD before gantry erection.",
+        "MCP/USS foundations completed prior to installation of associated steelwork and access systems.",
+        "Roof decking installed before Euroclad roof systems and lightning protection grids.",
+        "Coordination of louvre and roof penetration steel with cladding and roofing packages."
       ],
       "constraints": [
-        "Structural steel to EXC2 S355; erection per NSSSBC 5th Edition (lines 1485-1486, 1593, 1600).",
-        "Intumescent paint 1 h protection for DCH PH3 primary steel (line 1495).",
-        "Galvanizing to EN ISO 1461 for MYD PH3 gantry and support steel (lines 1604-1605, 1598).",
-        "Standard deck profile TATA D60x1.2mm on DCH PH3 (line 1489).",
-        "Open mesh grating 30 mm depth for platforms and walkways on gantries (lines 1612, 1613).",
-        "Requirement to grout steel bases and H.D.A. (DCH additional items lines 1480-1483)."
+        "Structural steel to EXC2, S355; erection to NSSSBC 5th Edition.",
+        "Gantry, trench supports and external stairs/railings to be hot-dip galvanized EN ISO 1461 and meet required corrosion class.",
+        "Intumescent paint systems to provide 1 hr rating on DCH PH3 steel where specified.",
+        "Holding down assemblies are free-issued from steel subcontractor; CSA package must coordinate casting and survey.",
+        "Open mesh gratings, railings, cat ladders and bumper rails to comply with EN 14122 and project safety specifications.",
+        "Steel columns kickers/bolts at EYD to be accurately set in PH3 slabs to receive steel columns in subsequent work."
       ],
-      "source": "Key Phase 3 steel content at [1484-1500], [1501-1528], [1540-1555], [1591-1613], [1614-1633], [1709-1716], [1556-1574]"
+      "source": "Phase header: [Linha: 1717] S02-A1600 | CSA PHASE 3; principal steel scope in lines 1484–1500, 1591–1613, 1690–1716 and EYD foundation items around lines 1556–1574."
     },
     {
       "name": "PH4",
-      "description": "Phase 4 finalisation of DCH building structural steel, decking, envelopes and associated MYD cooling steel infrastructure.",
+      "description": "CSA Phase 4 works focused on further DCH expansion and Cooling Tower Gantry phases, including structural steel and supporting foundations.",
       "zones": [
         "DCH",
-        "MYD",
-        "CSA (general site)"
+        "Cooling Tower Gantry",
+        "MCP",
+        "USS",
+        "S25",
+        "USS Trestle Foundations"
       ],
       "activities": [
-        "DCH Phase 4 structural steel frame EXC2 S355 with deck and 1 h intumescent fire protection (lines 1803-1814).",
-        "DCH Phase 4 additional external steelwork: cat ladders and balustrades, bollards, stairs over roof parapets, small roof stairs (lines 1815-1819).",
-        "DCH Phase 4 secondary steel to envelope cladding, including base details and secondary steel grids (lines 1821-1827).",
-        "DCH Phase 4 composite roof systems with parapet upstands, roof walkways, lightning protection and roof penetrations (lines 1857-1872).",
-        "MYD Phase 4 cooling infrastructure: Shell A structural steel for supports and cooling tower gantries, with galvanizing, H.D.A., stairs, cat ladders, railings and grating (lines 1873-1894).",
-        "Cooling tower gantry PH4 foundations and USS/MCP/S25/USS Trestle foundations for PH4, each with H.D.A. cast‑ins coordinated to steel (lines 1895-1985).",
-        "Supply of hold down bolt assemblies for MCP, USS, S25 foundations and additional steel steps and ramps with handrails (lines 1986-1993)."
+        "DCH Phase 4 Structural Steel frame to EXC2 S355 including primary framing.",
+        "Steel decking to DCH PH4 roof (TATA D60x1.2mm).",
+        "Intumescent fire protection to DCH PH4 structural steel (1 hr rating).",
+        "Holding down bolt assemblies and grouting to DCH PH4 structural steel bases.",
+        "Secondary steel for DCH PH4 cladding support (wall and parapet secondary steel).",
+        "Cooling Tower Gantry PH4 structural steel (Shell A) with H.D.A., shotblast and galvanizing; surface touch-up after erection.",
+        "Additional gantry access steel: cat ladders, cooling tower stairs, railings, open mesh grating.",
+        "Supply-only holding down bolt assemblies for MCP, USS and S25 foundations in PH4.",
+        "Steps and ramps incl. handrails associated with MCP and USS in PH4.",
+        "Continuation of earthing and radon-related works in PH4 foundations that interface with steel bases (earthing pigtails, grouting steel bases)."
       ],
       "dependencies": [
-        "DCH PH4 foundations and slabs including H.D.A. (S02-A1600 lines 1717-1788; S02-A1200 lines 1789-1797) must be complete before DCH PH4 steel (lines 1803-1809).",
-        "Cooling tower gantry PH4 foundations (S02-A1100 lines 1895-1911) and USS/MCP/S25/USS Trestle foundations (lines 1912-1985) precede respective gantry steel (S02-A7200 lines 1882-1889).",
-        "Roof deck and envelope PH4 over DCH installed after primary steel and decking (lines 1857-1872)."
+        "Completion of DCH PH4 foundations, slabs, membranes and earthing before steel erection.",
+        "Cooling Tower Gantry PH4 pad foundations and plinths in EYD/MYD completed prior to gantry steel installation.",
+        "MCP/USS/S25 pad foundations completed with holding down assemblies installed prior to modular plant steel and access steel installation.",
+        "Roof decks installed before Euroclad roofing and lightning protection systems.",
+        "Cladding secondary steel to be installed and aligned before final envelope panels."
       ],
       "constraints": [
-        "Structural steel to EXC2, S355, erected to NSSSBC 5th Edition (lines 1804-1805, 1876, 1883).",
-        "Intumescent paint 1 h for DCH PH4 primary steel (line 1814).",
-        "Galvanizing to EN ISO 1461 for MYD PH4 Shell A structural steel (lines 1887-1888, 1880-1881).",
-        "TATA D60x1.2mm deck on DCH PH4 roofs (line 1808).",
-        "Grouting of steel bases at multiple foundations (e.g. 1802, 1902-1903)."
+        "Structural steel to EXC2 S355; erection per NSSSBC 5th Edition.",
+        "Gantry and external access steel to be hot-dip galvanized to EN ISO 1461.",
+        "Intumescent paint to provide 1 hr rating on DCH PH4 steel.",
+        "Holding down assemblies free-issued; correct placement and grouting critical to avoid misalignment of steel frames.",
+        "Access ladders, stairs, railings and gratings to meet EN 14122 requirements and be compatible with gantry geometry.",
+        "Lightning protection grid loads to be considered on roof steel decking in PH4."
       ],
-      "source": "Key Phase 4 steel content at [1717-1797], [1803-1819], [1821-1835], [1857-1872], [1873-1894], [1895-1985], [1986-1993]"
+      "source": "Phase header: [Linha: 1717] S02-A1600 | CSA PHASE 4; steel scope in lines 1803–1819 and Cooling Tower/gantry steel and foundations in lines 1873–1894 and 1895–1993."
     }
   ],
   "zones": [
     {
-      "name": "CSA (global)",
-      "description": "Civil/structural area code used across the project to denote structural works packages; includes all building zones (FSA, DCH, EYD, MYD, SSA) where CSA appears with structural steel scope.",
-      "phases": [
-        "PH1",
-        "PH2",
-        "PH3",
-        "PH4"
-      ],
-      "activities": [
-        "Coordination of structural steel design and execution class (EXC2 S355).",
-        "Provision of holding down assemblies and grout in coordination with concrete works.",
-        "Global procurement of steel deck profiles TATA D60x1.2mm and similar.",
-        "Global management of intumescent fire protection systems (1h/2h).",
-        "Secondary steel for cladding and roof interfaces across zones."
-      ],
-      "logistics": "CSA tag ties BOQ lines back to structural general notes and details; no explicit logistics noted, but CSA packages span multiple buildings and require phased erection aligned with foundations and envelope works.",
-      "source": "Throughout, examples at [451-471], [642-661], [759-795], [773-795], [1045-1138], [1484-1500], [1803-1819]"
-    },
-    {
       "name": "FSA",
-      "description": "Main facility structure A (likely data hall or support building). Structural steel framing, decking, and envelope are broken out separately by phase where relevant.",
+      "description": "Primary facility area (FSA) including foundations, floor slabs, superstructure structural steel frame, steel decking, envelope and roof.",
       "phases": [
         "PH1"
       ],
       "activities": [
-        "Primary structural steel frame FSA Structural Steel (S03-A2000 line 454).",
-        "Steel deck to FSA roof (S05-A2000 lines 455-457).",
-        "Intumescent paint 2 h for FSA primary steel (line 462).",
-        "Miscellaneous internal stair (FSA) and external steelwork/metalwork (loading dock fencing, handrails, crash protection, cat ladder and balustrade to penthouse, bollards, hop‑over steps) (lines 464-470).",
-        "Secondary steel for FSA envelope cladding (line 476).",
-        "Composite roof system over FSA with Euroclad top deck, parapet upstands, walkways and lightning protection (lines 536-556).",
-        "SSA interface: FSA AOVs on roof (line 2069)."
+        "FSA structural steel frame to EXC2, S355 including beams, columns and bracing.",
+        "Steel decking to FSA roof (TATA D60x1.2 roof decking).",
+        "Intumescent fireproofing to FSA structural steel for 2-hour rating.",
+        "Holding down bolt assemblies and grouting of FSA steel bases.",
+        "Secondary steel for FSA cladding systems and parapet cappings.",
+        "Internal steel stair to FSA.",
+        "Loading dock fencing and handrails in steel.",
+        "Crash protection to rising services.",
+        "Cat ladder and balustrade to penthouse roof (ground to roof).",
+        "Roof hop-over steps and associated roof steelwork.",
+        "Steel bollards in FSA-related yards.",
+        "Roof Euroclad composite deck, parapet upstands, crickets and walkways supported by structural steel and deck.",
+        "Smoke AOVs on roof supported by steel decking and associated framing.",
+        "Lightening protection grid fixed to roof systems supported on steel deck."
       ],
-      "logistics": "FSA steel erection must follow FSA foundations/floor slabs (S02-A1500 block) and precede envelope and roof works (S04-A2100 FSA, S05-A2000 FSA). Coordination with load bank garage (SSA) and cooling infrastructures via connecting stairs, walkways and railings.",
-      "source": "FSA structural and envelope lines at [451-471], [536-556], [360-420], [2069-2071]"
+      "logistics": "Requires crane access for erection of main steel frame and decking. Coordination of heavy lifts, temporary bracing and safe roof access for installation of roof panels, AOVs, lightning protection and hop-overs.",
+      "source": "Main FSA sections: [Linha: 358] CSA | FSA; [Linha: 451] CSA | FSA - Structural Steel; [Linha: 471] CSA | FSA - Envelope; [Linha: 536] CSA | FSA - Roof; plus SSA FSA AHU and SSA Louvres for FSA at lines 144–163, 2062–2067 and 2069."
     },
     {
       "name": "DCH",
-      "description": "Data Center Hall (DCH) buildings with multi‑phase foundations, structural steel, decks, cladding and roof systems.",
+      "description": "Data Center Hall (DCH) including large foundation slabs, superstructure structural steel frames and steel decks, envelopes and roofs executed across multiple phases.",
       "phases": [
         "PH1",
         "PH2",
@@ -197,32 +237,45 @@
         "PH4"
       ],
       "activities": [
-        "PH1: DCH Structural Steel, deck, 2 h intumescent, external stair, cat ladders (FSA to DCH roof and ground to roof), bollards, hop‑over steps; secondary steel to cladding and roof (lines 642-660, 661-695, 709-724).",
-        "PH2: Additional DCH Structural Steel and deck, 1 h intumescent, cat ladder, parapet stairs, small stairs, bollards; secondary steel for enlarged envelope and roof Phase 2 (lines 1127-1143, 1145-1172, 1183-1198).",
-        "PH3: Further DCH structural steel and deck, 1 h intumescent; external stairs, bollards; secondary steel and cladding/roof for PH3 envelope (lines 1484-1499, 1501-1528, 1540-1555).",
-        "PH4: Final DCH structural steel, deck and 1 h intumescent; additional external ladders, bollards and roof/parapet stairs; final cladding and roof steel interfaces (lines 1803-1819, 1821-1835, 1857-1872)."
+        "DCH structural steel frames to EXC2 S355 for each phase (PH1–PH4).",
+        "Steel decking for DCH roofs across all phases.",
+        "Intumescent fire protection to DCH structural steel (mix of 1 hr and 2 hr ratings over phases).",
+        "Holding down bolt assemblies free-issued by steel subcontractor and cast into DCH foundations along multiple phases.",
+        "Grouting of steel baseplates at DCH column locations in each phase.",
+        "Secondary steel for DCH cladding systems including Eurobond panels and Kingspan roof liners for each phase.",
+        "Cat ladders and balustrades to penthouse roofs for DCH; stairs over parapets for roof access across phases.",
+        "External stairs (ground to roof level) for emergency egress.",
+        "Steel bollards around DCH.",
+        "Roof Euroclad composite roof systems for DCH in each phase, with parapet upstands and walkways.",
+        "Lightening protection grids on DCH roofs for each phase, fixed to deck.",
+        "Cladding and roof penetrations for services (ducts, pipes, cable trays) coordinated with steel frames and secondary steel.",
+        "Louvres (standard and high performance double bank) integrated with envelopes and supported by secondary steel.",
+        "Radon and earthing systems integrated with structural bases and holding down assemblies."
       ],
-      "logistics": "DCH structure built over multiple phases; each phase’s foundations and slabs with holding down assemblies (S02-A1600, S02-A1200) must be ready before corresponding PHx steel. Roof deck and envelope track with steel by phase and require access coordination for cat ladders and roof stairs between FSA and DCH roofs.",
-      "source": "[557-661], [642-661], [661-695], [709-724], [1045-1127], [1127-1143], [1145-1172], [1183-1198], [1397-1469], [1484-1500], [1501-1528], [1540-1555], [1717-1797], [1803-1819], [1821-1835], [1857-1872]"
+      "logistics": "Large multi-phase steel frame requiring phased erection and interface control between phases PH1–PH4. Survey of holding down assemblies and stub columns critical before each new phase. Roof works and lightning protection must be sequenced with ongoing data hall fit-out.",
+      "source": "DCH foundations and slabs: [Linha: 557–641], [Linha: 1045–1123], [Linha: 1397–1479], [Linha: 1718–1799]; structural steel and decking: [Linha: 642–660], [Linha: 1127–1143], [Linha: 1484–1500], [Linha: 1803–1819]; envelope and roof: [Linha: 661–696], [Linha: 1144–1178], [Linha: 1501–1539], [Linha: 1820–1862]."
     },
     {
       "name": "EYD",
-      "description": "Electrical Yard or similar external zone with large foundation slabs and trenches for generator and USS equipment, including local structural steel interfaces.",
+      "description": "External Yard (EYD) including slabs and foundations that support structural steel frames and gantries; includes generator and cooling zones.",
       "phases": [
         "PH1",
         "PH3"
       ],
       "activities": [
-        "PH1: Generator trench structural steel and USS trench structural steel, including corrosion protection C2, 60‑min intumescent coating in factory, touch‑up after erection and holding down bolts (supply only) (lines 759-772).",
-        "PH1: Steel columns kickers/bolts cast into EYD foundation slab (Dornan 005 line 731, 742).",
-        "PH3: Similar EYD configuration with steel columns kickers/bolts and interfaces to USS plinths for later steel frames (lines 1562-1574)."
+        "Foundation slabs with cast-in steel columns kickers/bolts for superstructures installed by others (trestles, modular buildings, walkways/platforms, generators).",
+        "Cooling Tower Gantry foundations in EYD for PH1 and PH3 with numerous pad foundations, beams and plinths to receive gantry structural steel.",
+        "Supply and installation of H.D.A. for gantry and equipment support steel bases in EYD.",
+        "Steel bollards and protective railings in yard areas, particularly around cooling equipment and services.",
+        "External stairs and access steel associated with Cooling Tower Gantries accessible from yard.",
+        "Utility trench structural steel in EYD (from Perun to edge of EYD) where trench heads or covers are steel supported."
       ],
-      "logistics": "EYD structural steel for trenches depends on EYD foundation slabs and plinths (S02-A1000 Dornan 001-007 etc.). Steel items are largely factory‑finished with limited site works (touch‑up and bolt installation). Access from perimeter for trench steel installation must be coordinated with yard concrete.",
-      "source": "[725-743], [759-772], [1556-1574]"
+      "logistics": "Yard access for cranes and heavy equipment required for gantry steel erection. Coordination of trench works, foundations and backfilling with later erection of gantries and access steel.",
+      "source": "EYD references: [Linha: 7] precast road gullies in EYD (interface with yard slabs); [Linha: 243–260] FSA Air Cooled Condenser & foundations; [Linha: 350–356] Sitewide Utility Trench from Perun to Edge of EYD; Cooling Tower Gantry foundations and gantry steel: [Linha: 781–795], [Linha: 795–815], [Linha: 1613–1633], [Linha: 1873–1911]."
     },
     {
       "name": "MYD",
-      "description": "Mechanical Yard / cooling yard areas associated with water‑cooled systems and cooling tower gantries.",
+      "description": "Main Yard (MYD), densified water-cooled yard with extensive concrete slabs supporting large Cooling Tower Gantries, RMU/Battery trenches and modular plant.",
       "phases": [
         "PH1",
         "PH2",
@@ -230,89 +283,220 @@
         "PH4"
       ],
       "activities": [
-        "PH1: MYD densified yard concrete (out of scope) with associated structural steel gantry and support packages defined later; Fuel Oil Offloading Areas at MYD with steel interfaces via hold down assemblies and bollards (lines 165-206, 186-206).",
-        "PH1: Cooling Tower Gantry structural steel Shell A 537 t (approx) with H.D.A., galvanizing, emergency stairs, cat ladders, railings and open mesh grating (lines 781-795, 786-787, 790-794).",
-        "PH2: Cooling Tower Gantry structural steel Shell A 377 t plus support steel for RMUs & battery boxes (0.56 t) with galvanizing, H.D.A., cat ladders, cooling tower stairs, railings and grating (lines 1199-1219, 1207-1214).",
-        "PH3: Cooling Tower Gantry structural steel Shell A 385 t + RMU supports 0.56 t, with galvanizing, H.D.A., cat ladders, emergency stairs, railings, bumper railings and grating (lines 1591-1613, 1601-1606, 1607-1613).",
-        "PH4: Cooling Tower Gantry structural steel Shell A 249 t + RMU supports 0.38 t, with galvanizing, H.D.A., cat ladders, cooling tower stairs, railings and grating (lines 1873-1894, 1882-1889, 1890-1894)."
+        "MYD structural steel gantries: large Cooling Tower Gantries steel frames in PH1, PH2, PH3 and PH4, including main steel, galvanizing and H.D.A.",
+        "RMU & Battery Box support steel sitting across MYD trenches (PH1–PH4) including galvanizing and touch-up.",
+        "Gantry emergency stairs, cooling tower stairs, cat ladders and railings on MYD gantries.",
+        "Open mesh grating on gantry walkways over MYD.",
+        "Bumper railings in front of chillers in MYD.",
+        "Supply and installation of holding down assemblies for multiple MYD-related structures: MCP, USS, CTB, USS trestles, S24, S25.",
+        "Fuel oil offloading slabs interfacing with steel pipe supports and bollards.",
+        "Steps and ramps including handrails for MCP and USS connections."
       ],
-      "logistics": "MYD cooling tower gantries require substantial foundations (S02-A1100 groups for cooling tower gantry and various trestle/pad foundations) completed before steel erection. Gantries carry stairs and walkways for access; erection sequencing must coordinate with mechanical equipment installation and with EYD / USS trenches. Galvanizing and open‑mesh grating imply off‑site fabrication and minimal field welding.",
-      "source": "[773-795], [781-795], [1199-1219], [1591-1613], [1873-1894], [795-855], [795-855], [1220-1236], [1614-1633], [1895-1911]"
+      "logistics": "Heavy gantry steel erection over large MYD slabs; requires sequential casting of foundations, then tower crane or mobile crane operations. Safety coordination for working at height on gantries and above cooling equipment.",
+      "source": "MYD references: [Linha: 165–186] Fuel Oil Offloading Area - EYD/MYD; MYD densified water-cooled structural steel and gantries: [Linha: 773–795], [Linha: 1199–1219], [Linha: 1591–1613], [Linha: 1873–1894]; MYD slabs and related foundations: numerous S02-A1100 and S02-A1600 entries where MYD is mentioned."
     },
     {
-      "name": "SSA",
-      "description": "Separate SSA scope including Load Bank Garage & Fuel Polishing Building, plus additional FSA AHU foundations and site development items tied to structural steel.",
+      "name": "Generator Trench",
+      "description": "Dedicated structural steel to form generator trenches including corrosion protection and fire protection.",
       "phases": [
         "PH1"
       ],
       "activities": [
-        "SSA Load Bank Garage & Fuel Polishing Building structural steel frame (Shell A) EXC2 S355 with H.D.A., galvanizing, surface touch‑up and associated roof decking and rail/ladder system (lines 2003-2015).",
-        "SSA roof deck: Kingspan RD 100/825 roof deck single spanning 1.5 mm gauge, roof railings and cat ladder (lines 2012-2015).",
-        "SSA envelope cladding: 240 mm Rockspan panels, parapet capping, scuppers, hoppers and downpipes, rolling shutter; all dependent on SSA steel frame (lines 2016-2021).",
-        "SSA site development: cycle route asphalt – no direct steel; only coordination with SSA foundations and entrance steel (line 2040-2041).",
-        "SSA additional FSA AHU foundation with H.D.A. and generator flue HDBA interfaces to steel (lines 2042-2061)."
+        "Generator Trench Structural Steel including primary trench beams and frames.",
+        "Corrosion protection paint for C2 environment on generator trench steel.",
+        "Intumescent paint for 60 minutes fire protection applied in factory.",
+        "Touch-up of coatings after erection.",
+        "Supply-only holding down bolts for generator trench steelwork."
       ],
-      "logistics": "SSA steel erection contingent on SSA foundations (S02-A1000 lines 2022-2036) and AHU foundations (S02-A1300 lines 2042-2061). Roof railings and cat ladders must coordinate with SSA roof deck and cladding penetrations. Access via SSA yard/roads is implied by site development items.",
-      "source": "[2002-2015], [2012-2021], [2022-2038], [2042-2061]"
+      "logistics": "Steel prefabricated with coatings applied off-site, then erected into prepared trenches. Requires prior completion of trench excavations and any concrete works surrounding steel.",
+      "source": "[Linha: 759–765] S02-A7100 | CSA | PH1 | Generator Trench Structural Steel."
     },
     {
-      "name": "RSA",
-      "description": "Security Fence & Infrastructure zone, primarily non‑structural, but includes metal security fencing posts that may be anchored to foundations or steelwork.",
+      "name": "USS Trench",
+      "description": "Structural steel for USS (Universal Sub-Station) trenches with corrosion and fire protection systems similar to generator trench.",
       "phases": [
         "PH1"
       ],
       "activities": [
-        "3 m high chainlink security fence on metal posts (line 1997).",
-        "Associated gates and fencing to attenuation pond (timber – not steel; interface with site boundaries)."
+        "USS Trench Structural Steel including trench beams and support frames.",
+        "Corrosion protection paint suitable for C2 environment category.",
+        "Intumescent paint fire protection (60 minutes) applied in factory.",
+        "Touch-up after erection prior to partial handover.",
+        "Supply-only holding down bolts for USS trench steel."
       ],
-      "logistics": "Security fence likely installed near end of PH1 after major steel erection and heavy logistics are complete, to avoid obstruction of crane access. Metal posts require coordination with any steel bollards or barrier rails near entrances.",
-      "source": "[1994-2001], particularly [1997]"
+      "logistics": "Parallel sequencing with generator trench steel; must coordinate with trench civil works and MEP services routed through trenches.",
+      "source": "[Linha: 766–772] S02-A7100 | CSA | PH1 | USS Trench Structural Steel."
+    },
+    {
+      "name": "Cooling Tower Gantry",
+      "description": "Large elevated steel gantries supporting cooling towers, with associated walkways, railings, stairs and access elements over MYD/EYD.",
+      "phases": [
+        "PH1",
+        "PH2",
+        "PH3",
+        "PH4"
+      ],
+      "activities": [
+        "Shell A cooling tower gantry structural steel for PH1, PH2, PH3 and PH4.",
+        "Shotblasting and hot-dip galvanizing to EN ISO 1461 for all gantry steel.",
+        "H.D.A. supply and installation for gantry columns.",
+        "Surface touch-up after erection.",
+        "Gantry emergency stairs and cooling tower stairs for access.",
+        "Cat ladders, railings, open mesh grating and bumper railings for safe access and maintenance.",
+        "Pad foundations, beams and plinths designed to receive cooling tower gantry loads.",
+        "Supply of hold down bolts for gantry-related supports (MCP, USS, S25 and others)."
+      ],
+      "logistics": "Requires significant cranage and temporary works. Gantry steel must be preassembled where possible, then erected onto accurately cast foundations with pre-positioned H.D.A. Coordination with plant suppliers for interface loads and access requirements.",
+      "source": "Cooling Tower Gantry structural steel: [Linha: 781–795], [Linha: 1207–1214], [Linha: 1599–1613], [Linha: 1882–1889]; foundations: [Linha: 795–815], [Linha: 1220–1236], [Linha: 1614–1633], [Linha: 1895–1911]."
+    },
+    {
+      "name": "MCP",
+      "description": "Modular Cooling Plant area with dedicated foundations, structural interfaces and access steel.",
+      "phases": [
+        "PH1",
+        "PH2",
+        "PH3",
+        "PH4"
+      ],
+      "activities": [
+        "MCP foundations (multiple phases) with H.D.A. cast in for future steel plant frames.",
+        "Supply-only of holding down bolt assemblies for MCP in PH1–PH4.",
+        "Steps and ramps including handrails for MCP access.",
+        "Integration of MCP with Cooling Tower Gantry walkways and stairs through steel interfaces."
+      ],
+      "logistics": "Foundations and H.D.A. must be complete prior to delivery of modular cooling units and any steel support frames. Steps/ramps installed after main plant is set.",
+      "source": "MCP foundations: [Linha: 873–891], [Linha: 1256–1274], [Linha: 1653–1672], [Linha: 1931–1949]; MCP holding down assemblies: [Linha: 1037–1044], [Linha: 1311–1316], [Linha: 1710–1716], [Linha: 1986–1993]."
+    },
+    {
+      "name": "USS",
+      "description": "Universal Sub-Station zone including plinths, foundations and steel access/hold down assemblies.",
+      "phases": [
+        "PH1",
+        "PH2",
+        "PH3",
+        "PH4"
+      ],
+      "activities": [
+        "USS foundation slabs, plinths and trestle foundations with H.D.A. for steel frames.",
+        "Supply-only holding down bolt assemblies for USS in PH1–PH4.",
+        "Steps and ramps with handrails for USS access.",
+        "Steel columns kickers/bolts where USS is integrated with EYD/yard slabs.",
+        "Integration with Cooling Tower Gantry where USS is adjacent or supported by gantry."
+      ],
+      "logistics": "USS foundations and H.D.A. must be in place and surveyed before steel erection. Steps/ramps and access elements installed later in sequence.",
+      "source": "USS foundations and trestles: [Linha: 892–910], [Linha: 1237–1255], [Linha: 1634–1652], [Linha: 1912–1930]; holding down assemblies and steps/ramps: [Linha: 1037–1044], [Linha: 1311–1318], [Linha: 1710–1716], [Linha: 1986–1993]."
+    },
+    {
+      "name": "CTB",
+      "description": "Cooling Tower Building (CTB) related foundations for trestles and plant supports interfacing with steel.",
+      "phases": [
+        "PH1",
+        "PH2"
+      ],
+      "activities": [
+        "CTB foundations and trestle foundations with cast-in H.D.A. for cooling tower related steel.",
+        "Supply-only hold down bolt assemblies for CTB (PH1).",
+        "Associated stairs, railings and grating where CTB links to Cooling Tower Gantry."
+      ],
+      "logistics": "CTB works coordinated with Cooling Tower Gantries; foundations and hold down assemblies must match gantry steel geometry.",
+      "source": "CTB references within S02-A1100 PH1/PH2 foundation packages; hold down assemblies for CTB: [Linha: 1040–1041]."
+    },
+    {
+      "name": "ASB",
+      "description": "Auxiliary service buildings (ASB) and their trestle foundations with steel interfaces.",
+      "phases": [
+        "PH1",
+        "PH2",
+        "PH3"
+      ],
+      "activities": [
+        "ASB foundations and trestle foundations with H.D.A. for steel structures.",
+        "ASB-related stairs and access steel where connected to Cooling Tower Gantry or MCC buildings."
+      ],
+      "logistics": "Requires tight coordination of foundation locations with future steel superstructures and gantries.",
+      "source": "ASB foundations: [Linha: 856–872]; ASB trestle references in S02-A1100 PH2/PH3 foundation zones."
+    },
+    {
+      "name": "S24 / S25 Pad Foundations",
+      "description": "Discrete pad foundations (S24, S25) for equipment or steel trestles located within MYD/EYD/Earthworks domains.",
+      "phases": [
+        "PH1",
+        "PH2",
+        "PH3",
+        "PH4"
+      ],
+      "activities": [
+        "S24 and S25 pad foundations with H.D.A. for steel columns or trestles.",
+        "Supply-only hold down bolt assemblies for S24 and S25 across phases.",
+        "Any associated steps, ramps or railings linked to these pads via steel connections."
+      ],
+      "logistics": "Pads must be precisely located and cast prior to erection of associated steel trestles or equipment.",
+      "source": "S24/S25 foundations: [Linha: 931–964], [Linha: 947–964], [Linha: 1275–1291], [Linha: 1673–1689], [Linha: 1950–1966]; holding down assemblies: [Linha: 1043–1044], [Linha: 1314–1316], [Linha: 1712–1716], [Linha: 1987–1989]."
+    },
+    {
+      "name": "Generator & Load Bank Garage (SSA)",
+      "description": "SSA Load Bank Garage & Fuel Polishing Building including foundation and small steel superstructure.",
+      "phases": [
+        "PH1"
+      ],
+      "activities": [
+        "(Shell A) Structural Steel to EXC2 S355 for Load Bank Garage & Fuel Polishing Building.",
+        "H.D.A. for SSA structural steel and galvanizing with shotblast to EN ISO 1461.",
+        "Surface touch-up after erection.",
+        "Roof deck (KINGSPAN RD 100/825) and roof railings and cat ladder.",
+        "Cladding panels, parapet capping and drainage components supported on SSA structural steel.",
+        "Foundations with H.D.A. and CRC coatings to support structural steel.",
+        "SSA FSA Additional AHU Foundation with H.D.A. for steel supports.",
+        "Under-slab insulation where interface to steel occurs (under FSA floor slab)."
+      ],
+      "logistics": "Small but detailed steel building requiring integration of roof deck, cladding and drainage with pre-galvanized structural frame. Foundations must be completed and H.D.A. installed earlier in PH1.",
+      "source": "SSA scope: [Linha: 2002–2015], [Linha: 2022–2038]; additional SSA AHU foundation: [Linha: 2042–2057]; insulation under FSA slab: [Linha: 2070–2071]."
+    },
+    {
+      "name": "RSA Security Fence & Attenuation Pond",
+      "description": "Perimeter security and landscaping infrastructure with steel interfaces.",
+      "phases": [
+        "PH1"
+      ],
+      "activities": [
+        "3 m high chainlink security fence on metal posts (no razor wire) around RSA boundary.",
+        "Timber fence and gate to attenuation pond (minimal steel; interface mostly posts and fixings)."
+      ],
+      "logistics": "Fence posts may require small concrete foundations but are predominantly metal posts; installation phased with completion of external yards and landscaping.",
+      "source": "RSA headers: [Linha: 1994–2001]; security fence item: [Linha: 1997]."
+    },
+    {
+      "name": "Cycle Route",
+      "description": "Cycle route in asphalt around or within site, including structural steel elements for safety where indicated.",
+      "phases": [
+        "PH1"
+      ],
+      "activities": [
+        "Construction of asphalt cycle route, including any integrated steel bollards, guardrails or supports that interface with CSA structural works."
+      ],
+      "logistics": "Cycle route works sequenced after main structural steel and heavy yard works to avoid damage; coordination required where route passes near gantries or equipment foundations.",
+      "source": "SSA - Site Development: [Linha: 2039–2041] CSA | PH1 | Cycle Route (Asphalt)."
     }
   ],
   "metadata": {
-    "source_file": "BOQ: teste tiago.csv",
-    "scope_notes": {
-      "included": [
-        "All items directly impacting structural steel tonnage, fabrication, supply, erection, corrosion protection (paint, galvanizing), intumescent fire protection, metal decking, secondary steel, metal stairs, ladders, railings, gratings and steel interfaces such as holding down assemblies and grout to steel bases.",
-        "Phase/zone relationships for all structural‑steel‑related work packages across FSA, DCH, MYD, EYD, SSA and RSA."
+    "summary": {
+      "phases_detected": [
+        "PH1",
+        "PH2",
+        "PH3",
+        "PH4"
       ],
-      "excluded": [
-        "All pure concrete, blinding, rebar, formwork, membranes and general civil works without explicit steel interface, in line with instruction to ignore concrete scope.",
-        "Architectural windows, doors, finishes and non‑structural trades without direct steel interface."
-      ]
-    },
-    "phase_zone_matrix_summary": {
-      "PH1": [
-        "FSA",
-        "DCH",
-        "MYD",
-        "EYD",
-        "SSA",
-        "CSA (global)",
-        "RSA"
+      "steel_scopes_overview": [
+        "Primary building frames for FSA and DCH across all phases, including steel decking and intumescent fire protection.",
+        "Extensive external and plant-related steelwork: Cooling Tower Gantries, RMU/Battery supports, Generator and USS trenches, modular plant foundations, miscellaneous stairs, ladders, railings, bollards and gratings.",
+        "Secondary steel for cladding and roofing systems on FSA and DCH envelopes in all phases.",
+        "Supply and coordination of holding down bolt assemblies and grouting for a large number of foundations and pads (MCP, USS, CTB, S24, S25, gantries, SSA, etc.).",
+        "Access and safety steel elements including cat ladders, gantry emergency stairs, cooling tower stairs, hop-over steps, bumper railings and roof railings.",
+        "Support steel for roof-mounted systems and penetrations, including AOVs, smoke louvres, cable trays, piping and ducts through cladding/roofing.",
+        "Perimeter and external steelwork: security fences on metal posts, steel bollards and loading dock metalwork."
       ],
-      "PH2": [
-        "DCH",
-        "MYD",
-        "CSA (global)"
-      ],
-      "PH3": [
-        "DCH",
-        "MYD",
-        "EYD",
-        "CSA (global)"
-      ],
-      "PH4": [
-        "DCH",
-        "MYD",
-        "CSA (global)"
-      ]
-    },
-    "interfaces_highlights": [
-      "Holding down assemblies (H.D.A.) are repeatedly defined as free issue from the structural steel subcontractor but cast into concrete by others across multiple zones and phases (e.g. S02-A1500 line 395; S02-A1600 line 588; S02-A1100 & S02-A1000 groups; S02-A7200 supply‑only lines).",
-      "Intumescent protection durations vary by building and phase: FSA generally 2 h, DCH up to 2 h in PH1 and 1 h in later phases, trench steels 60 min; this drives paint system selection and DFT requirements.",
-      "Cooling Tower Gantry systems in MYD involve large primary steel, extensive galvanized platforms with open mesh grating, and significant access steel (stairs, ladders, railings) across PH1–PH4; coordination with mechanical cooling plant and access/egress is critical.",
-      "Secondary steel for cladding (S04-A2100) is substantial for both FSA and DCH and must coordinate with primary frames, roof decks and penetrations for services, canopies and ladders."
-    ]
+      "concrete_exclusion_note": "All pure concrete, blinding, reinforcement, membranes and formwork items have been logically ignored except where they create explicit interfaces with the structural steel scope (H.D.A., holding down bolts, grouting steel bases, RSA steel inserts). No concrete quantities or mix properties are included.",
+      "method": "Top-to-bottom scan of the BOQ CSV, filtering aggressively for activities, elements, and responsibilities that affect structural steel scope, interfaces, or risk. Phases and zones inferred from CSA code structure (e.g., S03-A2000, S02-A1600, S02-A7200) and BOQ headings. Only structural, decking, metalwork, fire and corrosion protection, penetrations, holding down assemblies, and steel-related access works have been retained."
+    }
   }
 }

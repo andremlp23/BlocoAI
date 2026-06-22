@@ -1,0 +1,92 @@
+{
+  "objetivo_principal": "Excluir da pesquisa e extração toda a informação que não tenha impacto direto na orçamentação, fabrico, fornecimento, montagem, proteção, interfaces ou risco contratual da estrutura metálica.",
+  "regra_final_ia": "Assumir que toda a informação é IRRELEVANTE até demonstrar impacto direto na estrutura metálica. Na dúvida, manter apenas o que tiver relação clara com o scope, custo, tonelagem, fabrico, montagem, proteção, interface ou risco contratual do aço.",
+  "fatores_de_impacto_obrigatorios": [
+    "Âmbito do lote metálico",
+    "Tonelagem / quantidades",
+    "Tipologia estrutural",
+    "Tipo de aço / materiais",
+    "Perfis e elementos estruturais",
+    "Ligações",
+    "Fabrico",
+    "Montagem",
+    "Proteção anticorrosiva",
+    "Proteção ao fogo",
+    "Interfaces com outras especialidades",
+    "Meios de elevação / logística / faseamento",
+    "Responsabilidades de projeto, detalhe ou coordenação",
+    "Risco técnico ou contratual"
+  ],
+  "ignorar_estritamente_categorias": {
+    "A_arquitetura_e_acabamentos": [
+      "Cores", "Revestimentos", "Carpintarias", "Tetos falsos", "Pavimentos finais", 
+      "Louças sanitárias", "Caixilharias", "Acabamentos decorativos"
+    ],
+    "B_especialidades_sem_interface_estrutural": [
+      "AVAC (sem cargas ou suportação na estrutura metálica)", "Hidráulica", "Esgotos", 
+      "Eletricidade", "Telecomunicações", "CCTV", "SCIE / deteção / intrusão", 
+      "Redes de dados", "Automação", "Mobiliário técnico"
+    ],
+    "C_equipamentos_e_operacao_utilizador": [
+      "Máquinas", "Linhas de produção", "Racks", "Estantes", "Mobiliário", 
+      "Equipamentos informáticos", "Layouts operacionais", "Fluxos internos", 
+      "Capacidade produtiva", "Número de utilizadores"
+    ],
+    "D_obras_civis_e_betao_sem_interface": [
+      "Traços de betão", "Classes de exposição", "Armaduras", "Cofragens", "Betonilhas", 
+      "Pavimentos industriais", "Muros", "Drenagens", "Arranjos exteriores", "Paisagismo", 
+      "Fundações em detalhe completo", "Elementos de betão sem apoio, fixação ou ligação à estrutura metálica"
+    ],
+    "E_informacao_administrativa_institucional": [
+      "Textos introdutórios", "Descrição institucional do cliente", "Histórico de revisões sem impacto técnico", 
+      "Organogramas", "Enquadramento geral do projeto", "Objetivos genéricos do empreendimento"
+    ],
+    "F_texto_legal_normativo_sem_efeito_pratico": [
+      "Cláusulas padrão", "Texto contratual repetido", "Normas não aplicáveis à estrutura metálica", 
+      "Requisitos gerais sem impacto em custo, fabrico, montagem ou responsabilidade"
+    ]
+  },
+  "excecoes_manter_sempre_interfaces": [
+    "Cargas sobre a estrutura metálica",
+    "Apoios metálicos",
+    "Inserts",
+    "Chapas de espera",
+    "Anchor bolts / chumbadouros",
+    "Reservas / aberturas",
+    "Monovias",
+    "Plataformas",
+    "Escadas",
+    "Guardas",
+    "Suportes metálicos",
+    "Lajes colaborantes / soluções mistas aço-betão",
+    "Tolerâncias de fundações ou bases",
+    "Interfaces civil-metálica",
+    "Condicionantes de montagem",
+    "Faseamento construtivo",
+    "Acessos a obra",
+    "Meios de elevação",
+    "BIM / coordenação obrigatória",
+    "Responsabilidades de detalhe, cálculo ou compatibilização",
+    "Proteção anticorrosiva",
+    "Proteção passiva ao fogo",
+    "Ensaios, inspeções, execução EXC, requisitos EN 1090",
+    "Qualquer obrigação implícita que possa gerar custo ou risco de omissão"
+  ],
+  "criterios_de_decisao_logica": {
+    "ignorar_se": [
+      "Não pertence ao lote metálico",
+      "Não cria interface com a estrutura metálica",
+      "Não altera custo, prazo, fabrico, montagem, proteção, coordenação ou risco"
+    ],
+    "extrair_se": [
+      "Define scope",
+      "Define responsabilidades",
+      "Define materiais, perfis ou elementos",
+      "Define execução, ligações, tolerâncias ou classes",
+      "Define proteções",
+      "Define interfaces",
+      "Define condicionantes de montagem",
+      "Define obrigações implícitas ou riscos contratuais"
+    ]
+  }
+}
