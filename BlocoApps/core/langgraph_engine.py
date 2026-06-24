@@ -19,6 +19,12 @@ def _criar_llm(state: dict, model_name: str, temperature: float = 0.1, num_ctx: 
     - Se `_model_type` == 'local', tenta usar `ChatOllama` com `base_url`.
     - Caso contrário, usa `ChatOpenAI` com a `_api_key`.
     """
+    # Proteção contra model_name inválido vindo do estado ou de JSON editado
+    if not isinstance(model_name, str) or not model_name.strip():
+        model_name = state.get("_model_name")
+    if not isinstance(model_name, str) or not model_name.strip():
+        model_name = "gpt-5.1"
+
     model_type = state.get("_model_type", "api")
     if model_type == "local":
         try:
