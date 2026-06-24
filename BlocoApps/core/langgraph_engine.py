@@ -12,6 +12,29 @@ from core.document_reader import carregar_regras_json
 _log = logging.getLogger("blocoai.retry")
 logging.basicConfig(level=logging.WARNING)
 
+
+def _criar_llm(state: dict, model_name: str, temperature: float = 0.1, num_ctx: int | None = None):
+    """Cria um wrapper LLM adequado consoante o modo (local/API).
+
+    - Se `_model_type` == 'local', tenta usar `ChatOllama` com `base_url`.
+    - Caso contrário, usa `ChatOpenAI` com a `_api_key`.
+    """
+    model_type = state.get("_model_type", "api")
+    if model_type == "local":
+        try:
+            from langchain_ollama import ChatOllama
+
+            base_url = state.get("_local_url", "http://localhost:11434")
+            kwargs = {"model": model_name, "base_url": base_url, "temperature": temperature}
+            if num_ctx is not None:
+                kwargs["num_ctx"] = num_ctx
+            return ChatOllama(**kwargs)
+        except Exception as e:
+            print(f"[_criar_llm] Aviso: ChatOllama indisponível ({e}), fallback para ChatOpenAI")
+
+    # Por defeito, usar ChatOpenAI
+    return ChatOpenAI(model=model_name, api_key=state.get("_api_key", ""), temperature=temperature)
+
 REGRAS_EXTRACAO = carregar_regras_json()  # idealmente string; se vier dict, converte no loader
 
 
@@ -531,8 +554,8 @@ def no_router(state: AuditoriaState) -> dict:
 
 def no_extrator(state: AuditoriaState) -> dict:
     model_name = state.get("_model_name", "gpt-5.1")
-    llm_specs = ChatOpenAI(model=model_name, api_key=state["_api_key"], temperature=0.0)
-    llm_boq = ChatOpenAI(model=model_name, api_key=state["_api_key"], temperature=0.0)
+    llm_specs = _criar_llm(state, model_name, temperature=0.0)
+    llm_boq = _criar_llm(state, model_name, temperature=0.0)
 
     prog = state["_prog_slot"]
     status = state["_status_slot"]
@@ -574,7 +597,7 @@ def no_extrator(state: AuditoriaState) -> dict:
 # ======================================================================
 def no_auditor(state: AuditoriaState) -> dict:
     model_name = state.get("_model_name", "gpt-5.1")
-    llm = ChatOpenAI(model=model_name, api_key=state["_api_key"], temperature=0.1)
+    llm = _criar_llm(state, model_name, temperature=0.1)
     tentativas = state.get("tentativas", 0) + 1
 
     dados = (
@@ -694,7 +717,7 @@ END_OF_REPORT
 # ======================================================================
 def no_deduplicador(state: AuditoriaState) -> dict:
     model_name = state.get("_model_name", "gpt-5.1")
-    llm = ChatOpenAI(model=model_name, api_key=state["_api_key"], temperature=0.1)
+    llm = _criar_llm(state, model_name, temperature=0.1)
 
     base = (state.get("auditoria_bruta") or "").strip()
     if not base:
@@ -760,8 +783,7 @@ OUTPUT:
 # ======================================================================
 def no_apresentador(state: AuditoriaState) -> dict:
     # Usamos o gpt-4o para reestruturação complexa de dados (Data Pivot)
-    model_name = state.get("_model_name", "gpt-4o")
-    llm = ChatOpenAI(model=model_name, api_key=state["_api_key"], temperature=0.1)
+    llm = _criar_llm(state, "gpt-4o", temperature=0.1)
 
     base = (state.get("auditoria_normalizada") or state.get("auditoria_bruta") or "").strip()
     if not base:
