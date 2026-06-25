@@ -1,6 +1,6 @@
 import logging
 from typing import Any, TypedDict
-import json  # <- ADICIONADO PARA O CONTEXTO
+import json  
 
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
@@ -12,7 +12,7 @@ from core.document_reader import carregar_regras_json
 _log = logging.getLogger("blocoai.retry")
 logging.basicConfig(level=logging.WARNING)
 
-REGRAS_EXTRACAO = carregar_regras_json()  # idealmente string; se vier dict, converte no loader
+REGRAS_EXTRACAO = carregar_regras_json() 
 
 
 class AuditoriaState(TypedDict):
@@ -28,7 +28,7 @@ class AuditoriaState(TypedDict):
     auditoria_bruta: str
     auditoria_normalizada: str
     relatorio_final: str
-    contexto_projeto: dict  # <- ADICIONADO PARA RECEBER O JSON
+    contexto_projeto: dict  
 
     modo: str
     tentativas: int
@@ -40,8 +40,8 @@ class AuditoriaState(TypedDict):
     _api_key: str
     _prog_slot: Any
     _status_slot: Any
-    _model_name: str  # <- ADICIONADO PARA O MODELO DINÂMICO
-    _stream_callback: Any  # <- ADICIONADO PARA CAPTURAR STREAM
+    _model_name: str  
+    _stream_callback: Any 
 
 
 # ─────────────────────────────────────────────────────────────
@@ -55,7 +55,7 @@ def _obter_documento_completo(texto: str) -> list:
 
 
 # ─────────────────────────────────────────────────────────────
-# Invocação LLM com STREAMING (Fim dos Timeouts)
+# Invocação LLM com STREAMING 
 # ─────────────────────────────────────────────────────────────
 def _invocar_llm(llm, mensagens: list, stream_callback=None) -> str:
     print(f"[_invocar_llm] Invocando LLM com {len(mensagens)} mensagens... (MODO STREAMING)")
