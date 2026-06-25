@@ -531,8 +531,8 @@ def no_router(state: AuditoriaState) -> dict:
 
 def no_extrator(state: AuditoriaState) -> dict:
     model_name = state.get("_model_name", "gpt-5.1")
-    llm_specs = ChatOpenAI(model=model_name, api_key=state["_api_key"], temperature=0.0)
-    llm_boq = ChatOpenAI(model=model_name, api_key=state["_api_key"], temperature=0.0)
+    llm_specs = _criar_llm(state, model_name, temperature=0.0)
+    llm_boq = _criar_llm(state, model_name, temperature=0.0)
 
     prog = state["_prog_slot"]
     status = state["_status_slot"]
@@ -574,7 +574,7 @@ def no_extrator(state: AuditoriaState) -> dict:
 # ======================================================================
 def no_auditor(state: AuditoriaState) -> dict:
     model_name = state.get("_model_name", "gpt-5.1")
-    llm = ChatOpenAI(model=model_name, api_key=state["_api_key"], temperature=0.1)
+    llm = _criar_llm(state, model_name, temperature=0.1)
     tentativas = state.get("tentativas", 0) + 1
 
     dados = (
@@ -694,7 +694,7 @@ END_OF_REPORT
 # ======================================================================
 def no_deduplicador(state: AuditoriaState) -> dict:
     model_name = state.get("_model_name", "gpt-5.1")
-    llm = ChatOpenAI(model=model_name, api_key=state["_api_key"], temperature=0.1)
+    llm = _criar_llm(state, model_name, temperature=0.1)
 
     base = (state.get("auditoria_bruta") or "").strip()
     if not base:
@@ -760,8 +760,7 @@ OUTPUT:
 # ======================================================================
 def no_apresentador(state: AuditoriaState) -> dict:
     # Usamos o gpt-4o para reestruturação complexa de dados (Data Pivot)
-    model_name = state.get("_model_name", "gpt-4o")
-    llm = ChatOpenAI(model=model_name, api_key=state["_api_key"], temperature=0.1)
+    llm = _criar_llm(state, "gpt-4o", temperature=0.1)
 
     base = (state.get("auditoria_normalizada") or state.get("auditoria_bruta") or "").strip()
     if not base:

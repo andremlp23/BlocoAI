@@ -105,6 +105,9 @@ def processar_extracao_contextos(
     pre_loaded_boq_json: str = None,
     contexto_projeto: dict = None,
     stream_callback: Callable[[str], None] = None,
+    model_type: str = "api",
+    model_name: str = "gpt-5.1",
+    local_url: str = "",
 ) -> None:
     """
     Passo 1:
@@ -205,6 +208,9 @@ def processar_extracao_contextos(
             "contexto_projeto": contexto_projeto if isinstance(contexto_projeto, dict) else {},
 
             "_api_key": api_key_final,
+            "_model_type": model_type,
+            "_model_name": model_name,
+            "_local_url": local_url,
             "_prog_slot": prog_slot,
             "_status_slot": status_slot,
             "_stream_callback": stream_callback,
@@ -271,6 +277,9 @@ def processar_auditoria_com_contextos_editados(
     pipeline_callback: Callable[[list], None] = None,
     debug_mode: bool = False,
     stream_callback: Callable[[str], None] = None,
+    model_type: str = "api",
+    model_name: str = "gpt-5.1",
+    local_url: str = "",
 ) -> None:
     """
     Passo 2:
@@ -317,6 +326,9 @@ def processar_auditoria_com_contextos_editados(
             "contexto_projeto": {},
 
             "_api_key": api_key_final,
+            "_model_type": model_type,
+            "_model_name": model_name,
+            "_local_url": local_url,
             "_prog_slot": prog_slot,
             "_status_slot": status_slot,
             "_stream_callback": stream_callback,
@@ -388,6 +400,9 @@ def processar_auditoria(
     app_file: Path,
     pipeline_callback: Callable[[list], None] = None,
     debug_mode: bool = False,
+    model_type: str = "api",
+    model_name: str = "gpt-5.1",
+    local_url: str = "",
 ) -> None:
     texto_boq = ""
     texto_specs = ""
@@ -444,6 +459,9 @@ def processar_auditoria(
             "n_ficheiros": n_ficheiros,
             "paginas_sem_texto": todas_paginas_sem_texto,
             "_api_key": api_key_final,
+            "_model_type": model_type,
+            "_model_name": model_name,
+            "_local_url": local_url,
             "_prog_slot": prog_slot,
             "_status_slot": status_slot,
         }

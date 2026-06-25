@@ -62,8 +62,8 @@ def main() -> None:
 
     apply_global_styles()
 
-    api_key_final = setup_sidebar()
-    render_header(api_key_final)
+    api_key_final, model_type, model_name, local_url = setup_sidebar()
+    render_header(api_key_final, model_type)
     debug_mode, stream_enabled = render_debug_toggle()
 
     grafo_extracao = construir_grafo_extracao()
@@ -196,6 +196,9 @@ def main() -> None:
                 debug_mode=debug_mode,
                 contexto_projeto=contexto_projeto,
                 stream_callback=stream_callback,
+                model_type=model_type,
+                model_name=model_name,
+                local_url=local_url,
             )
             
             # STEP 4: Auditoria automática em sequência após gerar contextos
@@ -223,6 +226,9 @@ def main() -> None:
                     pipeline_callback=pipeline_callback_auditoria,
                     debug_mode=debug_mode,
                     stream_callback=stream_callback,
+                    model_type=model_type,
+                    model_name=model_name,
+                    local_url=local_url,
                 )
 
     render_results()
