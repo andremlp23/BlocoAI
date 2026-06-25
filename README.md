@@ -4,18 +4,18 @@
 [![LangGraph](https://img.shields.io/badge/LangGraph-0.2%2B-green)](https://langchain-ai.github.io/langgraph/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## 📋 Visão Geral
+## Visão Geral
 
 **BlocoAI** é um sistema automatizado e inteligente de extração, auditoria e estruturação de documentos de construção civil. Utiliza modelos de linguagem generativos (LLMs) orquestrados em fluxos de grafo (LangGraph) para processar **Especificações Técnicas (SPECS)** e **Documentos de Orçamento (BOQ)**, extraindo informação técnica, realizando auditorias cruzadas e estruturando dados em formato otimizado para análise de custos.
 
 ### Problema Resolvido
 
-- ❌ **Antes**: Processamento manual de documentos heterogéneos, erro-prone e moroso
-- ✅ **Depois**: Extração automatizada, auditoria cruzada e estruturação em Trade Packages
+- **Antes**: Processamento manual de documentos heterogéneos, erro-prone e moroso
+- **Depois**: Extração automatizada, auditoria cruzada e estruturação em Trade Packages
 
 ---
 
-## 🎯 Funcionalidades Principais
+## Funcionalidades Principais
 
 ### 1. **Extração Inteligente de Dados**
    - Extrai especificações técnicas de documentos SPECS (normas, materiais, tolerâncias, acabamentos)
@@ -29,17 +29,18 @@
 
 ### 3. **Normalização e Deduplicação**
    - Elimina duplicação de requisitos técnicos
-   - Atribui cada requisito a categoria única (propriedade exclusiva)
+   - Consolida informação repetida entre categorias
    - Mantém rastreabilidade até à fonte original
 
-### 4. **Estruturação em Trade Packages**
-   - Transforma dados de formato baseado em localização para formato de disciplinas
-   - Gera relatórios por Trade Package:
+### 4. **Geração de Relatório Final**
+   - Organiza os resultados da auditoria em formato legível
+   - Agrupa a informação por categorias técnicas relevantes:
      - Aço Estrutural
      - Deck Composto
-     - Proteção de Fogo
-     - Proteção de Corrosão
-     - Metalizações
+     - Proteção contra Fogo
+     - Proteção Anticorrosiva
+     - Elementos Metálicos Secundários
+   - Destaca inconsistências, omissões e ambiguidades
 
 ### 5. **Interface Intuitiva**
    - Dashboard Streamlit para upload e processamento
@@ -48,7 +49,7 @@
 
 ---
 
-## 🏗️ Arquitetura
+## Arquitetura
 
 ```
 ┌─────────────────────────────────────────┐
@@ -77,14 +78,15 @@
 
 | Agente | Função | Responsabilidade |
 |--------|--------|-----------------|
-| **AGT-01** | Extração SPECS | Extrai requisitos técnicos de especificações |
-| **AGT-02** | Extração BOQ | Extrai estrutura de fases e atividades |
-| **AGT-03** | Auditoria | Auditoria cruzada e validação |
-| **AGT-04** | Estruturação | Pivota dados em Trade Packages |
+| **AGT-01** | Extração de SPECS | Lê os documentos de especificações técnicas e extrai requisitos relevantes, como normas, materiais, classes de execução, sistemas de proteção, tolerâncias, requisitos de inspeção e elementos de controlo de qualidade. Ignora informação fora do âmbito definido, como betão, e devolve uma base técnica estruturada. |
+| **AGT-02** | Extração de BOQ | Analisa o mapa de quantidades, identifica fases, zonas, subzonas, atividades e categorias técnicas relevantes. Filtra informação comercial ou puramente quantitativa quando não contribui para a auditoria e organiza o BOQ de forma estruturada para comparação posterior. |
+| **AGT-03** | Auditoria Técnica | Compara a informação extraída das SPECS com a informação extraída do BOQ. Identifica alinhamentos, conflitos, omissões, ambiguidades e requisitos sem correspondência, preservando o contexto de fase, zona e subzona. |
+| **AGT-04** | Deduplicação e Normalização | Remove requisitos repetidos, consolida informação redundante entre categorias técnicas e aplica uma organização canónica aos resultados. Garante que cada requisito aparece apenas uma vez no relatório sempre que possível. |
+| **AGT-05** | Apresentação Final | Transforma a auditoria normalizada num relatório final legível para o utilizador. Organiza a informação por categorias técnicas, destaca inconsistências globais e prepara a saída final para validação humana. |
 
 ---
 
-## 📁 Estrutura de Projeto
+## Estrutura de Projeto
 
 ```
 BlocoAI/
@@ -129,15 +131,13 @@ BlocoAI/
 ├── examples/                          # Exemplos de utilização
 │   └── sample_documents/              # Documentos de exemplo
 │
-├── old/                               # Código legado/descontinuado
-│   └── *.py                           # Versões anteriores
 │
 └── .env.example                       # Configuração de ambiente (template)
 ```
 
 ---
 
-## 🚀 Instalação Rápida
+## Instalação Rápida
 
 ### Pré-requisitos
 - Python 3.9+
@@ -183,11 +183,11 @@ A aplicação abrirá em `http://localhost:8501`
 
 ---
 
-## 📖 Guia de Utilização
+## Guia de Utilização
 
 ### 1. Upload de Documentos
 
-1. Aceda a **"📤 Upload de Documentos"** na barra lateral
+1. Aceda a **"Upload de Documentos"** na barra lateral
 2. Seleccione ficheiros (PDF ou DOCX):
    - **Especificações Técnicas (SPECS)**
    - **Documentos de Orçamento (BOQ)**
@@ -219,7 +219,7 @@ A aplicação abrirá em `http://localhost:8501`
 
 ---
 
-## ⚙️ Configuração Avançada
+## Configuração Avançada
 
 ### Variáveis de Ambiente
 
@@ -259,7 +259,7 @@ Os ficheiros JSON em `data/contexts/` definem o comportamento dos agentes:
 
 ---
 
-## 🔍 Estrutura de Saídas
+## Estrutura de Saídas
 
 ### Extração (AGT-01, AGT-02)
 
@@ -291,19 +291,36 @@ Os ficheiros JSON em `data/contexts/` definem o comportamento dos agentes:
 }
 ```
 
-### Estruturação (AGT-04)
+### Deduplicação e Normalização (AGT-04)
 
 ```json
 {
-  "trade_package": "Aço Estrutural",
-  "requirements": [...],
-  "summary": {...}
+  "normalized_audit": [...],
+  "removed_duplicates": [...],
+  "canonical_categories": {
+    "structural_steel": [...],
+    "composite_decking": [...]
+  }
+}
+```
+
+### Relatório Final (AGT-05)
+
+```json
+{
+  "final_report": "Relatório técnico em formato Markdown",
+  "global_inconsistencies": [...],
+  "summary": {
+    "aligned_items": 0,
+    "conflicts": 0,
+    "missing_items": 0
+  }
 }
 ```
 
 ---
 
-## 🧪 Desenvolvimento
+## Desenvolvimento
 
 ### Executar Testes
 
@@ -328,7 +345,7 @@ Aparecem informações detalhadas nos logs e interface.
 
 ---
 
-## 📊 Casos de Uso
+## Casos de Uso
 
 ### 1. Validação de Conformidade
 - Verificar se BOQ cobre todos os requisitos SPECS
@@ -348,7 +365,7 @@ Aparecem informações detalhadas nos logs e interface.
 
 ---
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Erro: "OPENAI_API_KEY not set"
 ```bash
@@ -367,7 +384,7 @@ echo "OPENAI_API_KEY=sk_..." >> .env
 
 ---
 
-## 📚 Documentação Adicional
+## Documentação Adicional
 
 - [Instruções de Setup](SETUP.md)
 - [Changelog](docs/CHANGELOG.md)
@@ -376,7 +393,7 @@ echo "OPENAI_API_KEY=sk_..." >> .env
 
 ---
 
-## 📝 Relatórios Disponíveis
+## Relatórios Disponíveis
 
 - `docs/RELATORIO_DESENVOLVIMENTO_BlocoAI.txt` - Relatório de desenvolvimento
 - `docs/RESPOSTAS_CRITICAS_BlocoAI.txt` - Análise de questões críticas
@@ -384,59 +401,13 @@ echo "OPENAI_API_KEY=sk_..." >> .env
 
 ---
 
-## 👥 Autores
+## Autores
 
-Desenvolvido como projeto académico - Projeto Informático 2S
+Desenvolvido como projeto académico - Projeto Informático 25/26
 
----
-
-## 📄 Licença
-
-Este projeto está sob licença MIT. Veja [LICENSE](LICENSE) para detalhes.
+André Miguel Lourenço Pereira
+Diogo Alexandre Lopes Barroso
 
 ---
 
-## 🤝 Contribuição
 
-Contribuições são bem-vindas! Veja [CONTRIBUTING.md](docs/CONTRIBUTING.md) para guidelines.
-
----
-
-## 🎓 Citação
-
-Se usar este projeto em investigação ou trabalho académico:
-
-```bibtex
-@software{blocoai2026,
-  title={BlocoAI: Sistema Inteligente de Extração e Auditoria de Documentos de Construção},
-  author={Autor},
-  year={2026},
-  url={https://github.com/...}
-}
-```
-
----
-
-## ⭐ Status do Projeto
-
-- ✅ Extração de Especificações
-- ✅ Extração de BOQ
-- ✅ Auditoria Cruzada
-- ✅ Deduplicação
-- ✅ Estruturação em Trade Packages
-- ✅ Interface Streamlit
-- 🔄 Testes Unitários (em desenvolvimento)
-- 🔄 Documentação API (em desenvolvimento)
-
----
-
-## 📞 Suporte
-
-Para questões ou sugestões:
-1. Abra uma issue no repositório
-2. Consulte a documentação em `docs/`
-3. Verifique o histórico de auditorias em `audit/`
-
----
-
-**Última Atualização**: 22 de Junho de 2026
