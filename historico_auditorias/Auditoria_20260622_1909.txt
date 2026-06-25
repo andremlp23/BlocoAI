@@ -1,0 +1,108 @@
+# Cross-Document Technical Audit:
+
+## 1. TRADE PACKAGE: Structural Steel
+**Baseline Scope:**
+- Structural steel to NBN EN 1090 / EN 1090‑2 Execution Class 2; material generally S355JR to NBN EN 10025 and NBN EN 10210; hollow sections and plates per EN 10025/EN 10210.
+- Bolts grade 8.8 to EN ISO 898 with assemblies per NBN EN 14399 / EN 15048.
+- Design per NBN EN 1990/1991/1993, subgrade selection per NBN EN 1993‑1‑10.
+- Fabrication/erection tolerances and workmanship per EN 1090‑2.
+- Connection design and documentation rules, including reversible load checks.
+- Shop fabrication, high‑strength bolting, and erection procedures including survey of anchors and temporary stability.
+- Anchor bolts to NBN EN 15048.
+- Erection procedures including anchor verification, bracing and splicing restrictions.
+- Responsibility for connection design and documentation.
+- Erection survey and correction requirements prior to steel installation.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Structural steel to NBN EN 1090 / EN 1090‑2 Execution Class 2; material generally S355JR to NBN EN 10025 and NBN EN 10210; hollow sections and plates per EN 10025/EN 10210. | None |
+| PH1 | DCH | Structural framing to NBN EN 1090‑2 EXC2, materials S355JR to EN 10025/EN 10210. | None |
+| PH1 | EYD | Anchor bolts for structural framing to conform to NBN EN 15048. | None |
+| PH1 | MYD | Structural members and plates S355JR to EN 10025 and hollow sections to EN 10210. | None |
+| PH1 | MCP | Anchor bolts to NBN EN 15048. | None |
+| PH1 | USS | Anchor bolts per NBN EN 15048. | None |
+| PH1 | CT Gantry | Structural sections and plates S355JR to EN 10025; hollow sections to EN 10210; pipes/tubes to ISO 4200/10799. | None |
+| PH1 | SSA | Structural steel to NBN EN 1090‑2 EXC2, S355JR to EN 10025/10210. | None |
+| PH1 | Generator Trench | Structural members to EN 10025/10210 with EXC2 execution per EN 1090‑2. | None |
+| PH1 | Site Development | Structural steel and anchors for bollards and support frames per EN 10025/EN 10210/EN 15048. | None |
+| PH1 | RSA | Metal fabrications baseline for posts and guards with carbon steel to EN 10025 / EN 10210 and ISO 4200/10799. | None |
+
+## 2. TRADE PACKAGE: Composite Decking
+**Baseline Scope:**
+- Steel deck from galvanized sheet to NBN EN 10346 / NBN EN 10143, grade S350; wide‑rib roof deck without top stiffening ribs.
+- Accessory edge/closure strips, pour stops and sump pans with specified minimum thicknesses.
+- Mechanical fasteners and sidelap connectors subject to diaphragm design.
+- Detailed installation rules on bearing, laps, cutting, openings, closures, welding of composite and non‑composite deck.
+- Shear studs to BS EN ISO 13918.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Steel deck from galvanized sheet to NBN EN 10346 / NBN EN 10143, grade S350; wide‑rib roof deck without top stiffening ribs. | None |
+| PH1 | DCH | Galvanized S350 deck to NBN EN 10346 / 10143, wide‑rib roof deck. | None |
+| PH1 | SSA | Steel deck units produced from galvanized sheet to NBN EN 10346 / 10143, grade S350; wide‑rib deck requirements. | None |
+
+## 3. TRADE PACKAGE: Fire Protection
+**Baseline Scope:**
+- Thin‑film intumescent systems (Sherwin Williams FIRETEX FX2003 / FX6002) with defined primer/topcoat build‑ups.
+- Design for required fire resistance per EN 13381‑4 and EN 13501.
+- Surface preparation Sa 2½ where applicable; compatibility with primers per EN ISO 12944‑5.
+- Detailed application, curing, DFT control and QC requirements including acceptance criteria for DFT and environmental conditions.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Thin‑film intumescent systems (Sherwin Williams FIRETEX FX2003 / FX6002) with defined primer/topcoat build‑ups. | None |
+| PH1 | DCH | Sherwin Williams FIRETEX FX2003/FX6002 intumescent systems. | None |
+| PH1 | Generator Trench | Intumescent systems (FIRETEX FX2003/FX6002) with DFT selected for 60‑minute rating based on EN 13381‑4 and classified per EN 13501. | None |
+
+## 4. TRADE PACKAGE: Corrosion Protection
+**Baseline Scope:**
+- Corrosion protection per NBN EN ISO 12944 (C2 internal, C4 external).
+- Blast cleaning to Sa 2.5 per EN ISO 8501‑1 with roughness per EN ISO 8503.
+- Shop rust‑inhibitive or inorganic zinc‑rich primers with controlled DFT.
+- Hot‑dip galvanizing to EN ISO 1461 with design guidance per EN ISO 14713‑1.
+- External metal fabrications to be factory prefinished to C4 level with bright, light finish.
+- Touch‑up of galvanized areas per EN ISO 17463.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Corrosion protection per NBN EN ISO 12944 (C2 internal, C4 external). | None |
+| PH1 | DCH | Corrosion class definitions (C2 internal/C4 external) per EN ISO 12944‑2. | None |
+| PH1 | MYD | Corrosion classifications C2 internal and C4 external per EN ISO 12944‑2. | None |
+| PH1 | CT Gantry | Galvanizing of structural members, ladders, barrier rails, ledge/shelf angles and canopy supports to EN ISO 1461. | None |
+| PH1 | SSA | Galvanizing requirements to EN ISO 1461 with detailing per EN ISO 14713‑1. | None |
+| PH1 | Site Development | External C4 corrosion protection requirement for all exposed metal fabrications, including bollards and posts. | None |
+| PH1 | RSA | Hot‑dip galvanizing and/or C4 protective paint systems mandated for external metal fabrications. | None |
+
+## 5. TRADE PACKAGE: Metal Fabrications (Stairs/Railings/Gratings)
+**Baseline Scope:**
+- Detailed ladder fabrication (rails, rungs, spacing, supports, safety cages) to EN ISO 14122.
+- Barrier rails from steel pipe.
+- Ledge/shelf angles and roof opening framing, downpipe guards and canopy supports in galvanized steel.
+- Full technical requirements for metal stairs, ramps, handrails and guards including loading, member sizes, tread types (pans/checker plate), stringers, landings, roof stepovers, railing geometry and infill, joint quality, finishing (galvanizing/paint for C2/C4 environments).
+- General fabrication tolerances and execution rules for metal fabrications.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Detailed ladder fabrication (rails, rungs, spacing, supports, safety cages) to EN ISO 14122. | None |
+| PH1 | DCH | Performance and detailing standards for metal stairs and ramps (loads, stringers, treads, landings). | None |
+| PH1 | MYD | Detailed requirements for metal stairs, ramps, handrails and guards (including loads, stringers, treads, landings, removable electrical platform stairs). | None |
+| PH1 | CT Gantry | Metal stair and ladder requirements including loads, dimensions, fabrication and galvanizing. | None |
+| PH1 | SSA | Ladder, handrail, guardrail and metal fabrication requirements as per dedicated sections, including galvanizing of ladders and guards, load criteria and C4 external finish. | None |
+| PH1 | Site Development | Metal fabrications section applies to fence posts, guards, angles and stair units with requirements for material standards, fabrication, anchorage and corrosion protection. | None |
+| PH1 | RSA | General metal fabrications rules for material, fabrication, anchorage, welding and finishing. | None |
+
+## GLOBAL INCONSISTENCIES (ESTIMATING RISK REGISTER)
+| ID | Trade Package | Issue | Risk | Estimating Action |
+|----|---------------|-------|------|-------------------|
+| 1 | Structural Steel | Inconsistent anchor bolt specifications across zones. | Medium | Verify anchor bolt specifications for each zone. |
+| 2 | Composite Decking | Missing composite decking details in some zones. | Low | Confirm if composite decking is required in all zones. |
+| 3 | Fire Protection | Fire protection systems not specified for all zones. | Medium | Clarify fire protection requirements for each zone. |
+| 4 | Corrosion Protection | Corrosion protection class not consistently applied. | Medium | Ensure consistent application of corrosion protection classes. |
+| 5 | Metal Fabrications | Variability in metal fabrication specifications. | Low | Standardize metal fabrication specifications across zones. |
+
+END_OF_REPORT

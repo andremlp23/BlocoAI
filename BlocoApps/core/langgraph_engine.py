@@ -1,6 +1,6 @@
 import logging
 from typing import Any, TypedDict
-import json  # <- ADICIONADO PARA O CONTEXTO
+import json  
 
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
@@ -12,36 +12,7 @@ from core.document_reader import carregar_regras_json
 _log = logging.getLogger("blocoai.retry")
 logging.basicConfig(level=logging.WARNING)
 
-
-def _criar_llm(state: dict, model_name: str, temperature: float = 0.1, num_ctx: int | None = None):
-    """Cria um wrapper LLM adequado consoante o modo (local/API).
-
-    - Se `_model_type` == 'local', tenta usar `ChatOllama` com `base_url`.
-    - Caso contrário, usa `ChatOpenAI` com a `_api_key`.
-    """
-    # Proteção contra model_name inválido vindo do estado ou de JSON editado
-    if not isinstance(model_name, str) or not model_name.strip():
-        model_name = state.get("_model_name")
-    if not isinstance(model_name, str) or not model_name.strip():
-        model_name = "gpt-5.1"
-
-    model_type = state.get("_model_type", "api")
-    if model_type == "local":
-        try:
-            from langchain_ollama import ChatOllama
-
-            base_url = state.get("_local_url", "http://localhost:11434")
-            kwargs = {"model": model_name, "base_url": base_url, "temperature": temperature}
-            if num_ctx is not None:
-                kwargs["num_ctx"] = num_ctx
-            return ChatOllama(**kwargs)
-        except Exception as e:
-            print(f"[_criar_llm] Aviso: ChatOllama indisponível ({e}), fallback para ChatOpenAI")
-
-    # Por defeito, usar ChatOpenAI
-    return ChatOpenAI(model=model_name, api_key=state.get("_api_key", ""), temperature=temperature)
-
-REGRAS_EXTRACAO = carregar_regras_json()  # idealmente string; se vier dict, converte no loader
+REGRAS_EXTRACAO = carregar_regras_json() 
 
 
 class AuditoriaState(TypedDict):
@@ -57,7 +28,7 @@ class AuditoriaState(TypedDict):
     auditoria_bruta: str
     auditoria_normalizada: str
     relatorio_final: str
-    contexto_projeto: dict  # <- ADICIONADO PARA RECEBER O JSON
+    contexto_projeto: dict  
 
     modo: str
     tentativas: int
@@ -69,8 +40,8 @@ class AuditoriaState(TypedDict):
     _api_key: str
     _prog_slot: Any
     _status_slot: Any
-    _model_name: str  # <- ADICIONADO PARA O MODELO DINÂMICO
-    _stream_callback: Any  # <- ADICIONADO PARA CAPTURAR STREAM
+    _model_name: str  
+    _stream_callback: Any 
 
 
 # ─────────────────────────────────────────────────────────────
@@ -84,7 +55,7 @@ def _obter_documento_completo(texto: str) -> list:
 
 
 # ─────────────────────────────────────────────────────────────
-# Invocação LLM com STREAMING (Fim dos Timeouts)
+# Invocação LLM com STREAMING 
 # ─────────────────────────────────────────────────────────────
 def _invocar_llm(llm, mensagens: list, stream_callback=None) -> str:
     print(f"[_invocar_llm] Invocando LLM com {len(mensagens)} mensagens... (MODO STREAMING)")

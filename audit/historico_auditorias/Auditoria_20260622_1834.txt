@@ -1,0 +1,168 @@
+# Cross-Document Technical Audit:
+
+## 1. TRADE PACKAGE: Structural Steel
+**Baseline Scope:**
+- Structural steel members to NBN EN 10025 Grade S355JR and hollow sections to EN 10210 S355JR.
+- Execution class EXC2 per NBN EN 1090-2.
+- Design per NBN EN 1990/1991/1993 and joints per NBN EN 1993-1-8.
+- Non-preloaded and high-strength bolting per NBN EN 15048 and NBN EN 14399 with Grade 8.8 bolts.
+- Erection tolerances, bracing, and handling per EXC2 rules.
+- Grout under baseplates non-shrink, non-metallic, installed solidly and splayed 45°.
+- Lightning protection grids fixed to steel-supported roof systems.
+- Welding to EN 1090, EN 1011, EN ISO 9606-1, EN ISO 14732 with stud welding to EN ISO 13918.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Structural steel members to NBN EN 10025 Grade S355JR; execution class EXC2; non-preloaded and high-strength bolting per NBN EN 15048 and NBN EN 14399 with Grade 8.8 bolts. | None |
+| PH1 | DCH | Structural steel members S355JR with hollow sections to EN 10210; EXC2 per EN 1090-2; structural bolting to NBN EN 15048 and EN 14399. | None |
+| PH1 | EYD | Structural steel grades S355JR for angles/plates/channels and EN 10210 hollow sections; EXC2 execution per EN 1090. | None |
+| PH1 | MYD | Structural steel S355JR and EN 10210 hollow sections; EXC2 execution; anchor bolts and holding down assemblies to NBN EN 15048. | None |
+| PH1 | Generator Trench | Structural steel grades S355JR and EN 10210 sections; anchor bolts per NBN EN 15048; EXC2 fabrication and erection. | None |
+| PH1 | USS Trench | Structural sections S355JR/EN 10210; anchor bolts per NBN EN 15048; EXC2 execution. | None |
+| PH1 | Cooling Tower Gantry | Structural steel S355JR and hollow sections EN 10210; EXC2 per EN 1090-2; anchor rods per EN 15048. | None |
+| PH1 | MCP | Anchor bolts for structural steel to NBN EN 15048; survey and verification of anchor rods before erection. | None |
+| PH1 | USS | Structural steel S355JR and EN 10210 hollow sections; anchor bolts to EN 15048; EXC2 execution. | None |
+| PH1 | CTB | Anchor bolts to NBN EN 15048; EXC2 structural steel for trestles. | None |
+| PH1 | ASB | Structural steel EXC2 with anchor bolts per EN 15048. | None |
+| PH1 | S24 / S25 Pad Foundations | Anchor bolts to NBN EN 15048; EXC2 execution; baseplate grouting requirements. | None |
+| PH1 | Generator & Load Bank Garage (SSA) | Structural steel members S355JR and hollow sections to EN 10210, EXC2 per EN 1090-2. | None |
+| PH2 | DCH PH2 | Structural steel S355JR/EN 10210; EXC2 per EN 1090-2; anchor bolts per EN 15048. | None |
+| PH2 | MYD PH2 | Structural steel EXC2; anchor bolts to EN 15048. | None |
+| PH2 | MCP PH2 | Anchor bolts per EN 15048; EXC2 framing. | None |
+| PH2 | USS PH2 | Anchor bolts to EN 15048; EXC2 structural steel and access frames. | None |
+| PH2 | Cooling Tower Gantry PH2 | Structural steel EXC2; connection and bracing design per EN 1993; anchor bolts per EN 15048. | None |
+| PH2 | USS Foundation PH2 | Anchor bolts per EN 15048; structural steel EXC2. | None |
+| PH2 | MCP Foundation PH2 | Anchor rods to EN 15048; EXC2 structural steel framing. | None |
+| PH2 | S25 PH2 | Anchor bolts to EN 15048; EXC2 steel. | None |
+| PH2 | USS Trestle Foundations PH2 | Anchor rods per EN 15048; trestle steel framing to EXC2. | None |
+| PH3 | DCH PH3 | Structural steel S355JR and EN 10210 hollow sections; EXC2 execution; anchor bolts per EN 15048. | None |
+| PH3 | MYD PH3 | Structural steel EXC2; anchor bolts per EN 15048. | None |
+| PH3 | EYD PH3 | Structural steel and anchor bolts per S355JR and EN 15048; EXC2 execution. | None |
+| PH3 | Cooling Tower Gantry PH3 | Structural steel EXC2; connection and bracing design per EN 1993; anchor bolts to EN 15048. | None |
+| PH3 | MCP PH3 | Anchor bolts per EN 15048; EXC2 framing. | None |
+| PH3 | USS PH3 | Anchor bolts per EN 15048; EXC2 structural steel. | None |
+| PH3 | S25 PH3 | Anchor bolts to EN 15048; EXC2 framing. | None |
+| PH3 | USS Trestle Foundations PH3 | Anchor rods to EN 15048; trestle steel EXC2. | None |
+| PH4 | DCH PH4 | Structural steel S355JR and EN 10210 hollow sections; EXC2 execution; anchor bolts to EN 15048. | None |
+| PH4 | Cooling Tower Gantry PH4 | Structural steel EXC2; connection and bracing design per EN 1993; anchor bolts per EN 15048. | None |
+| PH4 | MCP PH4 | Anchor bolts to EN 15048; EXC2 framing. | None |
+| PH4 | USS PH4 | Anchor bolts to EN 15048; EXC2 structural framing. | None |
+| PH4 | S25 PH4 | Anchor bolts per EN 15048; EXC2 framing. | None |
+| PH4 | USS Trestle Foundations PH4 | Anchor rods per EN 15048; EXC2 structural steel trestles. | None |
+
+## 2. TRADE PACKAGE: Composite Decking
+**Baseline Scope:**
+- Steel deck units from galvanized sheet to NBN EN 10346 and EN 10143, steel grade S350.
+- Roof deck wide rib with no stiffening ribs on top.
+- Accessory metals (pour stops, edges) and closures with minimum thickness requirements.
+- Deck installation rules including minimum bearing and end laps, cutting/notching limits, closure details, prohibition on unapproved openings.
+- Puddle weld patterns and allowable alternative mechanical anchors.
+- Composite action with shear studs to EN ISO 13918.
+- Deck weld quality and rejection criteria.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Steel deck units from galvanized sheet to NBN EN 10346 and EN 10143, steel grade S350; roof deck wide rib with no stiffening ribs on top. | None |
+| PH1 | DCH | Steel deck units and accessories from galvanized S350 to EN 10346/EN 10143; deck profile and accessory thickness requirements. | None |
+| PH1 | Generator & Load Bank Garage (SSA) | Steel deck units to EN 10346/EN 10143, grade S350; deck installation, welding/fastening, and closure rules. | None |
+| PH2 | DCH PH2 | Steel deck S350 galvanized per EN 10346/EN 10143; installation and fastening requirements. | None |
+| PH3 | DCH PH3 | Steel deck S350 galvanized per EN 10346/EN 10143 with installation rules, fastening, openings control, and design calculations. | None |
+| PH4 | DCH PH4 | Steel deck S350 galvanized per EN 10346/EN 10143 with installation requirements, fastening pattern, and openings controls. | None |
+
+## 3. TRADE PACKAGE: Fire Protection
+**Baseline Scope:**
+- Thin-film intumescent systems for internal steel (C1) based on Sherwin Williams FIRETEX FX2003 or FX6002 with C69 primer and M71V2 topcoat.
+- Systems complying with EN 16623, EN 13381, and EN 13501.
+- DFT tables required per section size to achieve specified fire resistance (including 2-hour rating).
+- Surface preparation to Sa 2.5 where applied direct to steel.
+- Coordination with corrosion classification (C2/C3/C4) and EN ISO 12944-5.
+- Application rules (ambient conditions, curing, multi-coat system, DFT control, QA/field testing).
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Thin-film intumescent systems for internal steel (C1) based on Sherwin Williams FIRETEX FX2003 or FX6002 with C69 primer and M71V2 topcoat. | None |
+| PH1 | DCH | Intumescent fire protection systems and application for internal steel, with DFT design to achieve specified ratings (mix of 1-hour and 2-hour across phases). | None |
+| PH1 | Generator Trench | Thin-film intumescent systems for steel, with system build-ups (primer, intumescent basecoat, sealer) and testing per EN 13381 and EN 16623. | None |
+| PH1 | USS Trench | Intumescent systems per EN 16623/EN 13381 with DFT based on required 60-minute rating. | None |
+| PH1 | Cooling Tower Gantry | Intumescent systems covering external or semi-external steel where specified, including compatibility with galvanizing and C2/C3/C4 environments. | None |
+| PH2 | DCH PH2 | Intumescent systems (FX2003/FX6002 or equivalent) with DFT to achieve 1-hour rating per EN 13381. | None |
+| PH3 | DCH PH3 | Intumescent systems and application rules as in earlier phases, designed for 1-hour rating. | None |
+| PH4 | DCH PH4 | Intumescent systems and application procedures, DFT tables for 1-hour rating per EN 13381 and EN 16623. | None |
+
+## 4. TRADE PACKAGE: Corrosion Protection
+**Baseline Scope:**
+- Corrosion system classification C2 internal and C4 external per EN ISO 12944-1/2.
+- Primary steel painting per EN ISO 12944, including shop primer, environmental conditions, and DFT checks to EN ISO 2808.
+- Hot-dip galvanizing to EN ISO 1461 and design per EN ISO 14713-1.
+- External/exposed metal fabrications and stairs/handrails to be pre-finished for C4 environment, with touch-up of galvanized surfaces per EN ISO 17463.
+- External steel finish to satisfy “bright, light surface” per NBN EN 1991-1-5.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Corrosion system classification C2 internal and C4 external per EN ISO 12944-1/2. | None |
+| PH1 | DCH | General corrosion protection rules for primary steel to EN ISO 12944 with C2 internal and C4 external classification. | None |
+| PH1 | EYD | External exposed steel classified C4 per EN ISO 12944-2 with durability ranges. | None |
+| PH1 | MYD | Hot-dip galvanizing to EN ISO 1461 and EN ISO 14713-1; external steel structures intended for C4 environment per EN ISO 12944-2 and ISO 9223. | None |
+| PH1 | Generator Trench | Corrosivity classification C2 internal per EN ISO 12944-2; painting of primary steel to EN ISO 12944. | None |
+| PH1 | USS Trench | C2 classification for internal steel per EN ISO 12944-2; corrosion protection painting to EN ISO 12944. | None |
+| PH1 | Cooling Tower Gantry | Hot dip galvanizing to EN ISO 1461 with design and detailing per EN ISO 14713-1. | None |
+| PH1 | MCP | External access steel (stairs, ramps, handrails) to be galvanized to EN ISO 1461 and pre-finished for C4 environment. | None |
+| PH1 | USS | External/exposed metal fabrications, handrails, stairs, and ramps to be hot-dip galvanized per EN ISO 1461 and pre-finished for C4 environment. | None |
+| PH1 | CTB | Galvanizing to EN ISO 1461; external steel designed for C4 environment with pre-finish per EN ISO 12944-2 and ISO 9223. | None |
+| PH1 | ASB | Hot-dip galvanizing per EN ISO 1461; C4 environment classification and pre-finish per EN ISO 12944-2 and ISO 9223. | None |
+| PH1 | S24 / S25 Pad Foundations | External structural steel corrosion class C4 per EN ISO 12944-2 with galvanizing per EN ISO 1461. | None |
+| PH1 | Generator & Load Bank Garage (SSA) | Galvanizing per EN ISO 1461 and EN ISO 14713-1; painting/touch-up per EN ISO 12944 and EN ISO 17463. | None |
+| PH2 | DCH PH2 | Painting of primary steel to EN ISO 12944; galvanizing to EN ISO 1461 and EN ISO 14713-1. | None |
+| PH2 | MYD PH2 | Hot dip galvanizing to EN ISO 1461; C4 external classification. | None |
+| PH2 | USS PH2 | Galvanizing to EN ISO 1461; C4 classification and pre-finish per EN ISO 12944-2 and ISO 9223. | None |
+| PH2 | Cooling Tower Gantry PH2 | Hot dip galvanizing to EN ISO 1461 and EN ISO 14713-1; external steel to meet C4 environment. | None |
+| PH3 | DCH PH3 | External steel elements including external stair and bollards classified C4 with galvanizing and finishing per EN ISO 1461 and EN ISO 12944-2/ISO 9223. | None |
+| PH3 | MYD PH3 | Hot-dip galvanizing; C4 external classification; touch-up per EN ISO 17463. | None |
+| PH3 | Cooling Tower Gantry PH3 | Galvanizing and C4 pre-finish requirements; EN ISO 12944 and EN ISO 14713-1. | None |
+| PH4 | DCH PH4 | Primary steel painting per EN ISO 12944; C2/C4 classifications; hot-dip galvanizing where external. | None |
+| PH4 | Cooling Tower Gantry PH4 | Hot-dip galvanizing to EN ISO 1461 and EN ISO 14713-1; C4 environment classification. | None |
+
+## 5. TRADE PACKAGE: Metal Fabrications (Stairs/Railings/Gratings)
+**Baseline Scope:**
+- Miscellaneous steel fabrications (ladders, rails, guards) requirements: ladder geometry and supports.
+- Galvanized ledge/shelf angles and roof opening framing.
+- Galvanized edge angles and canopy supports.
+- Stair and ramp components including channels for stringers, grating and checker-plate treads, nosings, galvanized external stairs.
+- Handrails/guards (pipe diameters, heights, infill bar spacing, loading, galvanizing, C4 pre-finish).
+- EN ISO 14122-1/2/3/4 for permanent access.
+- Fabrication tolerances and finish quality for exposed work.
+- NAAMM MBG 531/532 for grating and stair/ramp loading.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Miscellaneous steel fabrications (ladders, rails, guards) requirements: ladder geometry and supports. | None |
+| PH1 | DCH | Miscellaneous steel fabrications and handrail/guard systems: ladder geometry, supports, safety cages. | None |
+| PH1 | EYD | Miscellaneous steel fabrications and stair/ramp/handrail requirements including galvanized barrier rails. | None |
+| PH1 | MYD | Stair and ramp components (channels, treads, grating to NAAMM MBG 531/532), design loads, nosings, and railing systems. | None |
+| PH1 | Generator & Load Bank Garage (SSA) | Handrails and guards (pipe diameters, heights, infill, loads); fixed ladders per EN ISO 14122. | None |
+| PH2 | DCH PH2 | Miscellaneous fabrications for ladders and stairs; handrail/guard requirements. | None |
+| PH2 | MYD PH2 | Bar grating requirements (NAAMM MBG 531/532); stair and ramp design and fabrication. | None |
+| PH2 | MCP PH2 | Stair and ramp components, grating options, and handrail/guard requirements. | None |
+| PH2 | USS PH2 | Stair and ramp structural components; handrails and guards. | None |
+| PH2 | Cooling Tower Gantry PH2 | Bar grating standards; stair and railing requirements. | None |
+| PH3 | DCH PH3 | Stair structural components; handrails/guards; external grating or plate treads. | None |
+| PH3 | MYD PH3 | Bar grating standards; stair and ramp components; handrail and guard criteria. | None |
+| PH3 | Cooling Tower Gantry PH3 | Stair and ramp, handrail/guard, fixed ladder, and bar grating requirements. | None |
+| PH4 | Cooling Tower Gantry PH4 | Stair/ramp components and grating; handrails and guards. | None |
+| PH4 | MCP PH4 | Stair and ramp, handrail/guard fabrication and loads. | None |
+
+## GLOBAL INCONSISTENCIES (ESTIMATING RISK REGISTER)
+| ID | Trade Package | Issue | Risk | Estimating Action |
+|----|---------------|-------|------|-------------------|
+| 1 | Structural Steel | Inconsistent execution class specification across zones. | Medium | Verify execution class requirements for each zone. |
+| 2 | Composite Decking | Variability in deck profile and accessory thickness requirements. | Medium | Confirm uniformity in decking specifications. |
+| 3 | Fire Protection | Different fire resistance ratings specified across phases. | High | Ensure fire protection systems meet all specified ratings. |
+| 4 | Corrosion Protection | Discrepancies in corrosion classification and pre-finish requirements. | High | Align corrosion protection strategies with environmental classifications. |
+| 5 | Metal Fabrications | Inconsistent handrail and guard specifications. | Medium | Standardize handrail and guard requirements across all zones. |
+
+END_OF_REPORT
