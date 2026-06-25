@@ -12,6 +12,34 @@ from core.document_reader import carregar_regras_json
 _log = logging.getLogger("blocoai.retry")
 logging.basicConfig(level=logging.WARNING)
 
+def _criar_llm(state: dict, model_name: str, temperature: float = 0.1, num_ctx: int | None = None):
+    """Cria um wrapper LLM adequado consoante o modo (local/API).
+
+    - Se `_model_type` == 'local', tenta usar `ChatOllama` com `base_url`.
+    - Caso contrário, usa `ChatOpenAI` com a `_api_key`.
+    """
+    # Proteção contra model_name inválido vindo do estado ou de JSON editado
+    if not isinstance(model_name, str) or not model_name.strip():
+        model_name = state.get("_model_name")
+    if not isinstance(model_name, str) or not model_name.strip():
+        model_name = "gpt-5.1"
+
+    model_type = state.get("_model_type", "api")
+    if model_type == "local":
+        try:
+            from langchain_ollama import ChatOllama
+
+            base_url = state.get("_local_url", "http://localhost:11434")
+            kwargs = {"model": model_name, "base_url": base_url, "temperature": temperature}
+            if num_ctx is not None:
+                kwargs["num_ctx"] = num_ctx
+            return ChatOllama(**kwargs)
+        except Exception as e:
+            print(f"[_criar_llm] Aviso: ChatOllama indisponível ({e}), fallback para ChatOpenAI")
+
+    # Por defeito, usar ChatOpenAI
+    return ChatOpenAI(model=model_name, api_key=state.get("_api_key", ""), temperature=temperature)
+
 REGRAS_EXTRACAO = carregar_regras_json() 
 
 
