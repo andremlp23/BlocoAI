@@ -1,0 +1,114 @@
+# Cross-Document Technical Audit:
+
+## 1. TRADE PACKAGE: Structural Steel
+**Baseline Scope:**
+- Structural sections and plates to NBN EN 10025 S355JR and hollow sections to NBN EN 10210.
+- Design per NBN EN 1990/1991/1993.
+- Execution to NBN EN 1090/NBN EN 1090‑2, EXC2.
+- Fabrication and connections per EN 1993‑1‑8, EN 1011, EN ISO 9606‑1/14732.
+- High‑strength bolting per EN 14399/EN 15048/EN ISO 898.
+- Holding down bolt assemblies/H.D.A. for steel supports.
+- Erection survey and tolerances.
+- Grout at baseplates non‑shrink, non‑metallic per grout provisions.
+- Earthing/pigtails at bases.
+- Secondary/AHU‑related support steel included within same execution rules.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Structural sections and plates to NBN EN 10025 S355JR and hollow sections to NBN EN 10210; design per NBN EN 1990/1991/1993; execution to NBN EN 1090/NBN EN 1090‑2, EXC2; fabrication and connections per EN 1993‑1‑8, EN 1011, EN ISO 9606‑1/14732; high‑strength bolting per EN 14399/EN 15048/EN ISO 898; holding down bolt assemblies/H.D.A. for steel supports; erection survey and tolerances; grout at baseplates non‑shrink, non‑metallic per grout provisions; earthing/pigtails at bases; secondary/AHU‑related support steel included within same execution rules. | None |
+| PH1 | DCH | Structural steel S355JR per NBN EN 10025 and EN 10210; design per NBN EN 1990/1991/1993; execution to NBN EN 1090‑2, EXC2; fabrication, connection and erection rules including high‑strength bolting to EN 14399/EN 15048, bolt property classes to EN ISO 898, welding qualifications to EN ISO 9606‑1/14732 and welding procedures per EN 1011; erection tolerances and connection detailing requirements; holding down bolt assemblies and chemical/multi‑phase anchors for bases; earthing/pigtails at bases; non‑shrink grout at baseplates per grout baseline. | None |
+| PH1 | EYD | Anchor bolts and high‑strength bolting per NBN EN 15048, NBN EN 14399 and EN ISO 898; erection requirements for pre‑survey and verification of anchor rods prior to steel installation; grout under baseplates per grout baseline; connection design, hole geometry and tolerances per structural steel execution section. | None |
+| PH1 | MYD | Structural steel to NBN EN 10025 and EN 10210; design per NBN EN 1990/1991/1993; execution per NBN EN 1090‑2 EXC2; high‑strength bolting and anchor bolts per EN 14399/EN 15048; generator and USS trench structural steel following same execution rules including anchor rod survey and temporary bracing requirements; cooling tower gantry structural steel (Shell A) and support steel over trenches, with hold‑down assemblies/dowels integrated under the same structural baseline; trench steel corrosion and intumescent performance governed by general painting and fireproofing baselines. | None |
+| PH1 | USS | Structural steel and hollow sections per NBN EN 10025 and EN 10210; anchor bolts to EN 15048; high‑strength bolts to EN 14399; grout, erection survey and connection detailing per structural steel execution baseline; trench corrosion protection and fire protection are governed by general painting/intumescent baselines; USS plinths and foundations with H.D.A. and dowels for future superstructure/USS frames; structural steel over USS trenches following same EXC2 execution and connection rules. | None |
+| PH1 | MCP | Anchor bolts and high‑strength bolts per EN 15048 and EN 14399; structural steel execution, erection tolerances and grout for baseplates as per global structural steel baseline for supports to modular cooling equipment and gantry interfaces. | None |
+| PH1 | ASB | Anchor bolts and high‑strength bolting per EN 15048 and EN 14399; general structural steel execution to EN 1090‑2 EXC2 for any future frames supported on foundations/trestles; grout under baseplates per grout baseline. | None |
+| PH1 | CTB | Structural steel frame and connection design per NBN EN 1993; execution class EXC2 per EN 1090‑2; high‑strength bolting and anchor bolts per EN 14399/EN 15048; erection tolerances and survey of anchor rods for cooling tower gantry/trestle supports. | None |
+| PH1 | MWT | Anchor bolts and high‑strength bolts to EN 15048/EN 14399; structural steel execution to EN 1090‑2 EXC2 and erection tolerances for future steel supports integrated with cooling tower gantry and MYD gantry systems. | None |
+| PH1 | S24/S25 | Structural steel frame baseline and anchor bolt standards per EN 15048/EN 14399; EXC2 fabrication/erection per EN 1090‑2; grout baseline for baseplates at trestle and column supports. | None |
+| PH1 | SSA | Structural steel frame (Shell A) grade S355JR to NBN EN 10025 and EN 10210; execution to EN 1090‑2 EXC2; galvanizing to EN ISO 1461 with design per EN ISO 14713‑1; high‑strength bolts and anchor bolts per EN 14399/EN 15048; grout and erection requirements including survey of H.D.A.; external reflective finish for exposed steel potentially assessed against NBN EN 1991‑1‑5 where applicable; rolling shutter steel curtain/guides and interface supports within same structural/connection baseline. | None |
+| PH1 | Generator Trench | Structural steel trench framing to EXC2 execution; anchor bolts and bolting to EN 15048 and EN 14399; erection tolerances and survey of anchor rods; grout between baseplates and supports in accordance with grout baseline; interfaces with adjacent steel supports governed by same structural execution rules. | None |
+| PH1 | USS Trench | USS trench structural steel (primary/secondary) with supply‑only holding down bolts to EN 15048/EN 14399; erection tolerances and anchor rod survey as per Generator Trench structural baseline; integration with trench covers and support of RMU/battery boxes under same execution and connection criteria. | None |
+
+## 2. TRADE PACKAGE: Composite Decking
+**Baseline Scope:**
+- Steel deck from galvanized sheet S350 to NBN EN 10346 and NBN EN 10143.
+- Design per NBN EN 1993‑1‑3.
+- Installation per SCI Code of Practice, SCI design manuals and “Safety Requirements for Powder‑Actuated Fastening Systems”.
+- Execution rules for bearing, end laps, side laps, puddle welds or proprietary fasteners, side‑lap fastening, closures and openings governed under “Steel Deck Installation”.
+- Deck to act as roof diaphragm where designed.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Steel deck from galvanized sheet S350 to NBN EN 10346 and NBN EN 10143; design per NBN EN 1993‑1‑3; installation per SCI Code of Practice, SCI design manuals and “Safety Requirements for Powder‑Actuated Fastening Systems”; execution rules for bearing, end laps, side laps, puddle welds or proprietary fasteners, side‑lap fastening, closures and openings governed under “Steel Deck Installation”; deck to act as roof diaphragm where designed. | None |
+| PH1 | DCH | Galvanized steel deck S350 to NBN EN 10346 and NBN EN 10143; design per NBN EN 1993‑1‑3; installation and fastening per SCI/BCSA Code of Practice and “Steel Deck Installation”; rules for bearing lengths, end laps, side laps, puddle welds or proprietary mechanical fasteners, closures and openings; shear studs through deck to EN ISO 13918 where composite action is used. | None |
+| PH1 | SSA | Roof steel deck Kingspan RD100/825 in cold‑formed galvanized S350 sheet to NBN EN 10346/10143; design per NBN EN 1993‑1‑3 including diaphragm design; SCI/BCSA guidance and SCI manuals for deck and diaphragm design; deck installation rules under “Steel Deck Installation,” including bearing, laps, fasteners, closures and openings. | None |
+
+## 3. TRADE PACKAGE: Fire Protection
+**Baseline Scope:**
+- Intumescent systems (e.g. Sherwin‑Williams FIRETEX FX2003/FX6002) with compatible primer (e.g. C69) and top sealer (e.g. M71V2).
+- Systems tested to EN 13381‑4 and classified to EN 13501.
+- Design and dry film thickness (DFT) per ASFP Yellow Book/TGD 11 and EN 16623.
+- Fire resistance duration as per structural fire design (no fixed limit in specification).
+- Compatible alkyd or other specified primer where intumescent is applied.
+- Detailed DFT survey and acceptance criteria forming part of QA/QC.
+- Application and curing requirements integrated with corrosion protection system.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Intumescent systems (e.g. Sherwin‑Williams FIRETEX FX2003/FX6002) with compatible primer (e.g. C69) and top sealer (e.g. M71V2); systems tested to EN 13381‑4 and classified to EN 13501; design and dry film thickness (DFT) per ASFP Yellow Book/TGD 11 and EN 16623; fire resistance duration as per structural fire design (no fixed limit in specification); compatible alkyd or other specified primer where intumescent is applied; detailed DFT survey and acceptance criteria forming part of QA/QC; application and curing requirements integrated with corrosion protection system. | None |
+| PH1 | DCH | Intumescent coating systems designed and assessed to EN 16623, EN 13381‑4 and EN 13501 with ASFP guidance; defined primer/intumescent/topcoat systems with DFT set to achieve 1–2 hour fire resistance as required by design; full QA/QC for surface preparation and DFT verification; compatibility between intumescent systems and underlying corrosion protection. | None |
+| PH1 | MYD | Intumescent systems with defined compatible primer/intumescent/topcoat build‑ups; application and curing requirements; QA including DFT measurement and acceptance criteria; fire rating durations derived from EN 13381‑4 tests, with 60 minutes within the validated range; coating systems to remain compatible with the trench corrosion protection system. | None |
+| PH1 | USS | Intumescent fire protection systems as applied to USS trench steel consistent with MYD/FSA/DCH baselines; 60 minute rating obtained via DFT design in accordance with EN 13381‑4 test data and EN 13501 classification; QA including DFT checks and compatibility with underlying corrosion system. | None |
+| PH1 | Generator Trench | Factory‑applied intumescent systems sized to 60 minutes as required, following the project‑wide intumescent fireproofing baseline; QA including surface preparation, application controls and DFT verification; DFT derived from EN 13381‑4 testing and EN 13501 classification where relevant. | None |
+| PH1 | USS Trench | Factory‑applied intumescent paint for 60 minutes with site touch‑up, using the same intumescent systems and QA framework as Generator Trench and MYD/USS baselines; DFT designed from EN 13381‑4 test data. | None |
+
+## 4. TRADE PACKAGE: Corrosion Protection
+**Baseline Scope:**
+- Primary steel paint systems to NBN EN ISO 12944 (C2 internal, C4 external).
+- Surface preparation to Sa 2.5 with roughness and dust control to EN ISO 8501‑1, EN ISO 8502‑3 and EN ISO 8503‑1/‑2.
+- Shop priming rules including DFT checks per EN ISO 2808.
+- Inorganic zinc‑rich primers for exposed external steel.
+- External handrails, stairs and ramps to be factory pre‑finished for C4 environment per EN ISO 12944‑2 and ISO 9223.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Primary steel paint systems to NBN EN ISO 12944 (C2 internal, C4 external); surface preparation to Sa 2.5 with roughness and dust control to EN ISO 8501‑1, EN ISO 8502‑3 and EN ISO 8503‑1/‑2; shop priming rules including DFT checks per EN ISO 2808; inorganic zinc‑rich primers for exposed external steel; external handrails, stairs and ramps to be factory pre‑finished for C4 environment per EN ISO 12944‑2 and ISO 9223. | None |
+| PH1 | DCH | Corrosion protection systems for internal C2 and external C4 environments per NBN EN ISO 12944‑1/‑2/‑5; blast cleaning to Sa 2.5 with specified surface profile and cleanliness; shop painting rules and DFT control; inorganic zinc‑rich primers for external members; compatibility with intumescent coating systems where combined. | None |
+| PH1 | MYD | Corrosion classes C2 and C4 defined per EN ISO 12944‑2; paint systems and durability per EN ISO 12944‑1/‑5; blast cleaning to Sa 2.5 with roughness and dust control; galvanizing to EN ISO 1461 with design guidance per EN ISO 14713‑1; shop priming/galvanizing rules including touch‑up for damaged coating and cut surfaces. | None |
+| PH1 | USS | C2 corrosion classification and paint system design per EN ISO 12944‑1/‑2/‑5 for USS trench steel; surface preparation to EN ISO 8501‑1 and EN ISO 8502‑3/8503‑1/‑2; shop painting and touch‑up rules for damaged coating. | None |
+| PH1 | Generator Trench | C2 internal corrosion classification with systems per NBN EN ISO 12944‑1/‑2/‑5; Sa 2.5 surface preparation; DFT checks per EN ISO 2808; general shop painting rules for application and touch‑up after erection. | None |
+| PH1 | USS Trench | C2 paint system baseline as for Generator Trench, to NBN EN ISO 12944‑1/‑2/‑5, with Sa 2.5 preparation and DFT control to EN ISO 2808. | None |
+
+## 5. TRADE PACKAGE: Metal Fabrications (Stairs/Railings/Gratings)
+**Baseline Scope:**
+- Metal fabrications, stairs, handrails, ladders and guards in carbon/stainless steel per EN 10025, EN 10210, ISO 4200 and EN 10088.
+- Gratings per NAAMM MBG 531/532.
+- Ladders and stepovers to EN ISO 14122‑1/‑2/‑3/‑4.
+- Detailed stair, riser, tread, railing and ladder geometry and load criteria.
+- External items galvanized to EN ISO 1461 and finished for C4 environment per EN ISO 12944‑2.
+- Anchorage devices, expansion anchors and railing fixing rules for attachment to structural steel and adjacent construction.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Metal fabrications, stairs, handrails, ladders and guards in carbon/stainless steel per EN 10025, EN 10210, ISO 4200 and EN 10088; gratings per NAAMM MBG 531/532; ladders and stepovers to EN ISO 14122‑1/‑2/‑3/‑4; detailed stair, riser, tread, railing and ladder geometry and load criteria; external items galvanized to EN ISO 1461 and finished for C4 environment per EN ISO 12944‑2; anchorage devices, expansion anchors and railing fixing rules for attachment to structural steel and adjacent construction. | None |
+| PH1 | DCH | Metal stairs, ramps, handrails and guards including geometry, loads, fabrication and finishes; fixed ladders and guardrails per EN ISO 14122; galvanizing and C4 finish for external components; pipe/rail profiles and grating treads; removable stair and landing connections for equipment access. | None |
+| PH1 | MYD | Metal stairs, ramps, handrails, guards and fixed ladders per EN ISO 14122; bar gratings and open‑mesh walkways per NAAMM MBG 531/532; galvanizing and C4 paint systems for external access components; detailed guard/handrail geometry, loads and fabrication criteria; access‑only stair railings via tube clamp systems; stepovers and roof stairs bigfoot‑mounted in accordance with EN 14122. | None |
+| PH1 | USS | Steps and ramps with handrails for USS entries and platforms per metal stairs/ramps/handrails/guards baseline including geometry, load criteria, materials and finishes; C4 external finish for exposed items; EN ISO 14122 applicability where used for access to equipment. | None |
+| PH1 | MCP | Metal stairs and ramps with handrails for MCP platforms per metal stair/ramps/handrails baseline; external finish suitable for C4 environment; EN ISO 14122 applicability where used for access to machinery. | None |
+| PH1 | RSA | Metal fabrications baseline for steel posts, rails and guards for fences and barriers; pipe sections to ISO 4200; galvanizing and/or painting to suit C4 external environment; anchorages for railings and guards via drilled‑in expansion anchors and self‑tapping screws; general fabrication tolerances for posts and frames. | None |
+| PH1 | SSA | Roof railings and cat ladders for access/fall protection in accordance with metal stairs/handrails/guards/fixed ladders baseline; EN ISO 14122 compliance for access to roofs and equipment; pipe rails, ladder geometry, guard heights and grating options defined; galvanizing and C4 coatings for external items; metal fabrications rules for downspout guards, canopy supports and roof opening framing tied to the structural steel frame. | None |
+
+## GLOBAL INCONSISTENCIES (ESTIMATING RISK REGISTER)
+| ID | Trade Package | Issue | Risk | Estimating Action |
+|----|---------------|-------|------|-------------------|
+| 1 | Structural Steel | Potential discrepancies in anchor bolt specifications across zones | Medium | Verify anchor bolt specifications and ensure uniformity across all zones |
+| 2 | Fire Protection | Variability in fire resistance duration requirements | High | Confirm fire resistance duration requirements with design team and adjust specifications accordingly |
+| 3 | Corrosion Protection | Inconsistent surface preparation standards | Medium | Standardize surface preparation requirements to ensure compliance with EN ISO standards |
+| 4 | Metal Fabrications | Variability in galvanizing and coating specifications for external items | Medium | Review and align galvanizing and coating specifications for consistency across all zones |
+
+END_OF_REPORT

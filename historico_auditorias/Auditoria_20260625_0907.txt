@@ -1,0 +1,79 @@
+# Cross-Document Technical Audit:
+
+## 1. TRADE PACKAGE: Structural Steel
+**Baseline Scope:**
+- Primary structural steel frame to EXC2, S355 in accordance with EN 1090 and NSSSBC 5th Edition.
+- Structural steel members in S355JR to NBN EN 10025 / EN 10210; execution class EXC2 to NBN EN 1090‑2.
+- Connection design per NBN EN 1993 and NBN EN 1991; high‑strength bolting to NBN EN 14399 / EN 15048.
+- Welding materials and welders qualified to NBN EN 1090, NBN EN 1993‑1‑8, EN 1011 and NBN EN ISO 9606‑1.
+- Fabrication and erection tolerances to NBN EN 1090‑2; grout at baseplates to be non‑shrink, non‑metallic with 45° splayed finish.
+- Pre‑erection surveys and QA/QC, shop drawings, connection calculations and quality plan required.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Primary structural steel frame to EXC2, S355; interfaces with earthing mats and radon/DPM membranes at bases. | None |
+| PH1 | DCH | Primary DCH PH1 structural steel frame EXC2, S355; RSA angles at MV/LV chambers tying slabs to beams. | None |
+| PH1 | MYD | Generator trench structural steel and USS trench structural steel for MYD with EXC2 S355. | None |
+| PH1 | SSA | SSA Load Bank Garage & Fuel Polishing Building structural steel frame, Shell A, EXC2 S355, galvanised to EN ISO 1461. | None |
+
+## 2. TRADE PACKAGE: Composite Decking
+**Baseline Scope:**
+- Roof steel decking TATA D60 with associated secondary steel and roof build‑up.
+- Roof deck to be galvanised steel S350 to NBN EN 10346/10143.
+- Installation and fastening (puddle welds, side‑lap screws, mechanical fasteners such as Hilti) as per “Deck Installation” and “Mechanical Fasteners and Sidelap Connectors” requirements.
+- Shear studs welded through deck with qualified stud welders and minimum ambient 0 °C.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Roof steel decking TATA D60; deck to support roof penetrations, AOVs, smoke vents and walkways. | None |
+| PH1 | DCH | DCH PH1 steel roof decking TATA D60 and associated edge/penetration support steel. | None |
+| PH1 | SSA | SSA roof structural steel items include single‑spanning Kingspan steel roof deck RD100/825. | None |
+
+## 3. TRADE PACKAGE: Fire Protection
+**Baseline Scope:**
+- 2‑hour intumescent fire protection to primary steel; coordination with primers and environmental classification.
+- Intumescent systems specified as Sherwin Williams FIRETEX FX2003/FX6002 with C69 primer and M71V2 topcoat.
+- Design and application per EN 16623, EN 13381‑4, EN 13501 and ASFP guidance.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | 2‑hour intumescent fire protection to primary FSA steel. | None |
+| PH1 | DCH | 2‑hour intumescent paint to DCH PH1 primary steel. | None |
+| PH1 | MYD | Generator and USS trench steel with factory‑applied 60‑minute intumescent paint. | None |
+
+## 4. TRADE PACKAGE: Corrosion Protection
+**Baseline Scope:**
+- Corrosion protection systems to NBN EN ISO 12944 (C2 internal, C4 external).
+- Blast cleaning to Sa 2.5 and profile per ISO 8501‑1/8503‑1.
+- Hot‑dip galvanizing to EN ISO 1461 and EN ISO 14713‑1 with venting and distortion control.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | General requirement for corrosion protection coordinated with intumescent systems. | None |
+| PH1 | DCH | Coordination of radon and damp‑proofing systems up to underside of steelwork. | None |
+| PH1 | MYD | Generator and USS trench structural steel to receive corrosion protection paint for C2 environment. | None |
+
+## 5. TRADE PACKAGE: Metal Fabrications
+**Baseline Scope:**
+- Metal fabrications, stairs, ramps, ladders, barrier rails and grating to EN 10025/EN 10210/ISO 10799/ISO 4200.
+- Ladders and access systems to EN ISO 14122 series.
+- Galvanizing of external items and C4 finish.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Internal steel stair; external loading‑dock fencing and handrails. | None |
+| PH1 | DCH | External steel stair (ground to roof); external steelwork/metalwork including cat ladders. | None |
+| PH1 | MYD | Gantry ancillary steel including cat ladders, emergency stairs, cooling tower stairs. | None |
+| PH1 | SSA | Roof railings and cat ladder attached to SSA deck/structure. | None |
+
+## GLOBAL INCONSISTENCIES (ESTIMATING RISK REGISTER)
+| ID | Trade Package | Issue | Risk | Estimating Action |
+|----|---------------|-------|------|-------------------|
+| 1 | None | No inconsistencies identified within the retained technical requirements. | Low | Monitor for future discrepancies. |
+
+END_OF_REPORT
