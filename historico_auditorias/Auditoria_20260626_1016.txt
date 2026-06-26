@@ -1,0 +1,149 @@
+# Cross-Document Technical Audit:
+
+## 1. TRADE PACKAGE: Structural Steel
+**Baseline Scope:**
+- Fabrication and erection to Execution Class 2 (EXC2).
+- Steel grade S355 to NBN EN 10025 S355JR and NBN EN 10210 S355JR.
+- Connection design and detailing per NBN EN 1990, NBN EN 1991, NBN EN 1993, EN 1993-1-8.
+- Bolts: Grade 8.8 to NBN EN 1090, EN ISO 898, NBN EN 14399 (preloaded) or NBN EN 15048 (non-preloaded).
+- Anchor bolts to NBN EN 15048.
+- Welding materials and welders to NBN EN 1090, EN 1011, NBN EN ISO 9606-1, NBN EN ISO 14732.
+- Grout for baseplates: non-shrink, non-metallic.
+- Fabrication and erection rules, tolerances, and temporary bracing.
+- Secondary steel for envelope, roof parapets, and interfaces with cooling/plant structural elements.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Primary structural steel frame fabricated and erected to EXC2. | None |
+| PH1 | DCH | Primary structural steel frames erected in multiple phases to EXC2. | None |
+| PH1 | EYD | Embedded steel column kickers/bolts in slabs and plinths. | None |
+| PH1 | MYD | Yard-based structural steel including cooling tower gantry supports. | None |
+| PH1 | Cooling Tower Gantry | Main gantry steel frames across multiple phases. | None |
+| PH1 | Generator Trench Structural Steel | Structural steel to NBN EN 10025 S355JR / NBN EN 10210 S355JR. | None |
+| PH1 | USS Trench Structural Steel | Structural steel and hollow sections to NBN EN 10025 S355JR / NBN EN 10210 S355JR. | None |
+| PH1 | Universal Sub-Station (USS) | Foundations and plinths with cast-in holding down assemblies. | None |
+| PH1 | Modular Cooling Plant (MCP) | MCP foundations and slabs with cast-in holding down assemblies. | None |
+| PH1 | SSA – Load Bank Garage & Fuel Polishing Building | Fabrication and erection of Shell A structural steel frame. | None |
+| PH1 | Site Development | Provision of miscellaneous holding down assemblies and grout-in base plates. | None |
+| PH2 | DCH | Additional DCH structural steel frames and extensions fabricated and erected to EXC2. | None |
+| PH2 | MYD | Galvanized structural steel for RMU and battery box supports. | None |
+| PH2 | Cooling Tower Gantry | Phase 2 gantry structural steel including main frames. | None |
+| PH2 | Universal Sub-Station (USS) | USS foundations with cast-in holding down assemblies. | None |
+| PH2 | Modular Cooling Plant (MCP) | MCP foundations with cast-in holding down assemblies and powerfloated slabs. | None |
+| PH3 | DCH | Phase 3 DCH structural steel frames (extensions and infills) to EXC2. | None |
+| PH3 | MYD | Phase 3 structural steel supports for RMUs and battery boxes. | None |
+| PH3 | EYD | Phase 3 repeat foundation slabs and steel column kickers. | None |
+| PH3 | Cooling Tower Gantry | Phase 3 Cooling Tower Gantry steelwork including gantry frames. | None |
+| PH3 | Universal Sub-Station (USS) | Phase 3 USS foundations and associated holding down assemblies. | None |
+| PH3 | Modular Cooling Plant (MCP) | Phase 3 MCP foundations with cast-in holding down assemblies. | None |
+| PH4 | DCH | DCH Phase 4 structural steel frames to EXC2. | None |
+| PH4 | MYD | Yard-based structural steel to support final gantry and equipment configurations. | None |
+| PH4 | Cooling Tower Gantry | Phase 4 Cooling Tower Gantry structural steel including main frames. | None |
+| PH4 | Universal Sub-Station (USS) | Completion of USS Foundations Phase 4 with cast-in holding down assemblies. | None |
+| PH4 | Modular Cooling Plant (MCP) | Completion of MCP Foundations Phase 4 with cast-in holding down assemblies. | None |
+
+## 2. TRADE PACKAGE: Composite Decking
+**Baseline Scope:**
+- TATA D60 and Euroclad/Kingspan roof deck systems.
+- Steel deck sheets from galvanized steel to NBN EN 10346 and NBN EN 10143, grade S350.
+- Roof deck wide rib units without top stiffening ribs.
+- Deck accessories (pour stops, closures, sump pans, edge strips) with defined thicknesses.
+- Mechanical and sidelap fasteners proprietary (e.g., Hilti) with defined rules for welds and screws.
+- Shear studs to EN ISO 13918.
+- Installation tolerances and welding/fastening patterns under Steel Deck Installation.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | FSA roof steel decking specified as TATA D60. | None |
+| PH1 | DCH | TATA D60 steel roof decking installed over DCH structural steel. | None |
+| PH1 | SSA – Load Bank Garage & Fuel Polishing Building | Installation of single-span roof deck (Kingspan RD 100/825). | None |
+| PH2 | DCH | Further steel roof decking over new DCH structural steel areas. | None |
+| PH3 | DCH | Additional TATA D60 roof decking and composite roof systems. | None |
+| PH4 | DCH | Final TATA D60 roof decking areas on DCH Phase 4 steel. | None |
+
+## 3. TRADE PACKAGE: Fire Protection
+**Baseline Scope:**
+- Intumescent fire protection to structural steel for specified durations.
+- Intumescent systems Sherwin Williams FIRETEX FX2003/FX6002 with primer FIRETEX C69 and topcoat FIRETEX M71V2.
+- Fire performance to EN 16623, EN 13381, EN 13501.
+- Dry film thickness (DFT) designed to meet required fire resistance.
+- Application, curing, and QA/DFT control rules under Intumescent Coating Systems and Intumescent Coating Application and QA.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Intumescent fire protection to structural steel for a 2-hour rating. | None |
+| PH1 | DCH | Intumescent fire protection with 1-hour rating in Phases 2–4. | None |
+| PH1 | MYD | Intumescent coating systems FIRETEX FX2003/FX6002. | None |
+| PH1 | Generator Trench Structural Steel | Application of 60-minute intumescent fire protection. | None |
+| PH1 | USS Trench Structural Steel | Application of 60-minute factory-applied intumescent coating. | None |
+| PH2 | DCH | Application of 1-hour intumescent fire protection to new DCH structural steelwork. | None |
+| PH3 | DCH | Application of 1-hour intumescent fire protection to Phase 3 DCH structural steel. | None |
+| PH4 | DCH | Application of 1-hour intumescent fire protection to remaining DCH structural steel. | None |
+
+## 4. TRADE PACKAGE: Corrosion Protection
+**Baseline Scope:**
+- Corrosion protection to NBN EN ISO 12944 (C2 internal, C4 external).
+- DFT verification per NBN EN ISO 2808.
+- Hot-dip galvanizing to EN ISO 1461 / NBN EN ISO 1461 guided by EN ISO 14713-1.
+- Blast cleaning to Sa 2.5 per EN ISO 8501-1.
+- Inorganic zinc-rich primers for external steel.
+- External stairs/handrails to be galvanized and factory-finished for C4 per EN ISO 12944-2 and ISO 9223.
+- External metal fabrications corrosion protection per EN ISO 1461 and EN ISO 17463.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Corrosion protection to NBN EN ISO 12944 (C2 internal, C4 external). | None |
+| PH1 | DCH | Corrosion protection systems to NBN EN ISO 12944 (C2 internal, C4 external). | None |
+| PH1 | MYD | Corrosion protection to NBN EN ISO 12944 (C2/C4). | None |
+| PH1 | Cooling Tower Gantry | Gantry steel to be shot-blast and hot-dip galvanized. | None |
+| PH1 | Generator Trench Structural Steel | Corrosion protection paint systems for C2 internal and C4 external environments. | None |
+| PH1 | USS Trench Structural Steel | Corrosion protection painting per NBN EN ISO 12944 for C2 internal. | None |
+| PH1 | SSA – Load Bank Garage & Fuel Polishing Building | Blast cleaning to Sa 2.5. | None |
+| PH2 | DCH | Application of corrosion protection systems and galvanizing. | None |
+| PH2 | MYD | Galvanized finish to structural steel supports. | None |
+| PH2 | Cooling Tower Gantry | Cooling Tower Gantry steel to be shot-blast and hot-dip galvanized. | None |
+| PH3 | DCH | External and exposed DCH Phase 3 steel covered by project-wide corrosion/galvanizing requirements. | None |
+| PH3 | MYD | External MYD structural steel to be galvanized and/or coated. | None |
+| PH3 | Cooling Tower Gantry | Gantry Phase 3 steel to be shot-blast and galvanized. | None |
+| PH4 | DCH | External DCH Phase 4 steel to receive corrosion protection consistent with project rules. | None |
+| PH4 | Cooling Tower Gantry | Supply and galvanizing of Phase 4 Cooling Tower Gantry steel. | None |
+
+## 5. TRADE PACKAGE: Metal Fabrications (Stairs/Railings/Gratings)
+**Baseline Scope:**
+- Metal fabrications steel to EN 10025, EN 10210, ISO 3574, ISO 6317, ISO 4200.
+- Stair and handrail materials (sections, tubes, pipe, stainless where needed).
+- Bar grating to NAAMM MBG 531/532.
+- Barrier rails, ladders and miscellaneous fabrications, including geometry, ladder spacing and clearances, barrier rail pipe sizes, galvanized finish.
+- Installation tolerances and performance criteria for metal stairs, ramps and handrails.
+- Compliance with EN ISO 14122-1/2/3/4 for access systems and fixed ladders.
+
+**Scope Variations / Inclusions:**
+| Phase | Zone | Scope Description | Deviation / Note |
+|-------|------|-------------------|------------------|
+| PH1 | FSA | Provision of secondary steel for envelope and roof parapets. | None |
+| PH1 | DCH | Metal fabrications materials and standards to EN 10025, EN 10210, ISO 3574, ISO 6317, ISO 4200, ISO 4995, ISO 4997. | None |
+| PH1 | MYD | Steel steps and ramps with handrails for access to MCP, USS and cooling tower platforms. | None |
+| PH1 | Cooling Tower Gantry | Access steel including cat ladders, emergency stairs, cooling tower stairs, railings, bumper railings and open mesh grating walkways/decks. | None |
+| PH1 | SSA – Load Bank Garage & Fuel Polishing Building | Roof railings and cat ladder for SSA roof access. | None |
+| PH1 | Site Development | Steel bollards and perimeter/RSA security fences on metal posts. | None |
+| PH1 | Underground Water & Drainage Utilities | Cast iron covers and frames and utility covers not explicitly specified. | None |
+| PH2 | DCH | Miscellaneous external steelwork/metalwork such as cat ladders, bollards and small parapet stairs. | None |
+| PH2 | MYD | Gantry access steel including cat ladders, railings, stairs and open mesh grating walkways. | None |
+| PH2 | Cooling Tower Gantry | Gantry access steel including cat ladders, railings, stairs and open mesh grating walkways. | None |
+| PH3 | DCH | Further external miscellaneous steel (bollards, external stairs, safety fabrications, removable panels). | None |
+| PH3 | MYD | Additional external access steel including steps, ramps and safety fabrications. | None |
+| PH3 | Cooling Tower Gantry | Cooling tower access stairs, cat ladders, bumper railings and open mesh grating decks. | None |
+| PH4 | DCH | Additional access steel (cat ladders, steps and ramps with handrails) and associated safety railings. | None |
+| PH4 | Cooling Tower Gantry | Cooling tower access cat ladders, stairs, railings and open mesh grating decks Phase 4. | None |
+
+## GLOBAL INCONSISTENCIES (ESTIMATING RISK REGISTER)
+| ID | Trade Package | Issue | Risk | Estimating Action |
+|----|---------------|-------|------|-------------------|
+| 1 | Cooling Tower Gantry | Project-wide intumescent specification is available, but no gantry-specific fire rating baseline is stated. | Medium | Verify if gantry-specific fire protection is required and adjust estimates accordingly. |
+| 2 | Underground Water & Drainage Utilities | Heavy duty cast iron covers and frames for gullies are not associated with explicit technical standards. | Low | Confirm technical standards for cast iron covers and frames to ensure compliance and accurate estimation. |
+
+END_OF_REPORT
